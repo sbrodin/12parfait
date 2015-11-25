@@ -1,0 +1,20 @@
+<?php
+if ( !defined('BASEPATH') ) {
+	exit('No direct script access allowed');
+}
+
+/**
+  * Cette fonction vérifie qu'un utilisateur a les droits
+  * correspondants à l'action qu'il souhaite effectuer.
+  *
+  * Lors de la connexion, les acl sont entrés en session.
+  * La fonction se charge de vérifier que l'acl demandé apparaît dans le tableau.
+  *
+  * @param $acl Action qui souhaite être effectuée
+  * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
+  */
+if ( !function_exists('user_can')) {
+	function user_can($acl) {
+		return in_array($acl, $_SESSION['acl']);
+	}
+}

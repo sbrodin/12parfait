@@ -1,0 +1,10 @@
+#Fichiers inutiles de windows, mac et linux
+*.db
+.DS_Store
+*~
+._*
+
+# fichiers pouvant contenir des configs
+/.htaccess
+/application/config/config.php
+/application/config/database.php
