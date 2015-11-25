@@ -1,46 +1,41 @@
-###################
-What is CodeIgniter
-###################
+#####################
+Application 12parfait
+#####################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+12parfait est une application de pronostics en ligne entre amis qui permet de définir
+des scores sur des matchs de football (d'autres sports viendront peut-être ensuite).
+Un système de points est en place :
+    - bon résultat (victoire, nul, défaite) : 4 points,
+    - bon score pour l'équipe 2 : 2 points,
+    - bon score pour l'équipe 2 : 2 points,
+    - BONUS - bon score pour l'équipe 1 ET l'équipe 2 : 4 points.
+Et le total de points possibles à marquer pour un match est donc de 12 !
+Un classement est disponible pour vous faire une idée de votre niveau par rapport
+aux autres. Vous pouvez créer des "Ligues" pour sélectionner des championnats sur
+lesquels placer vos pronostics et rester entre amis.
 
 *******************
 Release Information
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<http://www.codeigniter.com/download>`_ page.
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Ce dépôt contient le code pour développeurs.
+Pour une utilisation en environnement de production, il est nécessaire de
+modifier la variable ENVIRONMENT qui se trouve à la racine dans le fichier index.php.
 
 *******************
 Server Requirements
 *******************
 
-PHP version 5.4 or newer is recommended.
-
-It should work on 5.2.4 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+PHP version 5.4 ou plus récent est recommandé.
 
 ************
 Installation
 ************
 
-Please see the `installation section <http://www.codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+Copier tous les fichiers. Ensuite copiez les fichiers depuis _application/config
+vers application/config.
+Changez les 2 fichiers de configuration config.php and database.php pour
+correspondre à la configuration de votre serveur et à votre base de données.
 
 *******
 License
@@ -50,20 +45,7 @@ Please see the `license
 agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
 
 *********
-Resources
+Ressources
 *********
 
--  `User Guide <http://www.codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community IRC <http://www.codeigniter.com/irc>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+Cette application a été développée en utilisant `CodeIgniter <http://www.codeigniter.com/>`_.
