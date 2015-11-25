@@ -7,25 +7,43 @@ class Connection extends CI_Controller {
 
     // Gestion des acl
     public $admin_acl = array(
-            'add_content',
-            'view_contents',
-            'view_content',
-            'edit_content',
-            'delete_content',
-            'autocomplete_tag',
-            'add_playlist',
-            'view_playlists',
-            'view_all_playlists',
-            'view_my_playlists',
-            'view_playlist',
-            'edit_playlist',
-            'delete_playlist',
+            //acl pour user
             'add_user',
             'view_users',
             'view_user',
             'edit_user',
             'activate_user',
-            'deactivate_user'
+            'deactivate_user',
+            //acl pour bet
+            'add_bet',
+            'view_bets',
+            'view_bet',
+            'edit_bet',
+            'delete_bet',
+            //acl pour league
+            'add_league',
+            'view_leagues',
+            'view_league',
+            'edit_league',
+            'delete_league',
+            //acl pour championship
+            'add_championship',
+            'view_championships',
+            'view_championship',
+            'edit_championship',
+            'delete_championship',
+            //acl pour team
+            'add_team',
+            'view_teams',
+            'view_team',
+            'edit_team',
+            'delete_team',
+            //acl pour match
+            'add_match',
+            'view_matchs',
+            'view_match',
+            'edit_match',
+            'delete_match'
         );
     public $privileged_acl = array(
             'autocomplete_tag',
