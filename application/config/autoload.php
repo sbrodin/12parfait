@@ -120,7 +120,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array('outil_demo_lang');
+$autoload['language'] = array('12parfait_lang');
 
 
 /*
