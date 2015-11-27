@@ -55,7 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 // $route['back'] = 'admin/home';
 // $route['admin'] = 'admin/home';
-// $route['admin/home'] = 'admin/home';
+$route['admin/home'] = 'admin/home';
+$route['admin'] = 'admin/home';
 
 // $route['admin/users/create'] = 'admin/users/create';
 // $route['admin/users/view'] = 'admin/users';

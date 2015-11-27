@@ -1,0 +1,1 @@
+<a href="<?php echo site_url('admin/user') ?>"><?php echo $this->lang->line('users_admin');?></a>
