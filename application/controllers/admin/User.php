@@ -61,9 +61,9 @@ class User extends MY_Controller {
 
             $donnees_non_echapees = array();
 
-            $this->users_model->create($donnees_echapees, $donnees_non_echapees);
+            $this->user_model->create($donnees_echapees, $donnees_non_echapees);
             $this->load->view('templates/header_admin', $data);
-            $this->load->view('admin/users/success');
+            $this->load->view('admin/user/success');
             $this->load->view('templates/footer');
         }
     }
@@ -71,12 +71,12 @@ class User extends MY_Controller {
     /**
     * Fonction d'affichage de tous les utilisateurs.
     */
-    public function index() {
+    /*public function index() {
         // Gestion des droits de lecture
         if (!user_can('view_users')) {
             redirect(site_url(), 'location');
         }
-        $data['users'] = $this->users_model->read('userid, username, email, isprivileged, isadmin, adddate, lastconnection, isactive');
+        $data['users'] = $this->user_model->read('userid, username, email, isprivileged, isadmin, adddate, lastconnection, isactive');
         $data['title'] = $this->lang->line('index_user');
 
         foreach ($data['users'] as $users_item) {
@@ -103,12 +103,12 @@ class User extends MY_Controller {
     * Fonction de visualisation d'un utilisateur.
     * @param $userid Id de l'utilisateur à visualiser
     */
-    public function view($userid) {
+    /*public function view($userid) {
         // Gestion des droits de lecture
         if (!user_can('view_user')) {
             redirect(site_url(), 'location');
         }
-        $data['user'] = $this->users_model->read('userid, username, email, isprivileged, isadmin, adddate, lastconnection', array("userid" => $userid))[0];
+        $data['user'] = $this->user_model->read('userid, username, email, isprivileged, isadmin, adddate, lastconnection', array("userid" => $userid))[0];
 
         // si l'utilisateur cherché n'existe pas ou qu'aucune donnée n'est renvoyée
         if(!$data['user']) {
@@ -138,12 +138,12 @@ class User extends MY_Controller {
     * Fonction de mise à jour d'un utilisateur.
     * @param $userid Id de l'utilisateur à mettre à jour
     */
-    public function edit($userid) {
+    /*public function edit($userid) {
         // Gestion des droits de mise à jour
         if (!user_can('edit_user')) {
             redirect(site_url(), 'location');
         }
-        $data['user'] = $this->users_model->read('userid, username, email, isprivileged, isadmin', array("userid" => $userid))[0];
+        $data['user'] = $this->user_model->read('userid, username, email, isprivileged, isadmin', array("userid" => $userid))[0];
 
         // si l'utilisateur cherché n'existe pas ou qu'aucune donnée n'est renvoyée
         if(!$data['user']) {
@@ -181,7 +181,7 @@ class User extends MY_Controller {
 
             $donnees_non_echapees = array();
 
-            $this->users_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
+            $this->user_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
             $this->load->view('templates/header_admin', $data);
             $this->load->view('admin/users/success_edit');
             $this->load->view('templates/footer');
@@ -192,7 +192,7 @@ class User extends MY_Controller {
     * Fonction d'activation d'un utilisateur.
     * @param $userid Id de l'utilisateur à activer
     */
-    public function activate($userid) {
+    /*public function activate($userid) {
         // Gestion des droits d'activation
         if (!user_can('activate_user')) {
             redirect(site_url(), 'location');
@@ -203,7 +203,7 @@ class User extends MY_Controller {
 
         $donnees_non_echapees = array();
 
-        $this->users_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
     }
@@ -212,7 +212,7 @@ class User extends MY_Controller {
     * Fonction de désactivation d'un utilisateur.
     * @param $userid Id de l'utilisateur à désactiver
     */
-    public function deactivate($userid) {
+    /*public function deactivate($userid) {
         // Gestion des droits de désactivation
         if (!user_can('deactivate_user')) {
             redirect(site_url(), 'location');
@@ -223,7 +223,7 @@ class User extends MY_Controller {
 
         $donnees_non_echapees = array();
 
-        $this->users_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
     }

@@ -71,7 +71,7 @@ class Connection extends CI_Controller {
         if (ENVIRONMENT === 'development') {
             $this->output->enable_profiler(true);
         }
-        $this->load->model('users_model');
+        $this->load->model('user_model');
     }
 
     /**
@@ -88,7 +88,7 @@ class Connection extends CI_Controller {
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login() {
-        $this->load->model('users_model');
+        $this->load->model('user_model');
 
         // Récupère les données envoyées par le formulaire
         $data = $this->input->post();
@@ -96,13 +96,13 @@ class Connection extends CI_Controller {
             redirect(site_url().'connection', 'location');
         }
 
-        if ($user = $this->users_model->get_user_by_auth($data['login'], $data['password'])) {
+        if ($user = $this->user_model->get_user_by_auth($data['login'], $data['password'])) {
             $donnees_echapees = array();
             $donnees_echapees['lastconnection'] = date("Y-m-d H:i:s");
 
             $donnees_non_echapees = array();
 
-            $this->users_model->update(array("userid" => $user['userid']), $donnees_echapees, $donnees_non_echapees);
+            $this->user_model->update(array("userid" => $user['userid']), $donnees_echapees, $donnees_non_echapees);
 
             $this->session->set_userdata('user', $user);
             if($user['isadmin']) {
