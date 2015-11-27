@@ -9,11 +9,13 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        // $data['vins'] = $this->vins_model->get_vins();
-        // $data['title'] = 'Liste des vins répertoriés';
+        $data = array();
+        // $data['home'] = $this->vins_model->get_vins();
+        // $data['title'] = 'Liste des home répertoriés';
 
         // $this->load->view('templates/header.php', $data);
-        // $this->load->view('vins/index', $data);
+        // $this->load->view('templates/nav.php', $data);
+        $this->load->view('admin/index', $data);
         // $this->load->view('templates/footer.php');
     }
 }
