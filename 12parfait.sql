@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 25 Novembre 2015 à 14:36
+-- Généré le: Lun 30 Novembre 2015 à 10:31
 -- Version du serveur: 5.1.56-log
 -- Version de PHP: 5.3.27
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `12parfait`
+-- Base de données: `stanislas_veille_12parfait`
 --
 
 -- --------------------------------------------------------
@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `bet` (
 
 CREATE TABLE IF NOT EXISTS `championship` (
   `championship_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sport` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `level` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -138,10 +139,11 @@ CREATE TABLE IF NOT EXISTS `team` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `acl` varchar(255) NOT NULL,
+  `acl` set('admin','moderator','user') NOT NULL,
   `active` tinyint(1) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `language` set('fr','en') NOT NULL DEFAULT 'fr',
@@ -150,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `hash` varchar(255) DEFAULT NULL,
   `score` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,8 @@ CREATE TABLE IF NOT EXISTS `user_bet` (
 
 CREATE TABLE IF NOT EXISTS `user_league` (
   `user_id` int(11) NOT NULL,
-  `league_id` int(11) NOT NULL
+  `league_id` int(11) NOT NULL,
+  `role` set('leader','follower') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
