@@ -126,7 +126,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `add_date` datetime NOT NULL,
   `last_connection` datetime DEFAULT NULL,
   `hash` varchar(255) DEFAULT NULL,
-  `score` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -150,5 +149,6 @@ CREATE TABLE IF NOT EXISTS `user_bet` (
 CREATE TABLE IF NOT EXISTS `user_league` (
   `user_id` int(11) NOT NULL,
   `league_id` int(11) NOT NULL,
-  `role` set('leader','follower') NOT NULL
+  `role` set('leader','follower') NOT NULL,
+  `score` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
