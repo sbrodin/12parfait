@@ -11,6 +11,9 @@ if (!defined('BASEPATH')) {
   * la suppression et le comptage des éléments d'une table de la base de données.
   */
 class MY_Model extends CI_Model {
+
+	protected $table;
+
 	/**
 	 *	Insère une nouvelle ligne dans la base de données.
 	 */

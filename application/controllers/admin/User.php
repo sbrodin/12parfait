@@ -45,6 +45,7 @@ class User extends MY_Controller {
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header_admin', $data);
+            $this->load->view('templates/nav.php', $data);
             $this->load->view('admin/users/create');
             $this->load->view('templates/footer');
         } else {
@@ -63,7 +64,8 @@ class User extends MY_Controller {
 
             $this->user_model->create($donnees_echapees, $donnees_non_echapees);
             $this->load->view('templates/header_admin', $data);
-            $this->load->view('admin/user/success');
+            $this->load->view('templates/nav.php', $data);
+            $this->load->view('admin/user/createSuccess');
             $this->load->view('templates/footer');
         }
     }
@@ -71,7 +73,7 @@ class User extends MY_Controller {
     /**
     * Fonction d'affichage de tous les utilisateurs.
     */
-    /*public function index() {
+    public function index() {
         // Gestion des droits de lecture
         if (!user_can('view_users')) {
             redirect(site_url(), 'location');

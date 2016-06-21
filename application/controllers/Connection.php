@@ -105,7 +105,7 @@ class Connection extends CI_Controller {
             $this->user_model->update(array("userid" => $user['userid']), $donnees_echapees, $donnees_non_echapees);
 
             $this->session->set_userdata('user', $user);
-            if($user['isadmin']) {
+            if ($user['isadmin']) {
                 $this->session->set_userdata('acl', $this->admin_acl);
             } elseif ($user['isprivileged']) {
                 $this->session->set_userdata('acl', $this->privileged_acl);
