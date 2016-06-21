@@ -1,6 +1,6 @@
 <?php
 if ( !defined('BASEPATH') ) {
-	exit('No direct script access allowed');
+    exit('No direct script access allowed');
 }
 
 /**
@@ -14,7 +14,19 @@ if ( !defined('BASEPATH') ) {
   * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
   */
 if ( !function_exists('user_can')) {
-	function user_can($acl) {
-		return in_array($acl, $_SESSION['acl']);
-	}
+    function user_can($acl) {
+        return in_array($acl, $_SESSION['acl']);
+    }
+}
+
+/**
+  * Cette fonction vérifie qu'un utilisateur est connecté
+  *
+  * @return Booléen pour savoir si l'utilisateur est connecté
+  */
+if ( !function_exists('is_connected')) {
+    function is_connected() {
+        $CI =& get_instance();
+        return isset($CI->session->get_userdata('user')['user']);
+    }
 }

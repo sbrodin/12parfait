@@ -78,9 +78,13 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de connexion.
     */
     public function index() {
-        $this->load->view('templates/header');
+        $data = array();
+        // $data['home'] = $this->vins_model->get_vins();
+        $data['title'] = $this->lang->line('connection');
+
+        $this->load->view('templates/header', $data);
         $this->load->view('authentification');
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
 
     /**
@@ -98,21 +102,21 @@ class Connection extends CI_Controller {
 
         if ($user = $this->user_model->get_user_by_auth($data['login'], $data['password'])) {
             $donnees_echapees = array();
-            $donnees_echapees['lastconnection'] = date("Y-m-d H:i:s");
+            $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
 
             $donnees_non_echapees = array();
 
-            $this->user_model->update(array("userid" => $user['userid']), $donnees_echapees, $donnees_non_echapees);
+            $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees, $donnees_non_echapees);
 
             $this->session->set_userdata('user', $user);
-            if ($user['isadmin']) {
-                $this->session->set_userdata('acl', $this->admin_acl);
-            } elseif ($user['isprivileged']) {
-                $this->session->set_userdata('acl', $this->privileged_acl);
-            } else {
-                $this->session->set_userdata('acl', $this->basic_acl);
-            }
-            redirect(site_url().'home', 'location');
+            // if ($user->isadmin) {
+            //     $this->session->set_userdata('acl', $this->admin_acl);
+            // } elseif ($user->isprivileged) {
+            //     $this->session->set_userdata('acl', $this->privileged_acl);
+            // } else {
+            //     $this->session->set_userdata('acl', $this->basic_acl);
+            // }
+            redirect(site_url(), 'location');
         }
         else {
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
@@ -131,6 +135,7 @@ class Connection extends CI_Controller {
         if (!empty($this->session->userdata['acl'])) {
             $this->session->unset_userdata('acl');
         }
+        var_dump($this->session->get_userdata('user')['user']);
         redirect(site_url().'connection', 'location');
     }
 }

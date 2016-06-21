@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title><?php echo $title ?></title>
+        <title><?php echo $this->lang->line('12_parfait') . ' - ' . $title ?></title>
         <meta name="description" content="<?php echo $title ?>">
         <meta name="author" content="SitePoint">
 
@@ -16,4 +16,6 @@
     </head>
 
     <body>
-        <a href="<?php echo site_url('connection/logout') ?>"><?php echo $this->lang->line('disconnection');?></a>
+        <?php if (is_connected()) : ?>
+            <a href="<?php echo site_url('connection/logout') ?>"><?php echo $this->lang->line('disconnection');?></a>
+        <?php endif; ?>
