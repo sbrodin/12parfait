@@ -88,19 +88,69 @@ class Connection extends CI_Controller {
     }
 
     /**
+    * Fonction d'affichage de la page de création de compte.
+    */
+    public function create_account() {
+        $data = array();
+        // $data['home'] = $this->vins_model->get_vins();
+        $data['title'] = $this->lang->line('create_account');
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('create_account');
+            $this->load->view('templates/footer', $data);
+        } else {
+            $rules = array(
+                array(
+                    'field' => 'email',
+                    'label' => 'Email',
+                    'rules' => 'required|is_unique[user.email]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'is_unique' => $this->lang->line('must_be_unique_field'),
+                    ),
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => 'Mot de passe',
+                    'rules' => 'required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
+                array(
+                    'field' => 'password_confirmation',
+                    'label' => 'Confirmation du mot de passe',
+                    'rules' => 'required|matches[password]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'matches' => $this->lang->line('must_match_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('create_account');
+            } else {
+                $this->load->view('formsuccess');
+            }
+        }
+
+    }
+
+    /**
     * Fonction de connexion.
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login() {
-        $this->load->model('user_model');
-
         // Récupère les données envoyées par le formulaire
-        $data = $this->input->post();
-        if (empty($data) || !$data['login'] || !$data['password']) {
+        $post = $this->input->post();
+        if (empty($post) || !$post['login'] || !$post['password']) {
             redirect(site_url().'connection', 'location');
         }
 
-        if ($user = $this->user_model->get_user_by_auth($data['login'], $data['password'])) {
+        if ($user = $this->user_model->get_user_by_auth($post['login'], $post['password'])) {
             $donnees_echapees = array();
             $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
 
@@ -109,13 +159,6 @@ class Connection extends CI_Controller {
             $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees, $donnees_non_echapees);
 
             $this->session->set_userdata('user', $user);
-            // if ($user->isadmin) {
-            //     $this->session->set_userdata('acl', $this->admin_acl);
-            // } elseif ($user->isprivileged) {
-            //     $this->session->set_userdata('acl', $this->privileged_acl);
-            // } else {
-            //     $this->session->set_userdata('acl', $this->basic_acl);
-            // }
             redirect(site_url(), 'location');
         }
         else {

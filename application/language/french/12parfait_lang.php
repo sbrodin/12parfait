@@ -13,6 +13,7 @@ $lang['user'] = 'Utilisateur';
 $lang['users'] = 'Utilisateurs';
 $lang['connection'] = 'Connexion';
 $lang['disconnection'] = 'Déconnexion';
+$lang['create_account'] = 'Créer un compte';
 $lang['search'] = 'Recherche';
 $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
@@ -25,6 +26,10 @@ $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 
 $lang['incorrect_login'] = 'Utilisateur inexistant ou mot de passe incorrect';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
+
+$lang['required_field'] = 'Le champ "%s" est requis.';
+$lang['must_be_unique_field'] = 'Le champ "%s" doit être unique.';
+$lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
