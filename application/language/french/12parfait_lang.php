@@ -28,7 +28,7 @@ $lang['incorrect_login'] = 'Utilisateur inexistant ou mot de passe incorrect';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 
 $lang['required_field'] = 'Le champ "%s" est requis.';
-$lang['must_be_unique_field'] = 'Le champ "%s" doit être unique.';
+$lang['already_in_db_field'] = 'Le champ "%s" existe déjà en base.';
 $lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';

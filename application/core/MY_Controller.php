@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
 		parent::__construct();
 
 		// Authentification de l'utilisateur
-		if (empty($this->session->userdata['user'])) {
+		if (!is_connected()) {
 			// Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
 			redirect(site_url().'connection', 'location');
 		}

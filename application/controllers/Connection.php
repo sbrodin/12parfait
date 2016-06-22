@@ -104,16 +104,16 @@ class Connection extends CI_Controller {
             $rules = array(
                 array(
                     'field' => 'email',
-                    'label' => 'Email',
+                    'label' => $this->lang->line('email'),
                     'rules' => 'required|is_unique[user.email]',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
-                        'is_unique' => $this->lang->line('must_be_unique_field'),
+                        'is_unique' => $this->lang->line('already_in_db_field'),
                     ),
                 ),
                 array(
                     'field' => 'password',
-                    'label' => 'Mot de passe',
+                    'label' => $this->lang->line('password'),
                     'rules' => 'required',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
@@ -121,7 +121,7 @@ class Connection extends CI_Controller {
                 ),
                 array(
                     'field' => 'password_confirmation',
-                    'label' => 'Confirmation du mot de passe',
+                    'label' => $this->lang->line('password_confirmation'),
                     'rules' => 'required|matches[password]',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
@@ -133,6 +133,15 @@ class Connection extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('create_account');
             } else {
+                $donnees_echapees = array(
+                    'acl' => 'user',
+                    'active' => '1',
+                    'email' => $post['email'],
+                    'password' => password_hash($post['password'], PASSWORD_BCRYPT),
+                    'add_date' => date('Y-m-d H:i:s'),
+                    'last_connection' => date('Y-m-d H:i:s'),
+                );
+                $this->user_model->create($donnees_echapees);
                 $this->load->view('formsuccess');
             }
         }
