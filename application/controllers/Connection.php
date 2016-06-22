@@ -66,11 +66,6 @@ class Connection extends CI_Controller {
     */
     public function __construct() {
         parent::__construct();
-
-        // on n'active le profiler qu'en dev
-        if (ENVIRONMENT === 'development') {
-            $this->output->enable_profiler(true);
-        }
         $this->load->model('user_model');
     }
 
@@ -101,22 +96,29 @@ class Connection extends CI_Controller {
             $this->load->view('create_account');
             $this->load->view('templates/footer', $data);
         } else {
+            $this->load->helper('strings');
+
             $rules = array(
                 array(
                     'field' => 'email',
                     'label' => $this->lang->line('email'),
-                    'rules' => 'required|is_unique[user.email]',
+                    'rules' => 'required|is_unique[user.email]|valid_email',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'is_unique' => $this->lang->line('already_in_db_field'),
+                        'valid_email' => $this->lang->line('valid_email'),
                     ),
                 ),
                 array(
                     'field' => 'password',
                     'label' => $this->lang->line('password'),
-                    'rules' => 'required',
+                    'rules' => 'required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
+                        'min_length' => $this->lang->line('min_length_field'),
+                        'contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
+                        'contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
+                        'contains_number' => $this->lang->line('must_contain_number_field'),
                     ),
                 ),
                 array(
@@ -142,7 +144,7 @@ class Connection extends CI_Controller {
                     'last_connection' => date('Y-m-d H:i:s'),
                 );
                 $this->user_model->create($donnees_echapees);
-                $this->load->view('formsuccess');
+                redirect(site_url().'profile', 'location');
             }
         }
 

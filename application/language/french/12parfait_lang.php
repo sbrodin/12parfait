@@ -30,6 +30,11 @@ $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 $lang['required_field'] = 'Le champ "%s" est requis.';
 $lang['already_in_db_field'] = 'Le champ "%s" existe déjà en base.';
 $lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
+$lang['valid_email'] = 'Le champ "%s" n\'est pas un email valide.';
+$lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères.';
+$lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins une majuscule.';
+$lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
+$lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
