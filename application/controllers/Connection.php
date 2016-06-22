@@ -62,7 +62,6 @@ class Connection extends CI_Controller {
 
     /**
     * Constructeur qui appelle les models utilisés par le controller
-    * et active le profiler en environnement de dev.
     */
     public function __construct() {
         parent::__construct();
@@ -78,7 +77,7 @@ class Connection extends CI_Controller {
         $data['title'] = $this->lang->line('connection');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('authentification');
+        $this->load->view('login');
         $this->load->view('templates/footer', $data);
     }
 
@@ -144,7 +143,8 @@ class Connection extends CI_Controller {
                     'last_connection' => date('Y-m-d H:i:s'),
                 );
                 $this->user_model->create($donnees_echapees);
-                redirect(site_url().'profile', 'location');
+                $to_profile = TRUE;
+                $this->login($to_profile);
             }
         }
 
@@ -154,14 +154,14 @@ class Connection extends CI_Controller {
     * Fonction de connexion.
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
-    public function login() {
+    public function login($to_profile = FALSE) {
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
-        if (empty($post) || !$post['login'] || !$post['password']) {
+        if (empty($post) || !$post['email'] || !$post['password']) {
             redirect(site_url().'connection', 'location');
         }
 
-        if ($user = $this->user_model->get_user_by_auth($post['login'], $post['password'])) {
+        if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
             $donnees_echapees = array();
             $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
 
@@ -170,7 +170,11 @@ class Connection extends CI_Controller {
             $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees, $donnees_non_echapees);
 
             $this->session->set_userdata('user', $user);
-            redirect(site_url(), 'location');
+            if ($to_profile) {
+                redirect(site_url().'profile', 'location');
+            } else {
+                redirect(site_url(), 'location');
+            }
         }
         else {
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
