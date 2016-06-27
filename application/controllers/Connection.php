@@ -158,7 +158,7 @@ class Connection extends CI_Controller {
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
-            redirect(site_url().'connection', 'location');
+            redirect(site_url('connection'), 'location');
         }
 
         if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
@@ -171,14 +171,14 @@ class Connection extends CI_Controller {
 
             $this->session->set_userdata('user', $user);
             if ($to_profile) {
-                redirect(site_url().'profile', 'location');
+                redirect(site_url('profile'), 'location');
             } else {
                 redirect(site_url(), 'location');
             }
         }
         else {
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
-            redirect(site_url().'connection', 'location');
+            redirect(site_url('connection'), 'location');
         }
     }
 
@@ -194,6 +194,6 @@ class Connection extends CI_Controller {
             $this->session->unset_userdata('acl');
         }
         var_dump($this->session->get_userdata('user')['user']);
-        redirect(site_url().'connection', 'location');
+        redirect(site_url('connection'), 'location');
     }
 }

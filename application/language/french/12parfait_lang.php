@@ -8,6 +8,7 @@ defined("BASEPATH") OR exit("No direct script access allowed");
 $lang['yes'] = 'Oui';
 $lang['no'] = 'Non';
 $lang['home'] = 'Accueil';
+$lang['back'] = 'Retour';
 $lang['confirm'] = 'Valider';
 $lang['user'] = 'Utilisateur';
 $lang['users'] = 'Utilisateurs';
@@ -35,6 +36,8 @@ $lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères
 $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins une majuscule.';
 $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
+
+$lang['profile'] = 'Profile';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

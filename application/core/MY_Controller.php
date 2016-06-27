@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller {
 		// Authentification de l'utilisateur
 		if (!is_connected()) {
 			// Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
-			redirect(site_url().'connection', 'location');
+			redirect(site_url(), 'location');
 		}
 
 		// on n'active le profiler qu'en dev

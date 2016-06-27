@@ -26,4 +26,16 @@ class Profile extends MY_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+    /**
+    * Fonction d'édition de la page de profil.
+    */
+    public function edit() {
+        $data = array();
+        // $data['home'] = $this->vins_model->get_vins();
+        $data['title'] = $this->lang->line('profile_edit');
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('profile', $data);
+        $this->load->view('templates/footer', $data);
+    }
 }
