@@ -19,4 +19,5 @@
         <?php if (is_connected()) : ?>
             <a href="<?php echo site_url('profile') ?>"><?php echo $this->lang->line('profile');?></a>
             <a href="<?php echo site_url('connection/logout') ?>"><?php echo $this->lang->line('disconnection');?></a>
+            <br/>
         <?php endif; ?>

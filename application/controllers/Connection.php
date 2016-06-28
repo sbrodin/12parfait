@@ -227,6 +227,6 @@ class Connection extends CI_Controller {
             $this->session->unset_userdata('acl');
         }
         var_dump($this->session->get_userdata('user')['user']);
-        redirect(site_url('connection'), 'location');
+        redirect(site_url(''), 'location');
     }
 }

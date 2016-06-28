@@ -20,6 +20,11 @@ class Profile extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('profile');
 
+        $user = $this->session->userdata('user');
+        $data['user'] = $user;
+        $date = new DateTime($user->add_date);
+        $data['user']->add_date_formatted = $date->format('d/m/Y');
+
         $this->load->view('templates/header', $data);
         $this->load->view('profile', $data);
         $this->load->view('templates/footer', $data);
@@ -33,7 +38,7 @@ class Profile extends MY_Controller {
         $data['title'] = $this->lang->line('profile_edit');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('profile', $data);
+        $this->load->view('profile_edit', $data);
         $this->load->view('templates/footer', $data);
     }
 }
