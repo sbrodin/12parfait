@@ -25,7 +25,7 @@ $lang['copyright'] = '&copy; sbrodin, 2015<br/>Generated with CodeIgniter';
 $lang['users_admin'] = 'Gestion des utilisateurs';
 $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 
-$lang['incorrect_login'] = 'Utilisateur inexistant ou mot de passe incorrect';
+$lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 
 $lang['required_field'] = 'Le champ "%s" est requis.';

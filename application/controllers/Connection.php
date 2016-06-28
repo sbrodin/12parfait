@@ -73,12 +73,44 @@ class Connection extends CI_Controller {
     */
     public function index() {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = $this->lang->line('connection');
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('login');
-        $this->load->view('templates/footer', $data);
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('login');
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->load->helper('strings');
+
+            $rules = array(
+                array(
+                    'field' => 'email',
+                    'label' => $this->lang->line('email'),
+                    'rules' => 'required|valid_email',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'valid_email' => $this->lang->line('valid_email'),
+                    ),
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => $this->lang->line('password'),
+                    'rules' => 'required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('login');
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->login($to_profile);
+            }
+        }
     }
 
     /**
@@ -132,7 +164,9 @@ class Connection extends CI_Controller {
             );
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
                 $this->load->view('create_account');
+                $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
                     'acl' => 'user',

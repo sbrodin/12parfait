@@ -18,8 +18,8 @@ class MY_Controller extends CI_Controller {
 		}
 
 		// on n'active le profiler qu'en dev
-		if (ENVIRONMENT === 'development') {
-			$this->output->enable_profiler(true);
-		}
+		// if (ENVIRONMENT === 'development') {
+		// 	$this->output->enable_profiler(true);
+		// }
 	}
 }

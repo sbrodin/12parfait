@@ -1,7 +1,15 @@
-<form action="<?php echo site_url('connection/login')?>" method="post">
-    <input type="text" name="email" required="required">
-    <input type="password" name="password" required="required">
-    <input type="submit" name="Connexion">
+<?php
+if ($this->session->flashdata('error')) {
+    echo $this->session->flashdata('error');
+}
+?>
+
+<?php echo validation_errors(); ?>
+
+<?php echo form_open('connection/login'); ?>
+    <label for="email"><?php echo $this->lang->line('email')?> :</label><input type="email" name="email" required="required">
+    <label for="email"><?php echo $this->lang->line('password') ?> :</label><input type="password" name="password" required="required">
+    <input type="submit" name="<?php echo $this->lang->line('connection') ?>">
 </form>
 
 <a href="<?php echo site_url('connection/create_account')?>"><?php echo $this->lang->line('create_account') ?></a>
