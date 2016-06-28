@@ -19,7 +19,6 @@ class Maintenance extends CI_Controller {
     public function maintenance()
     {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = 'Maintenance';
 
         $this->load->view('templates/header', $data);
@@ -30,7 +29,6 @@ class Maintenance extends CI_Controller {
     public function construction()
     {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = 'Construction';
 
         $this->load->view('templates/header', $data);

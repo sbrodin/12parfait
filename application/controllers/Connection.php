@@ -118,7 +118,6 @@ class Connection extends CI_Controller {
     */
     public function create_account() {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = $this->lang->line('create_account');
 
         $post = $this->input->post();

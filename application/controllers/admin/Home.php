@@ -10,7 +10,6 @@ class Home extends MY_Controller {
     public function index()
     {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = 'Admin - Home';
 
         $this->load->view('templates/header', $data);

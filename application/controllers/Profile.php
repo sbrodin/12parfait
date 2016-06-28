@@ -18,7 +18,6 @@ class Profile extends MY_Controller {
     */
     public function index() {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = $this->lang->line('profile');
 
         $this->load->view('templates/header', $data);
@@ -31,7 +30,6 @@ class Profile extends MY_Controller {
     */
     public function edit() {
         $data = array();
-        // $data['home'] = $this->vins_model->get_vins();
         $data['title'] = $this->lang->line('profile_edit');
 
         $this->load->view('templates/header', $data);
