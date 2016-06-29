@@ -198,9 +198,7 @@ class Connection extends CI_Controller {
             $donnees_echapees = array();
             $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
 
-            $donnees_non_echapees = array();
-
-            $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees, $donnees_non_echapees);
+            $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees);
 
             $this->session->set_userdata('user', $user);
             if ($to_profile) {

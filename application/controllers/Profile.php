@@ -20,10 +20,9 @@ class Profile extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('profile');
 
-        $user = $this->session->userdata('user');
-        $data['user'] = $user;
-        $date = new DateTime($user->add_date);
-        $data['user']->add_date_formatted = $date->format('d/m/Y');
+        $data['user'] = $this->session->userdata('user');
+        $add_date = new DateTime($data['user']->add_date);
+        $data['user']->add_date_formatted = $add_date->format('d/m/Y');
 
         $this->load->view('templates/header', $data);
         $this->load->view('profile', $data);
@@ -37,8 +36,45 @@ class Profile extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('profile_edit');
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('profile_edit', $data);
-        $this->load->view('templates/footer', $data);
+        $post = $this->input->post();
+        $data['user'] = $this->session->userdata('user');
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('profile_edit', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            if ($post['user_name'] !== $data['user']->user_name) {
+                $rules = array(
+                    array(
+                        'field' => 'user_name',
+                        'label' => $this->lang->line('user_name'),
+                        'rules' => 'is_unique[user.user_name]',
+                        'errors' => array(
+                            'is_unique' => $this->lang->line('already_in_db_field'),
+                        ),
+                    ),
+                );
+            } else {
+                $rules = array();
+            }
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('profile_edit', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $donnees_echapees = array();
+                $donnees_echapees['first_name'] = $post['first_name'];
+                $donnees_echapees['last_name'] = $post['last_name'];
+                $donnees_echapees['user_name'] = $post['user_name'];
+
+                $this->user_model->update(array("user_id" => $data['user']->user_id), $donnees_echapees);
+
+                $this->session->set_userdata('user', $this->user_model->read('*', array("user_id" => $data['user']->user_id))[0]);
+
+                $this->session->set_flashdata('success', $this->lang->line('profile_modified'));
+                $this->index();
+            }
+        }
     }
 }

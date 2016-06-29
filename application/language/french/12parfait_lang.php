@@ -29,7 +29,7 @@ $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 
 $lang['required_field'] = 'Le champ "%s" est requis.';
-$lang['already_in_db_field'] = 'Le champ "%s" existe déjà en base.';
+$lang['already_in_db_field'] = 'Le champ "%s" existe déjà.';
 $lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
 $lang['valid_email'] = 'Le champ "%s" n\'est pas un email valide.';
 $lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères.';
@@ -38,10 +38,15 @@ $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins un
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
 
 $lang['profile'] = 'Profil';
+$lang['profile_edit'] = 'Editer le profil';
+$lang['my_profile_edit'] = 'Editer mon profil';
+$lang['profile_modified'] = 'Profil modifié avec succès';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
-$lang['username'] = 'Nom d\'utilisateur';
+$lang['first_name'] = 'Prénom';
+$lang['last_name'] = 'Nom';
+$lang['user_name'] = 'Nom d\'utilisateur';
 $lang['password'] = 'Mot de passe';
 $lang['password_confirmation'] = 'Confirmation du mot de passe';
 $lang['email'] = 'Email';
