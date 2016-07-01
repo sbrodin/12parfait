@@ -6,5 +6,3 @@
     <label for="password_confirmation">Confirmation du mot de passe :</label><input type="password" id="password_confirmation" name="password_confirmation" required="required">
     <input type="submit" value="Valider">
 </form>
-
-<a href="<?php echo site_url()?>"><?php echo $this->lang->line('home') ?></a>
