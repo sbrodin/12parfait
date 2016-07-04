@@ -45,7 +45,7 @@ class Connection extends CI_Controller {
             'edit_match',
             'delete_match'
         );
-    public $privileged_acl = array(
+    public $moderator_acl = array(
             'autocomplete_tag',
             'add_playlist',
             'view_playlists',
@@ -201,6 +201,13 @@ class Connection extends CI_Controller {
             $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees);
 
             $this->session->set_userdata('user', $user);
+            if ($user->acl === 'admin') {
+                $this->session->set_userdata('acl', $this->admin_acl);
+            } else if ($user->acl === 'moderator') {
+                $this->session->set_userdata('acl', $this->moderator_acl);
+            } else {
+                $this->session->set_userdata('acl', $this->user_acl);
+            }
             if ($to_profile) {
                 redirect(site_url('profile'), 'location');
             } else {
