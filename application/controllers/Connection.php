@@ -7,58 +7,60 @@ class Connection extends CI_Controller {
 
     // Gestion des acl
     public $admin_acl = array(
-            //acl pour user
-            'add_user',
-            'view_users',
-            'view_user',
-            'edit_user',
-            'activate_user',
-            'deactivate_user',
-            //acl pour bet
-            'add_bet',
-            'view_bets',
-            'view_bet',
-            'edit_bet',
-            'delete_bet',
-            //acl pour league
-            'add_league',
-            'view_leagues',
-            'view_league',
-            'edit_league',
-            'delete_league',
-            //acl pour championship
-            'add_championship',
-            'view_championships',
-            'view_championship',
-            'edit_championship',
-            'delete_championship',
-            //acl pour team
-            'add_team',
-            'view_teams',
-            'view_team',
-            'edit_team',
-            'delete_team',
-            //acl pour match
-            'add_match',
-            'view_matchs',
-            'view_match',
-            'edit_match',
-            'delete_match'
-        );
+        //acl général pour admin
+        'admin_all',
+        //acl pour user
+        'add_user',
+        'view_users',
+        'view_user',
+        'edit_user',
+        'activate_user',
+        'deactivate_user',
+        //acl pour bet
+        'add_bet',
+        'view_bets',
+        'view_bet',
+        'edit_bet',
+        'delete_bet',
+        //acl pour league
+        'add_league',
+        'view_leagues',
+        'view_league',
+        'edit_league',
+        'delete_league',
+        //acl pour championship
+        'add_championship',
+        'view_championships',
+        'view_championship',
+        'edit_championship',
+        'delete_championship',
+        //acl pour team
+        'add_team',
+        'view_teams',
+        'view_team',
+        'edit_team',
+        'delete_team',
+        //acl pour match
+        'add_match',
+        'view_matchs',
+        'view_match',
+        'edit_match',
+        'delete_match'
+    );
     public $moderator_acl = array(
-            'autocomplete_tag',
-            'add_playlist',
-            'view_playlists',
-            'view_my_playlists',
-            'view_playlist',
-            'edit_playlist',
-            'delete_playlist'
-        );
+        'autocomplete_tag',
+        'add_playlist',
+        'view_playlists',
+        'view_my_playlists',
+        'view_playlist',
+        'edit_playlist',
+        'delete_playlist'
+    );
     public $user_acl = array(
-            'autocomplete_tag',
-            'view_my_playlists',
-            'view_playlist'
-        );
+        'autocomplete_tag',
+        'view_my_playlists',
+        'view_playlist'
+    );
 
     /**
     * Constructeur qui appelle les models utilisés par le controller
@@ -231,7 +233,6 @@ class Connection extends CI_Controller {
         if (!empty($this->session->userdata['acl'])) {
             $this->session->unset_userdata('acl');
         }
-        var_dump($this->session->get_userdata('user')['user']);
         redirect(site_url(''), 'location');
     }
 }

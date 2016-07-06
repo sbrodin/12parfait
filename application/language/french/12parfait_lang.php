@@ -22,6 +22,8 @@ $lang['12_parfait'] = '12 Parfait';
 $lang['application_title'] = '12 Parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015<br/>Generated with CodeIgniter';
 
+$lang['site_admin'] = 'Gestion du site';
+$lang['back_to_site_admin'] = 'Retour à la gestion du site';
 $lang['users_admin'] = 'Gestion des utilisateurs';
 $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 

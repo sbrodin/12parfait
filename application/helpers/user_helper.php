@@ -15,7 +15,8 @@ if ( !defined('BASEPATH') ) {
   */
 if ( !function_exists('user_can')) {
     function user_can($acl) {
-        return in_array($acl, $this->session->get_userdata('acl')['acl']);
+        $CI =& get_instance();
+        return in_array($acl, $CI->session->get_userdata('acl')['acl']);
     }
 }
 

@@ -11,7 +11,6 @@ class Home extends CI_Controller {
     {
         $data = array();
         $data['title'] = $this->lang->line('home');
-        var_dump($this->session->get_userdata('acl')['acl']);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

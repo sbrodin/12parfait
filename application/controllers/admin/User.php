@@ -78,23 +78,23 @@ class User extends MY_Controller {
         if (!user_can('view_users')) {
             redirect(site_url(), 'location');
         }
-        $data['users'] = $this->user_model->read('userid, username, email, isprivileged, isadmin, adddate, lastconnection, isactive');
+        $data['users'] = $this->user_model->read('*');
         $data['title'] = $this->lang->line('index_user');
 
         foreach ($data['users'] as $users_item) {
-            $users_item->isprivileged = $users_item->isprivileged ? $this->lang->line('yes') : $this->lang->line('no');
-            $users_item->isadmin = $users_item->isadmin ? $this->lang->line('yes') : $this->lang->line('no');
+            $users_item->active = $users_item->active ? $this->lang->line('yes') : $this->lang->line('no');
+            var_dump($users_item);
+            // $users_item->adddate = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->adddate);
+            // $users_item->adddate = $users_item->adddate->format("d/m/Y H:i:s");
 
-            $users_item->adddate = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->adddate);
-            $users_item->adddate = $users_item->adddate->format("d/m/Y H:i:s");
-
-            if($users_item->lastconnection) {
-                $users_item->lastconnection = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->lastconnection);
-                $users_item->lastconnection = $users_item->lastconnection->format("d/m/Y H:i:s");
-            } else {
-                $users_item->lastconnection = $this->lang->line('never_connected');
-            }
+            // if($users_item->lastconnection) {
+            //     $users_item->lastconnection = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->lastconnection);
+            //     $users_item->lastconnection = $users_item->lastconnection->format("d/m/Y H:i:s");
+            // } else {
+            //     $users_item->lastconnection = $this->lang->line('never_connected');
+            // }
         }
+        exit;
 
         $this->load->view('templates/header_admin', $data);
         $this->load->view('admin/users/index', $data);
