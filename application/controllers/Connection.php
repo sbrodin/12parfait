@@ -245,6 +245,7 @@ class Connection extends CI_Controller {
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->helper('user');
+            $this->load->helper('email');
 
             $rules = array(
                 array(
@@ -266,17 +267,16 @@ class Connection extends CI_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 $where = array('email' => $post['email']);
-                $hash = base64_encode(openssl_random_pseudo_bytes(100));
+                $hash = substr(base64_encode(openssl_random_pseudo_bytes(100)), 0, 100);
                 $donnees_echapees = array(
                         'hash' => $hash,
                         'date_hash' => date('Y-m-d H:i:s'),
                     );
-                var_dump($donnees_echapees);
-                exit;
                 $this->user_model->update($where, $donnees_echapees);
-            //     $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
-            //     $to_profile = TRUE;
-            //     $this->login($to_profile);
+                send_email_interception('stanislas.brodin@gmail.com', 'test', 'corps du test');
+                $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
+                redirect(site_url('connection'), 'location');
+                exit;
             }
         }
     }

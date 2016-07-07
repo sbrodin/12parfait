@@ -2,6 +2,9 @@
 if ($this->session->flashdata('error')) {
     echo $this->session->flashdata('error');
 }
+if ($this->session->flashdata('info')) {
+    echo $this->session->flashdata('info');
+}
 ?>
 
 <?php echo validation_errors(); ?>

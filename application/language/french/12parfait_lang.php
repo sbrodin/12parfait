@@ -31,6 +31,9 @@ $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 
+// Messages d'information
+$lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
+
 // Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
 $lang['deactivated_account'] = 'Votre compte a été désactivé';

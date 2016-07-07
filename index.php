@@ -69,6 +69,7 @@ switch (ENVIRONMENT)
 	case 'development':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
+		define('EMAIL_INTERCEPTION', 'stanislas.brodin@gmail.com');
 	break;
 
 	case 'testing':
