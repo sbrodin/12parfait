@@ -134,7 +134,7 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'email',
                     'label' => $this->lang->line('email'),
-                    'rules' => 'required|is_unique[user.email]|valid_email',
+                    'rules' => 'trim|strtolower|required|is_unique[user.email]|valid_email',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'is_unique' => $this->lang->line('already_in_db_field'),
@@ -144,7 +144,7 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'password',
                     'label' => $this->lang->line('password'),
-                    'rules' => 'required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
+                    'rules' => 'trim|required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'min_length' => $this->lang->line('min_length_field'),
@@ -156,7 +156,7 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'password_confirmation',
                     'label' => $this->lang->line('password_confirmation'),
-                    'rules' => 'required|matches[password]',
+                    'rules' => 'trim|required|matches[password]',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'matches' => $this->lang->line('must_match_field'),
@@ -178,6 +178,7 @@ class Connection extends CI_Controller {
                     'last_connection' => date('Y-m-d H:i:s'),
                 );
                 $this->user_model->create($donnees_echapees);
+                $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
                 $to_profile = TRUE;
                 $this->login($to_profile);
             }
@@ -194,12 +195,14 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
             redirect(site_url('connection'), 'location');
+            exit;
         }
 
         if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
             if ($user->active == 0) {
                 $this->session->set_flashdata('error', $this->lang->line('deactivated_account'));
                 redirect(site_url('connection'), 'location');
+                exit;
             }
             $donnees_echapees = array();
             $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
@@ -216,13 +219,65 @@ class Connection extends CI_Controller {
             }
             if ($to_profile) {
                 redirect(site_url('profile'), 'location');
+                exit;
             } else {
                 redirect(site_url(), 'location');
+                exit;
             }
-        }
-        else {
+        } else {
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
             redirect(site_url('connection'), 'location');
+            exit;
+        }
+    }
+
+    /**
+    * Fonction d'oubli de mot de passe.
+    */
+    public function forgotten_password() {
+        $data = array();
+        $data['title'] = $this->lang->line('forgotten_password');
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('forgotten_password');
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->load->helper('user');
+
+            $rules = array(
+                array(
+                    'field' => 'email',
+                    'label' => $this->lang->line('email'),
+                    'rules' => 'required|valid_email|in_database_email',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'valid_email' => $this->lang->line('valid_email'),
+                        'in_database_email' => $this->lang->line('not_in_database_email'),
+                    ),
+                ),
+            );
+            // $this->in_database_email($post['email']);
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('forgotten_password');
+                $this->load->view('templates/footer', $data);
+            } else {
+                $where = array('email' => $post['email']);
+                $hash = base64_encode(openssl_random_pseudo_bytes(100));
+                $donnees_echapees = array(
+                        'hash' => $hash,
+                        'date_hash' => date('Y-m-d H:i:s'),
+                    );
+                var_dump($donnees_echapees);
+                exit;
+                $this->user_model->update($where, $donnees_echapees);
+            //     $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
+            //     $to_profile = TRUE;
+            //     $this->login($to_profile);
+            }
         }
     }
 
@@ -238,5 +293,6 @@ class Connection extends CI_Controller {
             $this->session->unset_userdata('acl');
         }
         redirect(site_url(''), 'location');
+        exit;
     }
 }

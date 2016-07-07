@@ -24,10 +24,11 @@ class Users extends MY_Controller {
     /**
     * Fonction de création d'utilisateur.
     */
-    public function create() {
+    /*public function create() {
         // Gestion des droits d'ajout
         if (!user_can('add_user')) {
             redirect(site_url(), 'location');
+            exit;
         }
         $data['title'] = $this->lang->line('add_user');
 
@@ -77,6 +78,7 @@ class Users extends MY_Controller {
         // Gestion des droits de lecture
         if (!user_can('view_users')) {
             redirect(site_url(), 'location');
+            exit;
         }
         $data['users'] = $this->user_model->read('*');
         $data['title'] = $this->lang->line('index_user');
@@ -201,10 +203,60 @@ class Users extends MY_Controller {
         // Gestion des droits d'activation
         if (!user_can('activate_user')) {
             redirect(site_url(), 'location');
+            exit;
         }
 
         $donnees_echapees = array();
         $donnees_echapees['active'] = 1;
+
+        $donnees_non_echapees = array();
+
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+
+        redirect(site_url('admin/users'), 'location');
+        exit;
+    }
+
+    /**
+    * Fonction de désactivation d'un utilisateur.
+    * @param $user_id Id de l'utilisateur à désactiver
+    */
+    public function deactivate($user_id) {
+        // Gestion des droits de désactivation
+        if (!user_can('deactivate_user')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array();
+        $donnees_echapees['active'] = 0;
+
+        $donnees_non_echapees = array();
+
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+
+        redirect(site_url('admin/users'), 'location');
+        exit;
+    }
+
+    /**
+    * Fonction d'activation d'un utilisateur.
+    * @param $user_id Id de l'utilisateur à activer
+    */
+    public function promote($status = 'moderator') {
+        // Gestion des droits d'activation
+        if (!user_can('promote_user')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        if (!in_array($status, array('admin', 'moderator', 'user'))) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array();
+        $donnees_echapees['acl'] = $status;
 
         $donnees_non_echapees = array();
 
@@ -217,10 +269,11 @@ class Users extends MY_Controller {
     * Fonction de désactivation d'un utilisateur.
     * @param $user_id Id de l'utilisateur à désactiver
     */
-    public function deactivate($user_id) {
+    public function demote($user_id) {
         // Gestion des droits de désactivation
-        if (!user_can('deactivate_user')) {
+        if (!user_can('demote_user')) {
             redirect(site_url(), 'location');
+            exit;
         }
 
         $donnees_echapees = array();
@@ -231,6 +284,7 @@ class Users extends MY_Controller {
         $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
+        exit;
     }
 
     /**

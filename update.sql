@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `date_hash` DATETIME NULL AFTER `hash`;

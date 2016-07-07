@@ -48,7 +48,7 @@ class Profile extends MY_Controller {
                     array(
                         'field' => 'user_name',
                         'label' => $this->lang->line('user_name'),
-                        'rules' => 'is_unique[user.user_name]',
+                        'rules' => 'trim|is_unique[user.user_name]',
                         'errors' => array(
                             'is_unique' => $this->lang->line('already_in_db_field'),
                         ),

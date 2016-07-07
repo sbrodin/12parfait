@@ -5,6 +5,7 @@
  */
 defined("BASEPATH") OR exit("No direct script access allowed");
 
+// Champs génériques
 $lang['yes'] = 'Oui';
 $lang['no'] = 'Non';
 $lang['home'] = 'Accueil';
@@ -14,14 +15,15 @@ $lang['user'] = 'Utilisateur';
 $lang['users'] = 'Utilisateurs';
 $lang['connection'] = 'Connexion';
 $lang['disconnection'] = 'Déconnexion';
-$lang['create_account'] = 'Créer un compte';
 $lang['search'] = 'Recherche';
 $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
 
+// Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
 $lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with CodeIgniter';
 
+// Menu admin
 $lang['site_admin'] = 'Gestion du site';
 $lang['back_to_site_admin'] = 'Retour à la gestion du site';
 $lang['users_admin'] = 'Gestion des utilisateurs';
@@ -29,10 +31,12 @@ $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 
+// Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
 $lang['deactivated_account'] = 'Votre compte a été désactivé';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 
+// Messages de contrôle des formulaires
 $lang['required_field'] = 'Le champ "%s" est requis.';
 $lang['already_in_db_field'] = 'Le champ "%s" existe déjà.';
 $lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
@@ -41,11 +45,16 @@ $lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères
 $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins une majuscule.';
 $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
+$lang['not_in_database_email'] = 'Aucun email ne correspond en base.';
 
 $lang['profile'] = 'Profil';
+$lang['create_account'] = 'Créer un compte';
+$lang['forgotten_password'] = 'Mot de passe oublié ?';
+$lang['reset_password'] = 'Réinitialiser le mot de passe';
 $lang['profile_edit'] = 'Editer le profil';
 $lang['my_profile_edit'] = 'Editer mon profil';
 $lang['profile_modified'] = 'Profil modifié avec succès';
+$lang['account_successful_creation'] = 'Compte créé avec succès';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
@@ -75,6 +84,4 @@ $lang['acl'] = 'acl';
 $lang['is_active'] = 'Actif ?';
 $lang['no_data'] = 'N/A';
 
-$lang['leave_application'] = 'Souhaitez-vous quitter l\'application ?';
-$lang['leave'] = 'Quitter';
 $lang['cancel'] = 'Annuler';

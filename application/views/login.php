@@ -13,5 +13,6 @@ if ($this->session->flashdata('error')) {
 </form>
 
 <a href="<?php echo site_url('connection/create_account')?>"><?php echo $this->lang->line('create_account') ?></a>
+<a href="<?php echo site_url('forgotten_password')?>"><?php echo $this->lang->line('forgotten_password') ?></a>
 <br/><br/>
 <a href="<?php echo site_url()?>"><?php echo $this->lang->line('back') ?></a>

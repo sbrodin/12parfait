@@ -15,8 +15,8 @@ if ( !defined('BASEPATH') ) {
   */
 if ( !function_exists('user_can')) {
     function user_can($acl) {
-        $CI =& get_instance();
-        return in_array($acl, $CI->session->get_userdata('acl')['acl']);
+      $CI =& get_instance();
+      return in_array($acl, $CI->session->get_userdata('acl')['acl']);
     }
 }
 
@@ -27,7 +27,19 @@ if ( !function_exists('user_can')) {
   */
 if ( !function_exists('is_connected')) {
     function is_connected() {
-        $CI =& get_instance();
-        return isset($CI->session->get_userdata('user')['user']);
+      $CI =& get_instance();
+      return isset($CI->session->get_userdata('user')['user']);
+    }
+}
+
+/**
+  * Cette fonction vérifie qu'un email existe en base
+  *
+  * @return Booléen pour savoir si l'email existe en base
+  */
+if ( !function_exists('in_database_email')) {
+    function in_database_email($email) {
+      $CI =& get_instance();
+      return $CI->user_model->in_database_email($email);
     }
 }

@@ -21,16 +21,16 @@ class User_model extends MY_Model {
         }
     }
 
-    public function is_connected($login, $password)
+    public function in_database_email($email)
     {
         $select = '*';
-        $where = array('email' => $login);
-        $user = $this->read($select, $where)[0];
+        $where = array('email' => $email);
+        $user = $this->read($select, $where);
 
-        if (password_verify($password, $user->password)) {
-            return $user;
-        } else {
+        if (empty($user)) {
             return FALSE;
+        } else {
+            return TRUE;
         }
     }
 }
