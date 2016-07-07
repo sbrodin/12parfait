@@ -197,6 +197,10 @@ class Connection extends CI_Controller {
         }
 
         if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
+            if ($user->active == 0) {
+                $this->session->set_flashdata('error', $this->lang->line('deactivated_account'));
+                redirect(site_url('connection'), 'location');
+            }
             $donnees_echapees = array();
             $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
 

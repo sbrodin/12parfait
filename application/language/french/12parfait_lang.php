@@ -20,14 +20,17 @@ $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
 
 $lang['application_title'] = '12 Parfait';
-$lang['copyright'] = '&copy; sbrodin, 2015<br/>Generated with CodeIgniter';
+$lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with CodeIgniter';
 
 $lang['site_admin'] = 'Gestion du site';
 $lang['back_to_site_admin'] = 'Retour à la gestion du site';
 $lang['users_admin'] = 'Gestion des utilisateurs';
 $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
+$lang['matches_admin'] = 'Gestion des matchs';
+$lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
+$lang['deactivated_account'] = 'Votre compte a été désactivé';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 
 $lang['required_field'] = 'Le champ "%s" est requis.';
@@ -53,8 +56,6 @@ $lang['password'] = 'Mot de passe';
 $lang['password_confirmation'] = 'Confirmation du mot de passe';
 $lang['email'] = 'Email';
 $lang['isadmin'] = 'Admin ?';
-$lang['adddate'] = 'Date d\'ajout';
-$lang['lastconnection'] = 'Dernière connexion';
 $lang['add_user'] = 'Ajouter l\'utilisateur';
 $lang['view_user'] = 'Voir';
 $lang['no_password_message'] = 'Si aucun mot de passe n\'est entré, le nom d\'utilisateur sera utilisé comme mot de passe';
@@ -65,6 +66,14 @@ $lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
 $lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
 $lang['activate_user'] = 'Activer';
 $lang['deactivate_user'] = 'Désactiver';
+
+$lang['language'] = 'Langue';
+$lang['add_date'] = 'Date de création';
+$lang['last_connection'] = 'Dernière connexion';
+$lang['score'] = 'Score';
+$lang['acl'] = 'acl';
+$lang['is_active'] = 'Actif ?';
+$lang['no_data'] = 'N/A';
 
 $lang['leave_application'] = 'Souhaitez-vous quitter l\'application ?';
 $lang['leave'] = 'Quitter';

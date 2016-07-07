@@ -5,7 +5,7 @@
   * Cette classe définit les règles de création, lecture, mise à jour, acivation et désactivation des utilisateurs.
   * Elle définit également la fonction définissant si une adresse email est bien conforme.
   */
-class User extends MY_Controller {
+class Users extends MY_Controller {
 
     private $username_min_length = 6;
     private $username_max_length = 255;
@@ -83,9 +83,13 @@ class User extends MY_Controller {
 
         foreach ($data['users'] as $users_item) {
             $users_item->active = $users_item->active ? $this->lang->line('yes') : $this->lang->line('no');
-            var_dump($users_item);
-            // $users_item->adddate = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->adddate);
-            // $users_item->adddate = $users_item->adddate->format("d/m/Y H:i:s");
+            $users_item->first_name = ($users_item->first_name === '') ? $this->lang->line('no_data') : $users_item->first_name;
+            $users_item->last_name = ($users_item->last_name === '') ? $this->lang->line('no_data') : $users_item->last_name;
+            $users_item->user_name = ($users_item->user_name === '') ? $this->lang->line('no_data') : $users_item->user_name;
+            $add_date = new DateTime($users_item->add_date);
+            $users_item->add_date_formatted = $add_date->format('d/m/Y H:i:s');
+            $last_connection = new DateTime($users_item->last_connection);
+            $users_item->last_connection_formatted = $last_connection->format('d/m/Y H:i:s');
 
             // if($users_item->lastconnection) {
             //     $users_item->lastconnection = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->lastconnection);
@@ -94,9 +98,8 @@ class User extends MY_Controller {
             //     $users_item->lastconnection = $this->lang->line('never_connected');
             // }
         }
-        exit;
 
-        $this->load->view('templates/header_admin', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('admin/users/index', $data);
         $this->load->view('templates/footer');
     }
@@ -192,40 +195,40 @@ class User extends MY_Controller {
 
     /**
     * Fonction d'activation d'un utilisateur.
-    * @param $userid Id de l'utilisateur à activer
+    * @param $user_id Id de l'utilisateur à activer
     */
-    /*public function activate($userid) {
+    public function activate($user_id) {
         // Gestion des droits d'activation
         if (!user_can('activate_user')) {
             redirect(site_url(), 'location');
         }
 
         $donnees_echapees = array();
-        $donnees_echapees['isactive'] = 1;
+        $donnees_echapees['active'] = 1;
 
         $donnees_non_echapees = array();
 
-        $this->user_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
     }
 
     /**
     * Fonction de désactivation d'un utilisateur.
-    * @param $userid Id de l'utilisateur à désactiver
+    * @param $user_id Id de l'utilisateur à désactiver
     */
-    /*public function deactivate($userid) {
+    public function deactivate($user_id) {
         // Gestion des droits de désactivation
         if (!user_can('deactivate_user')) {
             redirect(site_url(), 'location');
         }
 
         $donnees_echapees = array();
-        $donnees_echapees['isactive'] = 0;
+        $donnees_echapees['active'] = 0;
 
         $donnees_non_echapees = array();
 
-        $this->user_model->update(array("userid" => $userid), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
     }
