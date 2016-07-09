@@ -33,9 +33,9 @@ foreach ($users as $user) {
         <td>
             <?php if ($user->user_id !== $this->session->userdata['user']->user_id) : ?>
                 <?php if ($user->active === $this->lang->line('yes')) : ?>
-                    <a href="<?php echo site_url('admin/users/deactivate').'/'.$user->user_id ?>"><?php echo $this->lang->line('deactivate_user') ?></a>
+                    <a href="<?php echo site_url('admin/users/deactivate/'.$user->user_id) ?>"><?php echo $this->lang->line('deactivate_user') ?></a>
                 <?php else : ?>
-                    <a href="<?php echo site_url('admin/users/activate').'/'.$user->user_id ?>"><?php echo $this->lang->line('activate_user') ?></a>
+                    <a href="<?php echo site_url('admin/users/activate/'.$user->user_id) ?>"><?php echo $this->lang->line('activate_user') ?></a>
                 <?php endif; ?>
             <?php endif; ?>
         </td>

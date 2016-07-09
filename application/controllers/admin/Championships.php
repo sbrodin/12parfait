@@ -13,7 +13,7 @@ class Championships extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Championnats';
 
-        $date['championships'] = $this->championship_model->read();
+        $data['championships'] = $this->championship_model->read();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
@@ -23,6 +23,11 @@ class Championships extends MY_Controller {
 
     public function add()
     {
+        if (!user_can('add_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Ajouter un championnat';
 
@@ -34,6 +39,14 @@ class Championships extends MY_Controller {
             $this->load->view('templates/footer', $data);
         } else {
             $rules = array(
+                array(
+                    'field' => 'championship_name',
+                    'label' => $this->lang->line('championship_name'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
                 array(
                     'field' => 'sport',
                     'label' => $this->lang->line('sport'),
@@ -61,10 +74,10 @@ class Championships extends MY_Controller {
                 array(
                     'field' => 'year',
                     'label' => $this->lang->line('year'),
-                    'rules' => 'trim|required|is_int',
+                    'rules' => 'trim|required|greater_than_equal_to[2016]',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
-                        'is_int' => $this->lang->line('must_be_year_field'),
+                        'greater_than_equal_to' => $this->lang->line('must_be_year_field'),
                     ),
                 ),
             );
@@ -75,17 +88,16 @@ class Championships extends MY_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
-                    'acl' => 'user',
-                    'active' => '1',
-                    'email' => $post['email'],
-                    'password' => password_hash($post['password'], PASSWORD_BCRYPT),
-                    'add_date' => date('Y-m-d H:i:s'),
-                    'last_connection' => date('Y-m-d H:i:s'),
+                    'name' => $post['championship_name'],
+                    'sport' => $post['sport'],
+                    'country' => $post['country'],
+                    'level' => $post['level'],
+                    'year' => $post['year'],
                 );
-                $this->user_model->create($donnees_echapees);
-                $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
-                $to_profile = TRUE;
-                $this->login($to_profile);
+                $this->championship_model->create($donnees_echapees);
+                $this->session->set_flashdata('success', $this->lang->line('championship_successful_creation'));
+                redirect(site_url('admin/championships'), 'location');
+                exit;
             }
         }
     }

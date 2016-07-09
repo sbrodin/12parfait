@@ -31,6 +31,8 @@ $lang['users_admin'] = 'Gestion des utilisateurs';
 $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
 $lang['championships_admin'] = 'Gestion des championnats';
 $lang['back_to_championships_admin'] = 'Retour à la gestion des championnats';
+$lang['teams_admin'] = 'Gestion des équipes';
+$lang['back_to_teams_admin'] = 'Retour à la gestion des équipes';
 $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 
@@ -66,12 +68,21 @@ $lang['account_successful_creation'] = 'Compte créé avec succès';
 
 // Championnats
 $lang['add_championship'] = 'Ajouter un championnat';
+$lang['championship_name'] = 'Nom du championnat';
 $lang['sport'] = 'Sport';
 $lang['football'] = 'Football';
 $lang['country'] = 'Pays';
 $lang['france'] = 'France';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
+$lang['championship_successful_creation'] = 'Championnat créé avec succès';
+$lang['edit_championship'] = 'Editer';
+
+// Equipes
+$lang['add_team'] = 'Ajouter un équipe';
+$lang['team_name'] = 'Nom de l\'équipe';
+$lang['team_successful_creation'] = 'Equipe créée avec succès';
+$lang['edit_team'] = 'Editer';
 
 // Matchs
 $lang['add_match'] = 'Ajouter un match';
