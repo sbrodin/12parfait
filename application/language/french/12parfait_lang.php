@@ -18,6 +18,7 @@ $lang['disconnection'] = 'Déconnexion';
 $lang['search'] = 'Recherche';
 $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
+$lang['add'] = 'Ajouter';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
@@ -28,6 +29,8 @@ $lang['site_admin'] = 'Gestion du site';
 $lang['back_to_site_admin'] = 'Retour à la gestion du site';
 $lang['users_admin'] = 'Gestion des utilisateurs';
 $lang['back_to_users_admin'] = 'Retour à la gestion des utilisateurs';
+$lang['championships_admin'] = 'Gestion des championnats';
+$lang['back_to_championships_admin'] = 'Retour à la gestion des championnats';
 $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 
@@ -49,7 +52,9 @@ $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins un
 $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
 $lang['not_in_database_email'] = 'Aucun email ne correspond en base.';
+$lang['must_be_year_field'] = 'Le champ "%s" doit être une année supérieure ou égale à 2016.';
 
+// Profil
 $lang['profile'] = 'Profil';
 $lang['create_account'] = 'Créer un compte';
 $lang['forgotten_password'] = 'Mot de passe oublié ?';
@@ -58,6 +63,18 @@ $lang['profile_edit'] = 'Editer le profil';
 $lang['my_profile_edit'] = 'Editer mon profil';
 $lang['profile_modified'] = 'Profil modifié avec succès';
 $lang['account_successful_creation'] = 'Compte créé avec succès';
+
+// Championnats
+$lang['add_championship'] = 'Ajouter un championnat';
+$lang['sport'] = 'Sport';
+$lang['football'] = 'Football';
+$lang['country'] = 'Pays';
+$lang['france'] = 'France';
+$lang['level'] = 'Niveau';
+$lang['year'] = 'Année';
+
+// Matchs
+$lang['add_match'] = 'Ajouter un match';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
