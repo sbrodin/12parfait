@@ -175,7 +175,6 @@ class Connection extends CI_Controller {
                     'email' => $post['email'],
                     'password' => password_hash($post['password'], PASSWORD_BCRYPT),
                     'add_date' => date('Y-m-d H:i:s'),
-                    'last_connection' => date('Y-m-d H:i:s'),
                 );
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
@@ -204,8 +203,11 @@ class Connection extends CI_Controller {
                 redirect(site_url('connection'), 'location');
                 exit;
             }
-            $donnees_echapees = array();
-            $donnees_echapees['last_connection'] = date("Y-m-d H:i:s");
+            $donnees_echapees = array(
+                'last_connection' => date("Y-m-d H:i:s"),
+                'hash' => NULL,
+                'date_hash' => NULL,
+            );
 
             $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees);
 
@@ -246,6 +248,7 @@ class Connection extends CI_Controller {
         } else {
             $this->load->helper('user');
             $this->load->helper('email');
+            $this->load->helper('string');
 
             $rules = array(
                 array(
@@ -259,7 +262,6 @@ class Connection extends CI_Controller {
                     ),
                 ),
             );
-            // $this->in_database_email($post['email']);
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
@@ -267,14 +269,89 @@ class Connection extends CI_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 $where = array('email' => $post['email']);
-                $hash = substr(base64_encode(openssl_random_pseudo_bytes(100)), 0, 100);
+                $hash = random_string('alnum', 255);
                 $donnees_echapees = array(
                         'hash' => $hash,
                         'date_hash' => date('Y-m-d H:i:s'),
                     );
                 $this->user_model->update($where, $donnees_echapees);
-                send_email_interception('stanislas.brodin@gmail.com', 'test', 'corps du test');
+
+                $subject = '12 Parfait - Mot de passe oublié';
+                $body = "Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous:\n";
+                $body.= site_url('reset_password/'.$hash);
+                send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
+
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
+                redirect(site_url('connection'), 'location');
+                exit;
+            }
+        }
+    }
+
+    /**
+    * Fonction de réinitialisation du mot de passe
+    * Cette fonction permet de réinitialiser son mot de passe à partir d'un lien reçu dans un email
+    */
+    public function reset_password($hash)
+    {
+        $data = array();
+        $data['title'] = $this->lang->line('reset_password');
+        $data['hash'] = $hash;
+
+        $user = $this->user_model->read('*', array('hash'=>$hash));
+        // Si le hash n'existe pas en base
+        if (!$user) {
+            redirect(site_url(), 'location');
+            exit;
+        } else {
+            $user = $user[0];
+        }
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('reset_password');
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->load->helper('strings');
+            $rules = array(
+                array(
+                    'field' => 'new_password',
+                    'label' => $this->lang->line('new_password'),
+                    'rules' => 'trim|required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'min_length' => $this->lang->line('min_length_field'),
+                        'contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
+                        'contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
+                        'contains_number' => $this->lang->line('must_contain_number_field'),
+                    ),
+                ),
+                array(
+                    'field' => 'new_password_confirmation',
+                    'label' => $this->lang->line('new_password_confirmation'),
+                    'rules' => 'trim|required|matches[new_password]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'matches' => $this->lang->line('must_match_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('reset_password');
+                $this->load->view('templates/footer', $data);
+            } else {
+                $where = array(
+                    'hash' => $hash,
+                );
+                $donnees_echapees = array(
+                    'password' => password_hash($post['new_password'], PASSWORD_BCRYPT),
+                    'hash' => NULL,
+                    'date_hash' => NULL,
+                );
+                $this->user_model->update($where, $donnees_echapees);
                 redirect(site_url('connection'), 'location');
                 exit;
             }

@@ -79,7 +79,7 @@ $lang['championship_successful_creation'] = 'Championnat créé avec succès';
 $lang['edit_championship'] = 'Editer';
 
 // Equipes
-$lang['add_team'] = 'Ajouter un équipe';
+$lang['add_team'] = 'Ajouter une équipe';
 $lang['team_name'] = 'Nom de l\'équipe';
 $lang['team_successful_creation'] = 'Equipe créée avec succès';
 $lang['edit_team'] = 'Editer';
@@ -94,6 +94,8 @@ $lang['last_name'] = 'Nom';
 $lang['user_name'] = 'Nom d\'utilisateur';
 $lang['password'] = 'Mot de passe';
 $lang['password_confirmation'] = 'Confirmation du mot de passe';
+$lang['new_password'] = 'Nouveau mot de passe';
+$lang['new_password_confirmation'] = 'Confirmation du nouveau mot de passe';
 $lang['email'] = 'Email';
 $lang['isadmin'] = 'Admin ?';
 $lang['add_user'] = 'Ajouter l\'utilisateur';

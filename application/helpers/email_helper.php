@@ -12,15 +12,6 @@ if ( !defined('BASEPATH') ) {
   */
 if ( ! function_exists('send_email_interception'))
 {
-    /**
-     * Send an email with interception
-     *
-     * @deprecated  3.0.0   Use PHP's mail() instead
-     * @param   string  $recipient
-     * @param   string  $subject
-     * @param   string  $message
-     * @return  bool
-     */
     function send_email_interception($recipient, $subject, $message)
     {
         if (defined('EMAIL_INTERCEPTION')) {
