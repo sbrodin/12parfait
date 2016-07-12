@@ -240,48 +240,88 @@ class Users extends MY_Controller {
     }
 
     /**
-    * Fonction d'activation d'un utilisateur.
+    * Fonction de promotion d'un utilisateur.
     * @param $user_id Id de l'utilisateur à activer
     */
-    public function promote($status = 'moderator') {
-        // Gestion des droits d'activation
+    public function promote($user_id = 0) {
+        // Gestion des droits de promotion
         if (!user_can('promote_user')) {
             redirect(site_url(), 'location');
             exit;
         }
 
-        if (!in_array($status, array('admin', 'moderator', 'user'))) {
+        if ($user_id === 0) {
             redirect(site_url(), 'location');
             exit;
         }
 
+        $select = '*';
+        $where = array(
+            'user_id' => $user_id,
+        );
+        $user = $this->user_model->read($select, $where);
+        if (!$user) {
+            redirect(site_url(), 'location');
+            exit;
+        } else {
+            $user = $user[0];
+        }
+
+        $new_acl = 'user';
+        if ($user->acl === 'user') {
+            $new_acl = 'moderator';
+        }
+
         $donnees_echapees = array();
-        $donnees_echapees['acl'] = $status;
+        $donnees_echapees['acl'] = $new_acl;
 
         $donnees_non_echapees = array();
 
-        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update($where, $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
+        exit;
     }
 
     /**
-    * Fonction de désactivation d'un utilisateur.
+    * Fonction de destitution d'un utilisateur.
     * @param $user_id Id de l'utilisateur à désactiver
     */
-    public function demote($user_id) {
-        // Gestion des droits de désactivation
+    public function demote($user_id = 0) {
+        // Gestion des droits de destitution
         if (!user_can('demote_user')) {
             redirect(site_url(), 'location');
             exit;
         }
 
+        if ($user_id === 0) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $select = '*';
+        $where = array(
+            'user_id' => $user_id,
+        );
+        $user = $this->user_model->read($select, $where);
+        if (!$user) {
+            redirect(site_url(), 'location');
+            exit;
+        } else {
+            $user = $user[0];
+        }
+
+        $new_acl = 'user';
+        if ($user->acl === 'moderator') {
+            $new_acl = 'user';
+        }
+
         $donnees_echapees = array();
-        $donnees_echapees['active'] = 0;
+        $donnees_echapees['acl'] = $new_acl;
 
         $donnees_non_echapees = array();
 
-        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update($where, $donnees_echapees, $donnees_non_echapees);
 
         redirect(site_url('admin/users'), 'location');
         exit;

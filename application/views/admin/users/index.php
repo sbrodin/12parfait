@@ -16,6 +16,8 @@ foreach ($users as $user) {
         <th><?php echo $this->lang->line('score') ?></th>
         <th><?php echo $this->lang->line('acl') ?></th>
         <th><?php echo $this->lang->line('is_active') ?></th>
+        <th><?php echo $this->lang->line('activate_deactivate') ?></th>
+        <th><?php echo $this->lang->line('promote_demote') ?></th>
         <th></th>
     </tr>
     <?php foreach ($users as $num => $user) : ?>
@@ -36,6 +38,15 @@ foreach ($users as $user) {
                     <a href="<?php echo site_url('admin/users/deactivate/'.$user->user_id) ?>"><?php echo $this->lang->line('deactivate_user') ?></a>
                 <?php else : ?>
                     <a href="<?php echo site_url('admin/users/activate/'.$user->user_id) ?>"><?php echo $this->lang->line('activate_user') ?></a>
+                <?php endif; ?>
+            <?php endif; ?>
+        </td>
+        <td>
+            <?php if ($user->user_id !== $this->session->userdata['user']->user_id) : ?>
+                <?php if ($user->acl === 'user') : ?>
+                    <a href="<?php echo site_url('admin/users/promote/'.$user->user_id) ?>"><?php echo $this->lang->line('promote_user') ?></a>
+                <?php else : ?>
+                    <a href="<?php echo site_url('admin/users/demote/'.$user->user_id) ?>"><?php echo $this->lang->line('demote_user') ?></a>
                 <?php endif; ?>
             <?php endif; ?>
         </td>

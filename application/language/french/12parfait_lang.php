@@ -108,6 +108,8 @@ $lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
 $lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
 $lang['activate_user'] = 'Activer';
 $lang['deactivate_user'] = 'Désactiver';
+$lang['promote_user'] = 'Promouvoir';
+$lang['demote_user'] = 'Destituer';
 
 $lang['language'] = 'Langue';
 $lang['add_date'] = 'Date de création';
@@ -115,6 +117,8 @@ $lang['last_connection'] = 'Dernière connexion';
 $lang['score'] = 'Score';
 $lang['acl'] = 'acl';
 $lang['is_active'] = 'Actif ?';
+$lang['activate_deactivate'] = 'Activer / Désactiver';
+$lang['promote_demote'] = 'Promouvoir / Destituer';
 $lang['no_data'] = 'N/A';
 
 $lang['cancel'] = 'Annuler';

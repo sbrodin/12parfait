@@ -16,6 +16,8 @@ class Connection extends CI_Controller {
         'edit_user',
         'activate_user',
         'deactivate_user',
+        'promote_user',
+        'demote_user',
         //acl pour bet
         'add_bet',
         'view_bets',
