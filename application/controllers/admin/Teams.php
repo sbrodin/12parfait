@@ -66,19 +66,33 @@ class Teams extends MY_Controller {
         }
     }
 
-    public function edit($team_id)
+    public function edit($team_id = 0)
     {
         if (!user_can('edit_team')) {
             redirect(site_url(), 'location');
             exit;
         }
 
+        if ($team_id === 0) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
-        $data['title'] = 'Admin - Ajouter une équipe';
+        $data['title'] = 'Admin - Editer une équipe';
 
         $select = '*';
-        $where = array('team_id' => $team_id);
-        $data['team'] = $this->team_model->read($select, $where)[0];
+        $where = array(
+            'team_id' => $team_id,
+        );
+        $team = $this->team_model->read($select, $where);
+        if (!$team) {
+            redirect(site_url(), 'location');
+            exit;
+        } else {
+            $team = $team[0];
+        }
+        $data['team'] = $team;
 
         $post = $this->input->post();
         if (empty($post)) {
