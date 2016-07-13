@@ -127,10 +127,7 @@ class Championships extends MY_Controller {
 
         $this->load->model('team_model');
         $select = '*';
-        $where = array(
-            'championship_id' => $championship_id,
-        );
-        $data['teams'] = $this->championship_model->read($select, $where);
+        $data['teams'] = $this->team_model->read($select);
         var_dump($data['teams']);
         exit;
 
