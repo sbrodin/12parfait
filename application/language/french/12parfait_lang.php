@@ -19,6 +19,7 @@ $lang['search'] = 'Recherche';
 $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
 $lang['add'] = 'Ajouter';
+$lang['edit'] = 'Editer';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
@@ -76,6 +77,7 @@ $lang['france'] = 'France';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
 $lang['championship_successful_creation'] = 'Championnat créé avec succès';
+$lang['championship_successful_edition'] = 'Championnat édité avec succès';
 $lang['edit_championship'] = 'Editer';
 
 // Equipes

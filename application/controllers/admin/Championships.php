@@ -128,8 +128,6 @@ class Championships extends MY_Controller {
         $this->load->model('team_model');
         $select = '*';
         $data['teams'] = $this->team_model->read($select);
-        var_dump($data['teams']);
-        exit;
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -142,25 +140,45 @@ class Championships extends MY_Controller {
                 array(
                     'field' => 'championship_name',
                     'label' => $this->lang->line('championship_name'),
-                    'rules' => 'trim|ucfirst|required|is_unique[championship.name]',
+                    'rules' => 'trim|ucfirst|required',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
-                        'is_unique' => $this->lang->line('already_in_db_field'),
                     ),
                 ),
             );
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('admin/championships/edit');
+                $this->load->view('admin/championships/edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {
+                // Update du championnat
                 $where = array('championship_id' => $championship_id);
                 $donnees_echapees = array(
                     'name' => $post['championship_name'],
+                    'sport' => $post['sport'],
+                    'country' => $post['country'],
+                    'level' => $post['level'],
+                    'year' => $post['year'],
                 );
                 $this->championship_model->update($where, $donnees_echapees);
-                $this->session->set_flashdata('success', $this->lang->line('championship_successful_creation'));
+
+                // Update des équipes du championnat
+                $this->load->model('championship_team_model');
+                // Suppression des équipes déjà présentes
+                $where = array('championship_id' => $championship_id);
+                $this->championship_team_model->delete($where);
+                // Ajout des équipes
+                $championship_team = array();
+                foreach ($post['teams'] as $key => $team_id) {
+                    $championship_team[] = array(
+                        'championship_id' => $championship_id,
+                        'team_id' => $team_id,
+                    );
+                }
+                $this->db->insert_batch('championship_team', $championship_team);
+
+                $this->session->set_flashdata('success', $this->lang->line('championship_successful_edition'));
                 redirect(site_url('admin/championships'), 'location');
                 exit;
             }
