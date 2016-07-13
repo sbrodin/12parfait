@@ -129,6 +129,15 @@ class Championships extends MY_Controller {
         $select = '*';
         $data['teams'] = $this->team_model->read($select);
 
+        $this->load->model('championship_team_model');
+        $select = 'team_id';
+        $where = array(
+            'championship_id' => $championship_id,
+        );
+        $data['championship_teams'] = $this->championship_team_model->read($select, $where);
+        var_dump($data['championship_teams']);
+        // exit;
+
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
@@ -164,7 +173,6 @@ class Championships extends MY_Controller {
                 $this->championship_model->update($where, $donnees_echapees);
 
                 // Update des équipes du championnat
-                $this->load->model('championship_team_model');
                 // Suppression des équipes déjà présentes
                 $where = array('championship_id' => $championship_id);
                 $this->championship_team_model->delete($where);
