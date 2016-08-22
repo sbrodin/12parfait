@@ -127,7 +127,11 @@ class Championships extends MY_Controller {
 
         $this->load->model('team_model');
         $select = '*';
-        $data['teams'] = $this->team_model->read($select);
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->model('championship_team_model');
         $select = 'team_id';
@@ -135,8 +139,11 @@ class Championships extends MY_Controller {
             'championship_id' => $championship_id,
         );
         $data['championship_teams'] = $this->championship_team_model->read($select, $where);
-        var_dump($data['championship_teams']);
-        // exit;
+        $championship_teams = array();
+        foreach ($data['championship_teams'] as $key => $team_id) {
+            $championship_teams[$team_id->team_id] = $team_id->team_id;
+        }
+        $data['championship_teams'] = $championship_teams;
 
         $post = $this->input->post();
         if (empty($post)) {

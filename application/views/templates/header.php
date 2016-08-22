@@ -8,6 +8,7 @@
         <meta name="description" content="<?php echo $title ?>">
         <meta name="author" content="SitePoint">
 
+        <link href="<?php echo css_url('multi-select') ?>" media="screen" rel="stylesheet" type="text/css">
         <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 
         <!--[if lt IE 9]>

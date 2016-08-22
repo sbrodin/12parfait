@@ -3,10 +3,10 @@
 <?php echo validation_errors(); ?>
 
 <?php
-var_dump($championship_teams);
+// var_dump($championship_teams);
 foreach ($teams as $key => $team) :
-    var_dump($team->team_id);
-    echo (in_array($team->team_id, $championship_teams)) ? 'selected' : '';
+    // var_dump($team->team_id);
+    // var_dump(array_search($team->team_id, $championship_teams)) ? 'selected' : '';
 endforeach;
 ?>
 
@@ -29,10 +29,16 @@ endforeach;
         <?php
         foreach ($teams as $key => $team) :
         ?>
-            <option value="<?php echo $team->team_id ?>" <?php echo (in_array($team->team_id, $championship_teams)) ? 'selected' : '' ?> ><?php echo $team->name ?></option>
+            <option value="<?php echo $team->team_id ?>" <?php echo (array_search($team->team_id, $championship_teams)) ? 'selected' : '' ?> ><?php echo $team->name ?></option>
         <?php
         endforeach;
         ?>
     </select><br/>
     <input type="submit" value="<?php echo $this->lang->line('confirm') ?>">
 </form>
+
+<script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
+<script type="text/javascript" src="<?php echo js_url('jquery.multi-select') ?>"></script>
+<script type="text/javascript">
+    $('#teams').multiSelect();
+</script>

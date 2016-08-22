@@ -1,6 +1,6 @@
 <?php
 if ( !defined('BASEPATH') ) {
-	exit('No direct script access allowed');
+    exit('No direct script access allowed');
 }
 
 /**
@@ -10,9 +10,9 @@ if ( !defined('BASEPATH') ) {
   * @return Url du fichier css dans l'application
   */
 if ( !function_exists('css_url')) {
-	function css_url($nom) {
-		return base_url() . 'application/assets/css/' . $nom . '.css';
-	}
+    function css_url($nom) {
+        return base_url() . 'application/assets/css/' . $nom . '.css';
+    }
 }
 
 /**
@@ -22,9 +22,9 @@ if ( !function_exists('css_url')) {
   * @return Url du fichier js dans l'application
   */
 if ( !function_exists('js_url')) {
-	function js_url($nom) {
-		return base_url() . 'application/assets/js/' . $nom . '.js';
-	}
+    function js_url($nom) {
+        return base_url() . 'application/assets/js/' . $nom . '.js';
+    }
 }
 
 /**
@@ -34,9 +34,9 @@ if ( !function_exists('js_url')) {
   * @return Url de l'image dans l'application
   */
 if ( !function_exists('img_url')) {
-	function img_url($nom) {
-		return base_url() . 'application/assets/images/' . $nom;
-	}
+    function img_url($nom) {
+        return base_url() . 'application/assets/img/' . $nom;
+    }
 }
 
 /**
@@ -51,7 +51,7 @@ if ( !function_exists('img_url')) {
   * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
   */
 if ( !function_exists('img')) {
-	function img($nom, $alt = '', $title = '') {
-		return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" />';
-	}
+    function img($nom, $alt = '', $title = '') {
+        return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" />';
+    }
 }
