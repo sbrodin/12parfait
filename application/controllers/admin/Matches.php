@@ -13,7 +13,13 @@ class Matches extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Matchs';
 
-        $date['matches'] = $this->match_model->read();
+        $this->load->model('championship_model');
+        $select = '*';
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
@@ -28,7 +34,7 @@ class Matches extends MY_Controller {
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
-        $this->load->view('admin/matches/index', $data);
+        $this->load->view('admin/matches/add', $data);
         $this->load->view('templates/footer', $data);
     }
 }

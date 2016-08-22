@@ -23,8 +23,9 @@ endforeach;
     <label for="level"><?php echo $this->lang->line('level') ?> : </label>
     <select id="level" name="level" required="required">
         <option value="1">1</option>
+        <option value="2">2</option>
     </select>
-    <label for="year"><?php echo $this->lang->line('year') ?> : </label><input type="number" id="year" name="year" value="<?php echo $championship->year ?>" required="required" min="2016"><br/>
+    <label for="year"><?php echo $this->lang->line('year') ?> : </label><input type="number" id="year" name="year" value="<?php echo $championship->year ?>" required="required" min="2015"><br/>
     <select id="teams" name="teams[]" multiple>
         <?php
         foreach ($teams as $key => $team) :
@@ -40,5 +41,19 @@ endforeach;
 <script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
 <script type="text/javascript" src="<?php echo js_url('jquery.multi-select') ?>"></script>
 <script type="text/javascript">
-    $('#teams').multiSelect();
+    $('#teams').multiSelect({
+        selectableFooter: "<div class='custom-header'>Nombre : <span class='nb-equipes'>0</span></div>",
+        selectionFooter: "<div class='custom-header'>Nombre : <span class='nb-equipes'>0</span></div>",
+        afterSelect: function(values){
+            update_nb_equipes();
+        },
+        afterDeselect: function(values){
+            update_nb_equipes();
+        }
+    });
+    update_nb_equipes();
+    function update_nb_equipes() {
+        $('.ms-selectable .nb-equipes').html($('.ms-selectable li:not(.ms-selected)').length);
+        $('.ms-selection .nb-equipes').html($('.ms-selection .ms-selected').length);
+    }
 </script>

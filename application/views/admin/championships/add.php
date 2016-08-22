@@ -14,8 +14,9 @@
     </select>
     <label for="level"><?php echo $this->lang->line('level') ?> : </label>
     <select id="level" name="level" required="required">
-    	<option value="1">1</option>
+        <option value="1">1</option>
+    	<option value="2">2</option>
     </select>
-    <label for="year"><?php echo $this->lang->line('year') ?> : </label><input type="number" id="year" name="year" required="required" min="2016">
+    <label for="year"><?php echo $this->lang->line('year') ?> : </label><input type="number" id="year" name="year" required="required" min="2015">
     <input type="submit" value="<?php echo $this->lang->line('add') ?>">
 </form>

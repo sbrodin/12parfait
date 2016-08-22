@@ -88,6 +88,7 @@ $lang['edit_team'] = 'Editer';
 
 // Matchs
 $lang['add_match'] = 'Ajouter un match';
+$lang['edit_matches'] = 'Editer les matchs';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

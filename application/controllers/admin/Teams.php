@@ -13,7 +13,12 @@ class Teams extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Equipes';
 
-        $data['teams'] = $this->team_model->read();
+        $select = '*';
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

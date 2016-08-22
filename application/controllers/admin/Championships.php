@@ -13,7 +13,12 @@ class Championships extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Championnats';
 
-        $data['championships'] = $this->championship_model->read();
+        $select = '*';
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
@@ -74,7 +79,7 @@ class Championships extends MY_Controller {
                 array(
                     'field' => 'year',
                     'label' => $this->lang->line('year'),
-                    'rules' => 'trim|required|greater_than_equal_to[2016]',
+                    'rules' => 'trim|required|greater_than_equal_to[2015]',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'greater_than_equal_to' => $this->lang->line('must_be_year_field'),
