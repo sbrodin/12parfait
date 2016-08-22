@@ -37,4 +37,92 @@ class Matches extends MY_Controller {
         $this->load->view('admin/matches/add', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    public function championship()
+    {
+        $data = array();
+        $data['title'] = 'Admin - Ajouter un match';
+
+        $this->load->model('championship_model');
+        $select = '*';
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('admin/matches/championship', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $rules = array(
+                array(
+                    'field' => 'championship',
+                    'label' => $this->lang->line('championship'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('admin/matches/championship', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->session->set_userdata('championship', $post['championship']);
+                redirect(site_url('admin/matches/fixture'), 'location');
+                exit;
+            }
+        }
+    }
+
+    public function fixture()
+    {
+        $data = array();
+        $data['title'] = 'Admin - Ajouter un match';
+
+        $this->load->model('championship_model');
+        $select = '*';
+        $where = array();
+        $nb = NULL;
+        $debut = NULL;
+        $order = ('name ASC');
+        $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('admin/matches/fixture', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $rules = array(
+                array(
+                    'field' => 'championship',
+                    'label' => $this->lang->line('championship'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('admin/matches/fixture', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->session->set_userdata('championship', $post['championship']);
+                var_dump($this->session);
+                exit;
+                redirect(site_url('admin/matches/fixture'), 'location');
+                exit;
+            }
+        }
+    }
 }

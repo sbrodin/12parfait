@@ -89,6 +89,9 @@ $lang['edit_team'] = 'Editer';
 // Matchs
 $lang['add_match'] = 'Ajouter un match';
 $lang['edit_matches'] = 'Editer les matchs';
+$lang['choose_championship'] = 'Choisir ce championnat';
+$lang['add_fixture'] = 'Ajouter une journée';
+$lang['choose_fixture'] = 'Choisir cette journée';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

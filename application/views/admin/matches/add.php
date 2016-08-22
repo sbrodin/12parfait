@@ -1,5 +1,5 @@
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin') ?></a><br/>
-<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matchen') ?></a><br/>
+<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches') ?></a><br/>
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('admin/matches/add'); ?>
