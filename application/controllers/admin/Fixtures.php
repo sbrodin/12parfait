@@ -93,8 +93,6 @@ class Fixtures extends MY_Controller {
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_creation'));
                 if (!empty($this->session->userdata['championship'])) {
                     $this->session->set_userdata('fixture', $this->db->insert_id());
-                    var_dump($this->db->session);
-                    exit;
                     redirect(site_url('admin/matches/add'), 'location');
                     exit;
                 } else {

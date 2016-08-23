@@ -32,6 +32,25 @@ class Matches extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Ajouter un match';
 
+        // Matchs déjà enregistrés pour la journée
+        $select = 't1.name as team1, t2.name as team2';
+        $where = array(
+            'fixture_id' => $this->session->userdata['fixture'],
+        );
+        $nb = NULL;
+        $debut = NULL;
+        $order = '';
+        $data['matches_fixture'] = $this->db->select($select)
+                                            ->from($this->config->item('match', 'table'))
+                                            ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
+                                            ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
+                                            ->where($where)
+                                            ->limit($nb, $debut)
+                                            ->order_by($order)
+                                            ->get()
+                                            ->result();
+
+        // Equipes pour le choix des confrontations
         $this->load->model('team_model');
         $select = 'team.team_id, team.name AS team_name, championship.name AS championship_name, fixture.fixture_name';
         $where = array(
@@ -96,9 +115,16 @@ class Matches extends MY_Controller {
                 $this->load->view('admin/matches/add', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                var_dump('expression');
-                exit;
-                $this->session->unset_userdata('championship');
+                $date = date_create_from_format('d/m/Y H:i', $post['match_date']);
+                $date_formatted = $date->format('Y-m-d H:i:s');
+                $donnees_echapees = array(
+                    'team1_id' => $post['team1'],
+                    'team2_id' => $post['team2'],
+                    'date' => $date_formatted,
+                    'journee_id' => $this->session->userdata['fixture'],
+                );
+                $this->match_model->create($donnees_echapees);
+                $this->session->set_flashdata('success', $this->lang->line('match_successful_creation'));
                 $this->session->unset_userdata('fixture');
                 redirect(site_url('admin/matches/fixture'), 'location');
                 exit;

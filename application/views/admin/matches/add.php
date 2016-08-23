@@ -2,6 +2,16 @@
 <a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches_admin') ?></a><br/>
 <?php echo validation_errors(); ?>
 
+<?php
+if (!empty($matches_fixture)) {
+    echo '<br/>';
+    foreach ($matches_fixture as $key => $match_fixture) {
+        echo $match_fixture->team1 . ' - ' . $match_fixture->team2 . '<br/>';
+    }
+    echo '<br/>';
+}
+?>
+
 <?php echo form_open('admin/matches/add'); ?>
     <label for="team1"><?php echo $this->lang->line('team1') ?> : </label>
     <select id="team1" name="team1">
