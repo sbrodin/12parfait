@@ -36,6 +36,8 @@ $lang['teams_admin'] = 'Gestion des équipes';
 $lang['back_to_teams_admin'] = 'Retour à la gestion des équipes';
 $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
+$lang['fixtures_admin'] = 'Gestion des journées';
+$lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
@@ -68,6 +70,7 @@ $lang['profile_modified'] = 'Profil modifié avec succès';
 $lang['account_successful_creation'] = 'Compte créé avec succès';
 
 // Championnats
+$lang['championship'] = 'Championnat';
 $lang['add_championship'] = 'Ajouter un championnat';
 $lang['championship_name'] = 'Nom du championnat';
 $lang['sport'] = 'Sport';
@@ -81,17 +84,24 @@ $lang['championship_successful_edition'] = 'Championnat édité avec succès';
 $lang['edit_championship'] = 'Editer';
 
 // Equipes
+$lang['team'] = 'Equipe';
 $lang['add_team'] = 'Ajouter une équipe';
 $lang['team_name'] = 'Nom de l\'équipe';
 $lang['team_successful_creation'] = 'Equipe créée avec succès';
 $lang['edit_team'] = 'Editer';
 
 // Matchs
+$lang['match'] = 'Match';
 $lang['add_match'] = 'Ajouter un match';
 $lang['edit_matches'] = 'Editer les matchs';
 $lang['choose_championship'] = 'Choisir ce championnat';
+
+// Journée
+$lang['fixture'] = 'Match';
 $lang['add_fixture'] = 'Ajouter une journée';
+$lang['edit_fixture'] = 'Editer la journée';
 $lang['choose_fixture'] = 'Choisir cette journée';
+$lang['fixture_name'] = 'Nom de la journée';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

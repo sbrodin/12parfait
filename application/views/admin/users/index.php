@@ -1,8 +1,3 @@
-<?php
-foreach ($users as $user) {
-    // var_dump($user);
-}
-?>
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin');?></a><br/>
 <table>
     <tr>

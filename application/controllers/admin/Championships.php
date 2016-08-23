@@ -89,7 +89,8 @@ class Championships extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('admin/championships/add');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('admin/championships/add', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
@@ -170,6 +171,7 @@ class Championships extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
+                $this->load->view('templates/nav', $data);
                 $this->load->view('admin/championships/edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {

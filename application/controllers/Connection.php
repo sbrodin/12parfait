@@ -7,9 +7,9 @@ class Connection extends CI_Controller {
 
     // Gestion des acl
     public $admin_acl = array(
-        //acl général pour admin
+        // acl général pour admin
         'admin_all',
-        //acl pour user
+        // acl pour user
         'add_user',
         'view_users',
         'view_user',
@@ -18,36 +18,39 @@ class Connection extends CI_Controller {
         'deactivate_user',
         'promote_user',
         'demote_user',
-        //acl pour bet
+        // acl pour bet
         'add_bet',
         'view_bets',
         'view_bet',
         'edit_bet',
         'delete_bet',
-        //acl pour league
+        // acl pour league
         'add_league',
         'view_leagues',
         'view_league',
         'edit_league',
         'delete_league',
-        //acl pour championship
+        // acl pour championship
         'add_championship',
         'view_championships',
         'view_championship',
         'edit_championship',
         'delete_championship',
-        //acl pour team
+        // acl pour team
         'add_team',
         'view_teams',
         'view_team',
         'edit_team',
         'delete_team',
-        //acl pour match
+        // acl pour match
         'add_match',
         'view_matchs',
         'view_match',
         'edit_match',
-        'delete_match'
+        'delete_match',
+        // acl pour journée
+        'add_fixture',
+        'edit_fixture',
     );
     public $moderator_acl = array(
         'autocomplete_tag',
@@ -82,7 +85,8 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('login');
+            $this->load->view('templates/nav', $data);
+            $this->load->view('login', $data);
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->helper('strings');
@@ -109,7 +113,8 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('login');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('login', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $this->login($to_profile);
@@ -127,7 +132,8 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('create_account');
+            $this->load->view('templates/nav', $data);
+            $this->load->view('create_account', $data);
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->helper('strings');
@@ -168,7 +174,8 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('create_account');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('create_account', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
@@ -245,7 +252,8 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('forgotten_password');
+            $this->load->view('templates/nav', $data);
+            $this->load->view('forgotten_password', $data);
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->helper('user');
@@ -267,7 +275,8 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('forgotten_password');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('forgotten_password', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $where = array('email' => $post['email']);
@@ -279,9 +288,8 @@ class Connection extends CI_Controller {
                 $this->user_model->update($where, $donnees_echapees);
 
                 $subject = '12 Parfait - Mot de passe oublié';
-                $body = "Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous:\n";
-                $body.= site_url('reset_password/'.$hash);
-                send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
+                $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="'.site_url('reset_password/'.$hash).'">ce lien</a>';
+                send_email_interception($post['email'], $subject, $body);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
                 redirect(site_url('connection'), 'location');
@@ -312,7 +320,8 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('reset_password');
+            $this->load->view('templates/nav', $data);
+            $this->load->view('reset_password', $data);
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->helper('strings');
@@ -342,7 +351,8 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('reset_password');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('reset_password', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $where = array(

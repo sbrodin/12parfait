@@ -25,6 +25,7 @@ class Profile extends MY_Controller {
         $data['user']->add_date_formatted = $add_date->format('d/m/Y');
 
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav', $data);
         $this->load->view('profile', $data);
         $this->load->view('templates/footer', $data);
     }
@@ -40,6 +41,7 @@ class Profile extends MY_Controller {
         $data['user'] = $this->session->userdata('user');
         if (empty($post)) {
             $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
             $this->load->view('profile_edit', $data);
             $this->load->view('templates/footer', $data);
         } else {
@@ -60,6 +62,7 @@ class Profile extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
+                $this->load->view('templates/nav', $data);
                 $this->load->view('profile_edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {

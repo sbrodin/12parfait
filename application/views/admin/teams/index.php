@@ -1,8 +1,3 @@
-<?php
-foreach ($teams as $team) {
-    // var_dump($team);
-}
-?>
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin');?></a><br/>
 <a href="<?php echo site_url('admin/teams/add') ?>"><?php echo $this->lang->line('add_team');?></a><br/>
 <?php

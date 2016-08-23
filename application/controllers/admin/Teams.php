@@ -57,7 +57,8 @@ class Teams extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('admin/teams/add');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('admin/teams/add', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
@@ -120,7 +121,8 @@ class Teams extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('admin/teams/edit');
+                $this->load->view('templates/nav', $data);
+                $this->load->view('admin/teams/edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $where = array('team_id' => $team_id);

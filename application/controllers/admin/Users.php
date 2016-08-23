@@ -102,8 +102,9 @@ class Users extends MY_Controller {
         }
 
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav', $data);
         $this->load->view('admin/users/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
 
     /**

@@ -1,5 +1,5 @@
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin') ?></a><br/>
-<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches') ?></a><br/>
+<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches_admin') ?></a><br/>
 <a href="<?php echo site_url('admin/fixtures/add') ?>"><?php echo $this->lang->line('add_fixture');?></a><br/>
 <?php echo validation_errors(); ?>
 
@@ -8,7 +8,7 @@
         <?php
         foreach ($fixtures as $key => $fixture) :
         ?>
-            <option value="<?php echo $fixture->fixture_id ?>" ><?php echo $fixture->name ?></option>
+            <option value="<?php echo $fixture->fixture_id ?>" ><?php echo $fixture->complete_name ?></option>
         <?php
         endforeach;
         ?>
