@@ -19,7 +19,7 @@ class Fixtures extends MY_Controller {
         $where = array();
         $nb = NULL;
         $debut = NULL;
-        $order = ('championship_name ASC, cast(fixture_name AS UNSIGNED) ASC');
+        $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
@@ -50,7 +50,7 @@ class Fixtures extends MY_Controller {
         $where = array();
         $nb = NULL;
         $debut = NULL;
-        $order = ('name ASC');
+        $order = 'name ASC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
         $post = $this->input->post();
@@ -92,8 +92,7 @@ class Fixtures extends MY_Controller {
                 $this->fixture_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_creation'));
                 if (!empty($this->session->userdata['championship'])) {
-                    $this->session->unset_userdata('championship');
-                    $this->session->set_userdata('fixture', $this->insert_id());
+                    $this->session->set_userdata('fixture', $this->db->insert_id());
                     var_dump($this->db->session);
                     exit;
                     redirect(site_url('admin/matches/add'), 'location');

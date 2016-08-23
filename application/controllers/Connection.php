@@ -185,6 +185,14 @@ class Connection extends CI_Controller {
                     'password' => password_hash($post['password'], PASSWORD_BCRYPT),
                     'add_date' => date('Y-m-d H:i:s'),
                 );
+
+                // Envoi d'email pour info
+                $this->load->helper('email');
+                $subject = '12 Parfait - Création de compte';
+                $body = 'Un nouveau compte a été créé.<br/>';
+                $body.= 'Email : ' . $post['email'];
+                send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
+
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
                 $to_profile = TRUE;
@@ -288,7 +296,7 @@ class Connection extends CI_Controller {
                 $this->user_model->update($where, $donnees_echapees);
 
                 $subject = '12 Parfait - Mot de passe oublié';
-                $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="'.site_url('reset_password/'.$hash).'">ce lien</a>';
+                $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="' . site_url('reset_password/' . $hash) . '">ce lien</a>';
                 send_email_interception($post['email'], $subject, $body);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));

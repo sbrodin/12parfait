@@ -9,6 +9,7 @@
         <meta name="author" content="SitePoint">
 
         <link href="<?php echo css_url('multi-select') ?>" media="screen" rel="stylesheet" type="text/css">
+        <link href="<?php echo css_url('jquery.datetimepicker.min') ?>" media="screen" rel="stylesheet" type="text/css">
         <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 
         <!--[if lt IE 9]>

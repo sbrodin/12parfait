@@ -8,13 +8,9 @@
     <?php else : ?>
     <label for="championship"><?php echo $this->lang->line('championship') ?> : </label>
     <select id="championship" name="championship" required="required">
-        <?php
-        foreach ($championships as $key => $championship) :
-        ?>
-            <option value="<?php echo $championship->championship_id ?>" ><?php echo $championship->name ?></option>
-        <?php
-        endforeach;
-        ?>
+        <?php foreach ($championships as $key => $championship) : ?>
+        <option value="<?php echo $championship->championship_id ?>" ><?php echo $championship->name ?></option>
+        <?php endforeach; ?>
     </select><br/>
     <?php endif; ?>
     <label for="fixture_name"><?php echo $this->lang->line('fixture_name') ?> : </label><input type="text" id="fixture_name" name="fixture_name" value="<?php echo set_value('fixture_name') ?>" required="required">

@@ -51,6 +51,7 @@ $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
 $lang['required_field'] = 'Le champ "%s" est requis.';
 $lang['already_in_db_field'] = 'Le champ "%s" existe déjà.';
 $lang['must_match_field'] = 'Le champ "%s" doit correspondre au champ "%s".';
+$lang['must_differ_field'] = 'Le champ "%s" doit être différent du champ "%s".';
 $lang['valid_email'] = 'Le champ "%s" n\'est pas un email valide.';
 $lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères.';
 $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins une majuscule.';
@@ -95,6 +96,9 @@ $lang['match'] = 'Match';
 $lang['add_match'] = 'Ajouter un match';
 $lang['edit_matches'] = 'Editer les matchs';
 $lang['choose_championship'] = 'Choisir ce championnat';
+$lang['team1'] = 'Equipe 1';
+$lang['team2'] = 'Equipe 2';
+$lang['match_date'] = 'Date';
 
 // Journée
 $lang['fixture'] = 'Match';

@@ -17,7 +17,7 @@ class Teams extends MY_Controller {
         $where = array();
         $nb = NULL;
         $debut = NULL;
-        $order = ('name ASC');
+        $order = 'name ASC';
         $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);

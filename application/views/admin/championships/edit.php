@@ -19,13 +19,9 @@
     </select>
     <label for="year"><?php echo $this->lang->line('year') ?> : </label><input type="number" id="year" name="year" value="<?php echo $championship->year ?>" required="required" min="2015"><br/>
     <select id="teams" name="teams[]" multiple>
-        <?php
-        foreach ($teams as $key => $team) :
-        ?>
-            <option value="<?php echo $team->team_id ?>" <?php echo (array_search($team->team_id, $championship_teams)) ? 'selected' : '' ?> ><?php echo $team->name ?></option>
-        <?php
-        endforeach;
-        ?>
+        <?php foreach ($teams as $key => $team) : ?>
+        <option value="<?php echo $team->team_id ?>" <?php echo (array_search($team->team_id, $championship_teams)) ? 'selected' : '' ?> ><?php echo $team->name ?></option>
+        <?php endforeach; ?>
     </select><br/>
     <input type="submit" value="<?php echo $this->lang->line('confirm') ?>">
 </form>
