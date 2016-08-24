@@ -106,6 +106,7 @@ $lang['add_fixture'] = 'Ajouter une journée';
 $lang['edit_fixture'] = 'Editer la journée';
 $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
+$lang['complete_fixture'] = 'Journée complète';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

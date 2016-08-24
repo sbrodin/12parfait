@@ -33,7 +33,7 @@ class Matches extends MY_Controller {
         $data['title'] = 'Admin - Ajouter un match';
 
         // Matchs déjà enregistrés pour la journée
-        $select = 't1.name as team1, t2.name as team2';
+        $select = 't1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
         $where = array(
             'fixture_id' => $this->session->userdata['fixture'],
         );
@@ -49,6 +49,14 @@ class Matches extends MY_Controller {
                                             ->order_by($order)
                                             ->get()
                                             ->result();
+        // On supprime les équipes déjà utilisées pour cette journée
+        $already_set_teams = array();
+        if(!empty($data['matches_fixture'])) {
+            foreach ($data['matches_fixture'] as $key => $match_fixture) {
+                $already_set_teams[] = $match_fixture->t1_id;
+                $already_set_teams[] = $match_fixture->t2_id;
+            }
+        }
 
         // Equipes pour le choix des confrontations
         $this->load->model('team_model');
@@ -56,6 +64,9 @@ class Matches extends MY_Controller {
         $where = array(
             'championship_team.championship_id' => $this->session->userdata['championship'],
             'fixture.fixture_id' => $this->session->userdata['fixture'],
+        );
+        $where_not_in = array(
+            'team.team_id', $already_set_teams,
         );
         $nb = NULL;
         $debut = NULL;
@@ -65,14 +76,21 @@ class Matches extends MY_Controller {
                                   ->join('championship_team', 'championship_team.team_id = team.team_id', 'left')
                                   ->join('championship', 'championship_team.championship_id = championship.championship_id', 'left')
                                   ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
-                                  ->where($where)
-                                  ->limit($nb, $debut)
-                                  ->order_by($order)
-                                  ->get()
-                                  ->result();
+                                  ->where($where);
+        if (!empty($already_set_teams)) {
+            $data['teams'] = $data['teams']->where_not_in('team.team_id', $already_set_teams);
+        }
+        $data['teams'] = $data['teams']->limit($nb, $debut)
+                                       ->order_by($order)
+                                       ->get()
+                                       ->result();
 
-        $data['championship_name'] = $data['teams'][0]->championship_name;
-        $data['fixture_name'] = $data['teams'][0]->fixture_name;
+        if (!empty($data['teams'])) {
+            $data['championship_name'] = $data['teams'][0]->championship_name;
+            $data['fixture_name'] = $data['teams'][0]->fixture_name;
+        } else {
+            $data['info'] = $this->lang->line('complete_fixture');
+        }
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -121,7 +139,7 @@ class Matches extends MY_Controller {
                     'team1_id' => $post['team1'],
                     'team2_id' => $post['team2'],
                     'date' => $date_formatted,
-                    'journee_id' => $this->session->userdata['fixture'],
+                    'fixture_id' => $this->session->userdata['fixture'],
                 );
                 $this->match_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('match_successful_creation'));
