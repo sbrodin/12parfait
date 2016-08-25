@@ -10,6 +10,11 @@ class Matches extends MY_Controller {
 
     public function index()
     {
+        if (!user_can('view_championships')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Matchs';
 
@@ -29,17 +34,22 @@ class Matches extends MY_Controller {
 
     public function add()
     {
+        if (!user_can('add_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Ajouter un match';
 
         // Matchs déjà enregistrés pour la journée
-        $select = 't1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
+        $select = 't1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2, date';
         $where = array(
             'fixture_id' => $this->session->userdata['fixture'],
         );
         $nb = NULL;
         $debut = NULL;
-        $order = '';
+        $order = 'date ASC';
         $data['matches_fixture'] = $this->db->select($select)
                                             ->from($this->config->item('match', 'table'))
                                             ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
@@ -143,8 +153,7 @@ class Matches extends MY_Controller {
                 );
                 $this->match_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('match_successful_creation'));
-                $this->session->unset_userdata('fixture');
-                redirect(site_url('admin/matches/fixture'), 'location');
+                redirect(site_url('admin/matches/add'), 'location');
                 exit;
             }
         }
@@ -152,6 +161,11 @@ class Matches extends MY_Controller {
 
     public function championship()
     {
+        if (!user_can('add_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Ajouter un match';
 
@@ -196,6 +210,11 @@ class Matches extends MY_Controller {
 
     public function fixture()
     {
+        if (!user_can('add_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Ajouter un match';
 
@@ -214,7 +233,11 @@ class Matches extends MY_Controller {
                                      ->get()
                                      ->result();
 
-        $data['championship'] = $data['fixtures'][0]->championship_name;
+        if (!empty($data['fixtures'])) {
+            $data['championship'] = $data['fixtures'][0]->championship_name;
+        } else {
+            $data['info'] = $this->lang->line('no_fixture_for_championship');
+        }
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -244,5 +267,57 @@ class Matches extends MY_Controller {
                 exit;
             }
         }
+    }
+
+    public function edit($championship_id = 0)
+    {
+        if (!user_can('edit_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        if ($championship_id === 0) {
+            redirect(site_url('admin/matches'), 'location');
+            exit;
+        }
+
+        $data = array();
+        $data['title'] = 'Admin - Editer un match';
+
+        // Matchs enregistrés pour le championnat
+        $select = 'championship_id, championship.name AS championship_name, fixture_name, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
+        $where = array(
+            'championship_id' => $championship_id,
+        );
+        $nb = NULL;
+        $debut = NULL;
+        $order = 'date ASC';
+        $data['matches_fixtures'] = $this->db->select($select)
+                                            ->from($this->config->item('championship', 'table'))
+                                            ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                            ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
+                                            ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
+                                            ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
+                                            ->where($where)
+                                            ->limit($nb, $debut)
+                                            ->order_by($order)
+                                            ->get()
+                                            ->result();
+        // var_dump($data['matches_fixtures'][0]);
+        // var_dump($data['matches_fixtures'][1]);
+        // var_dump($data['matches_fixtures'][2]);
+
+        if (!empty($data['matches_fixtures'])) {
+            $data['championship_name'] = $data['matches_fixtures'][0]->championship_name;
+        } else {
+            $data['info'] = $this->lang->line('no_fixture_for_championship');
+        }
+
+        $this->session->set_userdata('championship', $championship_id);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav', $data);
+        $this->load->view('admin/matches/edit', $data);
+        $this->load->view('templates/footer', $data);
     }
 }

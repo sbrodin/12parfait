@@ -10,6 +10,11 @@ class Fixtures extends MY_Controller {
 
     public function index()
     {
+        if (!user_can('view_fixtures')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Journées';
 
@@ -96,7 +101,8 @@ class Fixtures extends MY_Controller {
                     redirect(site_url('admin/matches/add'), 'location');
                     exit;
                 } else {
-                    redirect(site_url('admin/fixtures'), 'location');
+                    $this->session->set_userdata('championship', $post['championship']);
+                    redirect(site_url('admin/fixtures/add'), 'location');
                     exit;
                 }
             }

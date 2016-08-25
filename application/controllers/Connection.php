@@ -49,6 +49,7 @@ class Connection extends CI_Controller {
         'edit_match',
         'delete_match',
         // acl pour journée
+        'view_fixtures',
         'add_fixture',
         'edit_fixture',
     );

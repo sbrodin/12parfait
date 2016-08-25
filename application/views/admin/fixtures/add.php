@@ -9,7 +9,8 @@
     <label for="championship"><?php echo $this->lang->line('championship') ?> : </label>
     <select id="championship" name="championship" required="required">
         <?php foreach ($championships as $key => $championship) : ?>
-        <option value="<?php echo $championship->championship_id ?>" ><?php echo $championship->name ?></option>
+        <option value="<?php echo $championship->championship_id ?>" 
+            selected="<?php echo (!empty($this->session->userdata['championship']) && $this->session->userdata['championship']==$championship->championship_id) ? 'selected' : '' ?>" ><?php echo $championship->name ?></option>
         <?php endforeach; ?>
     </select><br/>
     <?php endif; ?>

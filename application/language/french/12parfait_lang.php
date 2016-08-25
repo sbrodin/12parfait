@@ -39,13 +39,25 @@ $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 $lang['fixtures_admin'] = 'Gestion des journées';
 $lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
 
+// Messages de succès
+$lang['profile_modified'] = 'Profil modifié avec succès !';
+$lang['account_successful_creation'] = 'Compte créé avec succès !';
+$lang['championship_successful_creation'] = 'Championnat créé avec succès !';
+$lang['championship_successful_edition'] = 'Championnat édité avec succès !';
+$lang['team_successful_creation'] = 'Equipe créée avec succès !';
+$lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
+$lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
+
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
+$lang['complete_fixture'] = 'Journée complète.';
+$lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe';
 $lang['deactivated_account'] = 'Votre compte a été désactivé';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent';
+$lang['not_in_database_email'] = 'Aucun email ne correspond en base.';
 
 // Messages de contrôle des formulaires
 $lang['required_field'] = 'Le champ "%s" est requis.';
@@ -57,7 +69,6 @@ $lang['min_length_field'] = 'Le champ "%s" doit contenir au moins %s caractères
 $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins une majuscule.';
 $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
-$lang['not_in_database_email'] = 'Aucun email ne correspond en base.';
 $lang['must_be_year_field'] = 'Le champ "%s" doit être une année supérieure ou égale à 2016.';
 
 // Profil
@@ -67,8 +78,6 @@ $lang['forgotten_password'] = 'Mot de passe oublié ?';
 $lang['reset_password'] = 'Réinitialiser le mot de passe';
 $lang['profile_edit'] = 'Editer le profil';
 $lang['my_profile_edit'] = 'Editer mon profil';
-$lang['profile_modified'] = 'Profil modifié avec succès';
-$lang['account_successful_creation'] = 'Compte créé avec succès';
 
 // Championnats
 $lang['championship'] = 'Championnat';
@@ -80,15 +89,12 @@ $lang['country'] = 'Pays';
 $lang['france'] = 'France';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
-$lang['championship_successful_creation'] = 'Championnat créé avec succès';
-$lang['championship_successful_edition'] = 'Championnat édité avec succès';
 $lang['edit_championship'] = 'Editer';
 
 // Equipes
 $lang['team'] = 'Equipe';
 $lang['add_team'] = 'Ajouter une équipe';
 $lang['team_name'] = 'Nom de l\'équipe';
-$lang['team_successful_creation'] = 'Equipe créée avec succès';
 $lang['edit_team'] = 'Editer';
 
 // Matchs
@@ -101,12 +107,11 @@ $lang['team2'] = 'Equipe 2';
 $lang['match_date'] = 'Date';
 
 // Journée
-$lang['fixture'] = 'Match';
+$lang['fixture'] = 'Journée';
 $lang['add_fixture'] = 'Ajouter une journée';
 $lang['edit_fixture'] = 'Editer la journée';
 $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
-$lang['complete_fixture'] = 'Journée complète';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';
@@ -125,8 +130,6 @@ $lang['no_password_message'] = 'Si aucun mot de passe n\'est entré, le nom d\'u
 $lang['never_connected'] = 'Ne s\'est jamais connecté';
 $lang['incorrect_email'] = "Le champ %s ne correspond pas à une adresse email valide";
 $lang['edit_user'] = 'Mettre à jour';
-$lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
-$lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
 $lang['activate_user'] = 'Activer';
 $lang['deactivate_user'] = 'Désactiver';
 $lang['promote_user'] = 'Promouvoir';

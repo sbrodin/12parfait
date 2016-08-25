@@ -12,9 +12,21 @@ if ($this->session->flashdata('success')) {
         <th><?php echo $this->lang->line('fixture_name') ?></th>
         <th></th>
     </tr>
-    <?php foreach ($fixtures as $num => $fixture) : ?>
+    <?php
+    $championship_name = '';
+    foreach ($fixtures as $num => $fixture) :
+
+    ?>
     <tr>
-        <td><?php echo $fixture->championship_name ?></td>
+        <td>
+        <?php
+        // Lisibilité pour ne pas répéter le nom du championnat sur chaque ligne
+        if ($championship_name!==$fixture->championship_name) {
+            echo $fixture->championship_name;
+            $championship_name = $fixture->championship_name;
+        }
+        ?>
+        </td>
         <td><?php echo $fixture->fixture_name ?></td>
         <td>
             <a href="<?php echo site_url('admin/fixtures/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture') ?></a>
