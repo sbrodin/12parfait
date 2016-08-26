@@ -14,6 +14,7 @@
         <?php endforeach; ?>
     </select><br/>
     <?php endif; ?>
-    <label for="fixture_name"><?php echo $this->lang->line('fixture_name') ?> : </label><input type="text" id="fixture_name" name="fixture_name" value="<?php echo set_value('fixture_name') ?>" required="required">
+    <label for="fixture_name"><?php echo $this->lang->line('fixture_name') ?> : </label>
+    <input type="text" id="fixture_name" name="fixture_name" value="<?php echo set_value('fixture_name') ?>" required="required">
     <input type="submit" value="<?php echo $this->lang->line('add') ?>">
 </form>

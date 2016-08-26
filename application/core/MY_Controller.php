@@ -8,18 +8,18 @@
   */
 class MY_Controller extends CI_Controller {
 
-	public function __construct() {
-		parent::__construct();
+    public function __construct() {
+        parent::__construct();
 
-		// Authentification de l'utilisateur
-		if (!is_connected()) {
-			// Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
-			redirect(site_url(), 'location');
-		}
+        // Authentification de l'utilisateur
+        if (!is_connected()) {
+            // Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
+            redirect(site_url(), 'location');
+        }
 
-		// on n'active le profiler qu'en dev
-		// if (ENVIRONMENT === 'development') {
-		// 	$this->output->enable_profiler(true);
-		// }
-	}
+        // on n'active le profiler qu'en dev
+        // if (ENVIRONMENT === 'development') {
+        //     $this->output->enable_profiler(true);
+        // }
+    }
 }

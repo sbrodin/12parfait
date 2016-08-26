@@ -285,7 +285,7 @@ class Matches extends MY_Controller {
         $data['title'] = 'Admin - Editer un match';
 
         // Matchs enregistrés pour le championnat
-        $select = 'championship_id, championship.name AS championship_name, fixture_name, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
+        $select = 'championship_id, championship.name AS championship_name, fixture_name, fixture.fixture_id, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
         $where = array(
             'championship_id' => $championship_id,
         );
