@@ -47,10 +47,13 @@ $lang['championship_successful_edition'] = 'Championnat édité avec succès !';
 $lang['team_successful_creation'] = 'Equipe créée avec succès !';
 $lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
 $lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
+$lang['fixture_successful_creation'] = 'Journée créée avec succès !';
+$lang['fixture_successful_edition'] = 'Journée éditée avec succès !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
 $lang['complete_fixture'] = 'Journée complète.';
+$lang['no_match_in_fixture'] = 'Aucun match pour cette journée.';
 $lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
 
 // Messages d'erreur

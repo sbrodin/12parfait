@@ -145,6 +145,7 @@ class Fixtures extends MY_Controller {
                                             ->order_by($order)
                                             ->get()
                                             ->result();
+        echo($this->db->last_query());
         if (!empty($data['fixture_matches'])) {
             $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
             $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
@@ -157,7 +158,7 @@ class Fixtures extends MY_Controller {
             }
             asort($data['teams']);
         } else {
-            $data['info'] = $this->lang->line('complete_fixture');
+            $data['info'] = $this->lang->line('no_match_in_fixture');
         }
 
         $post = $this->input->post();
@@ -171,51 +172,44 @@ class Fixtures extends MY_Controller {
             if ($post !== array_unique($post)) {
                 $data['error_duplicate'] = $this->lang->line('duplicate_teams');
             }
-            // $team = 1;
-            // $current_team_id = 0;
-            // foreach ($post as $key => $team_id) {
-            //     echo $team_id;
-            //     // Si on est sur le même match
-            //     if ($team === 1) {
-            //         $current_team_id = $team_id;
-            //         echo ' - ';
-            //         ++$team;
-            //     } else {
-            //         if ($current_team_id == $team_id) {
-            //             $data['error_same_team'] = $this->lang->line('error_same_team');
-            //         }
-            //         echo '<br/>';
-            //         $team = 1;
-            //     }
-            // }
             if (isset($data['error_msg'])) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav', $data);
                 $this->load->view('admin/fixtures/edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                foreach ($post as $key => $team_id) {
-                    echo $team_id;
-                    // Si on est sur le même match
-                    if ($team === 1) {
-                        $current_team_id = $team_id;
-                        echo ' - ';
-                        ++$team;
+                // Update des matchs de la journée
+                // Suppression des matchs déjà présentes
+                $this->load->model('match_model');
+                $where = array('fixture_id' => $fixture_id);
+                $this->match_model->delete($where);
+                // Ajout des matchs
+                $matches = array();
+                $element = 0;
+                foreach ($post as $key => $post_element) {
+                    if ($element === 0) {
+                        // Si on est sur la date
+                        $date = date_create_from_format('d/m/Y H:i', $post_element);
+                        $date_formatted = $date->format('Y-m-d H:i');
+                        ++$element;
+                    } elseif ($element === 1) {
+                        // Si on est sur le même match
+                        $team1_id = $post_element;
+                        ++$element;
                     } else {
-                        if ($current_team_id == $team_id) {
-                            $data['error_same_team'] = $this->lang->line('error_same_team');
-                        }
-                        echo '<br/>';
-                        $team = 1;
+                        $team2_id = $post_element;
+                        $matches[] = array(
+                            'team1_id' => $team1_id,
+                            'team2_id' => $team2_id,
+                            'date' => $date_formatted,
+                            'fixture_id' => $fixture_id,
+                        );
+                        $element = 0;
                     }
                 }
-                exit;
-                $where = array('fixture_id' => $fixture_id);
-                $donnees_echapees = array(
-                    'name' => $post['fixture_name'],
-                );
-                $this->fixture_model->update($where, $donnees_echapees);
-                $this->session->set_flashdata('success', $this->lang->line('fixture_successful_creation'));
+                $this->db->insert_batch('match', $matches);
+
+                $this->session->set_flashdata('success', $this->lang->line('fixture_successful_edition'));
                 redirect(site_url('admin/fixtures'), 'location');
                 exit;
             }
