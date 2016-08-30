@@ -20,14 +20,15 @@
             $match_id = $fixture_match->match_id;
             $team1_id = $fixture_match->t1_id;
             $team2_id = $fixture_match->t2_id;
+            $team1_score = $fixture_match->team1_score;
+            $team2_score = $fixture_match->team2_score;
             if ($fixture_match->date!==$date) {
                 $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                 $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
                 echo '<br/>' . $date_formatted . '<br/>';
                 $date = $fixture_match->date;
             }
-            // echo '<input type="hidden" name="date_' . $match_id . '" id="date_' . $match_id . '" required="required" value="' . $fixture_match->date . '" >';
-            echo $fixture_match->team1 . ' <input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '"> - <input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '">' . $fixture_match->team2 . '<br/>';
+            echo $fixture_match->team1 . ' <input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '"> - <input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '">' . $fixture_match->team2 . '<br/>';
         }
         echo '<br/>';
         ?>
