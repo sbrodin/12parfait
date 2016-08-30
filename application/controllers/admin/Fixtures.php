@@ -300,11 +300,11 @@ class Fixtures extends MY_Controller {
                     // Si on est sur le même match
                     $match_id = explode('_', $key)[1];
                     $team1_id = explode('_', $key)[2];
-                    $team1_score = $post_element;
+                    $team1_score = ($post_element == '') ? NULL : $post_element;
                     ++$element;
                 } else {
                     $team2_id = explode('_', $key)[2];
-                    $team2_score = $post_element;
+                    $team2_score = ($post_element == '') ? NULL : $post_element;
                     $results[$match_id] = array(
                         'team1_id' => $team1_id,
                         'team2_id' => $team2_id,
