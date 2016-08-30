@@ -34,7 +34,7 @@ class Matches extends MY_Controller {
 
     public function add()
     {
-        if (!user_can('add_championship')) {
+        if (!user_can('add_match')) {
             redirect(site_url(), 'location');
             exit;
         }
@@ -161,7 +161,7 @@ class Matches extends MY_Controller {
 
     public function championship()
     {
-        if (!user_can('add_championship')) {
+        if (!user_can('add_match')) {
             redirect(site_url(), 'location');
             exit;
         }
@@ -210,7 +210,7 @@ class Matches extends MY_Controller {
 
     public function fixture()
     {
-        if (!user_can('add_championship')) {
+        if (!user_can('add_match')) {
             redirect(site_url(), 'location');
             exit;
         }

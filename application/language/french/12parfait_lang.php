@@ -23,7 +23,7 @@ $lang['edit'] = 'Editer';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
-$lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with CodeIgniter';
+$lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
 
 // Menu admin
 $lang['site_admin'] = 'Gestion du site';
@@ -49,11 +49,12 @@ $lang['success_user_add'] = 'Utilisateur ajouté avec succès !';
 $lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
 $lang['fixture_successful_creation'] = 'Journée créée avec succès !';
 $lang['fixture_successful_edition'] = 'Journée éditée avec succès !';
+$lang['fixture_matches_successful_edition'] = 'Résultats de la journée édités avec succès !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
 $lang['complete_fixture'] = 'Journée complète.';
-$lang['no_match_in_fixture'] = 'Aucun match pour cette journée.';
+$lang['no_match_for_fixture'] = 'Aucun match défini pour cette journée.';
 $lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
 
 // Messages d'erreur
@@ -115,6 +116,7 @@ $lang['match_date'] = 'Date';
 $lang['fixture'] = 'Journée';
 $lang['add_fixture'] = 'Ajouter une journée';
 $lang['edit_fixture'] = 'Editer la journée';
+$lang['edit_fixture_results'] = 'Editer les résultats de la journée';
 $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
 

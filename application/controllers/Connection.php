@@ -52,6 +52,7 @@ class Connection extends CI_Controller {
         'view_fixtures',
         'add_fixture',
         'edit_fixture',
+        'edit_fixture_results',
     );
     public $moderator_acl = array(
         'autocomplete_tag',

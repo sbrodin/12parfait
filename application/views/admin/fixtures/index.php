@@ -11,6 +11,7 @@ if ($this->session->flashdata('success')) {
         <th><?php echo $this->lang->line('championship_name') ?></th>
         <th><?php echo $this->lang->line('fixture_name') ?></th>
         <th></th>
+        <th></th>
     </tr>
     <?php
     $championship_name = '';
@@ -30,6 +31,9 @@ if ($this->session->flashdata('success')) {
         <td><?php echo $fixture->fixture_name ?></td>
         <td>
             <a href="<?php echo site_url('admin/fixtures/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture') ?></a>
+        </td>
+        <td>
+            <a href="<?php echo site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture_results') ?></a>
         </td>
     </tr>
     <?php endforeach; ?>

@@ -127,7 +127,13 @@ class Fixtures extends MY_Controller {
         $data['fixture_id'] = $fixture_id;
 
         // Liste des matchs de la journée
-        $select = 'championship.name AS championship_name, fixture_name, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2, date';
+        $select = 'championship.name AS championship_name,
+                   fixture_name,
+                   t1.team_id AS t1_id,
+                   t2.team_id AS t2_id,
+                   t1.name AS team1,
+                   t2.name AS team2,
+                   date';
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
@@ -145,7 +151,7 @@ class Fixtures extends MY_Controller {
                                             ->order_by($order)
                                             ->get()
                                             ->result();
-        echo($this->db->last_query());
+
         if (!empty($data['fixture_matches'])) {
             $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
             $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
@@ -158,7 +164,7 @@ class Fixtures extends MY_Controller {
             }
             asort($data['teams']);
         } else {
-            $data['info'] = $this->lang->line('no_match_in_fixture');
+            $data['info'] = $this->lang->line('no_match_for_fixture');
         }
 
         $post = $this->input->post();
@@ -213,6 +219,110 @@ class Fixtures extends MY_Controller {
                 redirect(site_url('admin/fixtures'), 'location');
                 exit;
             }
+        }
+    }
+
+    public function results($fixture_id = 0)
+    {
+        if (!user_can('edit_fixture_results')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        if ($fixture_id === 0) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $data = array();
+        $data['title'] = 'Admin - Editer une journée';
+
+        $data['fixture_id'] = $fixture_id;
+
+        // Liste des matchs de la journée
+        $select = 'championship.name AS championship_name,
+                   fixture_name,
+                   t1.team_id AS t1_id,
+                   t2.team_id AS t2_id,
+                   t1.name AS team1,
+                   t2.name AS team2,
+                   match.date,
+                   match.match_id,
+                   match.team1_score,
+                   match.team2_score';
+        $where = array(
+            'fixture.fixture_id' => $fixture_id,
+        );
+        $nb = NULL;
+        $debut = NULL;
+        $order = 'date ASC, match.match_id';
+        $data['fixture_matches'] = $this->db->select($select)
+                                            ->from($this->config->item('fixture', 'table'))
+                                            ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
+                                            ->join('championship', 'fixture.fixture_championship_id = championship.championship_id', 'left')
+                                            ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
+                                            ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
+                                            ->where($where)
+                                            ->limit($nb, $debut)
+                                            ->order_by($order)
+                                            ->get()
+                                            ->result();
+
+        if (!empty($data['fixture_matches'])) {
+            $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
+            $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
+
+            // Liste des équipes
+            $data['teams'] = array();
+            foreach ($data['fixture_matches'] as $key => $fixture_match) {
+                $data['teams'][$fixture_match->t1_id] = $fixture_match->team1;
+                $data['teams'][$fixture_match->t2_id] = $fixture_match->team2;
+            }
+            asort($data['teams']);
+        } else {
+            $data['info'] = $this->lang->line('no_match_in_fixture');
+        }
+
+        $post = $this->input->post();
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('admin/fixtures/results', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->load->model('match_model');
+            var_dump($post);
+            // Update des résultats des matchs de la journée
+            $results = array();
+            $element = 0;
+            foreach ($post as $key => $post_element) {
+                if ($element === 0) {
+                    // Si on est sur le même match
+                    $match_id = explode('_', $key)[1];
+                    $team1_id = explode('_', $key)[2];
+                    $team1_score = $post_element;
+                    ++$element;
+                } else {
+                    $team2_id = explode('_', $key)[2];
+                    $team2_score = $post_element;
+                    $results[$match_id] = array(
+                        'team1_id' => $team1_id,
+                        'team2_id' => $team2_id,
+                        'team1_score' => $team1_score,
+                        'team2_score' => $team2_score,
+                    );
+                    $element = 0;
+                }
+            }
+            foreach ($results as $match_id => $result) {
+                $where = array('match_id' => $match_id);
+                $donnees_echapees = $result;
+                $this->match_model->update($where, $donnees_echapees);
+            }
+
+            $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
+            redirect(site_url('admin/fixtures'), 'location');
+            exit;
         }
     }
 }
