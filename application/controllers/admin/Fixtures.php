@@ -290,6 +290,11 @@ class Fixtures extends MY_Controller {
             $this->load->view('admin/fixtures/results', $data);
             $this->load->view('templates/footer', $data);
         } else {
+            // Cas du clic sur "Retour"
+            if ($post['submit'] == $this->lang->line('back')) {
+                redirect(site_url('admin/fixtures'), 'location');
+                exit;
+            }
             $this->load->model('match_model');
             // Update des résultats des matchs de la journée
             $results = array();
