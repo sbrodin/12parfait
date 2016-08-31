@@ -28,7 +28,7 @@
                 echo '<br/>' . $date_formatted . '<br/>';
                 $date = $fixture_match->date;
             }
-            echo $fixture_match->team1 . ' <input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '"> - <input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '">' . $fixture_match->team2 . '<br/>';
+            echo $fixture_match->team1 . ' <input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '" min="0"> - <input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '" min="0">' . $fixture_match->team2 . '<br/>';
         }
         echo '<br/>';
         ?>

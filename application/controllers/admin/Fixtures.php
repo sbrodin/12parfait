@@ -280,7 +280,7 @@ class Fixtures extends MY_Controller {
             }
             asort($data['teams']);
         } else {
-            $data['info'] = $this->lang->line('no_match_in_fixture');
+            $data['info'] = $this->lang->line('no_match_for_fixture');
         }
 
         $post = $this->input->post();
@@ -291,7 +291,6 @@ class Fixtures extends MY_Controller {
             $this->load->view('templates/footer', $data);
         } else {
             $this->load->model('match_model');
-            var_dump($post);
             // Update des résultats des matchs de la journée
             $results = array();
             $element = 0;
@@ -307,9 +306,20 @@ class Fixtures extends MY_Controller {
                     // Résultat de la première équipe
                     $team2_id = explode('_', $key)[2];
                     $team2_score = ($post_element == '') ? NULL : $post_element;
+                    $resultat = NULL;
+                    if ($team1_score > $team2_score) {
+                        $resultat = '1';
+                    } else if ($team1_score < $team2_score) {
+                        $resultat = '2';
+                    } else {
+                        if (!is_null($team1_score) && !is_null($team1_score)) {
+                            $resultat = 'N';
+                        }
+                    }
                     $results[$match_id] = array(
                         'team1_id' => $team1_id,
                         'team2_id' => $team2_id,
+                        'result' => $resultat,
                         'team1_score' => $team1_score,
                         'team2_score' => $team2_score,
                     );

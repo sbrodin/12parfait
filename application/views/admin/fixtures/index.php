@@ -33,7 +33,7 @@ if ($this->session->flashdata('success')) {
             <a href="<?php echo site_url('admin/fixtures/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture') ?></a>
         </td>
         <td>
-            <a href="<?php echo site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture_results') ?></a>
+            <a href="<?php echo site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('enter_fixture_results') ?></a>
         </td>
     </tr>
     <?php endforeach; ?>
