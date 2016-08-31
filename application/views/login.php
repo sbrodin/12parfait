@@ -12,7 +12,7 @@ if ($this->session->flashdata('info')) {
 <?php echo form_open('connection/login'); ?>
     <label for="email"><?php echo $this->lang->line('email')?> : </label><input type="email" id="email" name="email" required="required">
     <label for="password"><?php echo $this->lang->line('password') ?> : </label><input type="password" id="password" name="password" required="required">
-    <input type="submit" name="submit" value="<?php echo $this->lang->line('connection') ?>">
+    <input type="submit" name="submit" value="<?php echo $this->lang->line('log_in') ?>">
 </form>
 
 <a href="<?php echo site_url('connection/create_account')?>"><?php echo $this->lang->line('create_account') ?></a>

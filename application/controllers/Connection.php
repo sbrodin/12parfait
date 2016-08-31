@@ -75,6 +75,12 @@ class Connection extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('user_model');
+
+        if (!is_connected()) {
+            $this->lang->load('12parfait', $this->config->item('language'));
+        } else {
+            $this->lang->load('12parfait', $this->session->userdata['user']->language);
+        }
     }
 
     /**
@@ -82,7 +88,7 @@ class Connection extends CI_Controller {
     */
     public function index() {
         $data = array();
-        $data['title'] = $this->lang->line('connection');
+        $data['title'] = $this->lang->line('log_in');
 
         $post = $this->input->post();
         if (empty($post)) {

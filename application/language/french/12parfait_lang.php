@@ -116,7 +116,7 @@ $lang['match_date'] = 'Date';
 $lang['fixture'] = 'Journée';
 $lang['add_fixture'] = 'Ajouter une journée';
 $lang['edit_fixture'] = 'Editer la journée';
-$lang['enter_fixture_results'] = 'Entrer les résultats de la journée';
+$lang['enter_fixture_results'] = 'Entrer les résultats';
 $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
 

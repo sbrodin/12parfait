@@ -14,7 +14,10 @@ class MY_Controller extends CI_Controller {
         // Authentification de l'utilisateur
         if (!is_connected()) {
             // Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
+            $this->lang->load('12parfait', $this->config->item('language'));
             redirect(site_url(), 'location');
+        } else {
+            $this->lang->load('12parfait', $this->session->userdata['user']->language);
         }
 
         // on n'active le profiler qu'en dev
