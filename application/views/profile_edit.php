@@ -10,6 +10,12 @@
     <label for="user_name"><?php echo $this->lang->line('user_name') ?> : </label>
     <input type="text" id="user_name" name="user_name" value="<?php echo set_value('user_name') ? set_value('user_name') : $user->user_name ; ?>">
 
+    <label for="language"><?php echo $this->lang->line('language') ?> : </label>
+    <select id="language" name="language" required="required">
+        <option value="french" <?php echo ($user->language == 'french') ? 'selected' : '' ?>><?php echo $this->lang->line('french') ?></option>
+        <option value="english" <?php echo ($user->language == 'english') ? 'selected' : '' ?> ><?php echo $this->lang->line('english') ?></option>
+    </select>
+
     <input type="submit" name="submit" value="<?php echo $this->lang->line('confirm') ?>">
 </form>
 

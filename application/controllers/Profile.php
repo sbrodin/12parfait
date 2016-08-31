@@ -66,10 +66,12 @@ class Profile extends MY_Controller {
                 $this->load->view('profile_edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                $donnees_echapees = array();
-                $donnees_echapees['first_name'] = $post['first_name'];
-                $donnees_echapees['last_name'] = $post['last_name'];
-                $donnees_echapees['user_name'] = $post['user_name'];
+                $donnees_echapees = array(
+                    'first_name' => $post['first_name'],
+                    'last_name' => $post['last_name'],
+                    'user_name' => $post['user_name'],
+                    'language' => $post['language'],
+                );
 
                 $this->user_model->update(array("user_id" => $data['user']->user_id), $donnees_echapees);
 

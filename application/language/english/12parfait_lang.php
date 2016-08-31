@@ -138,6 +138,8 @@ $lang['promote_user'] = 'Promote';
 $lang['demote_user'] = 'Demote';
 
 $lang['language'] = 'Language';
+$lang['french'] = 'French';
+$lang['english'] = 'English';
 $lang['add_date'] = 'Creation date';
 $lang['last_connection'] = 'Last connection';
 $lang['score'] = 'Score';
