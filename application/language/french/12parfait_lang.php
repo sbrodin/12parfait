@@ -63,7 +63,6 @@ $lang['deactivated_account'] = 'Votre compte a été désactivé.';
 $lang['upgrade_browser'] = 'Votre navigateur n\'est pas assez récent.';
 $lang['not_in_database_email'] = 'Aucun email ne correspond en base.';
 $lang['duplicate_teams'] = 'Des équipes apparaissent plusieurs fois.';
-$lang['error_same_team'] = 'La même équipe ne peut pas jouer contre elle-même.';
 
 // Messages de contrôle des formulaires
 $lang['required_field'] = 'Le champ "%s" est requis.';
