@@ -1,5 +1,3 @@
-<a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin') ?></a><br/>
-<a href="<?php echo site_url('admin/fixtures') ?>"><?php echo $this->lang->line('back_to_fixtures_admin') ?></a><br/>
 <?php echo validation_errors(); ?>
 
 <?php if (!empty($info)) : ?>

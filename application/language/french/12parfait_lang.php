@@ -154,3 +154,6 @@ $lang['promote_demote'] = 'Promouvoir / Destituer';
 $lang['no_data'] = 'N/A';
 
 $lang['cancel'] = 'Annuler';
+
+// Pari
+$lang['place_bet'] = 'Placer un pari';
