@@ -233,6 +233,8 @@ class Fixtures extends MY_Controller {
             redirect(site_url(), 'location');
             exit;
         }
+        $this->load->helper('score');
+        score_calculator($fixture_id);
 
         $data = array();
         $data['title'] = 'Admin - Editer une journée';

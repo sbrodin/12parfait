@@ -1,6 +1,6 @@
 <?php
-if ( !defined('BASEPATH') ) {
-	exit('No direct script access allowed');
+if (!defined('BASEPATH') ) {
+    exit('No direct script access allowed');
 }
 
 /**
@@ -11,7 +11,7 @@ if ( !defined('BASEPATH') ) {
   * @param $encoding Encodage utilisé
   * @return Chaîne de caractères débarassée d'accents, de caractères spéciaux, d'espaces et de '/'
   */
-if ( !function_exists('suppr_accents_espaces')) {
+if (!function_exists('suppr_accents_espaces')) {
     function suppr_accents_espaces($str, $encoding='utf-8'){
         // transformer les caractères accentués en entités HTML
         $str = htmlentities($str, ENT_NOQUOTES, $encoding);
@@ -38,7 +38,7 @@ if ( !function_exists('suppr_accents_espaces')) {
   * @param $str Chaîne de caractères à vérifier
   * @return Booléen pour savoir si la chaîne en entrée contient une majuscule
   */
-if ( !function_exists('contains_uppercase')) {
+if (!function_exists('contains_uppercase')) {
     function contains_uppercase($str){
         return preg_match('#[A-Z]#', $str)!==0 ? TRUE : FALSE;
     }
@@ -51,7 +51,7 @@ if ( !function_exists('contains_uppercase')) {
   * @param $str Chaîne de caractères à vérifier
   * @return Booléen pour savoir si la chaîne en entrée contient une minuscule
   */
-if ( !function_exists('contains_lowercase')) {
+if (!function_exists('contains_lowercase')) {
     function contains_lowercase($str){
         return preg_match('#[a-z]#', $str)!==0 ? TRUE : FALSE;
     }
@@ -64,7 +64,7 @@ if ( !function_exists('contains_lowercase')) {
   * @param $str Chaîne de caractères à vérifier
   * @return Booléen pour savoir si la chaîne en entrée contient une minuscule
   */
-if ( !function_exists('contains_number')) {
+if (!function_exists('contains_number')) {
     function contains_number($str){
         return preg_match('#[0-9]#', $str)!==0 ? TRUE : FALSE;
     }

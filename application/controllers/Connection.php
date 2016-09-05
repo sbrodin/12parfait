@@ -55,18 +55,15 @@ class Connection extends CI_Controller {
         'edit_fixture_results',
     );
     public $moderator_acl = array(
-        'autocomplete_tag',
-        'add_playlist',
-        'view_playlists',
-        'view_my_playlists',
-        'view_playlist',
-        'edit_playlist',
-        'delete_playlist'
+        
     );
     public $user_acl = array(
-        'autocomplete_tag',
-        'view_my_playlists',
-        'view_playlist'
+        // acl pour bet
+        'add_bet',
+        'view_bets',
+        'view_bet',
+        'edit_bet',
+        'delete_bet',
     );
 
     /**

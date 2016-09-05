@@ -1,5 +1,5 @@
 <?php
-if ( !defined('BASEPATH') ) {
+if (!defined('BASEPATH') ) {
     exit('No direct script access allowed');
 }
 
@@ -10,10 +10,8 @@ if ( !defined('BASEPATH') ) {
   * @param $message     Corps de l'email
   * @return Bool Retourne TRUE si le mail a été accepté pour livraison, FALSE sinon.
   */
-if ( ! function_exists('send_email_interception'))
-{
-    function send_email_interception($recipient, $subject, $message)
-    {
+if (!function_exists('send_email_interception')) {
+    function send_email_interception($recipient, $subject, $message) {
         if (defined('EMAIL_INTERCEPTION')) {
             $subject.= ' - mail à destination originale de '.$recipient;
             $recipient = EMAIL_INTERCEPTION;

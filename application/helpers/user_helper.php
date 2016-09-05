@@ -1,5 +1,5 @@
 <?php
-if ( !defined('BASEPATH') ) {
+if (!defined('BASEPATH') ) {
     exit('No direct script access allowed');
 }
 
@@ -13,10 +13,10 @@ if ( !defined('BASEPATH') ) {
   * @param $acl Action qui souhaite être effectuée
   * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
   */
-if ( !function_exists('user_can')) {
+if (!function_exists('user_can')) {
     function user_can($acl) {
-      $CI =& get_instance();
-      return in_array($acl, $CI->session->get_userdata('acl')['acl']);
+        $CI =& get_instance();
+        return in_array($acl, $CI->session->get_userdata('acl')['acl']);
     }
 }
 
@@ -25,10 +25,10 @@ if ( !function_exists('user_can')) {
   *
   * @return Booléen pour savoir si l'email existe en base
   */
-if ( !function_exists('in_database_email')) {
+if (!function_exists('in_database_email')) {
     function in_database_email($email) {
-      $CI =& get_instance();
-      return $CI->user_model->in_database_email($email);
+        $CI =& get_instance();
+        return $CI->user_model->in_database_email($email);
     }
 }
 
@@ -37,10 +37,10 @@ if ( !function_exists('in_database_email')) {
   *
   * @return Booléen pour savoir si l'utilisateur est connecté
   */
-if ( !function_exists('is_connected')) {
+if (!function_exists('is_connected')) {
     function is_connected() {
-      $CI =& get_instance();
-      return isset($CI->session->get_userdata('user')['user']);
+        $CI =& get_instance();
+        return isset($CI->session->get_userdata('user')['user']);
     }
 }
 
@@ -49,9 +49,9 @@ if ( !function_exists('is_connected')) {
   *
   * @return Booléen pour savoir si l'utilisateur est admin
   */
-if ( !function_exists('is_admin')) {
+if (!function_exists('is_admin')) {
     function is_admin() {
-      $CI =& get_instance();
-      return ($CI->session->get_userdata('user')['user']->acl == 'admin');
+        $CI =& get_instance();
+        return ($CI->session->get_userdata('user')['user']->acl == 'admin');
     }
 }
