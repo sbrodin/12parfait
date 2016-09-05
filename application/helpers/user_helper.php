@@ -21,6 +21,18 @@ if ( !function_exists('user_can')) {
 }
 
 /**
+  * Cette fonction vérifie qu'un email existe en base
+  *
+  * @return Booléen pour savoir si l'email existe en base
+  */
+if ( !function_exists('in_database_email')) {
+    function in_database_email($email) {
+      $CI =& get_instance();
+      return $CI->user_model->in_database_email($email);
+    }
+}
+
+/**
   * Cette fonction vérifie qu'un utilisateur est connecté
   *
   * @return Booléen pour savoir si l'utilisateur est connecté
@@ -33,13 +45,13 @@ if ( !function_exists('is_connected')) {
 }
 
 /**
-  * Cette fonction vérifie qu'un email existe en base
+  * Cette fonction vérifie si un utilisateur est admin
   *
-  * @return Booléen pour savoir si l'email existe en base
+  * @return Booléen pour savoir si l'utilisateur est admin
   */
-if ( !function_exists('in_database_email')) {
-    function in_database_email($email) {
+if ( !function_exists('is_admin')) {
+    function is_admin() {
       $CI =& get_instance();
-      return $CI->user_model->in_database_email($email);
+      return ($CI->session->get_userdata('user')['user']->acl == 'admin');
     }
 }

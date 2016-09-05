@@ -16,7 +16,6 @@ if ($this->session->flashdata('success')) {
     <?php
     $championship_name = '';
     foreach ($fixtures as $num => $fixture) :
-
     ?>
     <tr>
         <td>

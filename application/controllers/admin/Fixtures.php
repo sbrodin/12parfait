@@ -308,7 +308,7 @@ class Fixtures extends MY_Controller {
                     $team1_score = ($post_element == '') ? NULL : $post_element;
                     ++$element;
                 } else {
-                    // Résultat de la première équipe
+                    // Résultat de la deuxième équipe
                     $team2_id = explode('_', $key)[2];
                     $team2_score = ($post_element == '') ? NULL : $post_element;
                     $resultat = NULL;

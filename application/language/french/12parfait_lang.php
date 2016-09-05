@@ -157,3 +157,4 @@ $lang['cancel'] = 'Annuler';
 
 // Pari
 $lang['place_bet'] = 'Placer un pari';
+$lang['add_edit_bet'] = 'Placer / Modifier un pari';
