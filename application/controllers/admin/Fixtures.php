@@ -303,12 +303,12 @@ class Fixtures extends MY_Controller {
                 if ($element === 0) {
                     // Id du match modifié
                     $match_id = explode('_', $key)[1];
-                    // Résultat de la première équipe
+                    // Score de la première équipe
                     $team1_id = explode('_', $key)[2];
                     $team1_score = ($post_element == '') ? NULL : $post_element;
                     ++$element;
                 } else {
-                    // Résultat de la deuxième équipe
+                    // Score de la deuxième équipe
                     $team2_id = explode('_', $key)[2];
                     $team2_score = ($post_element == '') ? NULL : $post_element;
                     $resultat = NULL;

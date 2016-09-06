@@ -97,7 +97,7 @@ class Bets extends MY_Controller {
             // Liste des matchs
             $data['matches'] = array();
             foreach ($data['fixture_matches'] as $key => $fixture_match) {
-                $data['matches'][] = $fixture_match->match_id;
+                $data['matches'][$fixture_match->match_id] = $fixture_match->date;
             }
 
             // Liste des paris de l'utilisateur pour la journée
@@ -157,11 +157,11 @@ class Bets extends MY_Controller {
                 if ($element === 0) {
                     // Id du match modifié
                     $match_id = explode('_', $key)[1];
-                    // Résultat de la première équipe
+                    // Score de la première équipe
                     $team1_score = ($post_element == '') ? NULL : $post_element;
                     ++$element;
                 } else {
-                    // Résultat de la deuxième équipe
+                    // Score de la deuxième équipe
                     $team2_score = ($post_element == '') ? NULL : $post_element;
                     $resultat = NULL;
                     if (is_null($team1_score) || is_null($team2_score)) {
@@ -175,7 +175,9 @@ class Bets extends MY_Controller {
                             $resultat = 'N';
                         }
                     }
-                    if (!is_null($resultat)) {
+                    // On vérifie que le score a été entré pour les 2 équipes et que la date du match n'est pas passée
+                    if (!is_null($resultat) &&
+                        date('Y-m-d H:i:s') < $data['matches'][$match_id]) {
                         $bets[] = array(
                             'user_id' => $this->session->userdata['user']->user_id,
                             'match_id' => $match_id,
