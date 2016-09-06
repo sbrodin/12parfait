@@ -233,8 +233,6 @@ class Fixtures extends MY_Controller {
             redirect(site_url(), 'location');
             exit;
         }
-        $this->load->helper('score');
-        score_calculator($fixture_id);
 
         $data = array();
         $data['title'] = 'Admin - Editer une journée';
@@ -338,6 +336,9 @@ class Fixtures extends MY_Controller {
                 $donnees_echapees = $result;
                 $this->match_model->update($where, $donnees_echapees);
             }
+            // Mise à jour des scores des joueurs
+            $this->load->helper('score');
+            score_calculator($fixture_id);
 
             $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
             redirect(site_url('admin/fixtures'), 'location');

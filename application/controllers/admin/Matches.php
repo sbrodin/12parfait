@@ -285,7 +285,14 @@ class Matches extends MY_Controller {
         $data['title'] = 'Admin - Editer un match';
 
         // Matchs enregistrés pour le championnat
-        $select = 'championship_id, championship.name AS championship_name, fixture_name, fixture.fixture_id, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2';
+        $select = 'championship_id,
+                   championship.name AS championship_name,
+                   fixture_name,
+                   fixture.fixture_id,
+                   t1.team_id AS t1_id,
+                   t2.team_id AS t2_id,
+                   t1.name AS team1,
+                   t2.name AS team2';
         $where = array(
             'championship_id' => $championship_id,
         );
@@ -293,19 +300,16 @@ class Matches extends MY_Controller {
         $debut = NULL;
         $order = 'date ASC';
         $data['matches_fixtures'] = $this->db->select($select)
-                                            ->from($this->config->item('championship', 'table'))
-                                            ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
-                                            ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
-                                            ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
-                                            ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
-                                            ->where($where)
-                                            ->limit($nb, $debut)
-                                            ->order_by($order)
-                                            ->get()
-                                            ->result();
-        // var_dump($data['matches_fixtures'][0]);
-        // var_dump($data['matches_fixtures'][1]);
-        // var_dump($data['matches_fixtures'][2]);
+                                             ->from($this->config->item('championship', 'table'))
+                                             ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                             ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
+                                             ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
+                                             ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
+                                             ->where($where)
+                                             ->limit($nb, $debut)
+                                             ->order_by($order)
+                                             ->get()
+                                             ->result();
 
         if (!empty($data['matches_fixtures'])) {
             $data['championship_name'] = $data['matches_fixtures'][0]->championship_name;
