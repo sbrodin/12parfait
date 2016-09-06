@@ -38,6 +38,7 @@ $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 $lang['fixtures_admin'] = 'Gestion des journées';
 $lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
+$lang['back_to_home'] = 'Retour à l\'accueil';
 
 // Messages de succès
 $lang['profile_modified'] = 'Profil modifié avec succès !';

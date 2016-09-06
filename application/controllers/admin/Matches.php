@@ -92,6 +92,7 @@ class Matches extends MY_Controller {
         }
         $data['teams'] = $data['teams']->limit($nb, $debut)
                                        ->order_by($order)
+                                       ->distinct()
                                        ->get()
                                        ->result();
 
