@@ -30,9 +30,17 @@
                 $date = $fixture_match->date;
             }
             echo $fixture_match->team1 . ' ';
-            echo '<input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '" min="0">';
+            if ($fixture_match->date > date('Y-m-d H:i:s')) {
+                echo '<input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '" min="0">';
+            } else {
+                echo '<input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" value="' . $team1_score . '" min="0" disabled>';
+            }
             echo ' - ';
-            echo '<input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '" min="0"> ';
+            if ($fixture_match->date > date('Y-m-d H:i:s')) {
+                echo '<input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '" min="0"> ';
+            } else {
+                echo '<input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" value="' . $team2_score . '" min="0" disabled>';
+            }
             echo $fixture_match->team2 . '<br/>';
         }
         echo '<br/>';

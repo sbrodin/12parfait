@@ -193,7 +193,7 @@ class Connection extends CI_Controller {
 
                 // Envoi d'email pour info
                 $this->load->helper('email');
-                $subject = '12 Parfait - Création de compte';
+                $subject = '12 Parfait - Création de compte - Globalis';
                 $body = 'Un nouveau compte a été créé.<br/>';
                 $body.= 'Email : ' . $post['email'];
                 send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
