@@ -1,5 +1,5 @@
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin');?></a><br/>
-<table>
+<table class="table-striped table-bordered table-hover">
     <tr>
         <th><?php echo $this->lang->line('first_name') ?></th>
         <th><?php echo $this->lang->line('last_name') ?></th>

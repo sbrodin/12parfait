@@ -18,8 +18,6 @@ class Fixtures extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Journées';
 
-        $this->session->unset_userdata('championship');
-
         $select = 'fixture_id, fixture_name, championship.name AS championship_name';
         $where = array();
         $nb = NULL;

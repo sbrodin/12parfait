@@ -207,12 +207,9 @@ class Users extends MY_Controller {
             exit;
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['active'] = 1;
+        $donnees_echapees = array('active' => 1);
 
-        $donnees_non_echapees = array();
-
-        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees);
 
         redirect(site_url('admin/users'), 'location');
         exit;
@@ -229,12 +226,9 @@ class Users extends MY_Controller {
             exit;
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['active'] = 0;
+        $donnees_echapees = array('active' => 0);
 
-        $donnees_non_echapees = array();
-
-        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update(array("user_id" => $user_id), $donnees_echapees);
 
         redirect(site_url('admin/users'), 'location');
         exit;
@@ -273,12 +267,9 @@ class Users extends MY_Controller {
             $new_acl = 'moderator';
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['acl'] = $new_acl;
+        $donnees_echapees = array('acl' => $new_acl);
 
-        $donnees_non_echapees = array();
-
-        $this->user_model->update($where, $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update($where, $donnees_echapees);
 
         redirect(site_url('admin/users'), 'location');
         exit;
@@ -317,12 +308,9 @@ class Users extends MY_Controller {
             $new_acl = 'user';
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['acl'] = $new_acl;
+        $donnees_echapees = array('acl' => $new_acl);
 
-        $donnees_non_echapees = array();
-
-        $this->user_model->update($where, $donnees_echapees, $donnees_non_echapees);
+        $this->user_model->update($where, $donnees_echapees);
 
         redirect(site_url('admin/users'), 'location');
         exit;

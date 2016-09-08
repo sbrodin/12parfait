@@ -218,12 +218,9 @@ class Championships extends MY_Controller {
             exit;
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['status'] = 'open';
+        $donnees_echapees = array('status' => 'open');
 
-        $donnees_non_echapees = array();
-
-        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees, $donnees_non_echapees);
+        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees);
 
         redirect(site_url('admin/championships'), 'location');
         exit;
@@ -240,12 +237,9 @@ class Championships extends MY_Controller {
             exit;
         }
 
-        $donnees_echapees = array();
-        $donnees_echapees['status'] = 'close';
+        $donnees_echapees = array('status' => 'close');
 
-        $donnees_non_echapees = array();
-
-        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees, $donnees_non_echapees);
+        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees);
 
         redirect(site_url('admin/championships'), 'location');
         exit;
