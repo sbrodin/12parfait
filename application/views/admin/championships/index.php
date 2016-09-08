@@ -14,6 +14,7 @@ if ($this->session->flashdata('success')) {
         <th><?php echo $this->lang->line('level') ?></th>
         <th><?php echo $this->lang->line('year') ?></th>
         <th></th>
+        <th></th>
     </tr>
     <?php foreach ($championships as $num => $championship) : ?>
     <tr>
@@ -24,6 +25,13 @@ if ($this->session->flashdata('success')) {
         <td><?php echo $championship->year ?></td>
         <td>
             <a href="<?php echo site_url('admin/championships/edit/'.$championship->championship_id) ?>"><?php echo $this->lang->line('edit_championship') ?></a>
+        </td>
+        <td>
+            <?php if ($championship->status === 'open') : ?>
+                <a href="<?php echo site_url('admin/championships/deactivate/'.$championship->championship_id) ?>"><?php echo $this->lang->line('deactivate_championship') ?></a>
+            <?php else : ?>
+                <a href="<?php echo site_url('admin/championships/activate/'.$championship->championship_id) ?>"><?php echo $this->lang->line('activate_championship') ?></a>
+            <?php endif; ?>
         </td>
     </tr>
     <?php endforeach; ?>

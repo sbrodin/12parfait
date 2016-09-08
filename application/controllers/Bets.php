@@ -19,15 +19,12 @@ class Bets extends MY_Controller {
         $data['title'] = 'Admin - Journées';
 
         $select = 'fixture_id, fixture_name, championship.name AS championship_name';
-        $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $where = array('status' => 'open');
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
                                      ->join('championship', 'championship.championship_id = fixture.fixture_championship_id', 'left')
-                                     ->limit($nb, $debut)
                                      ->order_by($order)
                                      ->get()
                                      ->result();

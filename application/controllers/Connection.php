@@ -36,6 +36,8 @@ class Connection extends CI_Controller {
         'view_championship',
         'edit_championship',
         'delete_championship',
+        'activate_championship',
+        'deactivate_championship',
         // acl pour team
         'add_team',
         'view_teams',

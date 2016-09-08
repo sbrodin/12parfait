@@ -39,6 +39,7 @@ $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 $lang['fixtures_admin'] = 'Gestion des journées';
 $lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
 $lang['back_to_home'] = 'Retour à l\'accueil';
+$lang['back_to_bets_index'] = 'Retour aux paris';
 
 // Messages de succès
 $lang['profile_modified'] = 'Profil modifié avec succès !';
@@ -96,6 +97,8 @@ $lang['france'] = 'France';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
 $lang['edit_championship'] = 'Editer';
+$lang['activate_championship'] = 'Activer';
+$lang['deactivate_championship'] = 'Désactiver';
 
 // Equipes
 $lang['team'] = 'Equipe';

@@ -1,3 +1,6 @@
+<?php if (is_admin()) : ?>
+<a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('site_admin');?></a><br/>
+<?php endif ?>
 <?php
 if ($this->session->flashdata('success')) {
     echo $this->session->flashdata('success');

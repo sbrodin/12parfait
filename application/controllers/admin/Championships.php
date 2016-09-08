@@ -206,4 +206,48 @@ class Championships extends MY_Controller {
             }
         }
     }
+
+    /**
+    * Fonction d'activation d'un championnat.
+    * @param $championship_id Id du championnat à activer
+    */
+    public function activate($championship_id) {
+        // Gestion des droits d'activation
+        if (!user_can('activate_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array();
+        $donnees_echapees['status'] = 'open';
+
+        $donnees_non_echapees = array();
+
+        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees, $donnees_non_echapees);
+
+        redirect(site_url('admin/championships'), 'location');
+        exit;
+    }
+
+    /**
+    * Fonction de désactivation d'un championnat.
+    * @param $championship_id Id du championnat à désactiver
+    */
+    public function deactivate($championship_id) {
+        // Gestion des droits de désactivation
+        if (!user_can('deactivate_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array();
+        $donnees_echapees['status'] = 'close';
+
+        $donnees_non_echapees = array();
+
+        $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees, $donnees_non_echapees);
+
+        redirect(site_url('admin/championships'), 'location');
+        exit;
+    }
 }
