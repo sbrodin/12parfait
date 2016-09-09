@@ -6,4 +6,6 @@
     <?php endif; ?>
     <br/>
     <a href="<?php echo site_url('bets') ?>"><?php echo $this->lang->line('place_bet');?></a>
+    <br/>
+    <a href="<?php echo site_url('scores') ?>"><?php echo $this->lang->line('view_scores');?></a>
 <?php endif; ?>

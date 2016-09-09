@@ -55,9 +55,11 @@ class Connection extends CI_Controller {
         'add_fixture',
         'edit_fixture',
         'edit_fixture_results',
+        // acl pour scores
+        'view_scores',
     );
     public $moderator_acl = array(
-        
+
     );
     public $user_acl = array(
         // acl pour bet

@@ -8,5 +8,7 @@
 /.htaccess
 /application/config/config.php
 /application/config/database.php
+/application/logs
+/application/cache
 
 /12parfait.sql

@@ -56,8 +56,20 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/home';
 $route['forgotten_password'] = 'connection/forgotten_password';
 $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
+
 // $route['back'] = 'admin/home';
 // $route['admin'] = 'admin/home';
+$route['admin/home'] = 'admin/home';
+$route['admin'] = 'admin/home';
+
+// $route['admin/users/create'] = 'admin/users/create';
+// $route['admin/users/view'] = 'admin/users';
+// $route['admin/users/view/(:any)'] = 'admin/users/view/$1';
+// $route['admin/users/edit'] = 'admin/users/edit';
+// $route['admin/users/edit/(:any)'] = 'admin/users/edit/$1';
+// $route['admin/users/(:any)'] = 'admin/users/view/$1';
+
+// $route['home'] = 'playlist/index/0';
 
 // à utiliser pour maintenance
 // $route['(:any)'] = 'maintenance';
