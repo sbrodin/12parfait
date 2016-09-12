@@ -7,11 +7,11 @@
         <th><?php echo $this->lang->line('score') ?></th>
     </tr>
     <?php
-    foreach ($scores as $key => $score) :
+    foreach ($user_scores as $user_id => $score) :
     ?>
     <tr>
-        <td><?php echo $score->user_name ?></td>
-        <td><?php echo $score->score ?></td>
+        <td><?php echo $users[$user_id] ?></td>
+        <td><?php echo $score ?></td>
     </tr>
     <?php endforeach; ?>
 </table>

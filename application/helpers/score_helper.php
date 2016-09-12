@@ -63,48 +63,15 @@ if (!function_exists('score_calculator')) {
                 $score+= BONUS_BONS_SCORES_2_EQUIPES;
             }
             if ($score!==0) {
-                $user_score[$fixture_bet->user_id]+= $score;
-            }
-            // Mise à jour du statut des bets
-            $where = array('bet_id' => $fixture_bet->bet_id);
-            $donnees_echapees = array(
-                'status' => 'checked',
-            );
-            $CI->db->set($donnees_echapees)
-                   ->where($where)
-                   ->update($CI->config->item('bet', 'table'));
-        }
-
-        // Récupération des scores non actualisés de chaque joueur
-        $select = 'user_id, score';
-        $user_current_scores = $CI->db->select($select)
-                                      ->from($CI->config->item('user', 'table'))
-                                      ->where_in('user_id', array_keys($user_score))
-                                      ->get()
-                                      ->result();
-
-        // Mise à jour du score de chaque joueur
-        foreach ($user_current_scores as $key => $user_current_score) {
-            if (isset($user_score[$user_current_score->user_id])) {
-                $where = array('user_id' => $user_current_score->user_id);
-                $donnees_echapees = array(
-                    'score' => $user_current_score->score + $user_score[$user_current_score->user_id],
-                );
-                $CI->db->set($donnees_echapees, NULL, FALSE)
-                       ->where($where)
-                       ->update($CI->config->item('user', 'table'));
-            }
-        }
-
-        foreach ($user_current_scores as $key => $user_current_score) {
-            if (isset($user_score[$user_current_score->user_id])) {
-                $where = array('user_id' => $user_current_score->user_id);
-                $donnees_echapees = array(
-                    'score' => $user_current_score->score + $user_score[$user_current_score->user_id],
-                );
-                $CI->db->set($donnees_echapees)
-                       ->where($where)
-                       ->update($CI->config->item('user', 'table'));
+              // Mise à jour du score et du statut des bets
+              $where = array('bet_id' => $fixture_bet->bet_id);
+              $donnees_echapees = array(
+                  // 'status' => 'checked',
+                  'score' => $score,
+              );
+              $CI->db->set($donnees_echapees)
+                     ->where($where)
+                     ->update($CI->config->item('bet', 'table'));
             }
         }
         return TRUE;
