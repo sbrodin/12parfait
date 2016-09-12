@@ -19,7 +19,7 @@
             $fixture_match->date = $date->format('d/m/Y H:i');
         ?>
         <label for="match_<?php echo $key ?>_date"><?php echo $this->lang->line('match_date') ?> : </label>
-        <input type="text" name="date_<?php echo $key ?>" id="date_<?php echo $key ?>" required="required" value="<?php echo $fixture_match->date ?>" ><br/>
+        <input type="text" name="date_<?php echo $key ?>" id="date_<?php echo $key ?>" class="match_date" required="required" value="<?php echo $fixture_match->date ?>" ><br/>
         <select id="match_<?php echo $key ?>_1" name="match_<?php echo $key ?>_1" required="required">
             <?php foreach ($teams as $team_id => $team_name) : ?>
             <option value="<?php echo $team_id ?>" 
@@ -41,7 +41,7 @@
     <script type="text/javascript" src="<?php echo js_url('jquery.datetimepicker.full.min') ?>"></script>
     <script type="text/javascript">
         $.datetimepicker.setLocale('fr');
-        $('#match_date').datetimepicker({
+        $('.match_date').datetimepicker({
             dayOfWeekStart: 1,
             format:'d/m/Y H:i',
             allowTimes:[

@@ -1,3 +1,6 @@
+* {
+    font-size: 20px;
+}
 [disabled]{
     cursor: not-allowed;
 }

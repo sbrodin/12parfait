@@ -60,7 +60,9 @@ class Bets extends MY_Controller {
                    t1.name AS team1,
                    t2.name AS team2,
                    match.date,
-                   match.match_id';
+                   match.match_id,
+                   match.team1_score,
+                   match.team2_score';
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
