@@ -164,5 +164,6 @@ $lang['place_bet'] = 'Placer un pari';
 $lang['add_edit_bet'] = 'Placer / Modifier un pari';
 
 // Scores
-$lang['view_scores'] = 'Voir les scores';
+$lang['view_ladder'] = 'Voir le classement';
+$lang['view_my_scores'] = 'Voir mes scores';
 $lang['anonymous'] = 'Anonyme';

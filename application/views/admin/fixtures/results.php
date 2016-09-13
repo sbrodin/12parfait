@@ -12,8 +12,8 @@
     <span id="championship"><?php echo $championship_name ?></span><br/>
     <label for="fixture"><?php echo $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?php echo $fixture_name ?></span><br/>
-    <?php echo form_open('admin/fixtures/results/' . $fixture_id); ?>
-        <?php
+    <?php echo form_open('admin/fixtures/results/' . $fixture_id);
+        echo '<table><tbody>';
         $date = '';
         foreach ($fixture_matches as $key => $fixture_match) {
             $match_id = $fixture_match->match_id;
@@ -24,16 +24,17 @@
             if ($fixture_match->date!==$date) {
                 $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                 $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
-                echo '<br/>' . $date_formatted . '<br/>';
+                echo '<tr><td class="date" colspan="5">' . $date_formatted . '</td></tr>';
                 $date = $fixture_match->date;
             }
-            echo $fixture_match->team1 . ' ';
-            echo '<input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" class="score" value="' . $team1_score . '" min="0">';
-            echo ' - ';
-            echo '<input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" class="score" value="' . $team2_score . '" min="0"> ';
-            echo $fixture_match->team2 . '<br/>';
+            echo '<tr><td class="team1_name">' . $fixture_match->team1 . '</td>';
+            echo '<td class="team1_score"><input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" class="score" value="' . $team1_score . '" min="0"></td>';
+            echo '<td class="dash">-</td>';
+            echo '<td class="team2_score"><input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" class="score" value="' . $team2_score . '" min="0"></td>';
+            echo '<td class="team2_name">' . $fixture_match->team2 . '</td>';
+            echo '<tr/>';
         }
-        echo '<br/>';
+        echo '</tbody></table>';
         ?>
         <input type="submit" id="confirm" name="submit" value="<?php echo $this->lang->line('confirm') ?>">
         <input type="submit" id="return" name="submit" value="<?php echo $this->lang->line('back') ?>">

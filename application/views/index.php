@@ -7,5 +7,7 @@
     <br/>
     <a href="<?php echo site_url('bets') ?>"><?php echo $this->lang->line('place_bet');?></a>
     <br/>
-    <a href="<?php echo site_url('scores') ?>"><?php echo $this->lang->line('view_scores');?></a>
+    <a href="<?php echo site_url('scores') ?>"><?php echo $this->lang->line('view_ladder');?></a>
+    <br/>
+    <a href="<?php echo site_url('scores/'.$this->session->userdata['user']->user_id) ?>"><?php echo $this->lang->line('view_my_scores');?></a>
 <?php endif; ?>

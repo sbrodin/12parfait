@@ -7,7 +7,7 @@ class Scores extends MY_Controller {
         parent::__construct();
     }
 
-    public function index()
+    public function index($user_id = 0)
     {
         if (!user_can('view_scores')) {
             redirect(site_url(), 'location');
@@ -19,6 +19,11 @@ class Scores extends MY_Controller {
 
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
         $where = array('active' => '1');
+
+        if ($user_id !== 0) {
+            $where = array_merge($where, array('user.user_id' => $user_id));
+        }
+
         $order = 'user.user_id DESC';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))

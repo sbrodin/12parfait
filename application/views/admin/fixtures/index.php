@@ -6,7 +6,7 @@ if ($this->session->flashdata('success')) {
     echo '<br/>';
 }
 ?>
-<table>
+<table class="table-bordered table-striped table-hover">
     <tr>
         <th><?php echo $this->lang->line('championship_name') ?></th>
         <th><?php echo $this->lang->line('fixture_name') ?></th>

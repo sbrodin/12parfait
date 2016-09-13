@@ -57,13 +57,8 @@ $route['admin'] = 'admin/home';
 $route['forgotten_password'] = 'connection/forgotten_password';
 $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
 
-// $route['back'] = 'admin/home';
-// $route['admin'] = 'admin/home';
-$route['admin/home'] = 'admin/home';
-$route['admin'] = 'admin/home';
+$route['scores/(:any)'] = 'scores/index/$1';
 
-// $route['admin/users/create'] = 'admin/users/create';
-// $route['admin/users/view'] = 'admin/users';
 // $route['admin/users/view/(:any)'] = 'admin/users/view/$1';
 // $route['admin/users/edit'] = 'admin/users/edit';
 // $route['admin/users/edit/(:any)'] = 'admin/users/edit/$1';
