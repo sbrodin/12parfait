@@ -33,7 +33,6 @@ if (!function_exists('score_calculator')) {
         $where = array(
             'fixture_id' => $fixture_id,
             'bet.status' => 'open',
-            'match.result !=' => 'null',
         );
         $fixture_bets = $CI->db->select($select)
                                ->from($CI->config->item('bet', 'table'))
@@ -62,17 +61,15 @@ if (!function_exists('score_calculator')) {
                 $fixture_bet->bet_team2_score == $fixture_bet->match_team2_score) {
                 $score+= BONUS_BONS_SCORES_2_EQUIPES;
             }
-            if ($score!==0) {
-              // Mise à jour du score et du statut des bets
-              $where = array('bet_id' => $fixture_bet->bet_id);
-              $donnees_echapees = array(
-                  // 'status' => 'checked',
-                  'score' => $score,
-              );
-              $CI->db->set($donnees_echapees)
-                     ->where($where)
-                     ->update($CI->config->item('bet', 'table'));
-            }
+            // Mise à jour du score et du statut des bets
+            $where = array('bet_id' => $fixture_bet->bet_id);
+            $donnees_echapees = array(
+                // 'status' => 'checked',
+                'score' => $score,
+            );
+            $CI->db->set($donnees_echapees)
+                   ->where($where)
+                   ->update($CI->config->item('bet', 'table'));
         }
         return TRUE;
     }

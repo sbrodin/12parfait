@@ -151,6 +151,7 @@ $lang['english'] = 'Anglais';
 $lang['add_date'] = 'Date d\'inscription';
 $lang['last_connection'] = 'Dernière connexion';
 $lang['score'] = 'Score';
+$lang['my_score'] = 'Mon score';
 $lang['acl'] = 'acl';
 $lang['is_active'] = 'Actif ?';
 $lang['activate_deactivate'] = 'Activer / Désactiver';
@@ -162,6 +163,10 @@ $lang['cancel'] = 'Annuler';
 // Pari
 $lang['place_bet'] = 'Placer un pari';
 $lang['add_edit_bet'] = 'Placer / Modifier un pari';
+$lang['my_bets'] = 'Mes paris';
+$lang['result'] = 'Résultat';
+$lang['results'] = 'Résultats';
+$lang['not_available'] = 'Non disponible';
 
 // Scores
 $lang['view_ladder'] = 'Voir le classement';

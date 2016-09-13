@@ -102,7 +102,8 @@ class Bets extends MY_Controller {
             // Liste des paris de l'utilisateur pour la journée
             $select = 'bet.match_id,
                        bet.team1_score,
-                       bet.team2_score';
+                       bet.team2_score,
+                       bet.score';
             $where = array(
                 'bet.user_id' => $this->session->userdata['user']->user_id,
             );

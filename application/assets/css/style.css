@@ -1,3 +1,8 @@
+body {
+    /* background-color: #D4EE9F; */
+    /* background-color: #669999; */
+    /* padding: 20px; */
+}
 * {
     font-size: 20px;
 }
@@ -16,12 +21,19 @@ input.score {
 }
 a {
     margin: 10px 20px;
+    /* color: #003333; */
 }
-body {
-    padding: 20px;
+a:hover {
+    /* color: #FFFFFF; */
 }
 table {
     margin: 20px;
+    /* background-color: #226666; */
+    /* background-color: #407F7F; */
+    /* color: #99CCCC; */
+}
+th, td {
+    padding: 5px 10px;
 }
 td.date {
     text-align: center;

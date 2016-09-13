@@ -15,14 +15,22 @@
     <label for="fixture"><?php echo $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?php echo $fixture_name ?></span>
     <?php echo form_open('bets/edit/' . $fixture_id);
-        echo '<table><tbody>';
+        echo '<table class="table-striped"><tbody>';
         $date = '';
+        echo '<tr>';
+        echo '<td class="sub-table" colspan="5">' . $this->lang->line('my_bets') . '</td>';
+        echo '<td class="sub-table">' . $this->lang->line('result') . '</td>';
+        echo '<td class="sub-table">' . $this->lang->line('my_score') . '</td>';
+        echo '</tr>';
         foreach ($fixture_matches as $key => $fixture_match) {
+            // var_dump($fixture_match);
             $match_id = $fixture_match->match_id;
             $team1_id = $fixture_match->t1_id;
             $team2_id = $fixture_match->t2_id;
-            $team1_score = (isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team1_score : '');
-            $team2_score = (isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team2_score : '');
+            $team1_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team1_score : '';
+            $team2_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team2_score : '';
+            $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
+            $score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->score : 0;
             if ($fixture_match->date!==$date) {
                 $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                 $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
@@ -39,7 +47,9 @@
             echo '<td class="dash">-</td>';
             echo '<td class="team2_score"><input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" class="score" value="' . $team2_score . '" min="0" ' . $disabled . '></td>';
             echo '<td class="team2_name">' . $fixture_match->team2 . '</td>';
-            echo '<tr/>';
+            echo '<td>' . $result . '</td>';
+            echo '<td>' . $score . '</td>';
+            echo '</tr>';
         }
         echo '</tbody></table>';
         ?>
