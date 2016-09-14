@@ -236,6 +236,7 @@ class Fixtures extends MY_Controller {
         $data['title'] = 'Admin - Editer une journée';
 
         $data['fixture_id'] = $fixture_id;
+        $this->session->set_userdata('fixture', $fixture_id);
 
         // Liste des matchs de la journée
         $select = 'championship.name AS championship_name,
@@ -246,6 +247,7 @@ class Fixtures extends MY_Controller {
                    t2.name AS team2,
                    match.date,
                    match.match_id,
+                   match.result,
                    match.team1_score,
                    match.team2_score';
         $where = array(

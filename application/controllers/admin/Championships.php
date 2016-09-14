@@ -244,4 +244,35 @@ class Championships extends MY_Controller {
         redirect(site_url('admin/championships'), 'location');
         exit;
     }
+
+    /**
+    * Fonction de suppression d'une équipe d'un championnat
+    * @param $team_id Id de l'équipe à enlever
+    * @param $championship_id Id du championnat concerné
+    */
+    public function del_team_from_championship($team_id, $championship_id) {
+        // Gestion des droits de suppression
+        if (!user_can('del_team_from_championship')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+        $this->load->model('championship_team_model');
+        var_dump($this->session->userdata['fixture']);
+        exit;
+
+        $where = array(
+            'team_id' => $team_id,
+            'championship_id' => $championship_id,
+        );
+
+        $this->championship_team_model->delete($where);
+
+        if ($this->session->userdata['fixture']) {
+            redirect(site_url('admin/fixtures/results/'.$this->session->userdata['fixture']), 'location');
+            exit;
+        } else {
+            redirect(site_url('admin/championships'), 'location');
+            exit;
+        }
+    }
 }
