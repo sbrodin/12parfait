@@ -257,8 +257,6 @@ class Championships extends MY_Controller {
             exit;
         }
         $this->load->model('championship_team_model');
-        var_dump($this->session->userdata['fixture']);
-        exit;
 
         $where = array(
             'team_id' => $team_id,

@@ -16,7 +16,7 @@
         echo '<table><tbody>';
         $date = '';
         foreach ($fixture_matches as $key => $fixture_match) {
-            var_dump($fixture_match);
+            // var_dump($fixture_match);
             $match_id = $fixture_match->match_id;
             $team1_id = $fixture_match->t1_id;
             $team2_id = $fixture_match->t2_id;
@@ -28,12 +28,19 @@
                 echo '<tr><td class="date" colspan="5">' . $date_formatted . '</td></tr>';
                 $date = $fixture_match->date;
             }
-            echo '<tr><td class="team1_name">' . $fixture_match->team1 . '</td>';
+            echo '<tr><td class="team1_name">';
+            if ($fixture_match->result) {
+                echo '<a href="#" data-link="' . site_url('admin/championships/del_team_from_championship/' . $team1_id . '/' . $fixture_match->championship_id) . '">X </a>';
+            }
+            echo $fixture_match->team1 . '</td>';
             echo '<td class="team1_score"><input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" class="score" value="' . $team1_score . '" min="0"></td>';
             echo '<td class="dash">-</td>';
             echo '<td class="team2_score"><input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" class="score" value="' . $team2_score . '" min="0"></td>';
-            echo '<td class="team2_name">' . $fixture_match->team2 . '</td>';
-            echo '<tr/>';
+            echo '<td class="team2_name">' . $fixture_match->team2 . '';
+            if ($fixture_match->result) {
+                echo '<a href="#" data-link="' . site_url('admin/championships/del_team_from_championship/' . $team2_id . '/' . $fixture_match->championship_id) . '">X </a>';
+            }
+            echo '</td><tr/>';
         }
         echo '</tbody></table>';
         ?>
@@ -41,3 +48,18 @@
         <input type="submit" id="return" name="submit" value="<?php echo $this->lang->line('back') ?>">
     </form>
 <?php endif; ?>
+
+<script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
+<script type="text/javascript">
+    $('a').on('click', function() {
+        var href = $(this).attr('data-link');
+        console.log(href);
+        $.ajax({
+            type:'POST',
+            url:href,
+            success:function(data){
+                $('#resultdiv').html(data);
+            }
+        });
+    });
+</script>

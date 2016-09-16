@@ -239,7 +239,8 @@ class Fixtures extends MY_Controller {
         $this->session->set_userdata('fixture', $fixture_id);
 
         // Liste des matchs de la journée
-        $select = 'championship.name AS championship_name,
+        $select = 'championship_id,
+                   championship.name AS championship_name,
                    fixture_name,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
