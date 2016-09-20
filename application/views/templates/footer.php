@@ -40,13 +40,13 @@
         </script>
 
         <script type="text/javascript">
-            $('a').on('click', function() {
-                var href = $(this).attr('data-link');
+            $('a.del-team').on('click', function() {
+                var href = $(this).attr('data-linkdelteam');
                 $.ajax({
                     type:'POST',
                     url:href,
                     success:function(data){
-                        $('#resultdiv').html(data);
+                        $(this).parents('tr').find('td a').remove();
                     }
                 });
             });
