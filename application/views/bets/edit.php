@@ -23,7 +23,6 @@
         echo '<td class="sub-table">' . $this->lang->line('my_score') . '</td>';
         echo '</tr>';
         foreach ($fixture_matches as $key => $fixture_match) {
-            // var_dump($fixture_match);
             $match_id = $fixture_match->match_id;
             $team1_id = $fixture_match->t1_id;
             $team2_id = $fixture_match->t2_id;

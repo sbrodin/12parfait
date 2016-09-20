@@ -80,8 +80,10 @@ class Users extends MY_Controller {
             redirect(site_url(), 'location');
             exit;
         }
-        $data['users'] = $this->user_model->read('*');
         $data['title'] = $this->lang->line('index_user');
+        $data['users'] = $this->user_model->read('*');
+
+        $users_scores = users_score_calculator();
 
         foreach ($data['users'] as $users_item) {
             $users_item->active = $users_item->active ? $this->lang->line('yes') : $this->lang->line('no');
@@ -92,13 +94,7 @@ class Users extends MY_Controller {
             $users_item->add_date_formatted = $add_date->format('d/m/Y H:i:s');
             $last_connection = new DateTime($users_item->last_connection);
             $users_item->last_connection_formatted = $last_connection->format('d/m/Y H:i:s');
-
-            // if($users_item->lastconnection) {
-            //     $users_item->lastconnection = DateTime::createFromFormat("Y-m-d H:i:s", $users_item->lastconnection);
-            //     $users_item->lastconnection = $users_item->lastconnection->format("d/m/Y H:i:s");
-            // } else {
-            //     $users_item->lastconnection = $this->lang->line('never_connected');
-            // }
+            $users_item->score = isset($users_scores[$users_item->user_id]) ? $users_scores[$users_item->user_id] : 0;
         }
 
         $this->load->view('templates/header', $data);

@@ -1,12 +1,14 @@
 <?php if (is_admin()) : ?>
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('site_admin');?></a><br/>
 <?php endif ?>
-<?php
-if ($this->session->flashdata('success')) {
-    echo $this->session->flashdata('success');
-    echo '<br/>';
-}
-?>
+<?php if ($this->session->flashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?php echo $this->session->flashdata('success') ?>
+    </div>
+<?php endif ?>
 <table class="table-striped table-bordered table-hover">
     <tr>
         <th><?php echo $this->lang->line('championship_name') ?></th>

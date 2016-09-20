@@ -13,7 +13,7 @@
         <th><?php echo $this->lang->line('is_active') ?></th>
         <th><?php echo $this->lang->line('activate_deactivate') ?></th>
         <th><?php echo $this->lang->line('promote_demote') ?></th>
-        <th></th>
+        <!-- <th></th> -->
     </tr>
     <?php foreach ($users as $num => $user) : ?>
     <tr>

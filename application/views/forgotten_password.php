@@ -1,8 +1,11 @@
-<?php
-if ($this->session->flashdata('error')) {
-    echo $this->session->flashdata('error');
-}
-?>
+<?php if ($this->session->flashdata('error')) : ?>
+    <div class="alert alert-alert alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?php echo $this->session->flashdata('error') ?>
+    </div>
+<?php endif ?>
 
 <?php echo validation_errors(); ?>
 

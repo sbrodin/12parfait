@@ -42,17 +42,4 @@ if (!empty($matches_fixture)) {
         <input type="text" name="match_date" id="match_date" required="required" value="<?php echo set_value('match_date') ?>" ><br/>
         <input type="submit" value="<?php echo $this->lang->line('add') ?>">
     </form>
-
-    <script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('jquery.datetimepicker.full.min') ?>"></script>
-    <script type="text/javascript">
-        $.datetimepicker.setLocale('fr');
-        $('#match_date').datetimepicker({
-            dayOfWeekStart: 1,
-            format:'d/m/Y H:i',
-            allowTimes:[
-                '15:00', '17:00', '20:00', '20:45'
-            ],
-        });
-    </script>
 <?php endif; ?>

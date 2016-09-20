@@ -74,3 +74,32 @@ if (!function_exists('score_calculator')) {
         return TRUE;
     }
 }
+
+/**
+  * Cette fonction permet de récupérer les scores de chaque joueur
+  * @param $fixture_id     Id de la journée
+  * @return Bool Retourne TRUE si la mise à jour s'est bien effectuée.
+  */
+if (!function_exists('users_score_calculator')) {
+    function users_score_calculator() {
+        $CI =& get_instance();
+
+        // On récupère les bets pour la journée
+        $select = 'user.user_id, SUM(b.score) as score';
+        $users_scores = $CI->db->select($select)
+                               ->from($CI->config->item('user', 'table'))
+                               ->join('bet b', 'user.user_id = b.user_id', 'left')
+                               ->group_by('b.user_id')
+                               ->get()
+                               ->result();
+        if (empty($users_scores)) {
+            return FALSE;
+        } else {
+            $scores = array();
+            foreach ($users_scores as $key => $user_score) {
+                $scores[$user_score->user_id] = $user_score->score;
+            }
+            return $scores;
+        }
+    }
+}

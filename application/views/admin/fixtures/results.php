@@ -16,7 +16,6 @@
         echo '<table><tbody>';
         $date = '';
         foreach ($fixture_matches as $key => $fixture_match) {
-            // var_dump($fixture_match);
             $match_id = $fixture_match->match_id;
             $team1_id = $fixture_match->t1_id;
             $team2_id = $fixture_match->t2_id;
@@ -48,18 +47,3 @@
         <input type="submit" id="return" name="submit" value="<?php echo $this->lang->line('back') ?>">
     </form>
 <?php endif; ?>
-
-<script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
-<script type="text/javascript">
-    $('a').on('click', function() {
-        var href = $(this).attr('data-link');
-        console.log(href);
-        $.ajax({
-            type:'POST',
-            url:href,
-            success:function(data){
-                $('#resultdiv').html(data);
-            }
-        });
-    });
-</script>

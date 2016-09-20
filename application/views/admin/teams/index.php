@@ -1,11 +1,13 @@
 <a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin');?></a><br/>
 <a href="<?php echo site_url('admin/teams/add') ?>"><?php echo $this->lang->line('add_team');?></a><br/>
-<?php
-if ($this->session->flashdata('success')) {
-    echo $this->session->flashdata('success');
-    echo '<br/>';
-}
-?>
+<?php if ($this->session->flashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?php echo $this->session->flashdata('success') ?>
+    </div>
+<?php endif ?>
 <table>
     <tr>
         <th><?php echo $this->lang->line('team_name') ?></th>

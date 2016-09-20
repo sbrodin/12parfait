@@ -1,9 +1,11 @@
-<?php
-if ($this->session->flashdata('success')) {
-    echo $this->session->flashdata('success');
-    echo '<br/>';
-}
-?>
+<?php if ($this->session->flashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?php echo $this->session->flashdata('success') ?>
+    </div>
+<?php endif ?>
 
 <a href="<?php echo site_url('profile/edit')?>"><?php echo $this->lang->line('my_profile_edit') ?></a>
 
