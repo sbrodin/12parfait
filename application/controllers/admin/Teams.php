@@ -130,7 +130,7 @@ class Teams extends MY_Controller {
                     'name' => $post['team_name'],
                 );
                 $this->team_model->update($where, $donnees_echapees);
-                $this->session->set_flashdata('success', $this->lang->line('team_successful_creation'));
+                $this->session->set_flashdata('success', $this->lang->line('team_successful_edition'));
                 redirect(site_url('admin/teams'), 'location');
                 exit;
             }

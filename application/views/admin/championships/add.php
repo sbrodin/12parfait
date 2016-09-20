@@ -11,6 +11,7 @@
     <label for="country"><?php echo $this->lang->line('country') ?> : </label>
     <select id="country" name="country" required="required">
         <option value="<?php echo strtolower($this->lang->line('france')) ?>"><?php echo $this->lang->line('france') ?></option>
+        <option value="<?php echo strtolower($this->lang->line('europe')) ?>"><?php echo $this->lang->line('europe') ?></option>
     </select>
     <label for="level"><?php echo $this->lang->line('level') ?> : </label>
     <select id="level" name="level" required="required">
