@@ -271,6 +271,7 @@ class Fixtures extends MY_Controller {
 
         if (!empty($data['fixture_matches'])) {
             $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
+            $data['championship_id'] = $data['fixture_matches'][0]->championship_id;
             $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
 
             // Liste des équipes
