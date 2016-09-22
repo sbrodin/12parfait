@@ -13,7 +13,7 @@ if (!function_exists('score_calculator')) {
         define('BON_RESULTAT', 4);
         define('BON_SCORE_EQUIPE_1', 3);
         define('BON_SCORE_EQUIPE_2', 3);
-        define('BONUS_BONS_SCORES_2_EQUIPES', 2);
+        define('DIFFERENCE_2_EQUIPES', 2);
 
         $CI =& get_instance();
 
@@ -57,9 +57,8 @@ if (!function_exists('score_calculator')) {
             if ($fixture_bet->bet_team2_score == $fixture_bet->match_team2_score) {
                 $score+= BON_SCORE_EQUIPE_2;
             }
-            if ($fixture_bet->bet_team1_score == $fixture_bet->match_team1_score &&
-                $fixture_bet->bet_team2_score == $fixture_bet->match_team2_score) {
-                $score+= BONUS_BONS_SCORES_2_EQUIPES;
+            if ($fixture_bet->bet_team1_score-$fixture_bet->bet_team2_score == $fixture_bet->match_team1_score-$fixture_bet->match_team2_score) {
+                $score+= DIFFERENCE_2_EQUIPES;
             }
             // Mise à jour du score et du statut des bets
             $where = array('bet_id' => $fixture_bet->bet_id);

@@ -8,7 +8,7 @@ Un système de points est en place :
     - bon résultat (victoire, nul, défaite) : 4 points,
     - bon score pour l'équipe 1 : 3 points,
     - bon score pour l'équipe 2 : 3 points,
-    - BONUS - bon score pour l'équipe 1 ET l'équipe 2 : 2 points.
+    - bonne différence de buts : 2 points.
 Et le total de points possibles à marquer pour un match est donc de 12 !
 Un classement est disponible pour vous faire une idée de votre niveau par rapport
 aux autres. Vous pouvez créer des "Ligues" pour sélectionner des championnats sur
