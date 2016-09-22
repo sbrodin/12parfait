@@ -6,7 +6,9 @@
 
         <title><?php echo $this->lang->line('12_parfait') . ' - ' . $title ?></title>
         <meta name="description" content="<?php echo $title ?>">
-        <meta name="author" content="SitePoint">
+        <!-- <meta name="author" content="SitePoint"> -->
+
+        <link href="<?php echo img_url('logo.png') ?>" rel="icon" type="image/png">
 
         <link href="<?php echo css_url('multi-select') ?>" media="screen" rel="stylesheet" type="text/css">
         <link href="<?php echo css_url('jquery.datetimepicker.min') ?>" media="screen" rel="stylesheet" type="text/css">
