@@ -93,6 +93,7 @@ $lang['add_championship'] = 'Ajouter un championnat';
 $lang['championship_name'] = 'Nom du championnat';
 $lang['sport'] = 'Sport';
 $lang['football'] = 'Football';
+$lang['rugby'] = 'Rugby';
 $lang['country'] = 'Pays';
 $lang['france'] = 'France';
 $lang['europe'] = 'Europe';

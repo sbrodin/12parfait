@@ -7,6 +7,7 @@
     <label for="sport"><?php echo $this->lang->line('sport') ?> : </label>
     <select id="sport" name="sport" required="required">
         <option value="<?php echo strtolower($this->lang->line('football')) ?>"><?php echo $this->lang->line('football') ?></option>
+        <option value="<?php echo strtolower($this->lang->line('rugby')) ?>"><?php echo $this->lang->line('rugby') ?></option>
     </select>
     <label for="country"><?php echo $this->lang->line('country') ?> : </label>
     <select id="country" name="country" required="required">

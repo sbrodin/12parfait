@@ -55,3 +55,15 @@ if (!function_exists('is_admin')) {
         return ($CI->session->get_userdata('user')['user']->acl == 'admin');
     }
 }
+
+/**
+  * Cette fonction vérifie si un utilisateur est moderateur
+  *
+  * @return Booléen pour savoir si l'utilisateur est moderateur
+  */
+if (!function_exists('is_moderator')) {
+    function is_moderator() {
+        $CI =& get_instance();
+        return ($CI->session->get_userdata('user')['user']->acl == 'moderator');
+    }
+}

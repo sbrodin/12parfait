@@ -22,8 +22,7 @@
         <input type="text" name="date_<?php echo $key ?>" id="date_<?php echo $key ?>" class="match_date" required="required" value="<?php echo $fixture_match->date ?>" ><br/>
         <select id="match_<?php echo $key ?>_1" name="match_<?php echo $key ?>_1" required="required">
             <?php foreach ($teams as $team_id => $team_name) : ?>
-            <option value="<?php echo $team_id ?>" 
-                <?php echo ($fixture_match->t1_id==$team_id) ? 'selected' : '' ?> ><?php echo $team_name ?></option>
+            <option value="<?php echo $team_id ?>" <?php echo ($fixture_match->t1_id==$team_id) ? 'selected' : '' ?> ><?php echo $team_name ?></option>
             <?php endforeach; ?>
         </select>
         <span> - </span>
