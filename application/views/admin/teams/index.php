@@ -11,11 +11,13 @@
 <table>
     <tr>
         <th><?php echo $this->lang->line('team_name') ?></th>
+        <th><?php echo $this->lang->line('team_short_name') ?></th>
         <th></th>
     </tr>
     <?php foreach ($teams as $num => $team) : ?>
     <tr>
         <td><?php echo $team->name ?></td>
+        <td><?php echo $team->short_name ?></td>
         <td>
             <a href="<?php echo site_url('admin/teams/edit/'.$team->team_id) ?>"><?php echo $this->lang->line('edit_team') ?></a>
         </td>

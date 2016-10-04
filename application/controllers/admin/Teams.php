@@ -13,7 +13,7 @@ class Teams extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Equipes';
 
-        $select = '*';
+        $select = 'team_id, name, short_name';
         $where = array();
         $nb = NULL;
         $debut = NULL;
@@ -53,6 +53,15 @@ class Teams extends MY_Controller {
                         'is_unique' => $this->lang->line('already_in_db_field'),
                     ),
                 ),
+                array(
+                    'field' => 'team_short_name',
+                    'label' => $this->lang->line('team_short_name'),
+                    'rules' => 'trim|required|max_length[5]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'max_length' => $this->lang->line('too_long_5_field'),
+                    ),
+                ),
             );
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
@@ -63,6 +72,7 @@ class Teams extends MY_Controller {
             } else {
                 $donnees_echapees = array(
                     'name' => $post['team_name'],
+                    'short_name' => $post['team_short_name'],
                 );
                 $this->team_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_creation'));
@@ -87,7 +97,7 @@ class Teams extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Editer une équipe';
 
-        $select = '*';
+        $select = 'team_id, name, short_name';
         $where = array(
             'team_id' => $team_id,
         );
@@ -111,10 +121,18 @@ class Teams extends MY_Controller {
                 array(
                     'field' => 'team_name',
                     'label' => $this->lang->line('team_name'),
-                    'rules' => 'trim|ucfirst|required|is_unique[team.name]',
+                    'rules' => 'trim|ucfirst|required',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
-                        'is_unique' => $this->lang->line('already_in_db_field'),
+                    ),
+                ),
+                array(
+                    'field' => 'team_short_name',
+                    'label' => $this->lang->line('team_short_name'),
+                    'rules' => 'trim|required|max_length[5]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'max_length' => $this->lang->line('too_long_5_field'),
                     ),
                 ),
             );
@@ -128,6 +146,7 @@ class Teams extends MY_Controller {
                 $where = array('team_id' => $team_id);
                 $donnees_echapees = array(
                     'name' => $post['team_name'],
+                    'short_name' => $post['team_short_name'],
                 );
                 $this->team_model->update($where, $donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_edition'));

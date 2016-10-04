@@ -77,7 +77,7 @@ if (!function_exists('score_calculator')) {
 /**
   * Cette fonction permet de récupérer les scores de chaque joueur
   * @param $fixture_id     Id de la journée
-  * @return Bool Retourne TRUE si la mise à jour s'est bien effectuée.
+  * @return Bool Retourne les scores de chaque joueur.
   */
 if (!function_exists('users_score_calculator')) {
     function users_score_calculator() {

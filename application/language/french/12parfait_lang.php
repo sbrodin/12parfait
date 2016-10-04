@@ -78,6 +78,7 @@ $lang['must_contain_uppercase_field'] = 'Le champ "%s" doit contenir au moins un
 $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins une minuscule.';
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
 $lang['must_be_year_field'] = 'Le champ "%s" doit être une année supérieure ou égale à 2016.';
+$lang['too_long_5_field'] = 'Le champ "%s" ne doit pas faire plus de 5 caractères.';
 
 // Profil
 $lang['profile'] = 'Profil';
@@ -107,6 +108,7 @@ $lang['deactivate_championship'] = 'Désactiver';
 $lang['team'] = 'Equipe';
 $lang['add_team'] = 'Ajouter une équipe';
 $lang['team_name'] = 'Nom de l\'équipe';
+$lang['team_short_name'] = 'Nom court';
 $lang['edit_team'] = 'Editer';
 
 // Matchs
