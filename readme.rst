@@ -44,8 +44,19 @@ License
 Please see the `license
 agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
 
-*********
+**********
 Ressources
-*********
+**********
 
 Cette application a été développée en utilisant `CodeIgniter <http://www.codeigniter.com/>`_.
+
+****
+TODO
+****
+
+Listes des éléments restants à faire :
+    - Création de la fonction pour les matchs du jour
+    - Home à préciser
+    - Messages d'info pour les règles de saisie
+    - Habillage du site
+    - Intégration des shorts names d'équipe pour petits écrans
