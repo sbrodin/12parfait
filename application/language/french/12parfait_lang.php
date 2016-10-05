@@ -119,6 +119,8 @@ $lang['choose_championship'] = 'Choisir ce championnat';
 $lang['team1'] = 'Equipe 1';
 $lang['team2'] = 'Equipe 2';
 $lang['match_date'] = 'Date';
+$lang['today_matches'] = 'Matchs du jour';
+$lang['no_match_this_day'] = 'Pas de match pour ce jour';
 
 // Journée
 $lang['fixture'] = 'Journée';

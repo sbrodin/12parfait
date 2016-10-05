@@ -18,6 +18,9 @@ class Home extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('home');
 
+        // $data['matches_of_day'] = matches_of_day('15/10/2016') ? matches_of_day('15/10/2016') : NULL;
+        $data['matches_of_day'] = matches_of_day() ? matches_of_day() : NULL;
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
         $this->load->view('index', $data);
