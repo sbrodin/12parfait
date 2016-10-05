@@ -12,14 +12,14 @@
     <a href="<?php echo site_url('scores/'.$this->session->userdata['user']->user_id) ?>"><?php echo $this->lang->line('view_my_scores');?></a>
 <?php endif; ?>
 
-<?php if (!$today_matches) : ?>
-    <div><?php echo $this->lang->line('no_match_this_day'); ?></div>
+<?php if (!$yesterday_matches) : ?>
+    <div><?php echo $this->lang->line('no_match_yesterday'); ?></div>
 <?php else : ?>
     <table class="table-striped table-hover">
     <tr>
-        <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('today_matches'); ?></td>
+        <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('yesterday_matches'); ?></td>
     </tr>
-    <?php foreach ($today_matches as $key => $match) : ?>
+    <?php foreach ($yesterday_matches as $key => $match) : ?>
         <tr>
             <td class="text-xs-right"><?php echo $match->team1 ?></td>
             <td class="text-xs-center">-</td>
@@ -30,14 +30,14 @@
     </table>
 <?php endif; ?>
 
-<?php if (!$yesterday_matches) : ?>
-    <div><?php echo $this->lang->line('no_match_this_day'); ?></div>
+<?php if (!$today_matches) : ?>
+    <div><?php echo $this->lang->line('no_match_today'); ?></div>
 <?php else : ?>
     <table class="table-striped table-hover">
     <tr>
-        <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('yesterday_matches'); ?></td>
+        <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('today_matches'); ?></td>
     </tr>
-    <?php foreach ($yesterday_matches as $key => $match) : ?>
+    <?php foreach ($today_matches as $key => $match) : ?>
         <tr>
             <td class="text-xs-right"><?php echo $match->team1 ?></td>
             <td class="text-xs-center">-</td>

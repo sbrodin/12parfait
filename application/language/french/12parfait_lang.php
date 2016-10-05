@@ -121,6 +121,8 @@ $lang['team2'] = 'Equipe 2';
 $lang['match_date'] = 'Date';
 $lang['today_matches'] = 'Matchs du jour';
 $lang['no_match_this_day'] = 'Pas de match pour ce jour';
+$lang['no_match_today'] = 'Pas de match aujourd\'hui';
+$lang['no_match_yesterday'] = 'Pas de match hier';
 
 // Journée
 $lang['fixture'] = 'Journée';

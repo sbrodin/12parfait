@@ -19,8 +19,8 @@ class Home extends CI_Controller {
         $data['title'] = $this->lang->line('home');
 
         // $data['matches_of_day'] = matches_of_day('15/10/2016') ? matches_of_day('15/10/2016') : NULL;
+        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24)) ? matches_of_day(date('d/m/Y', time()-60*60*24)) : NULL;
         $data['today_matches'] = matches_of_day() ? matches_of_day() : NULL;
-        $data['yesterday_matches'] = matches_of_day() ? matches_of_day() : NULL;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
