@@ -12,13 +12,27 @@
     <a href="<?php echo site_url('scores/'.$this->session->userdata['user']->user_id) ?>"><?php echo $this->lang->line('view_my_scores');?></a>
 <?php endif; ?>
 
+<div>
+<p>12parfait vous permet de placer des pronostics entre amis sur les scores des matchs de football.</p>
+<p>Mais d'autres sports arrivent très vite !</p>
+<p>Le système de points en place :</p>
+<ul>
+    <li>bon résultat (victoire, nul, défaite) : 4 points,</li>
+    <li>bon score pour l'équipe 1 : 3 points,</li>
+    <li>bon score pour l'équipe 2 : 3 points,</li>
+    <li>bonne différence de buts : 2 points.</li>
+</ul>
+<p>Et le total de points possibles à marquer pour un match est donc de 12 !</p>
+<p>Un classement est disponible pour vous faire une idée de votre niveau par rapport aux autres.</p>
+</div>
+
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
     <div><?php echo $this->lang->line('no_match_3days'); ?></div>
 <?php else : ?>
     <?php if (!$yesterday_matches) : ?>
         <div><?php echo $this->lang->line('no_match_yesterday'); ?></div>
     <?php else : ?>
-        <table class="table-striped table-hover">
+        <table class="home-table table-striped table-hover">
         <tr>
             <td colspan="5" class="text-xs-center"><?php echo $this->lang->line('yesterday_matches'); ?></td>
         </tr>
@@ -37,7 +51,7 @@
     <?php if (!$today_matches) : ?>
         <div><?php echo $this->lang->line('no_match_today'); ?></div>
     <?php else : ?>
-        <table class="table-striped table-hover">
+        <table class="home-table table-striped table-hover">
         <tr>
             <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('today_matches'); ?></td>
         </tr>
@@ -55,7 +69,7 @@
     <?php if (!$tomorrow_matches) : ?>
         <div><?php echo $this->lang->line('no_match_tomorrow'); ?></div>
     <?php else : ?>
-        <table class="table-striped table-hover">
+        <table class="home-table table-striped table-hover">
         <tr>
             <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('tomorrow_matches'); ?></td>
         </tr>

@@ -20,6 +20,7 @@ $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12 Parfait';
 $lang['add'] = 'Ajouter';
 $lang['edit'] = 'Editer';
+$lang['link_to_home'] = 'Lien vers la page d\'accueil';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';

@@ -51,7 +51,7 @@ if (!function_exists('img_url')) {
   * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
   */
 if (!function_exists('img')) {
-    function img($nom, $alt = '', $title = '') {
-        return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" />';
+    function img($nom, $alt = '', $title = '', $classes = '') {
+        return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" class="' . $classes . '" />';
     }
 }

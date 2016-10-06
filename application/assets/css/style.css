@@ -1,7 +1,7 @@
 body {
     /* background-color: #D4EE9F; */
     /* background-color: #669999; */
-    /* padding: 20px; */
+    padding: 20px;
 }
 * {
     font-size: 20px;
@@ -20,6 +20,7 @@ input.score {
     text-align: center;
 }
 a {
+    display: inline-block;
     margin: 10px 20px;
     /* color: #003333; */
 }
@@ -57,4 +58,14 @@ td.dash {
     font-size: 14px;
     font-style: italic;
     color: #555555;
+}
+.home-table {
+    display: inline-block;
+    vertical-align: top;
+}
+.home-logo {
+    margin-bottom: 20px;
+}
+.home-logo img {
+    width: 75px;
 }

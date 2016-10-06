@@ -36,6 +36,7 @@ Copier tous les fichiers. Ensuite copiez les fichiers depuis _application/config
 vers application/config.
 Changez les 2 fichiers de configuration config.php and database.php pour
 correspondre à la configuration de votre serveur et à votre base de données.
+Demander une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com/>`_.
 
 *******
 License
