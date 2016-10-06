@@ -58,6 +58,5 @@ Listes des éléments restants à faire :
     - Home à préciser
         - Message d'accueil
         - Affichage des règles 
-    - Messages d'info pour les règles de saisie
     - Habillage du site
     - Intégration des shorts names d'équipe pour petits écrans

@@ -53,3 +53,8 @@ td.team2_name {
 td.dash {
     padding: 0 5px;
 }
+.info {
+    font-size: 14px;
+    font-style: italic;
+    color: #555555;
+}

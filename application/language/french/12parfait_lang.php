@@ -142,6 +142,7 @@ $lang['first_name'] = 'Prénom';
 $lang['last_name'] = 'Nom';
 $lang['user_name'] = 'Nom d\'utilisateur';
 $lang['password'] = 'Mot de passe';
+$lang['password_rules'] = '(min 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre)';
 $lang['password_confirmation'] = 'Confirmation du mot de passe';
 $lang['new_password'] = 'Nouveau mot de passe';
 $lang['new_password_confirmation'] = 'Confirmation du nouveau mot de passe';
