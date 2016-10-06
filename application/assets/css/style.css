@@ -6,6 +6,9 @@ body {
 * {
     font-size: 20px;
 }
+p {
+    max-height: 999999px;
+}
 [disabled]{
     cursor: not-allowed;
 }
