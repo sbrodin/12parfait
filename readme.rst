@@ -56,7 +56,8 @@ TODO
 
 Listes des éléments restants à faire :
     - Home à préciser
-        - Création de la fonction pour les matchs de la veille et les scores
+        - Message d'accueil
+        - Affichage des règles 
     - Messages d'info pour les règles de saisie
     - Habillage du site
     - Intégration des shorts names d'équipe pour petits écrans

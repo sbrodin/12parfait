@@ -20,7 +20,15 @@ if (!defined('BASEPATH') ) {
         }
         $CI =& get_instance();
 
-        $select = 'match_id, t1.team_id AS t1_id, t2.team_id AS t2_id, t1.short_name AS team1, t2.short_name AS team2, DATE_FORMAT(date, "%H:%i") as match_time';
+        $select = 'match_id,
+                   t1.team_id AS t1_id,
+                   t2.team_id AS t2_id,
+                   t1.short_name AS team1,
+                   t2.short_name AS team2,
+                   team1_score,
+                   team2_score,
+                   DATE_FORMAT(date,
+                   "%H:%i") as match_time';
         $where = array(
             'date >' => date('Y-m-d 00:00:00', $date),
             'date <' => date('Y-m-d 23:59:59', $date),
