@@ -12,3 +12,6 @@
 /application/cache
 
 /12parfait.sql
+/12parfait_data.sql
+/12parfait_structure.sql
+/12parfait_update.sql
