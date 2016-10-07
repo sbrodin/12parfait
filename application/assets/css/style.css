@@ -7,11 +7,16 @@ html {
 body {
     /* background-color: #D4EE9F; */
     /* background-color: #669999; */
-    padding: 20px;
     max-width: 768px;
     width: 100%;
     margin: 0 auto;
     min-height: 100%;
+}
+header {
+    padding: 20px;
+}
+.main-container {
+    padding: 0 40px;
 }
 * {
     font-size: 20px;
@@ -41,7 +46,6 @@ a:hover {
     /* color: #FFFFFF; */
 }
 table {
-    margin: 20px;
     /* background-color: #226666; */
     /* background-color: #407F7F; */
     /* color: #99CCCC; */
@@ -82,11 +86,29 @@ td.dash {
 .home-logo img {
     height: 75px;
 }
-.home-message {
-    margin: 0 20px;
-}
 .profile-log {
     height: 75px;
     line-height: 75px;
     float: right;
+}
+.main-nav {
+    width: 100%;
+    margin: 0 0 40px 0;
+    padding-left: 20px;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    background-color: #0275D8;
+}
+.main-nav a,
+.main-nav a:hover {
+    color: #FFFFFF;
+}
+.table-striped tbody tr:nth-of-type(2n+1) {
+    background-color: rgba(2, 117, 216, 0.25);
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(2, 117, 216, 0.1);
+}
+.table-bets {
+    width: 100%;
 }

@@ -176,14 +176,14 @@ $lang['no_data'] = 'N/A';
 $lang['cancel'] = 'Annuler';
 
 // Pari
-$lang['place_bet'] = 'Placer un pari';
-$lang['add_edit_bet'] = 'Placer / Modifier un pari';
+$lang['place_bet'] = 'Parier !';
+$lang['add_edit_bet'] = 'Parier !';
 $lang['my_bets'] = 'Mes paris';
 $lang['result'] = 'Résultat';
 $lang['results'] = 'Résultats';
 $lang['not_available'] = 'Non disponible';
 
 // Scores
-$lang['view_ladder'] = 'Voir le classement';
-$lang['view_my_scores'] = 'Voir mes scores';
+$lang['view_ladder'] = 'Classement';
+$lang['view_my_scores'] = 'Mes scores';
 $lang['anonymous'] = 'Anonyme';

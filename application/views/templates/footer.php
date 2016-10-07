@@ -1,3 +1,4 @@
+        </div>
         <!-- <div><?php echo $this->lang->line('copyright') ?></div> -->
         <script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
         <script type="text/javascript" src="<?php echo js_url('tether-1.3.3.min') ?>"></script>
