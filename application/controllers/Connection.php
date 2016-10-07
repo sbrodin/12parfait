@@ -99,8 +99,6 @@ class Connection extends CI_Controller {
             $this->load->view('login', $data);
             $this->load->view('templates/footer', $data);
         } else {
-            $this->load->helper('strings');
-
             $rules = array(
                 array(
                     'field' => 'email',
@@ -146,8 +144,6 @@ class Connection extends CI_Controller {
             $this->load->view('create_account', $data);
             $this->load->view('templates/footer', $data);
         } else {
-            $this->load->helper('strings');
-
             $rules = array(
                 array(
                     'field' => 'email',
@@ -197,7 +193,6 @@ class Connection extends CI_Controller {
                 );
 
                 // Envoi d'email pour info
-                $this->load->helper('email');
                 $subject = '12 Parfait - Création de compte - Globalis';
                 $body = 'Un nouveau compte a été créé.<br/>';
                 $body.= 'Email : ' . $post['email'];
@@ -274,10 +269,6 @@ class Connection extends CI_Controller {
             $this->load->view('forgotten_password', $data);
             $this->load->view('templates/footer', $data);
         } else {
-            $this->load->helper('user');
-            $this->load->helper('email');
-            $this->load->helper('string');
-
             $rules = array(
                 array(
                     'field' => 'email',
@@ -342,7 +333,6 @@ class Connection extends CI_Controller {
             $this->load->view('reset_password', $data);
             $this->load->view('templates/footer', $data);
         } else {
-            $this->load->helper('strings');
             $rules = array(
                 array(
                     'field' => 'new_password',

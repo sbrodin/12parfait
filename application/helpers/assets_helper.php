@@ -9,10 +9,8 @@ if (!defined('BASEPATH') ) {
   * @param $nom Nom du fichier css
   * @return Url du fichier css dans l'application
   */
-if (!function_exists('css_url')) {
-    function css_url($nom) {
-        return base_url() . 'application/assets/css/' . $nom . '.css';
-    }
+function css_url($nom) {
+    return base_url() . 'application/assets/css/' . $nom . '.css';
 }
 
 /**
@@ -21,10 +19,8 @@ if (!function_exists('css_url')) {
   * @param $nom Nom du fichier js
   * @return Url du fichier js dans l'application
   */
-if (!function_exists('js_url')) {
-    function js_url($nom) {
-        return base_url() . 'application/assets/js/' . $nom . '.js';
-    }
+function js_url($nom) {
+    return base_url() . 'application/assets/js/' . $nom . '.js';
 }
 
 /**
@@ -33,10 +29,8 @@ if (!function_exists('js_url')) {
   * @param $nom Nom de l'image
   * @return Url de l'image dans l'application
   */
-if (!function_exists('img_url')) {
-    function img_url($nom) {
-        return base_url() . 'application/assets/img/' . $nom;
-    }
+function img_url($nom) {
+    return base_url() . 'application/assets/img/' . $nom;
 }
 
 /**
@@ -51,8 +45,6 @@ if (!function_exists('img_url')) {
   * @param $classes Classes ajoutées à la balise img
   * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
   */
-if (!function_exists('img')) {
-    function img($nom, $alt = '', $title = '', $classes = '') {
-        return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" class="' . $classes . '" />';
-    }
+function img($nom, $alt = '', $title = '', $classes = '') {
+    return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" class="' . $classes . '" />';
 }

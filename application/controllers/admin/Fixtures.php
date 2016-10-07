@@ -339,7 +339,6 @@ class Fixtures extends MY_Controller {
                 $this->match_model->update($where, $donnees_echapees);
             }
             // Mise à jour des scores des joueurs
-            $this->load->helper('score');
             score_calculator($fixture_id);
 
             $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
