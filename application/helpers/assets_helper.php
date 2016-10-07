@@ -48,6 +48,7 @@ if (!function_exists('img_url')) {
   * @param $nom Nom de l'image
   * @param $alt Champ alt pour l'image
   * @param $title Titre de l'image
+  * @param $classes Classes ajoutées à la balise img
   * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
   */
 if (!function_exists('img')) {
