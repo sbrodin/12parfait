@@ -1,5 +1,4 @@
 <?php if (is_admin()) : ?>
-<a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('site_admin');?></a><br/>
 <?php endif ?>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">

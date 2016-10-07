@@ -1,5 +1,4 @@
 <?php if (is_admin()) : ?>
-<a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('site_admin');?></a><br/>
 <?php endif ?>
 <table class="table-striped table-bordered table-hover">
     <tr>

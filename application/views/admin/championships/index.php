@@ -1,4 +1,3 @@
-<a href="<?php echo site_url('admin') ?>"><?php echo $this->lang->line('back_to_site_admin');?></a><br/>
 <a href="<?php echo site_url('admin/championships/add') ?>"><?php echo $this->lang->line('add_championship');?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">

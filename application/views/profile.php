@@ -7,6 +7,7 @@
     </div>
 <?php endif ?>
 
+<br/>
 <a href="<?php echo site_url('profile/edit')?>"><?php echo $this->lang->line('my_profile_edit') ?></a>
 
 <div>
