@@ -63,7 +63,7 @@ p {
     padding: 40px;
     background-color: #FFFFFF;
 }
-p {
+p, ul, li {
     max-height: 999999px;
 }
 [disabled]{
@@ -78,10 +78,6 @@ input::-webkit-inner-spin-button {
 a {
     display: inline-block;
     color: inherit;
-    /* color: #003333; */
-}
-a:hover {
-    /* color: #FFFFFF; */
 }
 th, td {
     padding: 5px 10px;
@@ -100,11 +96,8 @@ ul.horizontal li {
 
 /** HEADER **/
 header {
-    padding: 20px;
+    padding: 30px 40px;
     background-color: #FFFFFF;
-}
-.home-logo {
-    margin-bottom: 20px;
 }
 .home-logo img {
     height: 75px;
@@ -115,7 +108,14 @@ header {
     float: right;
 }
 .profile-log a {
-    margin: 10px 20px;
+    margin: 0 20px;
+    color: #0275D8;
+}
+.profile-log a:hover {
+    /* color: #FFFFFF; */
+}
+.profile-log a:last-of-type {
+    margin-right: 0;
 }
 
 
@@ -188,6 +188,10 @@ td.dash {
 .home-message {
     margin-bottom: 50px;
 }
+.home-message ul {
+    margin-left: 40px;
+    list-style-type: circle;
+}
 .table-bets {
     width: 100%;
 }
@@ -196,7 +200,7 @@ td.dash {
 
 /** FOOTER **/
 footer {
-    color: #AAAAAA;
+    color: #888888;
     text-align: center;
     padding: 20px 0;
 }
@@ -206,5 +210,4 @@ footer span {
 footer a {
     font-size: 14px;
     margin: 0;
-    color: #AAAAAA;
 }
