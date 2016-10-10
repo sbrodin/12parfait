@@ -128,7 +128,7 @@ $lang['no_match_this_day'] = 'Pas de match pour ce jour';
 $lang['no_match_yesterday'] = 'Pas de match hier';
 $lang['no_match_today'] = 'Pas de match aujourd\'hui';
 $lang['no_match_tomorrow'] = 'Pas de match demain';
-$lang['no_match_3days'] = 'Pas de match hier, aujour\'hui, ou demain';
+$lang['no_match_3days'] = 'Pas de match hier, aujourd\'hui, ou demain';
 
 // Journée
 $lang['fixture'] = 'Journée';

@@ -1,3 +1,5 @@
+                </div>
+            </div>
         </div>
         <footer>
             <span><?php echo $this->lang->line('copyright') ?></span>

@@ -57,8 +57,5 @@ TODO
 
 Listes des éléments restants à faire :
     - Classement, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
-    - Home à préciser
-        - Message d'accueil
-        - Affichage des règles
     - Habillage du site
     - Intégration des shorts names d'équipe pour petits écrans

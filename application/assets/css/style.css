@@ -1,35 +1,67 @@
+/** RESET **/
 html {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 body {
-    background-color: #0275D8;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
     min-height: 100%;
-}
-header {
-    padding: 20px;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
-}
-footer {
-    color: #AAAAAA;
-}
-footer span {
-    font-size: 14px;
-}
-footer a {
-    font-size: 14px;
     margin: 0;
-    color: #AAAAAA;
-}
-.main-container {
-    padding: 20px 40px 40px;
-    background-color: #FFFFFF;
+    padding: 0;
+    font-size: 16px;
+    background: rgb(195, 209, 220);
+    background-color: rgba(2, 117, 216, 0.25);
 }
 * {
-    font-size: 20px;
+    box-sizing: border-box;
+}
+section, main, header, aside, menu, footer {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+a img {
+    border: 0;
+    outline: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.7em;
+    font-size: 1em;
+}
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.9em; }
+h4 { font-size: 1.6em; }
+h5 { font-size: 1.3em; }
+h6 { font-size: 1em; }
+p {
+    margin: 1em 0;
+}
+
+
+
+/** COMMON **/
+.boxed {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+.main-container {
+    padding: 40px;
+    background-color: #FFFFFF;
 }
 p {
     max-height: 999999px;
@@ -43,25 +75,88 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input.score {
-    width: 35px;
-    text-align: center;
-}
 a {
     display: inline-block;
-    margin: 10px 20px;
+    color: inherit;
     /* color: #003333; */
 }
 a:hover {
     /* color: #FFFFFF; */
 }
-table {
-    /* background-color: #226666; */
-    /* background-color: #407F7F; */
-    /* color: #99CCCC; */
-}
 th, td {
     padding: 5px 10px;
+}
+.table-striped tbody tr:nth-of-type(2n+1) {
+    background-color: rgba(2, 117, 216, 0.25);
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(2, 117, 216, 0.1);
+}
+ul.horizontal li {
+    display: inline-block;
+}
+
+
+
+/** HEADER **/
+header {
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+.home-logo {
+    margin-bottom: 20px;
+}
+.home-logo img {
+    height: 75px;
+}
+.profile-log {
+    height: 75px;
+    line-height: 75px;
+    float: right;
+}
+.profile-log a {
+    margin: 10px 20px;
+}
+
+
+
+/** MENU **/
+.menu {
+    width: 100%;
+    background-color: #0275D8;
+}
+.menu a,
+.menu a:hover {
+    color: #FFFFFF;
+}
+.menu-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+.menu-nav li {
+    line-height: 60px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    text-align: center;
+}
+.menu-nav li a {
+    display: block;
+    width: 100%;
+}
+.menu-nav li a:hover {
+    background-color: #299CFF;
+    text-decoration: none;
+}
+
+
+
+/** BODY **/
+input.score {
+    width: 35px;
+    text-align: center;
 }
 td.date {
     text-align: center;
@@ -90,37 +185,26 @@ td.dash {
     display: inline-block;
     vertical-align: top;
 }
-.home-logo {
-    margin-bottom: 20px;
-}
-.home-logo img {
-    height: 75px;
-}
-.profile-log {
-    height: 75px;
-    line-height: 75px;
-    float: right;
-}
-.main-nav {
-    width: 100%;
-    padding-left: 20px;
-    background-color: #0275D8;
-    display: flex;
-    justify-content: space-around;
-}
-.main-nav a,
-.main-nav a:hover {
-    color: #FFFFFF;
-}
 .home-message {
     margin-bottom: 50px;
 }
-.table-striped tbody tr:nth-of-type(2n+1) {
-    background-color: rgba(2, 117, 216, 0.25);
-}
-.table-hover tbody tr:hover {
-    background-color: rgba(2, 117, 216, 0.1);
-}
 .table-bets {
     width: 100%;
+}
+
+
+
+/** FOOTER **/
+footer {
+    color: #AAAAAA;
+    text-align: center;
+    padding: 20px 0;
+}
+footer span {
+    font-size: 14px;
+}
+footer a {
+    font-size: 14px;
+    margin: 0;
+    color: #AAAAAA;
 }

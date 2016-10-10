@@ -11,14 +11,15 @@ if (!defined('BASEPATH') ) {
   * @return Bool Retourne TRUE si le mail a été accepté pour livraison, FALSE sinon.
   */
 function send_email_interception($recipient, $subject, $message) {
-    if (defined('EMAIL_INTERCEPTION')) {
-        $subject.= ' - mail à destination originale de '.$recipient;
-        $recipient = EMAIL_INTERCEPTION;
-    }
-
     $headers = 'MIME-Version: 1.0' . PHP_EOL;
     $headers.= 'Content-type: text/html; charset=UTF8' . PHP_EOL;
     $headers.= 'From: 12 Parfait <no-reply@12parfait.fr>' . PHP_EOL;
+
+    if (defined('EMAIL_INTERCEPTION')) {
+        mail($recipient, $subject, $message, $headers);
+        $subject.= ' - mail à destination originale de '.$recipient;
+        $recipient = EMAIL_INTERCEPTION;
+    }
 
     return mail($recipient, $subject, $message, $headers);
 }
