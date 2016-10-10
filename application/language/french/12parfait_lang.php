@@ -24,7 +24,8 @@ $lang['link_to_home'] = 'Lien vers la page d\'accueil';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
-$lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
+$lang['copyright'] = '&copy; sbrodin, 2016';
+$lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
 
 // Menu admin
 $lang['site_admin'] = 'Gestion du site';
