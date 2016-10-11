@@ -28,7 +28,11 @@
         </td>
         <td><?php echo $fixture->fixture_name ?></td>
         <td>
-            <a href="<?php echo site_url('bets/edit/'.$fixture->fixture_id) ?>"><?php echo ($fixture->status === 'open') ? $this->lang->line('add_edit_bet') : $this->lang->line('results') ?></a>
+            <?php if ($fixture->status === 'open') : ?>
+            <a class="btn btn-sm btn-primary" href="<?php echo site_url('bets/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('add_edit_bet') ?></a>
+            <?php else : ?>
+            <a class="btn btn-sm btn-outline-primary" href="<?php echo site_url('bets/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('results') ?></a>
+            <?php endif; ?>
         </td>
     </tr>
     <?php endforeach; ?>
