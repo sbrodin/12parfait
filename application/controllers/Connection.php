@@ -56,6 +56,8 @@ class Connection extends CI_Controller {
         'add_fixture',
         'edit_fixture',
         'edit_fixture_results',
+        'close_fixture',
+        'open_fixture',
         // acl pour scores
         'view_scores',
     );
@@ -69,6 +71,8 @@ class Connection extends CI_Controller {
         'view_bet',
         'edit_bet',
         'delete_bet',
+        // acl pour scores
+        'view_scores',
     );
 
     /**

@@ -1,5 +1,3 @@
-<?php if (is_admin()) : ?>
-<?php endif ?>
 <a href="<?php echo site_url('bets') ?>"><?php echo $this->lang->line('back_to_bets_index') ?></a><br/>
 <?php echo validation_errors(); ?>
 

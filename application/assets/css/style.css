@@ -79,6 +79,25 @@ a {
     display: inline-block;
     color: inherit;
 }
+ul.horizontal li {
+    display: inline-block;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table thead th,
+table thead:hover th {
+    padding: 10px;
+    text-align: left;
+    background-color: rgba(2, 117, 216, 0.5);
+}
+table td {
+    margin: 0;
+    padding: 10px;
+}
 th, td {
     padding: 5px 10px;
 }
@@ -87,9 +106,6 @@ th, td {
 }
 .table-hover tbody tr:hover {
     background-color: rgba(2, 117, 216, 0.1);
-}
-ul.horizontal li {
-    display: inline-block;
 }
 
 

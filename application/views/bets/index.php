@@ -1,5 +1,3 @@
-<?php if (is_admin()) : ?>
-<?php endif ?>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -9,11 +7,11 @@
     </div>
 <?php endif ?>
 <table class="table-striped table-bordered table-hover table-bets">
-    <tr>
+    <thead>
         <th><?php echo $this->lang->line('championship_name') ?></th>
         <th><?php echo $this->lang->line('fixture_name') ?></th>
         <th></th>
-    </tr>
+    </thead>
     <?php
     $championship_name = '';
     foreach ($fixtures as $num => $fixture) :
@@ -30,7 +28,7 @@
         </td>
         <td><?php echo $fixture->fixture_name ?></td>
         <td>
-            <a href="<?php echo site_url('bets/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('add_edit_bet') ?></a>
+            <a href="<?php echo site_url('bets/edit/'.$fixture->fixture_id) ?>"><?php echo ($fixture->status === 'open') ? $this->lang->line('add_edit_bet') : $this->lang->line('results') ?></a>
         </td>
     </tr>
     <?php endforeach; ?>

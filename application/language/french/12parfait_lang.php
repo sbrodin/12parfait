@@ -137,6 +137,8 @@ $lang['edit_fixture'] = 'Editer la journée';
 $lang['enter_fixture_results'] = 'Entrer les résultats';
 $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
+$lang['close_fixture'] = 'Fermer';
+$lang['open_fixture'] = 'Ouvrir la journée';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

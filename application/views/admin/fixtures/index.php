@@ -13,6 +13,7 @@
         <th><?php echo $this->lang->line('fixture_name') ?></th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     <?php
     $championship_name = '';
@@ -34,6 +35,13 @@
         </td>
         <td>
             <a href="<?php echo site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('enter_fixture_results') ?></a>
+        </td>
+        <td>
+            <?php if ($fixture->status === 'open') : ?>
+                <a href="<?php echo site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('close_fixture') ?></a>
+            <?php else : ?>
+                <a href="<?php echo site_url('admin/fixtures/open_fixture/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('open_fixture') ?></a>
+            <?php endif; ?>
         </td>
     </tr>
     <?php endforeach; ?>

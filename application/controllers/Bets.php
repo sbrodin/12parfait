@@ -18,8 +18,8 @@ class Bets extends MY_Controller {
         $data = array();
         $data['title'] = 'Bets';
 
-        $select = 'fixture_id, fixture_name, championship.name AS championship_name';
-        $where = array('status' => 'open');
+        $select = 'fixture_id, fixture_name, championship.name AS championship_name, fixture.status';
+        $where = array('championship.status' => 'open');
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))

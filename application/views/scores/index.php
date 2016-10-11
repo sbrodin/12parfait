@@ -1,5 +1,3 @@
-<?php if (is_admin()) : ?>
-<?php endif ?>
 <table class="table-striped table-bordered table-hover">
     <tr>
         <th><?php echo $this->lang->line('user_name') ?></th>

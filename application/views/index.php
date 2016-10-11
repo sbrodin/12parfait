@@ -1,4 +1,4 @@
-<h1>Bienvenue sur 12Parfait</h1>
+<h1>Bienvenue sur 12parfait</h1>
 <div class="home-message">
 <p>12parfait vous permet de placer des pronostics entre amis sur les scores des matchs de football.</p>
 <p>Mais d'autres sports arrivent très vite !</p>

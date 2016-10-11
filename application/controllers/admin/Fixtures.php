@@ -18,7 +18,7 @@ class Fixtures extends MY_Controller {
         $data = array();
         $data['title'] = 'Admin - Journées';
 
-        $select = 'fixture_id, fixture_name, championship.name AS championship_name';
+        $select = 'fixture_id, fixture_name, championship.name AS championship_name, fixture.status';
         $where = array();
         $nb = NULL;
         $debut = NULL;
@@ -345,5 +345,43 @@ class Fixtures extends MY_Controller {
             redirect(site_url('admin/fixtures'), 'location');
             exit;
         }
+    }
+
+    /**
+    * Fonction de fermeture d'une journée.
+    * @param $fixture_id Id de la journée à fermer
+    */
+    public function close_fixture($fixture_id) {
+        // Gestion des droits de fermeture
+        if (!user_can('close_fixture')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array('status' => 'close');
+
+        $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
+
+        redirect(site_url('admin/fixtures'), 'location');
+        exit;
+    }
+
+    /**
+    * Fonction d'ouverture d'une journée.
+    * @param $fixture_id Id de la journée à ouvrir
+    */
+    public function open_fixture($fixture_id) {
+        // Gestion des droits d'ouverture
+        if (!user_can('open_fixture')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
+        $donnees_echapees = array('status' => 'open');
+
+        $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
+
+        redirect(site_url('admin/fixtures'), 'location');
+        exit;
     }
 }

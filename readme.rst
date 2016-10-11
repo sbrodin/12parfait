@@ -57,7 +57,8 @@ TODO
 
 Listes des éléments restants à faire :
     - Update des matchs à revoir
-    - Afficher un message différent pour les journées déjà terminées
-    - Classement, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
+    - Classement, ajouter le nombre de 12parfait
+    - Mes scores, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
+    - Afficher les bets des autres
     - Habillage du site
     - Intégration des shorts names d'équipe pour petits écrans
