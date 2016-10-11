@@ -1,4 +1,4 @@
-<header class="header clear">
+<header class="header clearfix">
     <a class="home-logo" href="<?php echo site_url() ?>"><?php echo img('logo.png', $this->lang->line('home'), $this->lang->line('link_to_home')); ?></a>
 <?php if (is_connected()) : ?>
     <nav class="profile-log">

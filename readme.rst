@@ -57,8 +57,13 @@ TODO
 
 Listes des éléments restants à faire :
     - Update des matchs à revoir
-    - Classement, ajouter le nombre de 12parfait
+    - Home, voir les derniers et prochains matchs
+    - Classement,
+        - avoir un petit podium au-dessus du tableau
+        - mettre les 3 premiers en couleurs différentes(or, argent et bronze)
+        - rajouter les numéros
+        - ajouter le nombre de 12parfait
+    - Gérer les tableaux sur petits écrans (responsive utilities)
     - Mes scores, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
     - Afficher les bets des autres
     - Habillage du site
-    - Intégration des shorts names d'équipe pour petits écrans
