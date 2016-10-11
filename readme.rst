@@ -57,8 +57,12 @@ TODO
 
 Listes des éléments restants à faire :
     - Update des matchs à revoir
-    - Home, voir les derniers et prochains matchs
-    - Classement,
+    - Home
+        - voir les derniers et prochains matchs
+        - jumbotron
+        - afficher/cacher message d'aide
+    - Profil, gestion des messages d'aide
+    - Classement
         - avoir un petit podium au-dessus du tableau
         - mettre les 3 premiers en couleurs différentes(or, argent et bronze)
         - rajouter les numéros
