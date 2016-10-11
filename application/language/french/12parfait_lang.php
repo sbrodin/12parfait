@@ -167,6 +167,7 @@ $lang['language'] = 'Langue';
 $lang['french'] = 'Français';
 $lang['english'] = 'Anglais';
 $lang['add_date'] = 'Date d\'inscription';
+$lang['you_are_in_since'] = 'Vous êtes inscrit depuis le ';
 $lang['last_connection'] = 'Dernière connexion';
 $lang['score'] = 'Score';
 $lang['my_score'] = 'Mon score';
