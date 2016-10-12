@@ -36,7 +36,7 @@ Copier tous les fichiers. Ensuite copiez les fichiers depuis _application/config
 vers application/config.
 Changez les 2 fichiers de configuration config.php and database.php pour
 correspondre à la configuration de votre serveur et à votre base de données.
-Demander une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com/>`_.
+Demander une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com>`_.
 
 *******
 License
@@ -68,6 +68,7 @@ Listes des éléments restants à faire :
         - rajouter les numéros
         - ajouter le nombre de 12parfait
     - Gérer les tableaux sur petits écrans (responsive utilities)
+    - Gérer les titles avec le fichier de langue
     - Mes scores, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
     - Afficher les bets des autres
     - Habillage du site
