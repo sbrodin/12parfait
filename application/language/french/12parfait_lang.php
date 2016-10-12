@@ -92,7 +92,9 @@ $lang['my_profile_edit'] = 'Editer mon profil';
 
 // Championnats
 $lang['championship'] = 'Championnat';
+$lang['championships'] = 'Championnats';
 $lang['add_championship'] = 'Ajouter un championnat';
+$lang['edit_championship'] = 'Editer un championnat';
 $lang['championship_name'] = 'Nom du championnat';
 $lang['sport'] = 'Sport';
 $lang['football'] = 'Football';
@@ -102,7 +104,6 @@ $lang['france'] = 'France';
 $lang['europe'] = 'Europe';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
-$lang['edit_championship'] = 'Editer';
 $lang['activate_championship'] = 'Activer';
 $lang['deactivate_championship'] = 'Désactiver';
 

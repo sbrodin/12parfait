@@ -1,5 +1,5 @@
-<a href="<?php echo site_url('admin/users') ?>"><?php echo $this->lang->line('users_admin');?></a><br/>
-<a href="<?php echo site_url('admin/fixtures') ?>"><?php echo $this->lang->line('fixtures_admin');?></a><br/>
-<a href="<?php echo site_url('admin/championships') ?>"><?php echo $this->lang->line('championships_admin');?></a><br/>
-<a href="<?php echo site_url('admin/teams') ?>"><?php echo $this->lang->line('teams_admin');?></a><br/>
-<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('matches_admin');?></a><br/>
+<a href="<?= site_url('admin/users') ?>"><?= $this->lang->line('users_admin');?></a><br/>
+<a href="<?= site_url('admin/fixtures') ?>"><?= $this->lang->line('fixtures_admin');?></a><br/>
+<a href="<?= site_url('admin/championships') ?>"><?= $this->lang->line('championships_admin');?></a><br/>
+<a href="<?= site_url('admin/teams') ?>"><?= $this->lang->line('teams_admin');?></a><br/>
+<a href="<?= site_url('admin/matches') ?>"><?= $this->lang->line('matches_admin');?></a><br/>

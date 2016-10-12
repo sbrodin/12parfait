@@ -1,12 +1,12 @@
-<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches_admin') ?></a><br/>
-<a href="<?php echo site_url('admin/matches/fixture') ?>"><?php echo $this->lang->line('add_match');?></a><br/>
-<?php echo validation_errors(); ?>
+<a href="<?= site_url('admin/matches') ?>"><?= $this->lang->line('back_to_matches_admin') ?></a><br/>
+<a href="<?= site_url('admin/matches/fixture') ?>"><?= $this->lang->line('add_match') ?></a><br/>
+<?= validation_errors() ?>
 
 <?php if (!empty($info)) : ?>
-    <span><?php echo $info ?></span>
+    <span><?= $info ?></span>
 <?php else : ?>
-    <label for="championship"><?php echo $this->lang->line('championship') ?> : </label>
-    <span id="championship"><?php echo $championship_name ?></span><br/>
+    <label for="championship"><?= $this->lang->line('championship') ?> : </label>
+    <span id="championship"><?= $championship_name ?></span><br/>
     <div>
     <?php
     $fixture_name = '';

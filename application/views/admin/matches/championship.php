@@ -1,11 +1,11 @@
-<a href="<?php echo site_url('admin/matches') ?>"><?php echo $this->lang->line('back_to_matches_admin') ?></a><br/>
-<?php echo validation_errors(); ?>
+<a href="<?= site_url('admin/matches') ?>"><?= $this->lang->line('back_to_matches_admin') ?></a><br/>
+<?= validation_errors() ?>
 
-<?php echo form_open('admin/matches/championship'); ?>
+<?= form_open('admin/matches/championship'); ?>
     <select id="championship" name="championship" required="required">
         <?php foreach ($championships as $key => $championship) : ?>
-        <option value="<?php echo $championship->championship_id ?>" ><?php echo $championship->name ?></option>
+        <option value="<?= $championship->championship_id ?>" ><?= $championship->name ?></option>
         <?php endforeach; ?>
     </select>
-    <input type="submit" value="<?php echo $this->lang->line('choose_championship') ?>">
+    <input type="submit" value="<?= $this->lang->line('choose_championship') ?>">
 </form>

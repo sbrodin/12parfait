@@ -1,17 +1,17 @@
-<a href="<?php echo site_url('admin/fixtures/add') ?>"><?php echo $this->lang->line('add_fixture');?></a><br/>
+<a href="<?= site_url('admin/fixtures/add') ?>"><?= $this->lang->line('add_fixture') ?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <?php echo $this->session->flashdata('success') ?>
+        <?= $this->session->flashdata('success') ?>
     </div>
 <?php endif ?>
 <table class="table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th><?php echo $this->lang->line('championship_name') ?></th>
-            <th><?php echo $this->lang->line('fixture_name') ?></th>
+            <th><?= $this->lang->line('championship_name') ?></th>
+            <th><?= $this->lang->line('fixture_name') ?></th>
             <th></th>
             <th></th>
             <th></th>
@@ -32,18 +32,18 @@
             }
             ?>
             </td>
-            <td><?php echo $fixture->fixture_name ?></td>
+            <td><?= $fixture->fixture_name ?></td>
             <td>
-                <a href="<?php echo site_url('admin/fixtures/edit/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('edit_fixture') ?></a>
+                <a href="<?= site_url('admin/fixtures/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('edit_fixture') ?></a>
             </td>
             <td>
-                <a href="<?php echo site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('enter_fixture_results') ?></a>
+                <a href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results') ?></a>
             </td>
             <td>
                 <?php if ($fixture->status === 'open') : ?>
-                    <a href="<?php echo site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('close_fixture') ?></a>
+                    <a href="<?= site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('close_fixture') ?></a>
                 <?php else : ?>
-                    <a href="<?php echo site_url('admin/fixtures/open_fixture/'.$fixture->fixture_id) ?>"><?php echo $this->lang->line('open_fixture') ?></a>
+                    <a href="<?= site_url('admin/fixtures/open_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('open_fixture') ?></a>
                 <?php endif; ?>
             </td>
         </tr>

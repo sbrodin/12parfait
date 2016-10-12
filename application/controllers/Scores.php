@@ -18,7 +18,10 @@ class Scores extends MY_Controller {
         $data['title'] = 'Scores';
 
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
-        $where = array('active' => '1');
+        $where = array(
+            'active' => '1',
+            // 'bet.score !=' => '0',
+        );
 
         if ($user_id !== 0) {
             $where = array_merge($where, array('user.user_id' => $user_id));
@@ -32,6 +35,27 @@ class Scores extends MY_Controller {
                                    ->order_by($order)
                                    ->get()
                                    ->result();
+
+        $select = 'user_id, count(bet.score) as nb_12parfait';
+        $where = array('bet.score' => '12');
+
+        $order = 'nb_12parfait DESC';
+        $data['scores_12'] = $this->db->select($select)
+                                      ->from($this->config->item('bet', 'table'))
+                                      ->where($where)
+                                      ->order_by($order)
+                                      ->get()
+                                      ->result();
+
+        $scores_12 = array();
+        foreach ($data['scores_12'] as $key => $score_12) {
+            $scores_12[$score_12->user_id] = $score_12->nb_12parfait;
+        }
+        // var_dump($this->db->last_query());
+        // var_dump($data['scores_12']);
+        // var_dump($scores_12);
+        // var_dump($data['scores']);
+        // exit;
 
         $user_id = '';
         $scores = array();

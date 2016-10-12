@@ -1,16 +1,16 @@
-<a href="<?php echo site_url('admin/fixtures') ?>"><?php echo $this->lang->line('back_to_fixtures_admin') ?></a><br/>
-<?php echo validation_errors(); ?>
+<a href="<?= site_url('admin/fixtures') ?>"><?= $this->lang->line('back_to_fixtures_admin') ?></a><br/>
+<?= validation_errors(); ?>
 
 <?php if (!empty($info)) : ?>
-    <span><?php echo $info ?></span>
+    <span><?= $info ?></span>
 <?php else : ?>
     <?php if (!empty($error_duplicate)) : ?>
-        <span><?php echo $error_duplicate ?></span><br/><br/>
+        <span><?= $error_duplicate ?></span><br/><br/>
     <?php endif; ?>
-    <label for="championship"><?php echo $this->lang->line('championship') ?> : </label>
-    <span id="championship"><?php echo $championship_name ?></span><br/>
-    <label for="fixture"><?php echo $this->lang->line('fixture') ?> : </label>
-    <span id="fixture"><?php echo $fixture_name ?></span><br/>
+    <label for="championship"><?= $this->lang->line('championship') ?> : </label>
+    <span id="championship"><?= $championship_name ?></span><br/>
+    <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
+    <span id="fixture"><?= $fixture_name ?></span><br/>
     <?php echo form_open('admin/fixtures/results/' . $fixture_id);
         echo '<table><tbody>';
         $date = '';
@@ -48,7 +48,7 @@
         }
         echo '</tbody></table>';
         ?>
-        <input type="submit" id="confirm" name="submit" value="<?php echo $this->lang->line('confirm') ?>">
-        <input type="submit" id="return" name="submit" value="<?php echo $this->lang->line('back') ?>">
+        <input type="submit" id="confirm" name="submit" value="<?= $this->lang->line('confirm') ?>">
+        <input type="submit" id="return" name="submit" value="<?= $this->lang->line('back') ?>">
     </form>
 <?php endif; ?>

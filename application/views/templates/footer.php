@@ -2,18 +2,18 @@
             </div>
         </div>
         <footer>
-            <span><?php echo $this->lang->line('copyright') ?></span>
-            <span><?php echo $this->lang->line('generated_with') ?></span>
+            <span><?= $this->lang->line('copyright') ?></span>
+            <span><?= $this->lang->line('generated_with') ?></span>
         </footer>
-        <script type="text/javascript" src="<?php echo js_url('jquery-3.1.0.min') ?>"></script>
-        <script type="text/javascript" src="<?php echo js_url('tether-1.3.3.min') ?>"></script>
+        <script type="text/javascript" src="<?= js_url('jquery-3.1.0.min') ?>"></script>
+        <script type="text/javascript" src="<?= js_url('tether-1.3.3.min') ?>"></script>
 
-        <script type="text/javascript" src="<?php echo js_url('bootstrap.4.0.0-alpha.4.min') ?>"></script>
+        <script type="text/javascript" src="<?= js_url('bootstrap.4.0.0-alpha.4.min') ?>"></script>
         <script type="text/javascript">
             $('.alert').alert();
         </script>
 
-        <script type="text/javascript" src="<?php echo js_url('jquery.multi-select') ?>"></script>
+        <script type="text/javascript" src="<?= js_url('jquery.multi-select') ?>"></script>
         <script type="text/javascript">
             $('#teams').multiSelect({
                 selectableFooter: "<div class='custom-header'>Nombre : <span class='nb-equipes'>0</span></div>",
@@ -33,7 +33,7 @@
         </script>
 
         <!-- code js pour calendrier -->
-        <script type="text/javascript" src="<?php echo js_url('jquery.datetimepicker.full.min') ?>"></script>
+        <script type="text/javascript" src="<?= js_url('jquery.datetimepicker.full.min') ?>"></script>
         <script type="text/javascript">
             $.datetimepicker.setLocale('fr');
             $('.match_date').datetimepicker({

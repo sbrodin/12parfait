@@ -14,58 +14,58 @@
 </div>
 
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
-    <div><?php echo $this->lang->line('no_match_3days'); ?></div>
+    <div><?= $this->lang->line('no_match_3days'); ?></div>
 <?php else : ?>
     <?php if (!$yesterday_matches) : ?>
-        <div><?php echo $this->lang->line('no_match_yesterday'); ?></div>
+        <div><?= $this->lang->line('no_match_yesterday'); ?></div>
     <?php else : ?>
         <table class="home-table table-striped table-hover">
         <tr>
-            <td colspan="5" class="text-xs-center"><?php echo $this->lang->line('yesterday_matches'); ?></td>
+            <td colspan="5" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></td>
         </tr>
         <?php foreach ($yesterday_matches as $key => $match) : ?>
             <tr>
-                <td class="text-xs-right"><?php echo $match->team1 ?></td>
-                <td class="text-xs-right"><?php echo $match->team1_score ?></td>
+                <td class="text-xs-right"><?= $match->team1 ?></td>
+                <td class="text-xs-right"><?= $match->team1_score ?></td>
                 <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?php echo $match->team2_score ?></td>
-                <td class="text-xs-left"><?php echo $match->team2 ?></td>
+                <td class="text-xs-left"><?= $match->team2_score ?></td>
+                <td class="text-xs-left"><?= $match->team2 ?></td>
             </tr>
         <?php endforeach; ?>
         </table>
     <?php endif; ?>
 
     <?php if (!$today_matches) : ?>
-        <div><?php echo $this->lang->line('no_match_today'); ?></div>
+        <div><?= $this->lang->line('no_match_today'); ?></div>
     <?php else : ?>
         <table class="home-table table-striped table-hover">
         <tr>
-            <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('today_matches'); ?></td>
+            <td colspan="4" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></td>
         </tr>
         <?php foreach ($today_matches as $key => $match) : ?>
             <tr>
-                <td class="text-xs-right"><?php echo $match->team1 ?></td>
+                <td class="text-xs-right"><?= $match->team1 ?></td>
                 <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?php echo $match->team2 ?></td>
-                <td class="text-xs-center"><?php echo $match->match_time ?></td>
+                <td class="text-xs-left"><?= $match->team2 ?></td>
+                <td class="text-xs-center"><?= $match->match_time ?></td>
             </tr>
         <?php endforeach; ?>
         </table>
     <?php endif; ?>
 
     <?php if (!$tomorrow_matches) : ?>
-        <div><?php echo $this->lang->line('no_match_tomorrow'); ?></div>
+        <div><?= $this->lang->line('no_match_tomorrow'); ?></div>
     <?php else : ?>
         <table class="home-table table-striped table-hover">
         <tr>
-            <td colspan="4" class="text-xs-center"><?php echo $this->lang->line('tomorrow_matches'); ?></td>
+            <td colspan="4" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></td>
         </tr>
         <?php foreach ($tomorrow_matches as $key => $match) : ?>
             <tr>
-                <td class="text-xs-right"><?php echo $match->team1 ?></td>
+                <td class="text-xs-right"><?= $match->team1 ?></td>
                 <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?php echo $match->team2 ?></td>
-                <td class="text-xs-center"><?php echo $match->match_time ?></td>
+                <td class="text-xs-left"><?= $match->team2 ?></td>
+                <td class="text-xs-center"><?= $match->match_time ?></td>
             </tr>
         <?php endforeach; ?>
         </table>

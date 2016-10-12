@@ -16,7 +16,7 @@ class Fixtures extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Journées';
+        $data['title'] = $this->lang->line('admin') . ' - Journées';
 
         $select = 'fixture_id, fixture_name, championship.name AS championship_name, fixture.status';
         $where = array();
@@ -46,7 +46,7 @@ class Fixtures extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter une journée';
+        $data['title'] = $this->lang->line('admin') . ' - Ajouter une journée';
 
         $this->load->model('championship_model');
         $select = '*';
@@ -120,7 +120,7 @@ class Fixtures extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Editer une journée';
+        $data['title'] = $this->lang->line('admin') . ' - Editer une journée';
 
         $data['fixture_id'] = $fixture_id;
 
@@ -233,7 +233,7 @@ class Fixtures extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Editer une journée';
+        $data['title'] = $this->lang->line('admin') . ' - Editer une journée';
 
         $data['fixture_id'] = $fixture_id;
         $this->session->set_userdata('fixture', $fixture_id);
