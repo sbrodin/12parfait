@@ -48,7 +48,7 @@
 
         <script type="text/javascript">
             $('a.del-team').on('click', function() {
-                var href = $(this).attr('data-linkdelteam');
+                var href = $(this).data('linkdelteam');
                 $.ajax({
                     type:'POST',
                     url:href,
@@ -56,6 +56,9 @@
                         $(this).parents('tr').find('td a').remove();
                     }
                 });
+            });
+            $('.home-table tr').on('click', function() {
+                window.location = $(this).data('href');
             });
         </script>
     </body>

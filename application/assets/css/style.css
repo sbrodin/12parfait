@@ -199,6 +199,9 @@ td.dash {
     display: inline-block;
     vertical-align: top;
 }
+.home-table tr {
+    cursor: pointer;
+}
 .home-message {
     margin-bottom: 50px;
 }

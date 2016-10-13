@@ -21,6 +21,7 @@ function matches_of_day($date = NULL) {
     $CI =& get_instance();
 
     $select = 'match_id,
+               fixture_id,
                t1.team_id AS t1_id,
                t2.team_id AS t2_id,
                t1.short_name AS team1,

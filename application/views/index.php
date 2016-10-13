@@ -19,55 +19,67 @@
     <?php if (!$yesterday_matches) : ?>
         <div><?= $this->lang->line('no_match_yesterday'); ?></div>
     <?php else : ?>
-        <table class="home-table table-striped table-hover">
-        <tr>
-            <td colspan="5" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></td>
-        </tr>
-        <?php foreach ($yesterday_matches as $key => $match) : ?>
-            <tr>
-                <td class="text-xs-right"><?= $match->team1 ?></td>
-                <td class="text-xs-right"><?= $match->team1_score ?></td>
-                <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?= $match->team2_score ?></td>
-                <td class="text-xs-left"><?= $match->team2 ?></td>
-            </tr>
-        <?php endforeach; ?>
+        <table class="home-table table-striped table-hover m-t-2">
+            <thead>
+                <tr>
+                    <th colspan="5" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($yesterday_matches as $key => $match) : ?>
+                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <td class="text-xs-right"><?= $match->team1 ?></td>
+                        <td class="text-xs-right"><?= $match->team1_score ?></td>
+                        <td class="text-xs-center">-</td>
+                        <td class="text-xs-left"><?= $match->team2_score ?></td>
+                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     <?php endif; ?>
 
     <?php if (!$today_matches) : ?>
         <div><?= $this->lang->line('no_match_today'); ?></div>
     <?php else : ?>
-        <table class="home-table table-striped table-hover">
-        <tr>
-            <td colspan="4" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></td>
-        </tr>
-        <?php foreach ($today_matches as $key => $match) : ?>
-            <tr>
-                <td class="text-xs-right"><?= $match->team1 ?></td>
-                <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?= $match->team2 ?></td>
-                <td class="text-xs-center"><?= $match->match_time ?></td>
-            </tr>
-        <?php endforeach; ?>
+        <table class="home-table table-striped table-hover m-t-2">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($today_matches as $key => $match) : ?>
+                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <td class="text-xs-right"><?= $match->team1 ?></td>
+                        <td class="text-xs-center">-</td>
+                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                        <td class="text-xs-center"><?= $match->match_time ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     <?php endif; ?>
 
     <?php if (!$tomorrow_matches) : ?>
         <div><?= $this->lang->line('no_match_tomorrow'); ?></div>
     <?php else : ?>
-        <table class="home-table table-striped table-hover">
-        <tr>
-            <td colspan="4" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></td>
-        </tr>
-        <?php foreach ($tomorrow_matches as $key => $match) : ?>
-            <tr>
-                <td class="text-xs-right"><?= $match->team1 ?></td>
-                <td class="text-xs-center">-</td>
-                <td class="text-xs-left"><?= $match->team2 ?></td>
-                <td class="text-xs-center"><?= $match->match_time ?></td>
-            </tr>
-        <?php endforeach; ?>
+        <table class="home-table table-striped table-hover m-t-2">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($tomorrow_matches as $key => $match) : ?>
+                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <td class="text-xs-right"><?= $match->team1 ?></td>
+                        <td class="text-xs-center">-</td>
+                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                        <td class="text-xs-center"><?= $match->match_time ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     <?php endif; ?>
 <?php endif; ?>
