@@ -55,6 +55,7 @@ class Bets extends MY_Controller {
         // Liste des matchs de la journée
         $select = 'championship.name AS championship_name,
                    fixture_name,
+                   fixture.status AS fixture_status,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
                    t1.name AS team1,
@@ -84,6 +85,7 @@ class Bets extends MY_Controller {
         if (!empty($data['fixture_matches'])) {
             $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
             $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
+            $data['fixture_status'] = $data['fixture_matches'][0]->fixture_status;
 
             // Liste des équipes
             $data['teams'] = array();

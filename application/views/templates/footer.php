@@ -2,8 +2,9 @@
             </div>
         </div>
         <footer>
-            <span><?= $this->lang->line('copyright') ?></span>
-            <span><?= $this->lang->line('generated_with') ?></span>
+            <span class="m-r-2"><?= $this->lang->line('copyright') ?></span>
+            <span class="m-r-2"><?= $this->lang->line('generated_with') ?></span>
+            <span><?= $this->lang->line('version') ?></span>
         </footer>
         <script type="text/javascript" src="<?= js_url('jquery-3.1.0.min') ?>"></script>
         <script type="text/javascript" src="<?= js_url('tether-1.3.3.min') ?>"></script>

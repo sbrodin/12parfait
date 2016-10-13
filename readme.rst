@@ -56,8 +56,10 @@ TODO
 ****
 
 Listes des éléments restants à faire :
-    - Update des matchs à revoir
+    - Habillage des formulaires
+        - édition du profil
     - Clean du code des vues
+    - Update des matchs à revoir
     - Home
         - voir les derniers et prochains matchs
         - jumbotron

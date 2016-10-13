@@ -1,23 +1,23 @@
-<?php if ($this->session->flashdata('error')) : ?>
-    <div class="alert alert-alert alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <?= $this->session->flashdata('error') ?>
-    </div>
-<?php endif ?>
-<?php if ($this->session->flashdata('info')) : ?>
-    <div class="alert alert-info alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <?= $this->session->flashdata('info') ?>
-    </div>
-<?php endif ?>
 
 <div class="container">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
+        <?php if ($this->session->flashdata('error')) : ?>
+            <div class="alert alert-alert alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <?= $this->session->flashdata('error') ?>
+            </div>
+        <?php endif ?>
+        <?php if ($this->session->flashdata('info')) : ?>
+            <div class="alert alert-info alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <?= $this->session->flashdata('info') ?>
+            </div>
+        <?php endif ?>
         <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url()?>"><?= $this->lang->line('back') ?></a>
 
         <a class="btn btn-outline-primary pull-xs-right" href="<?= site_url('connection/create_account')?>"><?= $this->lang->line('create_account') ?></a>

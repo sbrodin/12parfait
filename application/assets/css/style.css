@@ -206,13 +206,15 @@ td.dash {
     margin-left: 40px;
     list-style-type: circle;
 }
-.table-bets {
-    width: 100%;
-}
 .table-bets .btn-primary:hover {
     background-color: transparent;
     color: #0275D8;
     border-color: #0275d8;
+}
+.table-bets-edit {
+    width: auto;
+    max-width: 100%;
+    /* margin: 0 auto; */
 }
 
 
