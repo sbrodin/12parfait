@@ -31,8 +31,9 @@
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-right"><?= $match->team1_score ?></td>
                         <td class="text-xs-center">-</td>
-                        <td class="text-xs-left"><?= $match->team2_score ?></td>
-                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                        <td><?= $match->team2_score ?></td>
+                        <td><?= $match->team2 ?></td>
+                        <td><a href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -45,7 +46,7 @@
         <table class="home-table table-striped table-hover m-t-2">
             <thead>
                 <tr>
-                    <th colspan="4" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
+                    <th colspan="5" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +54,9 @@
                     <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
-                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                        <td><?= $match->team2 ?></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
+                        <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -67,7 +69,7 @@
         <table class="home-table table-striped table-hover m-t-2">
             <thead>
                 <tr>
-                    <th colspan="4" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
+                    <th colspan="5" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -75,8 +77,9 @@
                     <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
-                        <td class="text-xs-left"><?= $match->team2 ?></td>
+                        <td><?= $match->team2 ?></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
+                        <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

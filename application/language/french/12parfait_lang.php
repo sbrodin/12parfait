@@ -21,6 +21,7 @@ $lang['12_parfait'] = '12 Parfait';
 $lang['add'] = 'Ajouter';
 $lang['edit'] = 'Editer';
 $lang['link_to_home'] = 'Lien vers la page d\'accueil';
+$lang['view'] = 'Voir';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12 Parfait';
@@ -155,7 +156,6 @@ $lang['new_password_confirmation'] = 'Confirmation du nouveau mot de passe';
 $lang['email'] = 'Email';
 $lang['isadmin'] = 'Admin ?';
 $lang['add_user'] = 'Ajouter l\'utilisateur';
-$lang['view_user'] = 'Voir';
 $lang['no_password_message'] = 'Si aucun mot de passe n\'est entré, le nom d\'utilisateur sera utilisé comme mot de passe';
 $lang['never_connected'] = 'Ne s\'est jamais connecté';
 $lang['incorrect_email'] = "Le champ %s ne correspond pas à une adresse email valide";
