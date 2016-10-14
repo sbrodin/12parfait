@@ -217,6 +217,9 @@ td.dash {
     max-width: 100%;
     /* margin: 0 auto; */
 }
+.jumbotron {
+    padding: 1.5rem 1rem;
+}
 
 
 

@@ -2,6 +2,7 @@
             </div>
         </div>
         <footer>
+            <span class="m-r-2"><a href="mailto:stanislas.brodin@gmail.com"><?= $this->lang->line('contact') ?></a></span>
             <span class="m-r-2"><?= $this->lang->line('copyright') ?></span>
             <span class="m-r-2"><?= $this->lang->line('generated_with') ?></span>
             <span><?= $this->lang->line('version') ?></span>
