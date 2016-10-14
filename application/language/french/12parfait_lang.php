@@ -1,6 +1,6 @@
 <?php
 /**
- * System messages translation for 12 Parfait application
+ * System messages translation for 12parfait application
  * @author  Stanislas BRODIN
  */
 defined("BASEPATH") OR exit("No direct script access allowed");
@@ -17,14 +17,14 @@ $lang['log_in'] = 'Connexion';
 $lang['log_out'] = 'Déconnexion';
 $lang['search'] = 'Recherche';
 $lang['admin'] = 'Admin';
-$lang['12_parfait'] = '12 Parfait';
+$lang['12_parfait'] = '12parfait';
 $lang['add'] = 'Ajouter';
 $lang['edit'] = 'Editer';
 $lang['link_to_home'] = 'Lien vers la page d\'accueil';
 $lang['view'] = 'Voir';
 
 // Champs spécifiques à l'application
-$lang['application_title'] = '12 Parfait';
+$lang['application_title'] = '12parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015';
 $lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
 $lang['version'] = 'v. alpha';

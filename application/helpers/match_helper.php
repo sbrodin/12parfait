@@ -43,5 +43,5 @@ function matches_of_day($date = NULL) {
                             ->order_by($order)
                             ->get()
                             ->result();
-    return empty($matches_of_day) ? FALSE : $matches_of_day;
+    return empty($matches_of_day) ? NULL : $matches_of_day;
 }

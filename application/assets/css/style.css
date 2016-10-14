@@ -198,12 +198,10 @@ td.dash {
 .home-table {
     display: inline-block;
     vertical-align: top;
+    width: auto;
 }
 .home-table tr {
     cursor: pointer;
-}
-.home-message {
-    margin-bottom: 50px;
 }
 .home-message ul {
     margin-left: 40px;

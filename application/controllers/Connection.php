@@ -197,7 +197,7 @@ class Connection extends CI_Controller {
                 );
 
                 // Envoi d'email pour info
-                $subject = '12 Parfait - Création de compte - Globalis';
+                $subject = '12parfait - Création de compte - Globalis';
                 $body = 'Un nouveau compte a été créé.<br/>';
                 $body.= 'Email : ' . $post['email'];
                 send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
@@ -300,7 +300,7 @@ class Connection extends CI_Controller {
                     );
                 $this->user_model->update($where, $donnees_echapees);
 
-                $subject = '12 Parfait - Mot de passe oublié';
+                $subject = '12parfait - Mot de passe oublié';
                 $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="' . site_url('reset_password/' . $hash) . '">ce lien</a>';
                 send_email_interception($post['email'], $subject, $body);
 

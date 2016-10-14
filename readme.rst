@@ -61,8 +61,8 @@ Listes des éléments restants à faire :
     - Clean du code des vues
     - Update des matchs à revoir
     - Home
+        - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
-        - jumbotron
         - afficher/cacher message d'aide
     - Profil, gestion des messages d'aide
     - Classement
