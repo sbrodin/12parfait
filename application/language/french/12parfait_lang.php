@@ -187,8 +187,10 @@ $lang['place_bet'] = 'Parier !';
 $lang['add_edit_bet'] = 'Parier !';
 $lang['my_bets'] = 'Mes paris';
 $lang['result'] = 'Résultat';
+$lang['result_short'] = 'Rés.';
 $lang['results'] = 'Résultats';
 $lang['not_available'] = 'Non disponible';
+$lang['not_available_short'] = 'N/A';
 
 // Scores
 $lang['view_ladder'] = 'Classement';

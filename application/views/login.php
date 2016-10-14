@@ -29,9 +29,9 @@
             <input type="email" id="email" name="email" class="form-control m-b-1" required="required" autofocus>
             <label for="password"><?= $this->lang->line('password') ?> : </label>
             <input type="password" id="password" name="password" class="form-control" required="required"><br/>
-            <input type="submit" name="submit" class="btn btn-primary col-sm-5 m-b-2" value="<?= $this->lang->line('log_in') ?>">
+            <input type="submit" name="submit" class="btn btn-primary col-md-5 m-b-2" value="<?= $this->lang->line('log_in') ?>">
             <div class="col-sm-2"></div>
-            <a class="btn btn-link col-sm-5" href="<?= site_url('forgotten_password') ?>"><?= $this->lang->line('forgotten_password') ?></a>
+            <a class="btn btn-link col-lg-5" href="<?= site_url('forgotten_password') ?>"><?= $this->lang->line('forgotten_password') ?></a>
         </form>
     </div>
     <div class="col-sm-3 clearfix"></div>

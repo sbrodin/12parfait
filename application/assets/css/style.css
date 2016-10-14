@@ -113,11 +113,15 @@ header {
     padding: 30px 40px;
     background-color: #FFFFFF;
 }
-.home-logo img {
+.home-logo {
     height: 75px;
+    width: 75px;
+}
+.home-logo img {
+    height: 100%;
+    width: 100%;
 }
 .profile-log {
-    height: 75px;
     line-height: 75px;
     float: right;
 }
@@ -174,10 +178,6 @@ input.score {
 }
 td.date {
     text-align: center;
-    padding-top: 20px;
-}
-tr:first-of-type td.date {
-    padding-top: 0;
 }
 td.team1_name {
     text-align: right;
@@ -235,4 +235,36 @@ footer span {
 footer a {
     font-size: 14px;
     margin: 0;
+}
+
+
+
+/** MEDIA QUERIES **/
+/** HEADER **/
+@media (max-width:544px) {
+    header {
+        padding: 10px;
+    }
+    .home-logo {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .profile-log {
+        line-height: 50px;
+        float: none;
+        text-align: center;
+    }
+}
+
+
+
+/** BODY **/
+@media (max-width:544px) {
+    .main-container {
+        padding: 10px;
+    }
+    .home-table {
+        width: 100%;
+    }
 }

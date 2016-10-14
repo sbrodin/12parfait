@@ -60,6 +60,8 @@ class Bets extends MY_Controller {
                    t2.team_id AS t2_id,
                    t1.name AS team1,
                    t2.name AS team2,
+                   t1.short_name AS short_team1,
+                   t2.short_name AS short_team2,
                    match.date,
                    match.match_id,
                    match.team1_score,

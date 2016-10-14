@@ -19,7 +19,8 @@
             <thead>
                 <tr>
                     <th class="text-xs-center" colspan="5"><?= $this->lang->line('my_bets') ?></th>
-                    <th class="text-xs-center"><?= $this->lang->line('result') ?></th>
+                    <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('result') ?></th>
+                    <th class="text-xs-center hidden-sm-up"><?= $this->lang->line('result_short') ?></th>
                     <th class="text-xs-center"><?= $this->lang->line('my_score') ?></th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     $team1_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team1_score : '';
                     $team2_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team2_score : '';
                     $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
+                    $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
                     $score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->score : 0;
                     if ($fixture_match->date!==$date) {
                         $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
@@ -42,12 +44,15 @@
                     $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
                 ?>
                 <tr>
-                    <td class="team1_name"><?=$fixture_match->team1 ?></td>
+                    <td class="team1_name hidden-sm-down"><?=$fixture_match->team1 ?></td>
+                    <td class="team1_name hidden-sm-up"><?=$fixture_match->short_team1 ?></td>
                     <td class="team1_score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?>></td>
                     <td class="dash">-</td>
                     <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?>></td>
-                    <td class="team2_name"><?= $fixture_match->team2 ?></td>
-                    <td class="text-xs-center"><?= $result ?></td>
+                    <td class="team2_name hidden-sm-down"><?= $fixture_match->team2 ?></td>
+                    <td class="team2_name hidden-sm-up"><?= $fixture_match->short_team2 ?></td>
+                    <td class="text-xs-center hidden-sm-down"><?= $result ?></td>
+                    <td class="text-xs-center hidden-sm-up"><?= $short_result ?></td>
                     <td class="text-xs-center"><?= $score ?></td>
                 </tr>
                 <?php endforeach ?>

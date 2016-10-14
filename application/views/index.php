@@ -33,7 +33,11 @@
             </thead>
             <tbody>
                 <?php foreach ($yesterday_matches as $key => $match) : ?>
-                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php if (is_connected()) : ?>
+                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php else : ?>
+                        <tr data-href="<?= site_url('connection') ?>">
+                    <?php endif; ?>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-right"><?= $match->team1_score ?></td>
                         <td class="text-xs-center">-</td>
@@ -59,7 +63,11 @@
             </thead>
             <tbody>
                 <?php foreach ($today_matches as $key => $match) : ?>
-                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php if (is_connected()) : ?>
+                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php else : ?>
+                        <tr data-href="<?= site_url('connection') ?>">
+                    <?php endif; ?>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
@@ -84,7 +92,11 @@
             </thead>
             <tbody>
                 <?php foreach ($tomorrow_matches as $key => $match) : ?>
-                    <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php if (is_connected()) : ?>
+                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                    <?php else : ?>
+                        <tr data-href="<?= site_url('connection') ?>">
+                    <?php endif; ?>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
