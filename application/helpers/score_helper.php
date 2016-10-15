@@ -32,6 +32,7 @@ function score_calculator($fixture_id) {
     $where = array(
         'fixture_id' => $fixture_id,
         'bet.status' => 'open',
+        'match.result !=' => NULL,
     );
     $fixture_bets = $CI->db->select($select)
                            ->from($CI->config->item('bet', 'table'))
