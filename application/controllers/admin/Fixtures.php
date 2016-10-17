@@ -127,6 +127,7 @@ class Fixtures extends MY_Controller {
         // Liste des matchs de la journée
         $select = 'championship.name AS championship_name,
                    fixture_name,
+                   match_id,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
                    t1.name AS team1,
@@ -183,11 +184,7 @@ class Fixtures extends MY_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 // Update des matchs de la journée
-                // Suppression des matchs déjà présentes
                 $this->load->model('match_model');
-                $where = array('fixture_id' => $fixture_id);
-                $this->match_model->delete($where);
-                // Ajout des matchs
                 $matches = array();
                 $element = 0;
                 foreach ($post as $key => $post_element) {
@@ -197,12 +194,14 @@ class Fixtures extends MY_Controller {
                         $date_formatted = $date->format('Y-m-d H:i');
                         ++$element;
                     } else if ($element === 1) {
-                        // Si on est sur le même match
                         $team1_id = $post_element;
                         ++$element;
-                    } else {
+                    } else if ($element === 2) {
                         $team2_id = $post_element;
-                        $matches[] = array(
+                        ++$element;
+                    } else {
+                        $match_id = $post_element;
+                        $matches[$match_id] = array(
                             'team1_id' => $team1_id,
                             'team2_id' => $team2_id,
                             'date' => $date_formatted,
@@ -211,7 +210,13 @@ class Fixtures extends MY_Controller {
                         $element = 0;
                     }
                 }
-                $this->db->insert_batch('match', $matches);
+                foreach ($matches as $match_id => $match_info) {
+                    $where = array(
+                        'match_id' => $match_id,
+                        'fixture_id' => $fixture_id,
+                    );
+                    $this->match_model->update($where, $match_info);
+                }
 
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_edition'));
                 redirect(site_url('admin/fixtures'), 'location');

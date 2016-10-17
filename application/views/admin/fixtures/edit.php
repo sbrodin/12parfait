@@ -30,7 +30,9 @@
             <option value="<?= $team_id ?>" 
                 <?= ($fixture_match->t2_id==$team_id) ? 'selected' : '' ?> ><?= $team_name ?></option>
             <?php endforeach; ?>
-        </select><br/><br/>
+        </select><br/>
+        <input type="hidden" name="match_id_<?= $key ?>" id="match_id_<?= $key ?>" value="<?= $fixture_match->match_id ?>" ><br/>
+        <br/>
         <?php endforeach; ?>
         <input type="submit" value="<?= $this->lang->line('confirm') ?>">
     </form>

@@ -78,7 +78,8 @@ class Profile extends MY_Controller {
                 $this->session->set_userdata('user', $this->user_model->read('*', array("user_id" => $data['user']->user_id))[0]);
 
                 $this->session->set_flashdata('success', $this->lang->line('profile_modified'));
-                $this->index();
+                redirect(site_url('profile'), 'location');
+                exit;
             }
         }
     }

@@ -59,7 +59,6 @@ Listes des éléments restants à faire :
     - Habillage des formulaires
         - édition du profil
     - Clean du code des vues
-    - Update des matchs à revoir
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
@@ -68,7 +67,6 @@ Listes des éléments restants à faire :
     - Classement
         - avoir un petit podium au-dessus du tableau
         - mettre les 3 premiers en couleurs différentes (or, argent et bronze)
-        - rajouter les numéros
         - ajouter le nombre de 12parfait
         - ajouter des filtres par sport, championnat, journée, etc.
     - Gérer les tableaux sur petits écrans (responsive utilities)
