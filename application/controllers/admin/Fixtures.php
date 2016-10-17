@@ -196,7 +196,7 @@ class Fixtures extends MY_Controller {
                         $date = date_create_from_format('d/m/Y H:i', $post_element);
                         $date_formatted = $date->format('Y-m-d H:i');
                         ++$element;
-                    } elseif ($element === 1) {
+                    } else if ($element === 1) {
                         // Si on est sur le même match
                         $team1_id = $post_element;
                         ++$element;

@@ -20,7 +20,7 @@
                 <tr>
                     <th class="text-xs-center" colspan="5"><?= $this->lang->line('my_bets') ?></th>
                     <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('result') ?></th>
-                    <th class="text-xs-center hidden-sm-up"><?= $this->lang->line('result_short') ?></th>
+                    <th class="text-xs-center hidden-md-up"><?= $this->lang->line('result_short') ?></th>
                     <th class="text-xs-center"><?= $this->lang->line('my_score') ?></th>
                 </tr>
             </thead>
@@ -45,14 +45,14 @@
                 ?>
                 <tr>
                     <td class="team1_name hidden-sm-down"><?=$fixture_match->team1 ?></td>
-                    <td class="team1_name hidden-sm-up"><?=$fixture_match->short_team1 ?></td>
+                    <td class="team1_name hidden-md-up"><?=$fixture_match->short_team1 ?></td>
                     <td class="team1_score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?>></td>
                     <td class="dash">-</td>
                     <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?>></td>
                     <td class="team2_name hidden-sm-down"><?= $fixture_match->team2 ?></td>
-                    <td class="team2_name hidden-sm-up"><?= $fixture_match->short_team2 ?></td>
+                    <td class="team2_name hidden-md-up"><?= $fixture_match->short_team2 ?></td>
                     <td class="text-xs-center hidden-sm-down"><?= $result ?></td>
-                    <td class="text-xs-center hidden-sm-up"><?= $short_result ?></td>
+                    <td class="text-xs-center hidden-md-up"><?= $short_result ?></td>
                     <td class="text-xs-center"><?= $score ?></td>
                 </tr>
                 <?php endforeach ?>

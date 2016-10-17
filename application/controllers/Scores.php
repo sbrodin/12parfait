@@ -20,6 +20,7 @@ class Scores extends MY_Controller {
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
         $where = array(
             'active' => '1',
+            'acl !=' => 'admin',
             // 'bet.score !=' => '0',
         );
 
@@ -71,7 +72,8 @@ class Scores extends MY_Controller {
                    last_name,
                    email,
                    bet.bet_id,
-                   bet.score';
+                   bet.score,
+                   SUM(bet.score) as total';
         $where = array(
             'active' => '1',
             // 'bet.score !=' => '0',
@@ -129,6 +131,27 @@ class Scores extends MY_Controller {
             $data['scores_7'] = 0;
         } else {
             $data['scores_7'] = $data['scores_7'][0]->nb_7;
+        }
+
+        // Nombre 6
+        $select = 'user_id, count(bet.score) as nb_6';
+        $where = array(
+            'bet.score' => '6',
+            'user_id' => $user_id,
+            'match.result !=' => 'NULL'
+        );
+        $order = 'nb_6 DESC';
+        $data['scores_6'] = $this->db->select($select)
+                                     ->from($this->config->item('bet', 'table'))
+                                      ->join('match', 'match.match_id=bet.match_id')
+                                     ->where($where)
+                                     ->order_by($order)
+                                     ->get()
+                                     ->result();
+        if (!$data['scores_6'][0]->user_id) {
+            $data['scores_6'] = 0;
+        } else {
+            $data['scores_6'] = $data['scores_6'][0]->nb_6;
         }
 
         // Nombre 4
