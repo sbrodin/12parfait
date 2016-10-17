@@ -58,7 +58,7 @@
                     }
                 });
             });
-            $('.home-table tr').on('click', function() {
+            $('.home-table tr, .score-table tr').on('click', function() {
                 window.location = $(this).data('href');
             });
         </script>

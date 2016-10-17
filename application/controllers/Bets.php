@@ -149,7 +149,7 @@ class Bets extends MY_Controller {
                 'user_id' => $this->session->userdata['user']->user_id,
             );
             $this->db->where($where)
-                     ->where_in('match_id', $data['matches'])
+                     ->where_in('match_id', array_keys($data['matches']))
                      ->delete($this->config->item('bet', 'table'));
             // Update des paris de l'utilisateur pour la journée
             $bets = array();

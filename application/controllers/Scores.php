@@ -65,6 +65,8 @@ class Scores extends MY_Controller {
 
         $data = array();
         $data['title'] = 'Scores';
+        $data['required_user_id'] = $user_id;
+        $data['my_user_id'] = $this->session->userdata['user']->user_id;
 
         $select = 'user.user_id,
                    user_name,
@@ -90,6 +92,15 @@ class Scores extends MY_Controller {
                                    ->order_by($order)
                                    ->get()
                                    ->result();
+        if ($data['scores'][0]->user_id === NULL) {
+            $data['info'] = $this->lang->line('no_user_with_this_id');
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('scores/my_scores', $data);
+            $this->load->view('templates/footer', $data);
+            return true;
+        }
 
         // Nombre 12parfait
         $select = 'user_id, count(bet.score) as nb_12parfait';

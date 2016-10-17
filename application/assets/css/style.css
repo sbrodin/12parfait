@@ -200,7 +200,8 @@ td.dash {
     vertical-align: top;
     width: auto;
 }
-.home-table tr {
+.home-table tr,
+.score-table tr {
     cursor: pointer;
 }
 .home-message ul {

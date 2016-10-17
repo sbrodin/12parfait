@@ -1,4 +1,4 @@
-<table class="table-striped table-bordered table-hover">
+<table class="table-striped table-bordered table-hover score-table">
     <thead>
         <tr>
             <th></th>
@@ -7,6 +7,7 @@
             <?php if (isset($scores_12)) : ?>
             <th><?= $this->lang->line('nb_12parfait') ?></th>
             <?php endif; ?>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +16,7 @@
         $current_score = '';
         foreach ($user_scores as $user_id => $score) :
         ?>
-        <tr>
+        <tr data-href="<?= site_url('scores/'.$user_id) ?>">
             <?php
             // On n'affiche le rang que s'il est différent du précédent
             if ($score !== $current_score) :
@@ -30,6 +31,7 @@
             <?php if (isset($scores_12)) : ?>
             <td><?= $scores_12 ?></td>
             <?php endif; ?>
+            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('scores/'.$user_id) ?>"><?= $this->lang->line('view') ?></a></td>
         </tr>
         <?php
             ++$rank;

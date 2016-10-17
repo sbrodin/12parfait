@@ -1,3 +1,4 @@
+<a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('profile') ?>"><?= $this->lang->line('back') ?></a><br/>
 <?= validation_errors(); ?>
 
 <?= form_open('profile/edit'); ?>
@@ -20,4 +21,4 @@
 </form>
 
 <br/>
-<a href="<?= site_url('profile')?>"><?= $this->lang->line('back') ?></a>
+<a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('profile') ?>"><?= $this->lang->line('back') ?></a><br/>

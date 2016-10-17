@@ -64,6 +64,7 @@ $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de 
 $lang['complete_fixture'] = 'Journée complète.';
 $lang['no_match_for_fixture'] = 'Aucun match défini pour cette journée.';
 $lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
+$lang['no_user_with_this_id'] = 'Pas d\'utilisateur avec cet identifiant, arrêtez de jouer avec l\'url !';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe.';
@@ -199,10 +200,16 @@ $lang['anonymous'] = 'Anonyme';
 $lang['nb_12parfait'] = 'Nombre 12parfait';
 $lang['congratulations'] = 'Félicitations !';
 $lang['can_do_better'] = 'Vous pouvez faire mieux !';
-$lang['you_have_x_scores_12'] = 'Vous avez %d 12parfait.';
-$lang['you_have_x_scores_7'] = 'Vous avez %d score(s) à 7pts.';
-$lang['you_have_x_scores_6'] = 'Vous avez %d score(s) à 6pts.';
-$lang['you_have_x_scores_4'] = 'Vous avez %d score(s) à 4pts.';
-$lang['you_have_x_scores_3'] = 'Vous avez %d score(s) à 3pts.';
-$lang['you_have_x_scores_0'] = 'Vous avez %d score(s) à 0pts.';
+$lang['you_have_x_scores_12'] = 'Vous avez <span class="tag tag-success">%d</span> 12parfait.';
+$lang['you_have_x_scores_7'] = 'Vous avez <span class="tag tag-success">%d</span> score(s) à 7pts.';
+$lang['you_have_x_scores_6'] = 'Vous avez <span class="tag tag-success">%d</span> score(s) à 6pts.';
+$lang['you_have_x_scores_4'] = 'Vous avez <span class="tag tag-success">%d</span> score(s) à 4pts.';
+$lang['you_have_x_scores_3'] = 'Vous avez <span class="tag tag-success">%d</span> score(s) à 3pts.';
+$lang['you_have_x_scores_0'] = 'Vous avez <span class="tag tag-success">%d</span> score(s) à 0pts.';
+$lang['player_has_x_scores_12'] = 'Le joueur a <span class="tag tag-warning">%d</span> 12parfait.';
+$lang['player_has_x_scores_7'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 7pts.';
+$lang['player_has_x_scores_6'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 6pts.';
+$lang['player_has_x_scores_4'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 4pts.';
+$lang['player_has_x_scores_3'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 3pts.';
+$lang['player_has_x_scores_0'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 0pts.';
 $lang['points_short'] = 'pts';
