@@ -20,7 +20,7 @@ class Scores extends MY_Controller {
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
         $where = array(
             'active' => '1',
-            'acl !=' => 'admin',
+            // 'acl !=' => 'admin',
             // 'bet.score !=' => '0',
         );
 
