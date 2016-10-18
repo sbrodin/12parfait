@@ -213,4 +213,14 @@ $lang['player_has_x_scores_6'] = 'Le joueur a <span class="tag tag-warning">%d</
 $lang['player_has_x_scores_4'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 4pts.';
 $lang['player_has_x_scores_3'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 3pts.';
 $lang['player_has_x_scores_0'] = 'Le joueur a <span class="tag tag-warning">%d</span> score(s) à 0pts.';
+$lang['scores_12parfait'] = '12parfait';
+$lang['scores_7_points'] = '7 points';
+$lang['scores_6_points'] = '6 points';
+$lang['scores_4_points'] = '4 points';
+$lang['scores_3_points'] = '3 points';
+$lang['scores_0_points'] = '0 points';
+$lang['stats_on_x_bets'] = 'Sur vos %d paris, vous avez :';
+$lang['stats_on_x_points'] = 'Vos %d points sont répartis ainsi :';
+$lang['stats_on_x_bets_player'] = 'Sur ses %d paris, le joueur a :';
+$lang['stats_on_x_points_player'] = 'Ses %d points sont répartis ainsi :';
 $lang['points_short'] = 'pts';

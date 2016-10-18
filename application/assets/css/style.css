@@ -221,6 +221,23 @@ td.dash {
 .jumbotron {
     padding: 1.5rem 1rem;
 }
+.card-scores h1 {
+    font-size: 1.9em;
+}
+.card-scores h2 {
+    font-size: 1.2em;
+}
+.scores-chart-legend {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1em;
+}
+#scores-chart,
+#scores-chart2 {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 0 auto;
+}
 /* Profiler */
 #codeigniter_profiler {
     position: absolute;

@@ -56,8 +56,6 @@ TODO
 ****
 
 Listes des éléments restants à faire :
-    - Habillage des formulaires
-        - édition du profil
     - Clean du code des vues
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
@@ -71,6 +69,5 @@ Listes des éléments restants à faire :
         - ajouter des filtres par sport, championnat, journée, etc.
     - Gérer les tableaux sur petits écrans (responsive utilities)
     - Gérer les titles avec le fichier de langue
-    - Mes scores, affichage avec `charts.js <http://www.chartjs.org/docs/#doughnut-pie-chart/>`_
     - Afficher les bets des autres
     - Habillage du site

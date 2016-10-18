@@ -75,7 +75,7 @@ class Scores extends MY_Controller {
                    email,
                    bet.bet_id,
                    bet.score,
-                   SUM(bet.score) as total';
+                   SUM(bet.score) as total_score';
         $where = array(
             'active' => '1',
             // 'bet.score !=' => '0',
@@ -102,6 +102,7 @@ class Scores extends MY_Controller {
             return true;
         }
 
+        $data['total_bets'] = 0;
         // Nombre 12parfait
         $select = 'user_id, count(bet.score) as nb_12parfait';
         $where = array(
@@ -121,6 +122,7 @@ class Scores extends MY_Controller {
             $data['scores_12'] = 0;
         } else {
             $data['scores_12'] = $data['scores_12'][0]->nb_12parfait;
+            $data['total_bets']+= $data['scores_12'];
         }
 
         // Nombre 7
@@ -142,6 +144,7 @@ class Scores extends MY_Controller {
             $data['scores_7'] = 0;
         } else {
             $data['scores_7'] = $data['scores_7'][0]->nb_7;
+            $data['total_bets']+= $data['scores_7'];
         }
 
         // Nombre 6
@@ -163,6 +166,7 @@ class Scores extends MY_Controller {
             $data['scores_6'] = 0;
         } else {
             $data['scores_6'] = $data['scores_6'][0]->nb_6;
+            $data['total_bets']+= $data['scores_6'];
         }
 
         // Nombre 4
@@ -184,6 +188,7 @@ class Scores extends MY_Controller {
             $data['scores_4'] = 0;
         } else {
             $data['scores_4'] = $data['scores_4'][0]->nb_4;
+            $data['total_bets']+= $data['scores_4'];
         }
 
         // Nombre 3
@@ -205,6 +210,7 @@ class Scores extends MY_Controller {
             $data['scores_3'] = 0;
         } else {
             $data['scores_3'] = $data['scores_3'][0]->nb_3;
+            $data['total_bets']+= $data['scores_3'];
         }
 
         // Nombre 0
@@ -226,6 +232,7 @@ class Scores extends MY_Controller {
             $data['scores_0'] = 0;
         } else {
             $data['scores_0'] = $data['scores_0'][0]->nb_0;
+            $data['total_bets']+= $data['scores_0'];
         }
 
         $user_id = '';
