@@ -1,3 +1,4 @@
+<a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back') ?></a><br/>
 <?php if (!empty($info)) : ?>
     <span><?= $info ?></span>
 <?php else : ?>
