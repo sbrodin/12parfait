@@ -169,6 +169,7 @@ class Bets extends MY_Controller {
                     $team2_score = ($post_element == '') ? NULL : $post_element;
                     $resultat = NULL;
                     if (is_null($team1_score) || is_null($team2_score)) {
+                        $element = 0;
                         continue;
                     } else if ($team1_score > $team2_score) {
                         $resultat = '1';
