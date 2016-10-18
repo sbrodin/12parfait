@@ -1,3 +1,12 @@
+<?php if ($this->session->flashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?= $this->session->flashdata('success') ?>
+    </div>
+<?php endif ?>
+
 <div class="jumbotron home-message">
     <h1 class="display-5">Bienvenue sur 12parfait</h1>
     <p class="lead m-b-0">12parfait vous permet de placer des pronostics entre amis sur les scores des matchs de football.<br/>Mais d'autres sports arrivent très vite !</p>

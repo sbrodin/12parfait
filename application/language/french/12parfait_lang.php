@@ -59,6 +59,7 @@ $lang['fixture_successful_creation'] = 'Journée créée avec succès !';
 $lang['fixture_successful_edition'] = 'Journée éditée avec succès !';
 $lang['fixture_matches_successful_edition'] = 'Résultats de la journée édités avec succès !';
 $lang['bets_successful_edition'] = 'Paris édités avec succès !';
+$lang['message_successfully_sent'] = 'Message envoyé avec succès !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
@@ -224,3 +225,14 @@ $lang['stats_on_x_points'] = 'Vos %d points sont répartis ainsi :';
 $lang['stats_on_x_bets_player'] = 'Sur ses %d paris, le joueur a :';
 $lang['stats_on_x_points_player'] = 'Ses %d points sont répartis ainsi :';
 $lang['points_short'] = 'pts';
+
+// Contact
+$lang['contact_message'] = 'Ce site est en cours de développement. Toute idée d\'évolution, critique constructive, etc. sont les bienvenues pour améliorer le site, qu\'il soit au top et réponde à vos attentes !';
+$lang['motif'] = 'Motif';
+$lang['message'] = 'Message';
+$lang['idea_evolution'] = 'Idée d\'évolution';
+$lang['evolution'] = 'Evolution';
+$lang['critic'] = 'Critique';
+$lang['bug'] = 'Bug';
+$lang['other'] = 'Autre';
+$lang['send_message'] = 'Envoyer le message';

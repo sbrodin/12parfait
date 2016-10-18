@@ -238,6 +238,10 @@ td.dash {
     max-height: 300px;
     margin: 0 auto;
 }
+.form-contact select,
+.form-contact textarea {
+    max-width: 400px;
+}
 /* Profiler */
 #codeigniter_profiler {
     position: absolute;
@@ -314,5 +318,8 @@ footer a {
     }
     .home-table {
         width: 100%;
+    }
+    .profile-log a {
+        margin: 0 10px;
     }
 }

@@ -74,7 +74,6 @@ Listes des éléments restants à faire :
         - mettre les 3 premiers en couleurs différentes (or, argent et bronze)
         - ajouter le nombre de 12parfait
         - ajouter des filtres par sport, championnat, journée, etc.
-    - Gérer les tableaux sur petits écrans (responsive utilities)
     - Gérer les titles avec le fichier de langue
     - Afficher les bets des autres
     - Habillage du site
