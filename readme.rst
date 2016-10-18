@@ -56,6 +56,13 @@ TODO
 ****
 
 Listes des éléments restants à faire :
+    - Page de contact
+        - message : Ce site est en cours de développement. Toute idée d'évolution, critique constructive, etc. sont les bienvenues pour que le site soit au top et réponde à vos attentes !
+        - select :
+            - idée d'évolution
+            - critique
+            - bug
+            - autre
     - Clean du code des vues
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
