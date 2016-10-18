@@ -71,6 +71,6 @@ Listes des éléments restants à faire :
         - ajouter des filtres par sport, championnat, journée, etc.
     - Gérer les tableaux sur petits écrans (responsive utilities)
     - Gérer les titles avec le fichier de langue
-    - Mes scores, ajouter le nombre de 12parfait, 0, 3, 4, 6 et 7
+    - Mes scores, affichage avec `charts.js <http://www.chartjs.org/docs/#doughnut-pie-chart/>`_
     - Afficher les bets des autres
     - Habillage du site

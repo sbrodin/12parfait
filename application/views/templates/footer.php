@@ -58,8 +58,20 @@
                     }
                 });
             });
+
             $('.home-table tr, .score-table tr').on('click', function() {
                 window.location = $(this).data('href');
+            });
+
+            /**
+              * Fonction de gestion du profiler
+              */
+            document.addEventListener("DOMContentLoaded", function(event) {
+                if(document.getElementById("profiler_close")) {
+                    document.getElementById("profiler_close").addEventListener("click", function(event) {
+                        document.getElementById("codeigniter_profiler").style.display = "none";
+                    });
+                }
             });
         </script>
     </body>
