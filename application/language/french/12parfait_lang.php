@@ -196,6 +196,7 @@ $lang['not_available'] = 'Non disponible';
 $lang['not_available_short'] = 'N/A';
 
 // Scores
+$lang['define_username_profile'] = 'Si votre nom n\'apparaît pas c\'est que vous n\'avez pas encore défini de nom d\'utilisateur. <br/> Rendez-vous sur la page "<a class="alert-link" href="%s">Profil</a>" (en haut à droite) pour modifier ça tout de suite !';
 $lang['view_ladder'] = 'Classement';
 $lang['view_my_scores'] = 'Mes scores';
 $lang['anonymous'] = 'Anonyme';

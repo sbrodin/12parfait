@@ -1,3 +1,12 @@
+<?php if ($this->session->userdata['user']->user_name === '') : ?>
+    <div class="alert alert-info alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?= sprintf($this->lang->line('define_username_profile'), site_url('profile')) ?>
+    </div>
+<?php endif ?>
+
 <table class="table-striped table-bordered table-hover score-table">
     <thead>
         <tr>
