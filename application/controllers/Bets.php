@@ -198,7 +198,7 @@ class Bets extends MY_Controller {
                 $this->db->insert_batch('bet', $bets);
             }
 
-            $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
+            $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
             exit;
         }

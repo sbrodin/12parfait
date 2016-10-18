@@ -50,6 +50,7 @@ $lang['success_user_edit'] = 'User successfully updated !';
 $lang['fixture_successful_creation'] = 'Ficture successfully created !';
 $lang['fixture_successful_edition'] = 'Ficture successfully edited !';
 $lang['fixture_matches_successful_edition'] = 'Fixture matches successfully edited !';
+$lang['bets_successful_edition'] = 'Bets successfully edited !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email for password reset successfully sent, please check your inbox.';

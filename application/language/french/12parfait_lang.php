@@ -58,6 +58,7 @@ $lang['success_user_edit'] = 'Utilisateur mis à jour avec succès !';
 $lang['fixture_successful_creation'] = 'Journée créée avec succès !';
 $lang['fixture_successful_edition'] = 'Journée éditée avec succès !';
 $lang['fixture_matches_successful_edition'] = 'Résultats de la journée édités avec succès !';
+$lang['bets_successful_edition'] = 'Paris édités avec succès !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';

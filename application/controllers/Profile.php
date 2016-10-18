@@ -26,7 +26,7 @@ class Profile extends MY_Controller {
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
-        $this->load->view('profile', $data);
+        $this->load->view('profile/index', $data);
         $this->load->view('templates/footer', $data);
     }
 
@@ -42,7 +42,7 @@ class Profile extends MY_Controller {
         if (empty($post)) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav', $data);
-            $this->load->view('profile_edit', $data);
+            $this->load->view('profile/edit', $data);
             $this->load->view('templates/footer', $data);
         } else {
             if ($post['user_name'] !== $data['user']->user_name) {
@@ -63,7 +63,7 @@ class Profile extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav', $data);
-                $this->load->view('profile_edit', $data);
+                $this->load->view('profile/edit', $data);
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
