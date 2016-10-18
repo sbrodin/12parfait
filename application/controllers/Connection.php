@@ -95,6 +95,11 @@ class Connection extends CI_Controller {
     public function index() {
         $data = array();
         $data['title'] = $this->lang->line('log_in');
+        if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
+            $data['url'] = str_replace('/', '.', $this->input->get('url'));
+        } else {
+            $data['url'] = '';
+        }
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -129,7 +134,7 @@ class Connection extends CI_Controller {
                 $this->load->view('login', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                $this->login($to_profile);
+                $this->login();
             }
         }
     }
@@ -204,8 +209,7 @@ class Connection extends CI_Controller {
 
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
-                $to_profile = TRUE;
-                $this->login($to_profile);
+                $this->login();
             }
         }
 
@@ -215,7 +219,7 @@ class Connection extends CI_Controller {
     * Fonction de connexion.
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
-    public function login($to_profile = FALSE) {
+    public function login($url='') {
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
@@ -245,8 +249,8 @@ class Connection extends CI_Controller {
             } else {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
-            if ($to_profile) {
-                redirect(site_url('profile'), 'location');
+            if ($url !== '') {
+                redirect(site_url(str_replace('.', '/', $url)), 'location');
                 exit;
             } else {
                 redirect(site_url(), 'location');

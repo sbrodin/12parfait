@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
@@ -24,7 +23,7 @@
 
         <?= validation_errors() ?>
 
-        <?= form_open('connection/login') ?>
+        <?= form_open('connection/login/' . $url) ?>
             <label for="email"><?= $this->lang->line('email') ?> : </label>
             <input type="email" id="email" name="email" class="form-control m-b-1" required="required" autofocus>
             <label for="password"><?= $this->lang->line('password') ?> : </label>
