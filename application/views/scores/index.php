@@ -8,6 +8,16 @@
     </div>
 <?php endif ?>
 
+<?= validation_errors() ?>
+
+<?= form_open('contact', array('class' => 'form-filter')) ?>
+    <select id="fixture" name="fixture">
+    <?php foreach ($fixtures as $fixture_id => $name) : ?>
+        <option></option>
+    <?php endforeach; ?>
+    </select>
+</form>
+
 <table class="table-striped table-bordered table-hover score-table">
     <thead>
         <tr>

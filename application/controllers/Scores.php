@@ -17,13 +17,13 @@ class Scores extends MY_Controller {
         $data = array();
         $data['title'] = 'Scores';
 
+        // Récupération des résultats de chaque utilisateur
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
         $where = array(
             'active' => '1',
             // 'acl !=' => 'admin',
             // 'bet.score !=' => '0',
         );
-
         $order = 'user.user_id DESC';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))
@@ -49,6 +49,22 @@ class Scores extends MY_Controller {
         arsort($scores);
         $data['user_scores'] = $scores;
         $data['users'] = $users;
+
+        // Récupération des journées pour les filtres
+        $select = 'fixture.name, championship_name';
+        $where = array(
+            'fixture.status' => 'close',
+            'championship.status' => 'open',
+        );
+        $data['fixtures'] = $this->db->select($select)
+                                   ->from($this->config->item('fixture', 'table'))
+                                   ->where($where)
+                                   ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
+                                   ->order_by($order)
+                                   ->get()
+                                   ->result();
+        var_dump($data['fixtures']);
+        exit;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

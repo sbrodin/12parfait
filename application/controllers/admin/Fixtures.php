@@ -18,7 +18,7 @@ class Fixtures extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('admin') . ' - Journées';
 
-        $select = 'fixture_id, fixture_name, championship.name AS championship_name, fixture.status';
+        $select = 'fixture_id, fixture.name AS fixture_name, championship.name AS championship_name, fixture.status';
         $where = array();
         $nb = NULL;
         $debut = NULL;
@@ -26,7 +26,7 @@ class Fixtures extends MY_Controller {
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
-                                     ->join('championship', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                     ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
                                      ->limit($nb, $debut)
                                      ->order_by($order)
                                      ->get()
@@ -89,8 +89,8 @@ class Fixtures extends MY_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
-                    'fixture_name' => $post['fixture_name'],
-                    'fixture_championship_id' => $post['championship'],
+                    'name' => $post['fixture_name'],
+                    'championship_id' => $post['championship'],
                 );
                 $this->fixture_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_creation'));
@@ -126,7 +126,7 @@ class Fixtures extends MY_Controller {
 
         // Liste des matchs de la journée
         $select = 'championship.name AS championship_name,
-                   fixture_name,
+                   fixture.name AS fixture_name,
                    match_id,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
@@ -142,7 +142,7 @@ class Fixtures extends MY_Controller {
         $data['fixture_matches'] = $this->db->select($select)
                                             ->from($this->config->item('fixture', 'table'))
                                             ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
-                                            ->join('championship', 'fixture.fixture_championship_id = championship.championship_id', 'left')
+                                            ->join('championship', 'fixture.championship_id = championship.championship_id', 'left')
                                             ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
                                             ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
                                             ->where($where)
@@ -246,7 +246,7 @@ class Fixtures extends MY_Controller {
         // Liste des matchs de la journée
         $select = 'championship_id,
                    championship.name AS championship_name,
-                   fixture_name,
+                   fixture.name AS fixture_name,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
                    t1.name AS team1,
@@ -265,7 +265,7 @@ class Fixtures extends MY_Controller {
         $data['fixture_matches'] = $this->db->select($select)
                                             ->from($this->config->item('fixture', 'table'))
                                             ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
-                                            ->join('championship', 'fixture.fixture_championship_id = championship.championship_id', 'left')
+                                            ->join('championship', 'fixture.championship_id = championship.championship_id', 'left')
                                             ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
                                             ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
                                             ->where($where)

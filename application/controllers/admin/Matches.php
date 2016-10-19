@@ -70,7 +70,7 @@ class Matches extends MY_Controller {
 
         // Equipes pour le choix des confrontations
         $this->load->model('team_model');
-        $select = 'team.team_id, team.name AS team_name, championship.name AS championship_name, fixture.fixture_name';
+        $select = 'team.team_id, team.name AS team_name, championship.name AS championship_name, fixture.name AS fixture_name';
         $where = array(
             'championship_team.championship_id' => $this->session->userdata['championship'],
             'fixture.fixture_id' => $this->session->userdata['fixture'],
@@ -85,7 +85,7 @@ class Matches extends MY_Controller {
                                   ->from($this->config->item('team', 'table'))
                                   ->join('championship_team', 'championship_team.team_id = team.team_id', 'left')
                                   ->join('championship', 'championship_team.championship_id = championship.championship_id', 'left')
-                                  ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                  ->join('fixture', 'championship.championship_id = fixture.championship_id', 'left')
                                   ->where($where);
         if (!empty($already_set_teams)) {
             $data['teams'] = $data['teams']->where_not_in('team.team_id', $already_set_teams);
@@ -220,15 +220,15 @@ class Matches extends MY_Controller {
         $data['title'] = 'Admin - Ajouter un match';
 
         $this->load->model('fixture_model');
-        $select = 'fixture_id, fixture_name, fixture_championship_id, championship.name AS championship_name';
-        $where = array('fixture_championship_id' => $this->session->userdata['championship']);
+        $select = 'fixture_id, fixture.name AS fixture_name, championship_id, championship.name AS championship_name';
+        $where = array('championship_id' => $this->session->userdata['championship']);
         $nb = NULL;
         $debut = NULL;
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
-                                     ->join('championship', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                     ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
                                      ->limit($nb, $debut)
                                      ->order_by($order)
                                      ->get()
@@ -288,7 +288,7 @@ class Matches extends MY_Controller {
         // Matchs enregistrés pour le championnat
         $select = 'championship_id,
                    championship.name AS championship_name,
-                   fixture_name,
+                   fixture.name AS fixture_name,
                    fixture.fixture_id,
                    t1.team_id AS t1_id,
                    t2.team_id AS t2_id,
@@ -302,7 +302,7 @@ class Matches extends MY_Controller {
         $order = 'date ASC';
         $data['matches_fixtures'] = $this->db->select($select)
                                              ->from($this->config->item('championship', 'table'))
-                                             ->join('fixture', 'championship.championship_id = fixture.fixture_championship_id', 'left')
+                                             ->join('fixture', 'championship.championship_id = fixture.championship_id', 'left')
                                              ->join('match', 'fixture.fixture_id = match.fixture_id', 'left')
                                              ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
                                              ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
