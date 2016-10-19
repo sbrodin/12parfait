@@ -102,138 +102,56 @@ class Scores extends MY_Controller {
             return true;
         }
 
-        $data['total_bets'] = 0;
-        // Nombre 12parfait
-        $select = 'user_id, count(bet.score) as nb_12parfait';
-        $where = array(
-            'bet.score' => '12',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_12parfait DESC';
-        $data['scores_12'] = $this->db->select($select)
-                                      ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                      ->where($where)
-                                      ->order_by($order)
-                                      ->get()
-                                      ->result();
-        if (!$data['scores_12'][0]->user_id) {
-            $data['scores_12'] = 0;
-        } else {
-            $data['scores_12'] = $data['scores_12'][0]->nb_12parfait;
-            $data['total_bets']+= $data['scores_12'];
-        }
-
-        // Nombre 7
-        $select = 'user_id, count(bet.score) as nb_7';
-        $where = array(
-            'bet.score' => '7',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_7 DESC';
-        $data['scores_7'] = $this->db->select($select)
-                                     ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                     ->where($where)
-                                     ->order_by($order)
-                                     ->get()
-                                     ->result();
-        if (!$data['scores_7'][0]->user_id) {
-            $data['scores_7'] = 0;
-        } else {
-            $data['scores_7'] = $data['scores_7'][0]->nb_7;
-            $data['total_bets']+= $data['scores_7'];
-        }
-
-        // Nombre 6
-        $select = 'user_id, count(bet.score) as nb_6';
-        $where = array(
-            'bet.score' => '6',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_6 DESC';
-        $data['scores_6'] = $this->db->select($select)
-                                     ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                     ->where($where)
-                                     ->order_by($order)
-                                     ->get()
-                                     ->result();
-        if (!$data['scores_6'][0]->user_id) {
-            $data['scores_6'] = 0;
-        } else {
-            $data['scores_6'] = $data['scores_6'][0]->nb_6;
-            $data['total_bets']+= $data['scores_6'];
-        }
-
-        // Nombre 4
-        $select = 'user_id, count(bet.score) as nb_4';
-        $where = array(
-            'bet.score' => '4',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_4 DESC';
-        $data['scores_4'] = $this->db->select($select)
-                                     ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                     ->where($where)
-                                     ->order_by($order)
-                                     ->get()
-                                     ->result();
-        if (!$data['scores_4'][0]->user_id) {
-            $data['scores_4'] = 0;
-        } else {
-            $data['scores_4'] = $data['scores_4'][0]->nb_4;
-            $data['total_bets']+= $data['scores_4'];
-        }
-
-        // Nombre 3
-        $select = 'user_id, count(bet.score) as nb_3';
-        $where = array(
-            'bet.score' => '3',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_3 DESC';
-        $data['scores_3'] = $this->db->select($select)
-                                     ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                     ->where($where)
-                                     ->order_by($order)
-                                     ->get()
-                                     ->result();
-        if (!$data['scores_3'][0]->user_id) {
-            $data['scores_3'] = 0;
-        } else {
-            $data['scores_3'] = $data['scores_3'][0]->nb_3;
-            $data['total_bets']+= $data['scores_3'];
-        }
-
-        // Nombre 0
-        $select = 'user_id, count(bet.score) as nb_0';
-        $where = array(
-            'bet.score' => '0',
-            'user_id' => $user_id,
-            'match.result !=' => 'NULL'
-        );
-        $order = 'nb_0 DESC';
-        $data['scores_0'] = $this->db->select($select)
-                                     ->from($this->config->item('bet', 'table'))
-                                      ->join('match', 'match.match_id=bet.match_id')
-                                     ->where($where)
-                                     ->order_by($order)
-                                     ->get()
-                                     ->result();
-        if (!$data['scores_0'][0]->user_id) {
-            $data['scores_0'] = 0;
-        } else {
-            $data['scores_0'] = $data['scores_0'][0]->nb_0;
-            $data['total_bets']+= $data['scores_0'];
-        }
+        // Récupération en une seule requête des stats par score
+        $query = "SELECT DISTINCT
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 0
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_0,
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 6
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_6,
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 3
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_3,
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 4
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_4,
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 7
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_7,
+                     (SELECT count(bet.score)
+                      FROM bet
+                      JOIN `match` ON match.match_id = bet.match_id
+                      WHERE bet.score = 12
+                          AND user_id = $user_id
+                          AND match.result IS NOT NULL ) AS nb_12parfait
+                  FROM `user`
+                  LEFT JOIN `bet` ON `user`.`user_id` = `bet`.`user_id`
+                  WHERE `active` = '1'
+                      AND `user`.`user_id` = 1";
+        $data['all_scores'] = $this->db->query($query)->result()[0];
+        $data['total_bets'] = array_sum((array)$data['all_scores']);
+        $data['scores_0'] = $data['all_scores']->nb_0;
+        $data['scores_3'] = $data['all_scores']->nb_3;
+        $data['scores_4'] = $data['all_scores']->nb_4;
+        $data['scores_6'] = $data['all_scores']->nb_6;
+        $data['scores_7'] = $data['all_scores']->nb_7;
+        $data['scores_12'] = $data['all_scores']->nb_12parfait;
 
         $user_id = '';
         $scores = array();

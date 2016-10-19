@@ -23,24 +23,6 @@
             <div class="scores-chart-legend"><?= sprintf($this->lang->line('stats_on_x_points_player'), $scores[0]->total_score) ?></div>
         <?php endif; ?>
         <canvas id="scores-chart2" width="200" height="200"></canvas>
-        <!-- <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_12'), $scores_12) ?><?= $scores_12>0 ? ' '.$this->lang->line('congratulations') : '' ?></span>
-        </div>
-        <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_7'), $scores_7) ?></span>
-        </div>
-        <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_6'), $scores_6) ?></span>
-        </div>
-        <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_4'), $scores_4) ?></span>
-        </div>
-        <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_3'), $scores_3) ?></span>
-        </div>
-        <div class="card-text">
-            <span><?= sprintf($this->lang->line('you_have_x_scores_0'), $scores_0) ?><?= $scores_0>10 ? ' '.$this->lang->line('can_do_better') : '' ?></span>
-        </div> -->
     </div>
 <?php endif; ?>
 
@@ -82,7 +64,8 @@
                 // ],
             }],
         },
-        // options: {
+        options: {
+        //     cutoutPercentage : 0,
         //     scales: {
         //         yAxes: [{
         //             ticks: {
@@ -90,7 +73,7 @@
         //             }
         //         }]
         //     }
-        // }
+        }
     });
     var ctx2 = document.getElementById('scores-chart2');
     var myChart2 = new Chart(ctx2, {
