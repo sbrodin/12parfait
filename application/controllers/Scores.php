@@ -17,6 +17,24 @@ class Scores extends MY_Controller {
         $data = array();
         $data['title'] = 'Scores';
 
+        // Récupération des éventuels filtres
+        $filters = array();
+        if (isset($this->session->userdata['filters_scores'])) {
+            $filters['filters_scores'] = $this->session->userdata['filters_scores'];
+        }
+        $post = $this->input->post();
+        if (!empty($post)) {
+            if ($post['submit'] == $this->lang->line('del_filter')) {
+                $filters['filters_scores']['championship'] = '';
+                $filters['filters_scores']['fixture'] = '';
+            } else {
+                $filters['filters_scores']['championship'] = ($post['championship'] == 0) ? '' : $post['championship'];
+                $filters['filters_scores']['fixture'] = ($post['fixture'] == 0) ? '' : $post['fixture'];
+            }
+            $this->session->set_userdata($filters);
+        }
+        $data['filters_scores'] = $filters['filters_scores'];
+
         // Récupération des résultats de chaque utilisateur
         $select = 'user.user_id, user_name, bet.bet_id, bet.score';
         $where = array(
@@ -24,11 +42,20 @@ class Scores extends MY_Controller {
             // 'acl !=' => 'admin',
             // 'bet.score !=' => '0',
         );
+        if (isset($filters['filters_scores']['championship']) && $filters['filters_scores']['championship']!='') {
+            $where = array_merge($where, array('championship.championship_id' => $filters['filters_scores']['championship']));
+        }
+        if (isset($filters['filters_scores']['fixture']) && $filters['filters_scores']['fixture']!='') {
+            $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_scores']['fixture']));
+        }
         $order = 'user.user_id DESC';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))
                                    ->where($where)
                                    ->join('bet', 'user.user_id = bet.user_id', 'left')
+                                   ->join('match', 'bet.match_id = match.match_id', 'left')
+                                   ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
+                                   ->join('championship', 'fixture.championship_id = championship.championship_id', 'left')
                                    ->order_by($order)
                                    ->get()
                                    ->result();
@@ -50,21 +77,31 @@ class Scores extends MY_Controller {
         $data['user_scores'] = $scores;
         $data['users'] = $users;
 
-        // Récupération des journées pour les filtres
-        $select = 'fixture.name, championship_name';
+
+        // Récupération des championnats et journées pour les filtres
+        $select = 'championship.championship_id, championship.name AS championship_name, fixture.fixture_id, fixture.name AS fixture_name';
         $where = array(
             'fixture.status' => 'close',
             'championship.status' => 'open',
         );
+        // var_dump($where);
+        // exit;
+        $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
-                                   ->from($this->config->item('fixture', 'table'))
-                                   ->where($where)
-                                   ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
-                                   ->order_by($order)
-                                   ->get()
-                                   ->result();
-        var_dump($data['fixtures']);
-        exit;
+                                     ->from($this->config->item('fixture', 'table'))
+                                     ->where($where)
+                                     ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
+                                     ->order_by($order)
+                                     ->get()
+                                     ->result();
+        $championship = '';
+        $data['championships'] = array();
+        foreach ($data['fixtures'] as $key => $fixture_infos) {
+            if ($fixture_infos->championship_name !== $championship) {
+                $data['championships'][$fixture_infos->championship_id] = $fixture_infos->championship_name;
+                $championship = $fixture_infos->championship_name;
+            }
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

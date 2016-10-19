@@ -10,12 +10,23 @@
 
 <?= validation_errors() ?>
 
-<?= form_open('contact', array('class' => 'form-filter')) ?>
-    <select id="fixture" name="fixture">
-    <?php foreach ($fixtures as $fixture_id => $name) : ?>
-        <option></option>
-    <?php endforeach; ?>
+<?= form_open('scores', array('class' => 'form-filter')) ?>
+    <label for="championship"><?= $this->lang->line('championship')?> : </label>
+    <select id="championship" name="championship" class="form-control">
+        <option value="0"></option>
+        <?php foreach ($championships as $championship_id => $championship_name) : ?>
+        <option value="<?= $championship_id ?>" <?= $filters_scores['championship'] == $championship_id ? 'selected' : '' ?>><?= $championship_name ?></option>
+        <?php endforeach; ?>
     </select>
+    <label for="fixture"><?= $this->lang->line('fixture')?> : </label>
+    <select id="fixture" name="fixture" class="form-control">
+        <option value="0"></option>
+        <?php foreach ($fixtures as $key => $fixture_info) : ?>
+        <option value="<?= $fixture_info->fixture_id ?>" <?= $filters_scores['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name . ' - ' . $fixture_info->fixture_name ?></option>
+        <?php endforeach; ?>
+    </select>
+    <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('filter') ?>">
+    <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('del_filter') ?>">
 </form>
 
 <table class="table-striped table-bordered table-hover score-table">

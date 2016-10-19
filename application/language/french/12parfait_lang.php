@@ -23,6 +23,7 @@ $lang['edit'] = 'Editer';
 $lang['link_to_home'] = 'Lien vers la page d\'accueil';
 $lang['view'] = 'Voir';
 $lang['contact'] = 'Contact';
+$lang['filter'] = 'Filtrer';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
@@ -200,6 +201,7 @@ $lang['define_username_profile'] = 'Si votre nom n\'apparaît pas c\'est que vou
 $lang['view_ladder'] = 'Classement';
 $lang['view_my_scores'] = 'Mes scores';
 $lang['anonymous'] = 'Anonyme';
+$lang['del_filter'] = 'Supprimer filtres';
 $lang['nb_12parfait'] = 'Nombre 12parfait';
 $lang['congratulations'] = 'Félicitations !';
 $lang['can_do_better'] = 'Vous pouvez faire mieux !';
