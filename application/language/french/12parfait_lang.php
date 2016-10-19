@@ -23,7 +23,8 @@ $lang['edit'] = 'Editer';
 $lang['link_to_home'] = 'Lien vers la page d\'accueil';
 $lang['view'] = 'Voir';
 $lang['contact'] = 'Contact';
-$lang['filter'] = 'Filtrer';
+$lang['filter_verb'] = 'Filtrer';
+$lang['filters'] = 'Filtres';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';

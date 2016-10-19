@@ -239,7 +239,8 @@ td.dash {
     margin: 0 auto;
 }
 .form-contact select,
-.form-contact textarea {
+.form-contact textarea,
+.form-filter select {
     max-width: 400px;
 }
 /* Profiler */
