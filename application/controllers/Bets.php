@@ -18,9 +18,41 @@ class Bets extends MY_Controller {
         $data = array();
         $data['title'] = 'Bets';
 
-        $select = 'fixture_id, fixture.name AS fixture_name, championship.name AS championship_name, fixture.status';
+        // Récupération des éventuels filtres
+        $filters['filters_bets'] = array(
+            'championship' => '',
+            'fixture' => '',
+        );
+        if (isset($this->session->userdata['filters_bets'])) {
+            $filters['filters_bets'] = $this->session->userdata['filters_bets'];
+        }
+        $post = $this->input->post();
+        if (!empty($post)) {
+            if ($post['submit'] == $this->lang->line('del_filter')) {
+                $filters['filters_bets']['championship'] = '';
+                $filters['filters_bets']['fixture'] = '';
+            } else {
+                $filters['filters_bets']['championship'] = ($post['championship'] == 0) ? '' : $post['championship'];
+                $filters['filters_bets']['fixture'] = ($post['fixture'] == 0) ? '' : $post['fixture'];
+            }
+            $this->session->set_userdata($filters);
+        }
+        $data['filters_bets'] = $filters['filters_bets'];
+
+        $select = 'fixture_id,
+                   fixture.name AS fixture_name,
+                   championship.championship_id,
+                   championship.name AS championship_name,
+                   fixture.status';
         $where = array('championship.status' => 'open');
-        $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
+        if (isset($filters['filters_bets']['championship']) && $filters['filters_bets']['championship']!='') {
+            $where = array_merge($where, array('championship.championship_id' => $filters['filters_bets']['championship']));
+        }
+        if (isset($filters['filters_bets']['fixture']) && $filters['filters_bets']['fixture']!='') {
+            $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_bets']['fixture']));
+        }
+        // $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
+        $order = 'championship_name ASC, length(fixture_name), fixture_name';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
@@ -28,6 +60,15 @@ class Bets extends MY_Controller {
                                      ->order_by($order)
                                      ->get()
                                      ->result();
+        // Récupération des championnats pour les filtres
+        $championship = '';
+        $data['championships'] = array();
+        foreach ($data['fixtures'] as $key => $fixture_infos) {
+            if ($fixture_infos->championship_name !== $championship) {
+                $data['championships'][$fixture_infos->championship_id] = $fixture_infos->championship_name;
+                $championship = $fixture_infos->championship_name;
+            }
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

@@ -1,3 +1,11 @@
+console.log('-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-');
+console.log('*  .   __. .__. .__. .__. .__. .__.  _._  ___ *');
+console.log('- /|     | |  | |  | |  | |    |  |   |    |  -');
+console.log('*  |  .__| |__| |__| |__| |__  |__|   |    |  *');
+console.log('-  |  |    |    |  | | \\  |    |  |   |    |  -');
+console.log('* _|_ |__. |    |  | |  \\ |    |  |  _|_   |  *');
+console.log('-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-');
+
 $('.alert').alert();
 
 $('#teams').multiSelect({
@@ -51,15 +59,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 });
 
-$('.form-scores-filter #fixture').on('change', function() {
-    $('.form-scores-filter #championship option').show();
-    var selected_fixture = $(this).val();
-    var selected_fixtures_championship = $(this).find('option[value="' + selected_fixture + '"]').data('championship-id');
-    $('.form-scores-filter #championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
+change_championships_from_fixture($('.form-scores-filter-fixture'));
+$('.form-scores-filter-fixture').on('change', function() {
+    change_championships_from_fixture($(this));
 });
 
-$('.form-scores-filter #championship').on('change', function() {
-    $('.form-scores-filter #fixture option').show();
-    var selected_championship = $(this).val();
-    $('.form-scores-filter #fixture :not([data-championship-id="' + selected_championship + '"])').hide();
+function change_championships_from_fixture(filter) {
+    $('.form-scores-filter-championship option').show();
+    var selected_fixture = filter.val();
+    if (selected_fixture != 0) {
+        var selected_fixtures_championship = filter.find('option[value="' + selected_fixture + '"]').data('championship-id');
+        $('.form-scores-filter-championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
+    }
+}
+
+change_fixtures_from_championship($('.form-scores-filter-championship'));
+$('.form-scores-filter-championship').on('change', function() {
+    change_fixtures_from_championship($(this));
 });
+
+function change_fixtures_from_championship(filter) {
+    $('.form-scores-filter-fixture option').show();
+    var selected_championship = filter.val();
+    if (selected_championship != 0) {
+        $('.form-scores-filter-fixture :not([data-championship-id="' + selected_championship + '"])').hide();
+    }
+}

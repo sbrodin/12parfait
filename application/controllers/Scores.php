@@ -87,8 +87,6 @@ class Scores extends MY_Controller {
             'fixture.status' => 'close',
             'championship.status' => 'open',
         );
-        // var_dump($where);
-        // exit;
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))

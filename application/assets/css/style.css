@@ -240,7 +240,8 @@ td.dash {
 }
 .form-contact select,
 .form-contact textarea,
-.form-scores-filter select {
+.form-scores-filter select,
+.form-bets-filter select {
     max-width: 400px;
 }
 /* Profiler */
