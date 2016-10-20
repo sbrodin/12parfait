@@ -18,7 +18,10 @@ class Scores extends MY_Controller {
         $data['title'] = 'Scores';
 
         // Récupération des éventuels filtres
-        $filters = array();
+        $filters['filters_scores'] = array(
+            'championship' => '',
+            'fixture' => '',
+        );
         if (isset($this->session->userdata['filters_scores'])) {
             $filters['filters_scores'] = $this->session->userdata['filters_scores'];
         }

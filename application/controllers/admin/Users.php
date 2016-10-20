@@ -311,15 +311,4 @@ class Users extends MY_Controller {
         redirect(site_url('admin/users'), 'location');
         exit;
     }
-
-    /**
-    * Fonction de vérification de la conformité d'une adresse email.
-    * @param $email Email entré sous forme de chaîne de caractère
-    */
-    public function is_email($email) {
-        if(!$email) {
-            return true;
-        }
-        return filter_var($email, FILTER_VALIDATE_EMAIL);
-    }
 }
