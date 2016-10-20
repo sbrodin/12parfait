@@ -8,7 +8,7 @@
     </div>
 <?php endif ?>
 
-<?= form_open('scores', array('class' => 'form-filter m-b-2')) ?>
+<?= form_open('scores', array('class' => 'form-scores-filter m-b-2')) ?>
     <fieldset class="form-group">
         <!-- <legend><?= $this->lang->line('filters') ?></legend> -->
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
