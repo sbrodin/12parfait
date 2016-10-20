@@ -57,3 +57,9 @@ $('.form-scores-filter #fixture').on('change', function() {
     var selected_fixtures_championship = $(this).find('option[value="' + selected_fixture + '"]').data('championship-id');
     $('.form-scores-filter #championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
 });
+
+$('.form-scores-filter #championship').on('change', function() {
+    $('.form-scores-filter #fixture option').show();
+    var selected_championship = $(this).val();
+    $('.form-scores-filter #fixture :not([data-championship-id="' + selected_championship + '"])').hide();
+});
