@@ -9,7 +9,7 @@
 
 <?= form_open('bets', array('class' => 'form-bets-filter m-b-2')) ?>
     <fieldset class="form-group">
-        <!-- <legend><?= $this->lang->line('filters') ?></legend> -->
+        <legend><?= $this->lang->line('filters') ?></legend>
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
         <select name="championship" class="form-control form-bets-filter-championship" data-filter-page="bets">
             <option value="0"></option>
