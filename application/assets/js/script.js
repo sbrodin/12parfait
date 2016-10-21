@@ -59,29 +59,46 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 });
 
-change_championships_from_fixture($('.form-scores-filter-fixture'));
-$('.form-scores-filter-fixture').on('change', function() {
-    change_championships_from_fixture($(this));
+
+// Gestion des filtres
+change_championships_from_fixture($('.form-bets-filter-fixture'), 'bets');
+change_championships_from_fixture($('.form-scores-filter-fixture'), 'scores');
+$('.form-bets-filter-fixture, .form-scores-filter-fixture').on('change', function() {
+    console.log('page');
+    change_championships_from_fixture($(this), $(this).data('filter-page'));
 });
 
-function change_championships_from_fixture(filter) {
-    $('.form-scores-filter-championship option').show();
+function change_championships_from_fixture(filter, page) {
+    $('.form-scores-filter-championship option, .form-bets-filter-championship option').show();
     var selected_fixture = filter.val();
     if (selected_fixture != 0) {
         var selected_fixtures_championship = filter.find('option[value="' + selected_fixture + '"]').data('championship-id');
-        $('.form-scores-filter-championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
+        if (page == 'bets') {
+            $('.form-bets-filter-championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
+            $('.form-bets-filter-championship option[value="0"]').show();
+        } else if (page == 'scores') {
+            $('.form-scores-filter-championship :not(option[value="' + selected_fixtures_championship + '"])').hide();
+            $('.form-scores-filter-championship option[value="0"]').show();
+        }
     }
 }
 
-change_fixtures_from_championship($('.form-scores-filter-championship'));
-$('.form-scores-filter-championship').on('change', function() {
-    change_fixtures_from_championship($(this));
+change_fixtures_from_championship($('.form-bets-filter-championship'), 'bets');
+change_fixtures_from_championship($('.form-scores-filter-championship'), 'scores');
+$('.form-bets-filter-championship, .form-scores-filter-championship').on('change', function() {
+    change_fixtures_from_championship($(this), $(this).data('filter-page'));
 });
 
-function change_fixtures_from_championship(filter) {
-    $('.form-scores-filter-fixture option').show();
+function change_fixtures_from_championship(filter, page) {
+    $('.form-scores-filter-fixture option, .form-bets-filter-fixture option').show();
     var selected_championship = filter.val();
     if (selected_championship != 0) {
-        $('.form-scores-filter-fixture :not([data-championship-id="' + selected_championship + '"])').hide();
+        if (page == 'bets') {
+            $('.form-bets-filter-fixture :not(option[data-championship-id="' + selected_championship + '"])').hide();
+            $('.form-bets-filter-fixture option[value="0"]').show();
+        } else if (page == 'scores') {
+            $('.form-scores-filter-fixture :not(option[data-championship-id="' + selected_championship + '"])').hide();
+            $('.form-scores-filter-fixture option[value="0"]').show();
+        }
     }
 }

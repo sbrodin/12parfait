@@ -11,14 +11,14 @@
     <fieldset class="form-group">
         <!-- <legend><?= $this->lang->line('filters') ?></legend> -->
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
-        <select name="championship" class="form-control form-bets-filter-championship">
+        <select name="championship" class="form-control form-bets-filter-championship" data-filter-page="bets">
             <option value="0"></option>
             <?php foreach ($championships as $championship_id => $championship_name) : ?>
             <option value="<?= $championship_id ?>" <?= $filters_bets['championship'] == $championship_id ? 'selected' : '' ?>><?= $championship_name ?></option>
             <?php endforeach; ?>
         </select>
         <label for="fixture"><?= $this->lang->line('fixture')?> : </label>
-        <select name="fixture" class="form-control form-bets-filter-fixture">
+        <select name="fixture" class="form-control form-bets-filter-fixture" data-filter-page="bets">
             <option value="0"></option>
             <?php foreach ($fixtures as $key => $fixture_info) : ?>
             <option value="<?= $fixture_info->fixture_id ?>" data-championship-id="<?= $fixture_info->championship_id ?>" <?= $filters_bets['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name . ' - ' . $fixture_info->fixture_name ?></option>

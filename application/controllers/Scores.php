@@ -80,7 +80,6 @@ class Scores extends MY_Controller {
         $data['user_scores'] = $scores;
         $data['users'] = $users;
 
-
         // Récupération des championnats et journées pour les filtres
         $select = 'championship.championship_id, championship.name AS championship_name, fixture.fixture_id, fixture.name AS fixture_name';
         $where = array(
