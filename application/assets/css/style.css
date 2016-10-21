@@ -238,6 +238,14 @@ td.dash {
     max-height: 300px;
     margin: 0 auto;
 }
+.form-bets-filter-legend,
+.form-scores-filter-legend,
+.form-bets-filter-link,
+.form-scores-filter-link {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding: 0 0 .5rem 0;
+}
 .form-contact select,
 .form-contact textarea,
 .form-scores-filter select,

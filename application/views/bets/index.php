@@ -1,3 +1,4 @@
+<a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back') ?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -8,8 +9,9 @@
 <?php endif ?>
 
 <?= form_open('bets', array('class' => 'form-bets-filter m-b-2')) ?>
-    <fieldset class="form-group">
-        <legend><?= $this->lang->line('filters') ?></legend>
+    <span class="form-bets-filter-legend m-r-3"><?= $this->lang->line('filters') ?></span>
+    <a class="btn btn-link form-bets-filter-link" data-toggle="collapse" href="#fieldset-filters-bets" aria-expanded="false" aria-controls="fieldset-filters-bets"><?= $this->lang->line('show_hide') ?></a>
+    <fieldset id="fieldset-filters-bets" class="form-group collapse">
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
         <select name="championship" class="form-control form-bets-filter-championship" data-filter-page="bets">
             <option value="0"></option>
