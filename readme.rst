@@ -59,7 +59,9 @@ Listes des éléments restants à faire :
     - Ajouter des placeholder
     - Clean du code des vues
     - Contact, ajouter motif "erreur résultat"
-    - Filtres bets et classement, gestion des filtres affiché/caché
+    - Filtres
+        - bets et classement, gestion des filtres affiché/caché
+        - ajouter filtre journée ouverte/fermée
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
