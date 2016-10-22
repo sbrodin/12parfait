@@ -8,6 +8,7 @@
     <label for="motif"><?= $this->lang->line('motif') ?> :</label>
     <select id="motif" name="motif" class="form-control m-b-2" required="required">
         <option value="<?= $this->lang->line('evolution') ?>"><?= $this->lang->line('idea_evolution') ?></option>
+        <option value="<?= $this->lang->line('error_result') ?>"><?= $this->lang->line('error_result') ?></option>
         <option value="<?= $this->lang->line('critic') ?>"><?= $this->lang->line('critic') ?></option>
         <option value="<?= $this->lang->line('bug') ?>"><?= $this->lang->line('bug') ?></option>
         <option value="<?= $this->lang->line('other') ?>"><?= $this->lang->line('other') ?></option>

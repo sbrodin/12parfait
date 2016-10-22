@@ -238,6 +238,7 @@ $lang['message'] = 'Message';
 $lang['idea_evolution'] = 'Idée d\'évolution';
 $lang['evolution'] = 'Evolution';
 $lang['critic'] = 'Critique';
+$lang['error_result'] = 'Erreur de résultat';
 $lang['bug'] = 'Bug';
 $lang['other'] = 'Autre';
 $lang['send_message'] = 'Envoyer le message';

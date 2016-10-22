@@ -58,7 +58,6 @@ TODO
 Listes des éléments restants à faire :
     - Ajouter des placeholder
     - Clean du code des vues
-    - Contact, ajouter motif "erreur résultat"
     - Filtres
         - ajouter filtre journée ouverte/fermée
     - Home
