@@ -161,55 +161,25 @@ class Scores extends MY_Controller {
         }
 
         // Récupération en une seule requête des stats par score
-        $query = "SELECT DISTINCT
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 0
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_0,
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 6
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_6,
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 3
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_3,
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 4
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_4,
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 7
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_7,
-                     (SELECT count(bet.score)
-                      FROM bet
-                      JOIN `match` ON match.match_id = bet.match_id
-                      WHERE bet.score = 12
-                          AND user_id = $user_id
-                          AND match.result IS NOT NULL ) AS nb_12parfait
-                  FROM `user`
-                  LEFT JOIN `bet` ON `user`.`user_id` = `bet`.`user_id`
-                  WHERE `active` = '1'
-                      AND `user`.`user_id` = 1";
-        $data['all_scores'] = $this->db->query($query)->result()[0];
-        $data['total_bets'] = array_sum((array)$data['all_scores']);
-        $data['scores_0'] = $data['all_scores']->nb_0;
-        $data['scores_3'] = $data['all_scores']->nb_3;
-        $data['scores_4'] = $data['all_scores']->nb_4;
-        $data['scores_6'] = $data['all_scores']->nb_6;
-        $data['scores_7'] = $data['all_scores']->nb_7;
-        $data['scores_12'] = $data['all_scores']->nb_12parfait;
+        $select = 'bet.score, count(bet_id) AS nb_score';
+        $where = array(
+            'bet.user_id' => $user_id,
+            'active' => 1,
+        );
+        $group_by = 'bet.score';
+        $data['all_scores'] = $this->db->select($select)
+                                       ->from($this->config->item('bet', 'table'))
+                                       ->where($where)
+                                       ->join('user', 'bet.user_id = user.user_id', 'left')
+                                       // ->join('match', 'match.match_id = bet.match_id', 'left')
+                                       ->group_by($group_by)
+                                       ->get()
+                                       ->result();
+        $data['total_bets'] = 0;
+        foreach ($data['all_scores'] as $key => $score) {
+            $data['scores_'.$score->score] = $score->nb_score;
+            $data['total_bets']+= $score->nb_score;
+        }
 
         $user_id = '';
         $scores = array();

@@ -96,6 +96,39 @@ class Bets extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('add_edit_bet');
 
+        // Récupération des utilisateurs pour voir leurs paris
+        $this->load->model('user_model');
+        $where = array('user_id !=' => $this->session->userdata['user']->user_id);
+        $nb = NULL;
+        $debut = NULL;
+        $order = 'user_id ASC';
+        $data['users'] = $this->user_model->read('user_id, user_name', $where, $nb, $debut, $order);
+
+        foreach ($data['users'] as $users_item) {
+            $users_item->user_name = ($users_item->user_name === '') ? $this->lang->line('anonymous').$users_item->user_id : $users_item->user_name;
+        }
+
+        // Récupération des éventuels paris d'autres joueurs
+        $filters['bets_of_players'] = array();
+        if (isset($this->session->userdata['bets_of_players'])) {
+            $filters['bets_of_players'] = $this->session->userdata['bets_of_players'];
+        }
+        $post = $this->input->post();
+        if (!empty($post)) {
+            if ($post['submit-filter'] == $this->lang->line('del_filter')) {
+                $filters['bets_of_players'] = array();
+            } else {
+                $filters['bets_of_players'] = (isset($post['users'])) ? $post['users'] : array();
+            }
+            $this->session->set_userdata($filters);
+        }
+        if (!empty($filters['bets_of_players'])) {
+            $data['collapse_filters'] = 'in';
+        } else {
+            $data['collapse_filters'] = '';
+        }
+        $data['bets_of_players'] = $filters['bets_of_players'];
+
         $data['fixture_id'] = $fixture_id;
 
         // Liste des matchs de la journée
@@ -150,43 +183,77 @@ class Bets extends MY_Controller {
             }
 
             // Liste des paris de l'utilisateur pour la journée
-            $select = 'bet.match_id,
+            $select = 'user_id,
+                       bet.match_id,
                        bet.team1_score,
                        bet.team2_score,
                        bet.score';
             $where = array(
                 'bet.user_id' => $this->session->userdata['user']->user_id,
             );
-            $nb = NULL;
-            $debut = NULL;
             $order = 'match.date ASC, match.match_id';
             $data['fixture_bets'] = $this->db->select($select)
                                              ->from($this->config->item('bet', 'table'))
                                              ->join('match', 'bet.match_id = match.match_id', 'left')
                                              ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
-                                             ->where($where)
-                                             ->limit($nb, $debut)
-                                             ->order_by($order)
-                                             ->get()
-                                             ->result();
+                                             ->where($where);
+            if (!empty($filters['bets_of_players'])) {
+                $data['fixture_bets'] = $data['fixture_bets']->or_where_in('bet.user_id', $filters['bets_of_players']);
+            }
+            $data['fixture_bets'] = $data['fixture_bets']->order_by($order)
+                                                         ->get()
+                                                         ->result();
+
+            // Liste des paris des autres joueurs pour la journée
+            if (!empty($filters['bets_of_players'])) {
+                $select = 'bet.user_id,
+                           user_name,
+                           bet.match_id,
+                           bet.team1_score,
+                           bet.team2_score,
+                           bet.score';
+                $order = 'user_id, match.date ASC, match.match_id';
+                $data['fixture_bets_players'] = $this->db->select($select)
+                                                         ->from($this->config->item('bet', 'table'))
+                                                         ->join('match', 'bet.match_id = match.match_id', 'left')
+                                                         ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
+                                                         ->join('user', 'bet.user_id = user.user_id', 'left')
+                                                         ->where_in('bet.user_id', $filters['bets_of_players'])
+                                                         ->order_by($order)
+                                                         ->get()
+                                                         ->result();
+                $fixture_bets_players = array();
+                $different_players = array();
+                $player_id = 0;
+                foreach ($data['fixture_bets_players'] as $key => $fixture_bet_players) {
+                    if ($fixture_bet_players->user_id != $player_id) {
+                        $player_id = $fixture_bet_players->user_id;
+                        $different_players[$player_id] = $player_id;
+                    }
+                    $fixture_bets_players[$fixture_bet_players->match_id] = $fixture_bet_players;
+                }
+                $data['fixture_bets_players'] = $fixture_bets_players;
+            }
             $fixture_bets = array();
             foreach ($data['fixture_bets'] as $key => $fixture_bet) {
                 $fixture_bets[$fixture_bet->match_id] = $fixture_bet;
             }
             $data['fixture_bets'] = $fixture_bets;
+            // var_dump($fixture_bets);
+            var_dump($different_players);
+            // exit;
         } else {
             $data['info'] = $this->lang->line('no_match_for_fixture');
         }
 
-        $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav', $data);
             $this->load->view('bets/edit', $data);
             $this->load->view('templates/footer', $data);
-        } else {
+        } else if (isset($post['submit-bets'])) {
             // Cas du clic sur "Retour"
-            if ($post['submit'] == $this->lang->line('back')) {
+            if ($post['submit-bets'] == $this->lang->line('back')) {
                 redirect(site_url('bets'), 'location');
                 exit;
             }
@@ -201,7 +268,7 @@ class Bets extends MY_Controller {
             $bets = array();
             $element = 0;
             foreach ($post as $key => $post_element) {
-                if ($key == 'submit') {
+                if ($key == 'submit-bets') {
                     continue;
                 }
                 if ($element === 0) {
@@ -248,6 +315,11 @@ class Bets extends MY_Controller {
             $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
             exit;
+        } else {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('bets/edit', $data);
+            $this->load->view('templates/footer', $data);
         }
     }
 }

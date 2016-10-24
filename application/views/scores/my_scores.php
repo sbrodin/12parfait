@@ -64,16 +64,6 @@
                 // ],
             }],
         },
-        options: {
-        //     cutoutPercentage : 0,
-        //     scales: {
-        //         yAxes: [{
-        //             ticks: {
-        //                 beginAtZero:true
-        //             }
-        //         }]
-        //     }
-        }
     });
     var ctx2 = document.getElementById('scores-chart2');
     var myChart2 = new Chart(ctx2, {
@@ -108,15 +98,6 @@
                 // ],
             }],
         },
-        // options: {
-        //     scales: {
-        //         yAxes: [{
-        //             ticks: {
-        //                 beginAtZero:true
-        //             }
-        //         }]
-        //     }
-        // }
     });
 </script>
 

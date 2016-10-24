@@ -12,10 +12,10 @@ if(!defined('BASEPATH')) {
   */
 class MY_Profiler extends CI_Profiler {
 	function run() {
-		$output = "<div id='codeigniter_profiler' style='clear:both;background-color:#fff;padding:10px;'>";
+		$output = "<div id='codeigniter-profiler' style='clear:both;background-color:#fff;padding:10px;'>";
 
 		// On ajoute le bouton pour fermer le profiler
-		$output .= "<div id='profiler_close'>Fermer <span>X</span></div>";
+		$output .= "<div id='profiler-close'>Fermer <span>X</span></div>";
 
 		$output .= $this->_compile_uri_string();
 		$output .= $this->_compile_controller_info();

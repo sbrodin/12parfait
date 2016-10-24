@@ -26,6 +26,8 @@ function update_nb_equipes() {
     $('.ms-selection .nb-equipes').html($('.ms-selection .ms-selected').length);
 }
 
+$('.form-players-filter-users').multiSelect();
+
 $.datetimepicker.setLocale('fr');
 $('.match_date').datetimepicker({
     dayOfWeekStart: 1,
@@ -54,9 +56,9 @@ $('.home-table tr, .score-table tr').on('click', function() {
   * Fonction de gestion du profiler
   */
 document.addEventListener("DOMContentLoaded", function(event) {
-    if(document.getElementById("profiler_close")) {
-        document.getElementById("profiler_close").addEventListener("click", function(event) {
-            document.getElementById("codeigniter_profiler").style.display = "none";
+    if(document.getElementById("profiler-close")) {
+        document.getElementById("profiler-close").addEventListener("click", function(event) {
+            document.getElementById("codeigniter-profiler").style.display = "none";
         });
     }
 });
