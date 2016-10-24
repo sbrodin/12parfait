@@ -11,7 +11,7 @@
 <?= form_open('bets', array('class' => 'form-bets-filter m-b-2')) ?>
     <span class="form-bets-filter-legend m-r-3"><?= $this->lang->line('filters') ?></span>
     <a class="btn btn-link form-bets-filter-link" data-toggle="collapse" href="#fieldset-filters-bets" aria-expanded="false" aria-controls="fieldset-filters-bets"><?= $this->lang->line('show_hide') ?></a>
-    <fieldset id="fieldset-filters-bets" class="form-group collapse">
+    <fieldset id="fieldset-filters-bets" class="form-group collapse <?= $collapse_filters ?>">
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
         <select name="championship" class="form-control form-bets-filter-championship" data-filter-page="bets">
             <option value="0"></option>
@@ -27,7 +27,7 @@
             <?php endforeach; ?>
         </select>
         <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('filter_verb') ?>">
-        <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('del_filter') ?>">
+        <input type="submit" name="submit" class="btn btn-sm btn-outline-primary m-t-2 m-b-2" value="<?= $this->lang->line('del_filter') ?>">
     </fieldset>
 </form>
 

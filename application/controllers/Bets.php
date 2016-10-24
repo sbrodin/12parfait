@@ -37,6 +37,11 @@ class Bets extends MY_Controller {
             }
             $this->session->set_userdata($filters);
         }
+        if ($filters['filters_bets']['championship'] !== '' || $filters['filters_bets']['fixture'] !== '') {
+            $data['collapse_filters'] = 'in';
+        } else {
+            $data['collapse_filters'] = '';
+        }
         $data['filters_bets'] = $filters['filters_bets'];
 
         $select = 'fixture_id,

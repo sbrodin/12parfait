@@ -36,6 +36,11 @@ class Scores extends MY_Controller {
             }
             $this->session->set_userdata($filters);
         }
+        if ($filters['filters_scores']['championship'] !== '' || $filters['filters_scores']['fixture'] !== '') {
+            $data['collapse_filters'] = 'in';
+        } else {
+            $data['collapse_filters'] = '';
+        }
         $data['filters_scores'] = $filters['filters_scores'];
 
         // Récupération des résultats de chaque utilisateur
