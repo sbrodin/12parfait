@@ -228,9 +228,9 @@ class Bets extends MY_Controller {
                 foreach ($data['fixture_bets_players'] as $key => $fixture_bet_players) {
                     if ($fixture_bet_players->user_id != $player_id) {
                         $player_id = $fixture_bet_players->user_id;
-                        $different_players[$player_id] = $player_id;
+                        $different_players[$player_id] = ($fixture_bet_players->user_name === '') ? $this->lang->line('anonymous').$player_id : $fixture_bet_players->user_name;
                     }
-                    $fixture_bets_players[$fixture_bet_players->match_id] = $fixture_bet_players;
+                    $fixture_bets_players[$fixture_bet_players->user_id][$fixture_bet_players->match_id] = $fixture_bet_players;
                 }
                 $data['fixture_bets_players'] = $fixture_bets_players;
             }
@@ -239,8 +239,8 @@ class Bets extends MY_Controller {
                 $fixture_bets[$fixture_bet->match_id] = $fixture_bet;
             }
             $data['fixture_bets'] = $fixture_bets;
-            // var_dump($fixture_bets);
-            var_dump($different_players);
+            $data['different_players'] = empty($different_players) ? array() : $different_players;
+            // var_dump($fixture_bets_players);
             // exit;
         } else {
             $data['info'] = $this->lang->line('no_match_for_fixture');

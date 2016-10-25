@@ -34,9 +34,10 @@
                     <th class="text-xs-center" colspan="5"><?= $this->lang->line('my_bets') ?></th>
                     <?php
                     if (!empty($different_players)) :
-                        foreach ($different_players as $key => $player_id) :
+                        foreach ($different_players as $player_id => $player_name) :
                     ?>
-                    <th class="text-xs-center"><?= $this->lang->line('bets_of') ?></th>
+                    <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('bets_of') . ' ' . $player_name ?></th>
+                    <th class="text-xs-center hidden-md-up"><?= $player_name ?></th>
                     <?php
                         endforeach;
                     endif;
@@ -61,7 +62,10 @@
                     if ($fixture_match->date!==$date) {
                         $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                         $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
-                        echo '<tr><td class="date" colspan="8">' . $date_formatted . '</td></tr>';
+                        echo '<tr>';
+                        echo '<td class="date" colspan="5">' . $date_formatted . '</td>';
+                        echo '<td class="date" colspan="' . (3+count($different_players)) . '"></td>';
+                        echo '</tr>';
                         $date = $fixture_match->date;
                     }
                     $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
@@ -74,7 +78,23 @@
                     <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?>></td>
                     <td class="team2-name hidden-sm-down"><?= $fixture_match->team2 ?></td>
                     <td class="team2-name hidden-md-up"><?= $fixture_match->short_team2 ?></td>
-                    <td class="text-xs-center">0 - 0</td>
+                    <?php
+                    if (!empty($different_players)) :
+                        foreach ($different_players as $player_id => $player_name) :
+                    ?>
+                    <td class="text-xs-center">
+                        <?php
+                        if (!empty($fixture_bets_players[$player_id][$match_id])) {
+                            echo $fixture_bets_players[$player_id][$match_id]->team1_score . ' - ' . $fixture_bets_players[$player_id][$match_id]->team2_score . ' (' . $fixture_bets_players[$player_id][$match_id]->score . $this->lang->line('points_short') . ')';
+                        } else {
+                            echo $this->lang->line('not_available_short');
+                        }
+                        ?>
+                    </td>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                     <td class="text-xs-center hidden-sm-down"><?= $result ?></td>
                     <td class="text-xs-center hidden-md-up"><?= $short_result ?></td>
                     <td class="text-xs-center"><?= $score ?></td>
