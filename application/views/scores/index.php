@@ -47,18 +47,16 @@
     <tbody>
         <?php
         $rank = 1;
-        $nb_players = 0;
+        $trophy = 0;
         $current_score = '';
         foreach ($user_scores as $user_id => $score) :
-            ++$nb_players;
+            if ($score !== $current_score) {
+                ++$trophy;
+            }
         ?>
         <tr data-href="<?= site_url('scores/'.$user_id) ?>">
-            <?php if ($rank === 1) : ?>
-                <td class="rank-1"><i class="fa fa-trophy"></i></td>
-            <?php elseif ($rank === 2 && $nb_players<=2) : ?>
-                <td class="rank-2"><i class="fa fa-trophy"></i></td>
-            <?php elseif ($rank === 3 && $nb_players<=3) : ?>
-                <td class="rank-3"><i class="fa fa-trophy"></i></td>
+            <?php if ($trophy < 4 && $rank < 4) : ?>
+                <td class="rank-<?= $trophy ?>"><i class="fa fa-trophy"></i></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>
