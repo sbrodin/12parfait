@@ -165,13 +165,14 @@ class Scores extends MY_Controller {
         $where = array(
             'bet.user_id' => $user_id,
             'active' => 1,
+            'match.result !=' => 'NULL'
         );
         $group_by = 'bet.score';
         $data['all_scores'] = $this->db->select($select)
                                        ->from($this->config->item('bet', 'table'))
                                        ->where($where)
                                        ->join('user', 'bet.user_id = user.user_id', 'left')
-                                       // ->join('match', 'match.match_id = bet.match_id', 'left')
+                                       ->join('match', 'match.match_id = bet.match_id', 'left')
                                        ->group_by($group_by)
                                        ->get()
                                        ->result();
@@ -179,6 +180,24 @@ class Scores extends MY_Controller {
         foreach ($data['all_scores'] as $key => $score) {
             $data['scores_'.$score->score] = $score->nb_score;
             $data['total_bets']+= $score->nb_score;
+        }
+        if (!isset($data['scores_0'])) {
+            $data['scores_0'] = 0;
+        }
+        if (!isset($data['scores_3'])) {
+            $data['scores_3'] = 0;
+        }
+        if (!isset($data['scores_4'])) {
+            $data['scores_4'] = 0;
+        }
+        if (!isset($data['scores_6'])) {
+            $data['scores_6'] = 0;
+        }
+        if (!isset($data['scores_7'])) {
+            $data['scores_7'] = 0;
+        }
+        if (!isset($data['scores_12'])) {
+            $data['scores_12'] = 0;
         }
 
         $user_id = '';
