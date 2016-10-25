@@ -68,5 +68,6 @@ Listes des éléments restants à faire :
     - Classement
         - avoir un petit podium au-dessus du tableau
         - ajouter le nombre de 12parfait
+        - ajouter un filtre par date
     - Gérer les titles avec le fichier de langue
     - Habillage du site
