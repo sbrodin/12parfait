@@ -67,8 +67,6 @@ Listes des éléments restants à faire :
     - Profil, gestion des messages d'aide
     - Classement
         - avoir un petit podium au-dessus du tableau
-        - mettre les 3 premiers en couleurs différentes (or - goldenrod/#DAA520, argent - #A8A8A8 - et bronze - #965A38)
         - ajouter le nombre de 12parfait
     - Gérer les titles avec le fichier de langue
-    - Afficher les bets des autres
     - Habillage du site

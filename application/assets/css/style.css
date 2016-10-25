@@ -247,11 +247,28 @@ td.dash {
     line-height: 1.2rem;
     padding: 0 0 .5rem 0;
 }
+/*#fieldset-filters-bets,
+#fieldset-filters-players,
+#fieldset-filters-scores {
+    width: auto;
+    padding: 1rem 2rem 0px;
+    border: 1px solid silver;
+    border-radius: 0.2rem;
+}*/
 .form-contact select,
 .form-contact textarea,
 .form-scores-filter select,
 .form-bets-filter select {
     max-width: 400px;
+}
+.rank-1 {
+    color: #DAA520;
+}
+.rank-2 {
+    color: #A8A8A8;
+}
+.rank-3 {
+    color: #965A38;
 }
 /* Profiler */
 #codeigniter-profiler {

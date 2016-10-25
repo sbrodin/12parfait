@@ -15,6 +15,7 @@
         <link href="<?= css_url('jquery.datetimepicker.min') ?>" media="screen" rel="stylesheet" type="text/css">
         <link href="<?= css_url('bootstrap.4.0.0-alpha.4.min') ?>" media="screen" rel="stylesheet" type="text/css">
         <link href="<?= css_url('tether-1.3.3.min') ?>" media="screen" rel="stylesheet" type="text/css">
+        <link href="<?= css_url('font-awesome.4.7.0.min') ?>" media="screen" rel="stylesheet" type="text/css">
         <link href="<?= css_url('style') ?>" media="screen" rel="stylesheet" type="text/css">
 
         <!--[if lt IE 9]>

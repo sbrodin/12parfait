@@ -54,11 +54,11 @@
                     $match_id = $fixture_match->match_id;
                     $team1_id = $fixture_match->t1_id;
                     $team2_id = $fixture_match->t2_id;
-                    $team1_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team1_score : '';
-                    $team2_score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->team2_score : '';
+                    $team1_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team1_score : '';
+                    $team2_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team2_score : '';
                     $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
                     $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
-                    $score = isset($fixture_bets[$match_id]) ? $fixture_bets[$match_id]->score : 0;
+                    $score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->score : 0;
                     if ($fixture_match->date!==$date) {
                         $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                         $date_formatted = $date_not_formatted->format('d/m/Y H\hi');

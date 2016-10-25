@@ -190,17 +190,15 @@ class Bets extends MY_Controller {
                        bet.score';
             $where = array(
                 'bet.user_id' => $this->session->userdata['user']->user_id,
+                'match.fixture_id' => $fixture_id,
             );
             $order = 'match.date ASC, match.match_id';
-            $data['fixture_bets'] = $this->db->select($select)
+            $data['my_fixture_bets'] = $this->db->select($select)
                                              ->from($this->config->item('bet', 'table'))
                                              ->join('match', 'bet.match_id = match.match_id', 'left')
                                              ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
                                              ->where($where);
-            if (!empty($filters['bets_of_players'])) {
-                $data['fixture_bets'] = $data['fixture_bets']->or_where_in('bet.user_id', $filters['bets_of_players']);
-            }
-            $data['fixture_bets'] = $data['fixture_bets']->order_by($order)
+            $data['my_fixture_bets'] = $data['my_fixture_bets']->order_by($order)
                                                          ->get()
                                                          ->result();
 
@@ -234,14 +232,12 @@ class Bets extends MY_Controller {
                 }
                 $data['fixture_bets_players'] = $fixture_bets_players;
             }
-            $fixture_bets = array();
-            foreach ($data['fixture_bets'] as $key => $fixture_bet) {
-                $fixture_bets[$fixture_bet->match_id] = $fixture_bet;
+            $my_fixture_bets = array();
+            foreach ($data['my_fixture_bets'] as $key => $fixture_bet) {
+                $my_fixture_bets[$fixture_bet->match_id] = $fixture_bet;
             }
-            $data['fixture_bets'] = $fixture_bets;
+            $data['my_fixture_bets'] = $my_fixture_bets;
             $data['different_players'] = empty($different_players) ? array() : $different_players;
-            // var_dump($fixture_bets_players);
-            // exit;
         } else {
             $data['info'] = $this->lang->line('no_match_for_fixture');
         }

@@ -35,6 +35,7 @@
     <thead>
         <tr>
             <th></th>
+            <th></th>
             <th><?= $this->lang->line('user_name') ?></th>
             <th><?= $this->lang->line('score') ?></th>
             <?php if (isset($scores_12)) : ?>
@@ -46,10 +47,21 @@
     <tbody>
         <?php
         $rank = 1;
+        $nb_players = 0;
         $current_score = '';
         foreach ($user_scores as $user_id => $score) :
+            ++$nb_players;
         ?>
         <tr data-href="<?= site_url('scores/'.$user_id) ?>">
+            <?php if ($rank === 1) : ?>
+                <td class="rank-1"><i class="fa fa-trophy"></i></td>
+            <?php elseif ($rank === 2 && $nb_players<=2) : ?>
+                <td class="rank-2"><i class="fa fa-trophy"></i></td>
+            <?php elseif ($rank === 3 && $nb_players<=3) : ?>
+                <td class="rank-3"><i class="fa fa-trophy"></i></td>
+            <?php else : ?>
+                <td></td>
+            <?php endif; ?>
             <?php
             // On n'affiche le rang que s'il est différent du précédent
             if ($score !== $current_score) :
