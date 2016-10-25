@@ -47,16 +47,34 @@
     <tbody>
         <?php
         $rank = 1;
-        $trophy = 0;
+        $current_trophy = 0;
+        $trophies = array(1);
         $current_score = '';
         foreach ($user_scores as $user_id => $score) :
             if ($score !== $current_score) {
-                ++$trophy;
+                ++$current_trophy;
+            }
+            if ($current_trophy === 1 && $rank != 1) {
+                array_push($trophies, 1);
+            } else if ($current_trophy === 2) {
+                if (array_count_values($trophies)[1] <= 2) {
+                    array_push($trophies, 2);
+                }
+            } else if ($current_trophy === 3) {
+                if (in_array(2, $trophies)) {
+                    if (array_count_values($trophies)[1] + array_count_values($trophies)[2] == 2) {
+                        array_push($trophies, 3);
+                    }
+                } else {
+                    if (array_count_values($trophies)[1] == 2) {
+                        array_push($trophies, 3);
+                    }
+                }
             }
         ?>
         <tr data-href="<?= site_url('scores/'.$user_id) ?>">
-            <?php if ($trophy < 4 && $rank < 4) : ?>
-                <td class="rank-<?= $trophy ?>"><i class="fa fa-trophy"></i></td>
+            <?php if (isset($trophies[$rank-1])) : ?>
+                <td class="rank-<?= $trophies[$rank-1] ?>"><i class="fa fa-trophy"></i></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>
