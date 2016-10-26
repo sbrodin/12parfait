@@ -57,6 +57,7 @@ TODO
 
 Listes des éléments restants à faire :
     - Ajouter des placeholder
+    - Ajouter cookie pour connexion
     - Clean du code des vues
     - Filtres
         - ajouter filtre journée ouverte/fermée
