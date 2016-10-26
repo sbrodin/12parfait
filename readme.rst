@@ -62,6 +62,7 @@ Listes des éléments restants à faire :
     - Filtres
         - ajouter filtre journée ouverte/fermée
     - Home
+        - Ajouter point de règle pour les coupes (score avant tab et résultat dispo -24h après match)
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
         - afficher/cacher message d'aide

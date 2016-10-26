@@ -118,7 +118,7 @@ class Bets extends MY_Controller {
         }
         $post = $this->input->post();
         if (!empty($post)) {
-            if ($post['submit-filter'] == $this->lang->line('del_filter')) {
+            if (isset($post['submit-filter']) && $post['submit-filter'] == $this->lang->line('del_filter')) {
                 $filters['bets_of_players'] = array();
             } else {
                 $filters['bets_of_players'] = (isset($post['users'])) ? $post['users'] : array();
@@ -257,12 +257,13 @@ class Bets extends MY_Controller {
                 exit;
             }
             // Suppression des paris déjà entrés pour la journée
-            $where = array(
-                'user_id' => $this->session->userdata['user']->user_id,
-            );
-            $this->db->where($where)
-                     ->where_in('match_id', array_keys($data['matches']))
-                     ->delete($this->config->item('bet', 'table'));
+            $query = 'DELETE bet ';
+            $query.= 'FROM `' . $this->config->item('bet', 'table') . '` ';
+            $query.= 'JOIN `' . $this->config->item('match', 'table') . '` ON bet.match_id = `match`.match_id ';
+            $query.= 'WHERE user_id = ' . $this->session->userdata['user']->user_id . ' ';
+            $query.= 'AND `match`.result IS NULL ';
+            $query.= 'AND bet.match_id IN (' . implode(', ', array_keys($data['matches'])) . ')';
+            $this->db->query($query);
             // Update des paris de l'utilisateur pour la journée
             $bets = array();
             $element = 0;
