@@ -1,6 +1,7 @@
 <table class="table-striped table-bordered table-hover">
     <thead>
         <tr>
+            <th></th>
             <th><?= $this->lang->line('first_name') ?></th>
             <th><?= $this->lang->line('last_name') ?></th>
             <th><?= $this->lang->line('user_name') ?></th>
@@ -19,6 +20,7 @@
     <tbody>
         <?php foreach ($users as $num => $user) : ?>
         <tr>
+            <td><?= $user->user_id ?></td>
             <td><?= $user->first_name ?></td>
             <td><?= $user->last_name ?></td>
             <td><?= $user->user_name ?></td>

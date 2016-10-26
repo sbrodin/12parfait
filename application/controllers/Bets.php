@@ -98,7 +98,10 @@ class Bets extends MY_Controller {
 
         // Récupération des utilisateurs pour voir leurs paris
         $this->load->model('user_model');
-        $where = array('user_id !=' => $this->session->userdata['user']->user_id);
+        $where = array(
+            'user_id !=' => $this->session->userdata['user']->user_id,
+            'user.active' => 1,
+        );
         $nb = NULL;
         $debut = NULL;
         $order = 'user_id ASC';
