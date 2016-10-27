@@ -24,9 +24,9 @@ class Home extends CI_Controller {
         } else {
             $language = $this->session->userdata['user']->language;
         }
-        $data['home_message'] = $this->message_model->get_message('home-message', $language);
+        $data['home_message'] = $this->message_model->get_message('home-message');
         if ($data['home_message'] !== '') {
-            $data['home_message'] = $data['home_message'][0]->content;
+            $data['home_message'] = $data['home_message'][0]->{$language.'_content'};
         }
         $data['home_message'] = html_entity_decode($data['home_message']);
         $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24));

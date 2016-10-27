@@ -11,8 +11,8 @@
     <thead>
         <tr>
             <th><?= $this->lang->line('message_name') ?></th>
-            <th><?= $this->lang->line('message_language') ?></th>
-            <th><?= $this->lang->line('message_content') ?></th>
+            <th><?= $this->lang->line('french_content') ?></th>
+            <th><?= $this->lang->line('english_content') ?></th>
             <th></th>
         </tr>
     </thead>
@@ -20,8 +20,8 @@
         <?php foreach ($messages as $key => $message) : ?>
         <tr>
             <td><?= $message->name ?></td>
-            <td><?= $message->language ?></td>
-            <td><?= htmlentities($message->content) ?></td>
+            <td><?= $message->french_content ?></td>
+            <td><?= $message->english_content ?></td>
             <td>
                 <a href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
             </td>

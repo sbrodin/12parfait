@@ -8,23 +8,13 @@ class Message_model extends MY_Model {
         $this->table = $this->config->item('message', 'table');
     }
 
-    public function get_message($message_name = '', $message_language = '')
+    public function get_message($message_name = '')
     {
         if ($message_name === '') {
             return '';
         } else {
-            $select = 'content';
-            if ($message_language !== '') {
-                $where = array(
-                    'name' => $message_name,
-                    'language' => $message_language,
-                );
-            } else {
-                $where = array(
-                    'name' => $message_name,
-                );
-            }
-            return empty($this->read($select, $where)) ? '' : $this->read($select, $where);
+            $select = 'french_content, english_content';
+            return empty($this->read($select)) ? '' : $this->read($select);
         }
     }
 

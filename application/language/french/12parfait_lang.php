@@ -64,6 +64,8 @@ $lang['fixture_successful_creation'] = 'Journée créée avec succès !';
 $lang['fixture_successful_edition'] = 'Journée éditée avec succès !';
 $lang['fixture_matches_successful_edition'] = 'Résultats de la journée édités avec succès !';
 $lang['bets_successful_edition'] = 'Paris édités avec succès !';
+$lang['message_successful_creation'] = 'Message créé avec succès !';
+$lang['message_successful_edition'] = 'Message mis à jour avec succès !';
 $lang['message_successfully_sent'] = 'Message envoyé avec succès !';
 
 // Messages d'information
@@ -92,6 +94,9 @@ $lang['must_contain_lowercase_field'] = 'Le champ "%s" doit contenir au moins un
 $lang['must_contain_number_field'] = 'Le champ "%s" doit contenir au moins un chiffre.';
 $lang['must_be_year_field'] = 'Le champ "%s" doit être une année supérieure ou égale à 2016.';
 $lang['too_long_5_field'] = 'Le champ "%s" ne doit pas faire plus de 5 caractères.';
+
+// Emails
+$lang['welcome_email_subject'] = 'Bienvenue sur 12Parfait !';
 
 // Profil
 $lang['profile'] = 'Profil';

@@ -211,6 +211,17 @@ class Connection extends CI_Controller {
                 $body.= 'Email : ' . $post['email'];
                 send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
 
+                // Envoi d'email pour confirmation d'inscription
+                $this->load->model('message_model');
+                $welcome_email = $this->message_model->get_message('welcome-email');
+                var_dump($welcome_email);
+                exit;
+                if ($welcome_email !== '') {
+                    $subject = $this->lang->line('welcome_email_subject');
+                    $welcome_email = $welcome_email[0]->{'french_content'};
+                    send_email_interception($post['email'], $subject, $welcome_email);
+                }
+
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
                 $this->login();
