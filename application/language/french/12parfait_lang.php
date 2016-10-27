@@ -46,6 +46,8 @@ $lang['matches_admin'] = 'Gestion des matchs';
 $lang['back_to_matches_admin'] = 'Retour à la gestion des matchs';
 $lang['fixtures_admin'] = 'Gestion des journées';
 $lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
+$lang['messages_admin'] = 'Gestion des messages';
+$lang['back_to_messages_admin'] = 'Retour à la gestion des messages';
 $lang['back_to_home'] = 'Retour à l\'accueil';
 $lang['back_to_bets_index'] = 'Retour aux paris';
 
@@ -149,6 +151,14 @@ $lang['choose_fixture'] = 'Choisir cette journée';
 $lang['fixture_name'] = 'Nom de la journée';
 $lang['close_fixture'] = 'Fermer';
 $lang['open_fixture'] = 'Ouvrir la journée';
+
+// Journée
+$lang['message'] = 'Message';
+$lang['add_message'] = 'Ajouter un message';
+$lang['edit_message'] = 'Editer le message';
+$lang['message_name'] = 'Nom du message';
+$lang['message_language'] = 'Langue';
+$lang['message_content'] = 'Contenu';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

@@ -3,7 +3,7 @@
         </div>
         <footer>
             <?php if (is_connected()) : ?>
-                <span class="m-r-2"><a href="<?= site_url('contact') ?>"><?= $this->lang->line('contact') ?></a></span>
+                <!-- <span class="m-r-2"><a href="<?= site_url('contact') ?>"><?= $this->lang->line('contact') ?></a></span> -->
             <?php endif; ?>
             <span class="m-r-2"><?= $this->lang->line('copyright') ?></span>
             <span class="m-r-2"><?= $this->lang->line('generated_with') ?></span>

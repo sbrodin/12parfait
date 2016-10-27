@@ -14,6 +14,7 @@
         <li><a href="<?= site_url('bets') ?>"><?= $this->lang->line('place_bet') ?></a></li>
         <li><a href="<?= site_url('scores') ?>"><?= $this->lang->line('view_ladder') ?></a></li>
         <li><a href="<?= site_url('scores/'.$this->session->userdata['user']->user_id) ?>"><?= $this->lang->line('view_my_scores') ?></a></li>
+        <li><a href="<?= site_url('contact') ?>"><?= $this->lang->line('contact') ?></a></li>
     </ul>
 </nav>
 <?php else : ?>

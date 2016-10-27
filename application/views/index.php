@@ -8,16 +8,7 @@
 <?php endif ?>
 
 <div class="jumbotron home-message">
-    <h1 class="display-5">Bienvenue sur 12parfait</h1>
-    <p class="lead m-b-0">12parfait vous permet de placer des pronostics entre amis sur les scores des matchs de football.<br/>Mais d'autres sports arrivent très vite !</p>
-    <p class="lead m-t-0 m-b-0">Le système de points en place :</p>
-    <ul>
-        <li>bon résultat (victoire, nul, défaite) : 4 points,</li>
-        <li>bon score pour l'équipe 1 : 3 points,</li>
-        <li>bon score pour l'équipe 2 : 3 points,</li>
-        <li>bonne différence de buts : 2 points.</li>
-    </ul>
-    <p class="lead m-t-0">Et le total de points possibles à marquer pour un match est donc de 12 !<br/>Un classement est disponible pour vous faire une idée de votre niveau par rapport aux autres.</p>
+    <?= $home_message ?>
 </div>
 
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>

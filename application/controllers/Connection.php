@@ -52,14 +52,18 @@ class Connection extends CI_Controller {
         'edit_match',
         'delete_match',
         // acl pour journée
-        'view_fixtures',
         'add_fixture',
+        'view_fixtures',
         'edit_fixture',
         'edit_fixture_results',
         'close_fixture',
         'open_fixture',
         // acl pour scores
         'view_scores',
+        // acl pour messages
+        'add_message',
+        'view_messages',
+        'edit_message',
     );
     public $moderator_acl = array(
 

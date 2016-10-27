@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($teams as $num => $team) : ?>
+        <?php foreach ($teams as $key => $team) : ?>
         <tr>
             <td><?= $team->name ?></td>
             <td><?= $team->short_name ?></td>

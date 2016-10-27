@@ -38,12 +38,13 @@ $('.match_date').datetimepicker({
 });
 
 $('a.del-team').on('click', function() {
-    var href = $(this).data('linkdelteam');
+    $this = $(this);
+    var href = $this.data('linkdelteam');
     $.ajax({
         type:'POST',
         url:href,
         success:function(data){
-            $(this).parents('tr').find('td a').remove();
+            $this.parents('tr').find('td a').remove();
         }
     });
 });

@@ -18,9 +18,17 @@ class Home extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('home');
 
-        // $data['yesterday_matches'] = matches_of_day('01/10/2016');
-        // $data['today_matches'] = matches_of_day('02/10/2016');
-        // $data['tomorrow_matches'] = matches_of_day('03/10/2016');
+        $this->load->model('message_model');
+        if (!is_connected()) {
+            $language = $this->config->item('language');
+        } else {
+            $language = $this->session->userdata['user']->language;
+        }
+        $data['home_message'] = $this->message_model->get_message('home-message', $language);
+        if ($data['home_message'] !== '') {
+            $data['home_message'] = $data['home_message'][0]->content;
+        }
+        $data['home_message'] = html_entity_decode($data['home_message']);
         $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24));
         $data['today_matches'] = matches_of_day();
         $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+60*60*24));
