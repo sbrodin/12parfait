@@ -58,6 +58,10 @@ TODO
 Listes des éléments restants à faire :
     - Ajouter des placeholder
     - Ajouter cookie pour connexion
+    - Gérer les titles avec le fichier de langue
+    - Gestion des messages
+    - Envoyer un email à l'inscription
+    - Mes scores, ajouter histogramme points par journée par championnat
     - Clean du code des vues
     - Filtres
         - ajouter filtre journée ouverte/fermée
@@ -71,5 +75,4 @@ Listes des éléments restants à faire :
         - avoir un petit podium au-dessus du tableau
         - ajouter le nombre de 12parfait
         - ajouter un filtre par date
-    - Gérer les titles avec le fichier de langue
     - Habillage du site

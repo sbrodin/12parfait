@@ -12,7 +12,7 @@
             <input type="password" id="password" name="password" class="form-control" required="required">
             <label for="password_confirmation"><?= $this->lang->line('password_confirmation') ?> : </label>
             <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required="required"><br/>
-            <input type="submit" class="btn btn-primary col-sm-5 m-b-2" value="Valider">
+            <input type="submit" class="btn btn-primary col-sm-5 m-b-2" value="<?= $this->lang->line('confirm') ?>">
         </form>
     </div>
     <div class="col-sm-3 clearfix"></div>

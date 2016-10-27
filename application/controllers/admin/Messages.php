@@ -101,20 +101,23 @@ class Messages extends MY_Controller {
 
         $data = array();
         $data['title'] = 'Admin - Editer un message';
+        $data['message_id'] = $message_id;
+        $data['message_name'] = $this->message_model->get_message_name_from_id($message_id);
 
         $select = 'message_id, name, language, content';
         $where = array(
-            'message_id' => $message_id,
+            'name' => $data['message_name'],
         );
         $nb = NULL;
         $debut = NULL;
         $order = 'message_id ASC';
-        $data['message'] = $this->message_model->read($select, $where, $nb, $debut, $order);
-        if (!$data['message']) {
+        $messages = $this->message_model->read($select, $where, $nb, $debut, $order);
+        if (!$messages) {
             redirect(site_url(), 'location');
             exit;
-        } else {
-            $data['message'] = $data['message'][0];
+        }
+        foreach ($messages as $key => $message) {
+            $data['message'][$message->language] = $message;
         }
 
         $post = $this->input->post();

@@ -152,13 +152,15 @@ $lang['fixture_name'] = 'Nom de la journée';
 $lang['close_fixture'] = 'Fermer';
 $lang['open_fixture'] = 'Ouvrir la journée';
 
-// Journée
+// Message
 $lang['message'] = 'Message';
 $lang['add_message'] = 'Ajouter un message';
 $lang['edit_message'] = 'Editer le message';
 $lang['message_name'] = 'Nom du message';
 $lang['message_language'] = 'Langue';
 $lang['message_content'] = 'Contenu';
+$lang['french_content'] = 'Contenu français';
+$lang['english_content'] = 'Contenu anglais';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

@@ -10,14 +10,20 @@ class Message_model extends MY_Model {
 
     public function get_message($message_name = '', $message_language = '')
     {
-        if ($message_name === '' || $message_language === '') {
+        if ($message_name === '') {
             return '';
         } else {
             $select = 'content';
-            $where = array(
-                'name' => $message_name,
-                'language' => $message_language,
-            );
+            if ($message_language !== '') {
+                $where = array(
+                    'name' => $message_name,
+                    'language' => $message_language,
+                );
+            } else {
+                $where = array(
+                    'name' => $message_name,
+                );
+            }
             return empty($this->read($select, $where)) ? '' : $this->read($select, $where);
         }
     }
@@ -27,11 +33,11 @@ class Message_model extends MY_Model {
         if ($message_id === 0) {
             return '';
         } else {
-            $select = 'message_name';
+            $select = 'name';
             $where = array(
                 'message_id' => $message_id,
             );
-            return empty($this->read($select, $where)) ? '' : $this->read($select, $where);
+            return empty($this->read($select, $where)) ? '' : $this->read($select, $where)[0]->name;
         }
     }
 }
