@@ -220,8 +220,8 @@ class Matches extends MY_Controller {
         $data['title'] = 'Admin - Ajouter un match';
 
         $this->load->model('fixture_model');
-        $select = 'fixture_id, fixture.name AS fixture_name, championship_id, championship.name AS championship_name';
-        $where = array('championship_id' => $this->session->userdata['championship']);
+        $select = 'fixture_id, fixture.name AS fixture_name, championship.championship_id, championship.name AS championship_name';
+        $where = array('championship.championship_id' => $this->session->userdata['championship']);
         $nb = NULL;
         $debut = NULL;
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
