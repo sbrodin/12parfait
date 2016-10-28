@@ -10,6 +10,11 @@ class Championships extends MY_Controller {
 
     public function index()
     {
+        if (!user_can('view_championships')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('championships');
 

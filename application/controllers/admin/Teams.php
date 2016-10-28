@@ -10,6 +10,11 @@ class Teams extends MY_Controller {
 
     public function index()
     {
+        if (!user_can('view_teams')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Equipes';
 

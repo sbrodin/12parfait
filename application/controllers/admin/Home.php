@@ -9,6 +9,11 @@ class Home extends MY_Controller {
 
     public function index()
     {
+        if (!user_can('admin_all')) {
+            redirect(site_url(), 'location');
+            exit;
+        }
+
         $data = array();
         $data['title'] = 'Admin - Home';
 
