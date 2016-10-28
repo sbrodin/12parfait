@@ -13,8 +13,8 @@
         <option value="<?= $this->lang->line('bug') ?>"><?= $this->lang->line('bug') ?></option>
         <option value="<?= $this->lang->line('other') ?>"><?= $this->lang->line('other') ?></option>
     </select>
-    <label for="message"><?= $this->lang->line('message') ?> :</label>
-    <textarea id="message" name="message" class="form-control m-b-2" rows="6"></textarea>
+    <label for="message"><?= $this->lang->line('your_message') ?> :</label>
+    <textarea id="message" name="message" class="form-control m-b-2" rows="6" placeholder="<?= $this->lang->line('your_message') ?>" required="required"></textarea>
 
     <input type="submit" name="submit" class="btn btn-sm btn-primary m-b-2" value="<?= $this->lang->line('send_message') ?>">
     <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('profile') ?>"><?= $this->lang->line('back') ?></a>

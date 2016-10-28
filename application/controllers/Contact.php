@@ -36,7 +36,7 @@ class Contact extends MY_Controller {
                 ),
                 array(
                     'field' => 'message',
-                    'label' => $this->lang->line('message'),
+                    'label' => $this->lang->line('your_message'),
                     'rules' => 'trim|required',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),

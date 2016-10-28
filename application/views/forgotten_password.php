@@ -16,7 +16,7 @@
 
         <?= form_open('forgotten_password'); ?>
             <label for="email"><?= $this->lang->line('email')?> : </label>
-            <input type="email" id="email" name="email" class="form-control" required="required"><br/>
+            <input type="email" id="email" name="email" class="form-control" placeholder="<?= $this->lang->line('email') ?>" required="required"><br/>
             <input type="submit" name="submit" class="btn btn-primary col-sm-5 m-b-2" value="<?= $this->lang->line('reset_password') ?>">
         </form>
     </div>

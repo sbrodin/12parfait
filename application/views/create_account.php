@@ -7,11 +7,11 @@
 
         <?= form_open('connection/create_account'); ?>
             <label for="email"><?= $this->lang->line('email') ?> : </label>
-            <input type="email" id="email" name="email" class="form-control" value="<?= set_value('email'); ?>" required="required">
+            <input type="email" id="email" name="email" class="form-control" value="<?= set_value('email'); ?>" placeholder="<?= $this->lang->line('email') ?>" required="required">
             <label for="password"><?= $this->lang->line('password') ?> : <span class="info"><?= $this->lang->line('password_rules') ?></span></label>
-            <input type="password" id="password" name="password" class="form-control" required="required">
+            <input type="password" id="password" name="password" class="form-control" placeholder="<?= $this->lang->line('password') ?>" required="required">
             <label for="password_confirmation"><?= $this->lang->line('password_confirmation') ?> : </label>
-            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required="required"><br/>
+            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="<?= $this->lang->line('password_confirmation') ?>" required="required"><br/>
             <input type="submit" class="btn btn-primary col-sm-5 m-b-2" value="<?= $this->lang->line('confirm') ?>">
         </form>
     </div>

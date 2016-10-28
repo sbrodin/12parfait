@@ -56,7 +56,6 @@ TODO
 ****
 
 Listes des éléments restants à faire :
-    - Ajouter des placeholder
     - Ajouter cookies pour :
         - connexion
         - langue

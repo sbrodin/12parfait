@@ -256,7 +256,7 @@ $lang['points_short'] = 'pts';
 // Contact
 $lang['contact_message'] = 'Ce site est en cours de développement. Toute idée d\'évolution, critique constructive, etc. sont les bienvenues pour améliorer le site, qu\'il soit au top et réponde à vos attentes !';
 $lang['motif'] = 'Motif';
-$lang['message'] = 'Message';
+$lang['your_message'] = 'Votre message';
 $lang['idea_evolution'] = 'Idée d\'évolution';
 $lang['evolution'] = 'Evolution';
 $lang['critic'] = 'Critique';
