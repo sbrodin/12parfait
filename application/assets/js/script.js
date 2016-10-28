@@ -49,7 +49,7 @@ $('a.del-team').on('click', function() {
     });
 });
 
-$('.home-table tr, .score-table tr').on('click', function() {
+$('.home-table tr, .score-table tr, .message-table tr').on('click', function() {
     window.location = $(this).data('href');
 });
 

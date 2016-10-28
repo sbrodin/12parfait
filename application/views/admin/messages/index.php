@@ -7,7 +7,7 @@
         <?= $this->session->flashdata('success') ?>
     </div>
 <?php endif ?>
-<table>
+<table class="table-striped table-bordered table-hover message-table">
     <thead>
         <tr>
             <th><?= $this->lang->line('message_name') ?></th>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         <?php foreach ($messages as $key => $message) : ?>
-        <tr>
+        <tr data-href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>">
             <td><?= $message->name ?></td>
             <td><?= $message->french_content ?></td>
             <td><?= $message->english_content ?></td>

@@ -216,7 +216,7 @@ class Connection extends CI_Controller {
                 $welcome_email = $this->message_model->get_message('welcome-email');
                 if ($welcome_email !== '') {
                     $subject = $this->lang->line('welcome_email_subject');
-                    $welcome_email = $welcome_email[0]->{'french_content'};
+                    $welcome_email = html_entity_decode($welcome_email[0]->{'french_content'});
                     send_email_interception($post['email'], $subject, $welcome_email);
                 }
 
