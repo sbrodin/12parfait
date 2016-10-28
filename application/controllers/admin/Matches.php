@@ -16,7 +16,7 @@ class Matches extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Matchs';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('matches_admin');
 
         $this->load->model('championship_model');
         $select = '*';
@@ -40,7 +40,7 @@ class Matches extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter un match';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_match');
 
         // Matchs déjà enregistrés pour la journée
         $select = 't1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2, date';
@@ -168,7 +168,7 @@ class Matches extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter un match';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_match');
 
         $this->load->model('championship_model');
         $select = '*';
@@ -217,7 +217,7 @@ class Matches extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter un match';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_match');
 
         $this->load->model('fixture_model');
         $select = 'fixture_id, fixture.name AS fixture_name, championship.championship_id, championship.name AS championship_name';
@@ -283,10 +283,10 @@ class Matches extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Editer un match';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('edit_championship');
 
         // Matchs enregistrés pour le championnat
-        $select = 'championship_id,
+        $select = 'championship.championship_id,
                    championship.name AS championship_name,
                    fixture.name AS fixture_name,
                    fixture.fixture_id,
@@ -295,7 +295,7 @@ class Matches extends MY_Controller {
                    t1.name AS team1,
                    t2.name AS team2';
         $where = array(
-            'championship_id' => $championship_id,
+            'championship.championship_id' => $championship_id,
         );
         $nb = NULL;
         $debut = NULL;

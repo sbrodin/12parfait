@@ -15,7 +15,7 @@ class Scores extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Scores';
+        $data['title'] = $this->lang->line('ladder');
 
         // Récupération des éventuels filtres
         $filters['filters_scores'] = array(
@@ -122,7 +122,7 @@ class Scores extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Scores';
+        $data['title'] = ($user_id === $this->session->userdata['user']->user_id) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
         $data['required_user_id'] = $user_id;
         $data['my_user_id'] = $this->session->userdata['user']->user_id;
 

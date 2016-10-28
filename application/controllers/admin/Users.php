@@ -80,7 +80,7 @@ class Users extends MY_Controller {
             redirect(site_url(), 'location');
             exit;
         }
-        $data['title'] = $this->lang->line('index_user');
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('users_admin');
         $data['users'] = $this->user_model->read('*');
 
         $users_scores = users_score_calculator();

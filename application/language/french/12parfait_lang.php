@@ -195,8 +195,6 @@ $lang['english'] = 'Anglais';
 $lang['add_date'] = 'Date d\'inscription';
 $lang['you_are_in_since'] = 'Vous êtes inscrit depuis le ';
 $lang['last_connection'] = 'Dernière connexion';
-$lang['score'] = 'Score';
-$lang['my_score'] = 'Mon score';
 $lang['acl'] = 'acl';
 $lang['is_active'] = 'Actif ?';
 $lang['activate_deactivate'] = 'Activer / Désactiver';
@@ -206,6 +204,7 @@ $lang['no_data'] = 'N/A';
 $lang['cancel'] = 'Annuler';
 
 // Pari
+$lang['bets'] = 'Paris';
 $lang['place_bet'] = 'Parier !';
 $lang['add_edit_bet'] = 'Parier !';
 $lang['my_bets'] = 'Mes paris';
@@ -219,8 +218,12 @@ $lang['not_available_short'] = 'N/A';
 
 // Scores
 $lang['define_username_profile'] = 'Si votre nom n\'apparaît pas c\'est que vous n\'avez pas encore défini de nom d\'utilisateur. <br/> Rendez-vous sur la page "<a class="alert-link" href="%s">Profil</a>" (en haut à droite) pour modifier ça tout de suite !';
-$lang['view_ladder'] = 'Classement';
-$lang['view_my_scores'] = 'Mes scores';
+$lang['ladder'] = 'Classement';
+$lang['score'] = 'Score';
+$lang['scores'] = 'Scores';
+$lang['my_score'] = 'Mon score';
+$lang['my_scores'] = 'Mes scores';
+$lang['scores_of_player'] = 'Scores du joueur';
 $lang['anonymous'] = 'Anonyme';
 $lang['del_filter'] = 'Supprimer filtres';
 $lang['nb_12parfait'] = 'Nombre 12parfait';
@@ -261,3 +264,7 @@ $lang['error_result'] = 'Erreur de résultat';
 $lang['bug'] = 'Bug';
 $lang['other'] = 'Autre';
 $lang['send_message'] = 'Envoyer le message';
+
+// Maintenance / Construction
+$lang['maintenance'] = 'Maintenance';
+$lang['construction'] = 'Construction';

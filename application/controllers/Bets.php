@@ -16,7 +16,7 @@ class Bets extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Bets';
+        $data['title'] = $this->lang->line('bets');
 
         // Récupération des éventuels filtres
         $filters['filters_bets'] = array(

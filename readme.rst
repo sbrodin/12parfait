@@ -57,12 +57,12 @@ TODO
 
 Listes des éléments restants à faire :
     - Ajouter des placeholder
-    - Ajouter cookie pour connexion
-    - Gérer les titles avec le fichier de langue
+    - Ajouter cookies pour :
+        - connexion
+        - langue
     - Gestion des messages
     - Envoyer un email à l'inscription
     - Mes scores, ajouter histogramme points par journée par championnat
-    - Clean du code des vues
     - Filtres
         - ajouter filtre journée ouverte/fermée
     - Home

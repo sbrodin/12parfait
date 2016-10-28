@@ -16,7 +16,7 @@ class Messages extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Message';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('messages_admin');
 
         $select = 'message_id, name, french_content, english_content';
         $where = array();
@@ -39,7 +39,7 @@ class Messages extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter un message';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_message');
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -108,7 +108,7 @@ class Messages extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Editer un message';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('edit_message');
         $data['message_id'] = $message_id;
 
         $select = 'message_id, name, french_content, english_content';

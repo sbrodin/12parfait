@@ -16,7 +16,7 @@ class Teams extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Equipes';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('teams_admin');
 
         $select = 'team_id, name, short_name';
         $where = array();
@@ -39,7 +39,7 @@ class Teams extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Ajouter une équipe';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_team');
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -100,7 +100,7 @@ class Teams extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = 'Admin - Editer une équipe';
+        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('edit_team');
 
         $select = 'team_id, name, short_name';
         $where = array(
