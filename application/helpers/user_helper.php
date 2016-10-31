@@ -14,8 +14,7 @@ if (!defined('BASEPATH') ) {
   * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
   */
 function user_can($acl) {
-    $CI =& get_instance();
-    return in_array($acl, $CI->session->get_userdata('acl')['acl']);
+    return in_array($acl, get_instance()->session->get_userdata('acl')['acl']);
 }
 
 /**
@@ -24,8 +23,7 @@ function user_can($acl) {
   * @return Booléen pour savoir si l'email existe en base
   */
 function in_database_email($email) {
-    $CI =& get_instance();
-    return $CI->user_model->in_database_email($email);
+    return get_instance()->user_model->in_database_email($email);
 }
 
 /**
@@ -34,8 +32,7 @@ function in_database_email($email) {
   * @return Booléen pour savoir si l'utilisateur est connecté
   */
 function is_connected() {
-    $CI =& get_instance();
-    return isset($CI->session->get_userdata('user')['user']);
+    return (get_cookie('12parfait_connected', TRUE) !== NULL);
 }
 
 /**
@@ -44,8 +41,7 @@ function is_connected() {
   * @return Booléen pour savoir si l'utilisateur est admin
   */
 function is_admin() {
-    $CI =& get_instance();
-    return ($CI->session->get_userdata('user')['user']->acl == 'admin');
+    return (get_instance()->session->get_userdata('user')['user']->acl == 'admin');
 }
 
 /**
@@ -54,6 +50,5 @@ function is_admin() {
   * @return Booléen pour savoir si l'utilisateur est moderateur
   */
 function is_moderator() {
-    $CI =& get_instance();
-    return ($CI->session->get_userdata('user')['user']->acl == 'moderator');
+    return (get_instance()->session->get_userdata('user')['user']->acl == 'moderator');
 }
