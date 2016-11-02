@@ -53,7 +53,7 @@
         </td>
         <td><?= $fixture->fixture_name ?></td>
         <td>
-            <?php if ($fixture->status === 'open') : ?>
+            <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
             <a class="btn btn-sm btn-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('add_edit_bet') ?></a>
             <?php else : ?>
             <a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('results') ?></a>
