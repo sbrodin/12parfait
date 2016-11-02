@@ -57,13 +57,10 @@ TODO
 
 Listes des éléments restants à faire :
     - Ajouter cookies pour :
-        - connexion
         - langue
     - Gestion des messages
     - Envoyer un email à l'inscription
     - Mes scores, ajouter histogramme points par journée par championnat
-    - Filtres
-        - ajouter filtre journée ouverte/fermée
     - Home
         - Ajouter point de règle pour les coupes (score avant tab et résultat dispo -24h après match)
         - essayer l'affichage des tableaux en mode cards bootstrap

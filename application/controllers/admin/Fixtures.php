@@ -343,6 +343,10 @@ class Fixtures extends MY_Controller {
                 $donnees_echapees = $result;
                 $this->match_model->update($where, $donnees_echapees);
             }
+            // Mise à jour du statut de la journée à "en cours" (ongoing)
+            $donnees_echapees = array('status' => 'ongoing');
+            $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
+
             // Mise à jour des scores des joueurs
             score_calculator($fixture_id);
 
