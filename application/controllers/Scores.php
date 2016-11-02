@@ -88,13 +88,17 @@ class Scores extends MY_Controller {
         // Récupération des championnats et journées pour les filtres
         $select = 'championship.championship_id, championship.name AS championship_name, fixture.fixture_id, fixture.name AS fixture_name';
         $where = array(
-            'fixture.status' => 'close',
             'championship.status' => 'open',
+        );
+        $where_in = array(
+            'ongoing',
+            'close',
         );
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
+                                     ->where_in('fixture.status', $where_in)
                                      ->join('championship', 'championship.championship_id = fixture.championship_id', 'left')
                                      ->order_by($order)
                                      ->get()
