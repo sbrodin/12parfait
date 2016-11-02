@@ -62,7 +62,6 @@ Listes des éléments restants à faire :
     - Envoyer un email à l'inscription
     - Mes scores, ajouter histogramme points par journée par championnat
     - Home
-        - Ajouter point de règle pour les coupes (score avant tab et résultat dispo -24h après match)
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
         - afficher/cacher message d'aide
