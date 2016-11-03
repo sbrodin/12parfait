@@ -40,7 +40,7 @@
                 <a href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results') ?></a>
             </td>
             <td>
-                <?php if ($fixture->status === 'open') : ?>
+                <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
                     <a href="<?= site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('close_fixture') ?></a>
                 <?php else : ?>
                     <a href="<?= site_url('admin/fixtures/open_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('open_fixture') ?></a>
