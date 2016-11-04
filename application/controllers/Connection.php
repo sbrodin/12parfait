@@ -139,8 +139,6 @@ class Connection extends CI_Controller {
                 $this->load->view('login', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                var_dump($url);
-                exit;
                 $this->login($url);
             }
         }
@@ -225,7 +223,8 @@ class Connection extends CI_Controller {
 
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
-                $this->login();
+                // Redirection vers le profil
+                $this->login('profile');
             }
         }
 
@@ -235,17 +234,17 @@ class Connection extends CI_Controller {
     * Fonction de connexion.
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
-    public function login() {
+    public function login($url = '') {
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
             redirect(site_url('connection'), 'location');
             exit;
         }
+
+        // Cas de la redirection depuis la page d'accueil
         if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
             $url = urlencode($this->input->get('url'));
-        } else {
-            $url = '';
         }
 
         if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
