@@ -56,16 +56,20 @@ TODO
 ****
 
 Liste des éléments restants à faire :
-    - Ajouter cookies pour :
+    - Ajouter cookies pour
         - langue
     - Gestion des messages
     - Envoyer un email à l'inscription
-    - Mes scores, ajouter histogramme points par journée par championnat
+    - Mes scores
+        - prendre en compte les filtres
+        - ajouter histogramme points par journée par championnat
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
         - afficher/cacher message d'aide
-    - Profil, gestion des messages d'aide
+    - Profil
+        - gestion des messages d'aide
+        - modification du mot de passe
     - Classement
         - avoir un petit podium au-dessus du tableau
         - ajouter le nombre de 12parfait
