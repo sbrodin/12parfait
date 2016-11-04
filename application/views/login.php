@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
         <?php if ($this->session->flashdata('error')) : ?>
             <div class="alert alert-alert alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,5 +33,5 @@
             <a class="btn btn-link col-lg-5" href="<?= site_url('forgotten_password') ?>"><?= $this->lang->line('forgotten_password') ?></a>
         </form>
     </div>
-    <div class="col-sm-3 clearfix"></div>
+    <div class="col-sm-1 clearfix"></div>
 </div>

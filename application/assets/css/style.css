@@ -321,7 +321,7 @@ footer a {
 
 /** MEDIA QUERIES **/
 /** HEADER **/
-@media (max-width:768px) {
+@media (max-width:544px) {
     header {
         padding: 10px;
     }
@@ -340,7 +340,7 @@ footer a {
 
 
 /** BODY **/
-@media (max-width:768px) {
+@media (max-width:544px) {
     .main-container {
         padding: 10px;
     }

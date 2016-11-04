@@ -19,7 +19,7 @@
 </nav>
 <?php else : ?>
     <nav class="profile-log">
-        <a href="<?= site_url('connection') ?>"><?= $this->lang->line('log_in') ?></a>
+        <a class="m-l-0" href="<?= site_url('connection') ?>"><?= $this->lang->line('log_in') ?></a>
     </nav>
 </header>
 <?php endif; ?>
