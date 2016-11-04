@@ -100,10 +100,11 @@ class Connection extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('log_in');
         if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
-            $data['url'] = str_replace('/', '.', $this->input->get('url'));
+            $url = urlencode($this->input->get('url'));
         } else {
-            $data['url'] = '';
+            $url = '';
         }
+        $data['url'] = $url;
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -138,7 +139,9 @@ class Connection extends CI_Controller {
                 $this->load->view('login', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                $this->login();
+                var_dump($url);
+                exit;
+                $this->login($url);
             }
         }
     }
@@ -232,12 +235,17 @@ class Connection extends CI_Controller {
     * Fonction de connexion.
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
-    public function login($url='') {
+    public function login() {
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
             redirect(site_url('connection'), 'location');
             exit;
+        }
+        if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
+            $url = urlencode($this->input->get('url'));
+        } else {
+            $url = '';
         }
 
         if ($user = $this->user_model->get_user_by_auth($post['email'], $post['password'])) {
@@ -265,7 +273,7 @@ class Connection extends CI_Controller {
             // Définition du cookie de connexion pour 30 jours
             $this->input->set_cookie('12parfait_connected', 'TRUE', 3600*24*30, '', '/', '', FALSE, TRUE);
             if ($url !== '') {
-                redirect(site_url(str_replace('.', '/', $url)), 'location');
+                redirect(site_url(urldecode($url)), 'location');
                 exit;
             } else {
                 redirect(site_url(), 'location');

@@ -32,11 +32,11 @@ PHP version 5.4 ou plus récent est recommandé.
 Installation
 ************
 
-Copier tous les fichiers. Ensuite copiez les fichiers depuis _application/config
+Copiez tous les fichiers. Ensuite copiez les fichiers depuis _application/config
 vers application/config.
 Changez les 2 fichiers de configuration config.php and database.php pour
 correspondre à la configuration de votre serveur et à votre base de données.
-Demander une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com>`_.
+Demandez une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com>`_.
 
 *******
 License
@@ -55,7 +55,7 @@ Cette application a été développée en utilisant `CodeIgniter <http://www.cod
 TODO
 ****
 
-Listes des éléments restants à faire :
+Liste des éléments restants à faire :
     - Ajouter cookies pour :
         - langue
     - Gestion des messages

@@ -46,7 +46,7 @@
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -75,7 +75,7 @@
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -104,7 +104,7 @@
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
