@@ -67,6 +67,7 @@ $lang['bets_successful_edition'] = 'Paris édités avec succès !';
 $lang['message_successful_creation'] = 'Message créé avec succès !';
 $lang['message_successful_edition'] = 'Message mis à jour avec succès !';
 $lang['message_successfully_sent'] = 'Message envoyé avec succès !';
+$lang['password_modified'] = 'Mot de passe modifié avec succès !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de passe envoyé, veuillez vérifier votre boîte mail.';
@@ -103,8 +104,10 @@ $lang['profile'] = 'Profil';
 $lang['create_account'] = 'Créer un compte';
 $lang['forgotten_password'] = 'Mot de passe oublié ?';
 $lang['reset_password'] = 'Réinitialiser le mot de passe';
-$lang['profile_edit'] = 'Editer le profil';
+$lang['profile_edit'] = 'Edition du profil';
 $lang['my_profile_edit'] = 'Editer mon profil';
+$lang['profile_password_edit'] = 'Edition du mot de passe';
+$lang['my_password_edit'] = 'Editer mon mot de passe';
 
 // Championnats
 $lang['championship'] = 'Championnat';

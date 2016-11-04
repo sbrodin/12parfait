@@ -69,7 +69,6 @@ Liste des éléments restants à faire :
         - afficher/cacher message d'aide
     - Profil
         - gestion des messages d'aide
-        - modification du mot de passe
     - Classement
         - avoir un petit podium au-dessus du tableau
         - ajouter le nombre de 12parfait

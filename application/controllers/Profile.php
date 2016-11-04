@@ -83,4 +83,62 @@ class Profile extends MY_Controller {
             }
         }
     }
+
+    /**
+    * Fonction d'édition du mot de passe.
+    */
+    public function change_password() {
+        $data = array();
+        $data['title'] = $this->lang->line('profile_password_edit');
+
+        $post = $this->input->post();
+        $data['user'] = $this->session->userdata('user');
+        if (empty($post)) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/nav', $data);
+            $this->load->view('profile/change_password', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $rules = array(
+                array(
+                    'field' => 'password',
+                    'label' => $this->lang->line('password'),
+                    'rules' => 'trim|required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'min_length' => $this->lang->line('min_length_field'),
+                        'contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
+                        'contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
+                        'contains_number' => $this->lang->line('must_contain_number_field'),
+                    ),
+                ),
+                array(
+                    'field' => 'password_confirmation',
+                    'label' => $this->lang->line('password_confirmation'),
+                    'rules' => 'trim|required|matches[password]',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                        'matches' => $this->lang->line('must_match_field'),
+                    ),
+                ),
+            );
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/nav', $data);
+                $this->load->view('profile/change_password', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $donnees_echapees = array(
+                    'password' => password_hash($post['password'], PASSWORD_BCRYPT),
+                );
+
+                $this->user_model->update(array("user_id" => $data['user']->user_id), $donnees_echapees);
+
+                $this->session->set_flashdata('success', $this->lang->line('password_modified'));
+                redirect(site_url('profile'), 'location');
+                exit;
+            }
+        }
+    }
 }

@@ -1,4 +1,5 @@
 <a class="btn btn-sm btn-outline-primary m-b-2" href="<?= site_url('profile/edit')?>"><?= $this->lang->line('my_profile_edit') ?></a>
+<a class="btn btn-sm btn-outline-primary m-b-2" href="<?= site_url('profile/change_password')?>"><?= $this->lang->line('my_password_edit') ?></a>
 <div class="clearfix"></div>
 
 <?php if ($this->session->flashdata('success')) : ?>
