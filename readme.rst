@@ -66,6 +66,16 @@ Liste des éléments restants à faire :
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
         - voir les derniers et prochains matchs
+            - SELECT date
+              FROM `match`
+              WHERE `date` <= NOW()
+              ORDER BY `match`.`date` ASC
+              LIMIT 1
+            - SELECT date
+              FROM `match`
+              WHERE `date` >= NOW()
+              ORDER BY `match`.`date` DESC
+              LIMIT 1
         - afficher/cacher message d'aide
     - Profil
         - gestion des messages d'aide
@@ -74,3 +84,4 @@ Liste des éléments restants à faire :
         - ajouter le nombre de 12parfait
         - ajouter un filtre par date
     - Habillage du site
+    - Ajout du système de log
