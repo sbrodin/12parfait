@@ -56,8 +56,7 @@ TODO
 ****
 
 Liste des éléments restants à faire :
-    - Ajouter cookies pour
-        - langue
+    - Ajouter cookie pour langue
     - Gestion des messages
     - Envoyer un email à l'inscription
     - Mes scores
@@ -65,17 +64,6 @@ Liste des éléments restants à faire :
         - ajouter histogramme points par journée par championnat
     - Home
         - essayer l'affichage des tableaux en mode cards bootstrap
-        - voir les derniers et prochains matchs
-            - SELECT date
-              FROM `match`
-              WHERE `date` <= NOW()
-              ORDER BY `match`.`date` ASC
-              LIMIT 1
-            - SELECT date
-              FROM `match`
-              WHERE `date` >= NOW()
-              ORDER BY `match`.`date` DESC
-              LIMIT 1
         - afficher/cacher message d'aide
     - Profil
         - gestion des messages d'aide

@@ -28,8 +28,7 @@ function matches_of_day($date = NULL) {
                t2.short_name AS team2,
                team1_score,
                team2_score,
-               DATE_FORMAT(date,
-               "%H:%i") as match_time';
+               DATE_FORMAT(date, "%H:%i") as match_time';
     $where = array(
         'date >' => date('Y-m-d 00:00:00', $date),
         'date <' => date('Y-m-d 23:59:59', $date),
@@ -44,4 +43,62 @@ function matches_of_day($date = NULL) {
                             ->get()
                             ->result();
     return empty($matches_of_day) ? NULL : $matches_of_day;
+}
+
+/**
+  * Cette fonction renvoie les derniers matchs joués.
+  *
+  * @return les derniers matchs joués
+  */
+function last_matches() {
+    $CI =& get_instance();
+
+    // Récupération de la date des derniers matchs
+    $select = 'date';
+    $where = 'date <= NOW()';
+    $order = 'date DESC';
+    $limit = 1;
+    $date_last_matches = $CI->db->select($select)
+                               ->from($CI->config->item('match', 'table'))
+                               ->where($where)
+                               ->order_by($order)
+                               ->limit($limit)
+                               ->get()
+                               ->result();
+    $date_last_matches = $date_last_matches[0]->date;
+
+    $year_searched = substr($date_last_matches, 0, 4);
+    $month_searched = substr($date_last_matches, 5, 2);
+    $day_searched = substr($date_last_matches, 8, 2);
+
+    return matches_of_day($day_searched . '/' . $month_searched . '/' . $year_searched);
+}
+
+/**
+  * Cette fonction renvoie les prochains matchs à jouer.
+  *
+  * @return les prochains matchs à jouer
+  */
+function next_matches() {
+    $CI =& get_instance();
+
+    // Récupération de la date des derniers matchs
+    $select = 'date';
+    $where = 'date >= NOW()';
+    $order = 'date ASC';
+    $limit = 1;
+    $date_next_matches = $CI->db->select($select)
+                               ->from($CI->config->item('match', 'table'))
+                               ->where($where)
+                               ->order_by($order)
+                               ->limit($limit)
+                               ->get()
+                               ->result();
+    $date_next_matches = $date_next_matches[0]->date;
+
+    $year_searched = substr($date_next_matches, 0, 4);
+    $month_searched = substr($date_next_matches, 5, 2);
+    $day_searched = substr($date_next_matches, 8, 2);
+
+    return matches_of_day($day_searched . '/' . $month_searched . '/' . $year_searched);
 }
