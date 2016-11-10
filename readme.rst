@@ -63,6 +63,7 @@ Liste des éléments restants à faire :
         - prendre en compte les filtres
         - ajouter histogramme points par journée par championnat
     - Home
+        - ajouter la date pour les matchs à venir
         - essayer l'affichage des tableaux en mode cards bootstrap
         - afficher/cacher message d'aide
     - Profil
