@@ -10,7 +10,7 @@ if (!defined('BASEPATH') ) {
   * @return Url du fichier css dans l'application
   */
 function css_url($nom) {
-    return base_url() . 'application/assets/css/' . $nom . '.css';
+    return base_url() . 'assets/css/' . $nom . '.css';
 }
 
 /**
@@ -20,7 +20,7 @@ function css_url($nom) {
   * @return Url du fichier js dans l'application
   */
 function js_url($nom) {
-    return base_url() . 'application/assets/js/' . $nom . '.js';
+    return base_url() . 'assets/js/' . $nom . '.js';
 }
 
 /**
@@ -30,7 +30,7 @@ function js_url($nom) {
   * @return Url de l'image dans l'application
   */
 function img_url($nom) {
-    return base_url() . 'application/assets/img/' . $nom;
+    return base_url() . 'assets/img/' . $nom;
 }
 
 /**
