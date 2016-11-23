@@ -102,7 +102,7 @@
                 <?php endforeach ?>
             </tbody>
         </table>
-        <?php if ($fixture_status === 'open') : ?>
+        <?php if ($fixture_status === 'open' || $fixture_status === 'ongoing') : ?>
         <input type="submit" id="confirm" name="submit-bets" class="btn btn-sm btn-primary m-b-2" value="<?= $this->lang->line('confirm') ?>">
         <?php endif ?>
         <input type="submit" id="return" name="submit-bets" class="btn btn-sm btn-secondary m-b-2" value="<?= $this->lang->line('back') ?>">
