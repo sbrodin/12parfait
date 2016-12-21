@@ -60,12 +60,5 @@ $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
 $route['scores'] = 'scores/index';
 $route['scores/(:num)'] = 'scores/scores/$1';
 
-// $route['admin/users/view/(:any)'] = 'admin/users/view/$1';
-// $route['admin/users/edit'] = 'admin/users/edit';
-// $route['admin/users/edit/(:any)'] = 'admin/users/edit/$1';
-// $route['admin/users/(:any)'] = 'admin/users/view/$1';
-
-// $route['home'] = 'playlist/index/0';
-
 // à utiliser pour maintenance
 // $route['(:any)'] = 'maintenance';
