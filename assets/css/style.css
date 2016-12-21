@@ -104,6 +104,9 @@ th, td {
 .table-hover tbody tr:hover {
     background-color: rgba(2, 117, 216, 0.1);
 }
+.overflow {
+    overflow: auto;
+}
 
 
 
@@ -216,7 +219,6 @@ td.dash {
 .table-bets-edit {
     width: auto;
     max-width: 100%;
-    /* margin: 0 auto; */
 }
 .jumbotron {
     padding: 1.5rem 1rem;
@@ -321,7 +323,7 @@ footer a {
 
 /** MEDIA QUERIES **/
 /** HEADER **/
-@media (max-width:544px) {
+@media (max-width:543px) {
     header {
         padding: 10px;
     }
@@ -340,7 +342,7 @@ footer a {
 
 
 /** BODY **/
-@media (max-width:544px) {
+@media (max-width:543px) {
     .main-container {
         padding: 10px;
     }
@@ -349,5 +351,10 @@ footer a {
     }
     .profile-log a {
         margin: 0 10px;
+    }
+}
+@media (max-width:767px) {
+    .table-bets-edit {
+        width: 100%;
     }
 }
