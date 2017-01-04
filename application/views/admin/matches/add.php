@@ -38,7 +38,7 @@ if (!empty($matches_fixture)) {
             <?php endforeach; ?>
         </select><br/>
         <label for="match_date"><?= $this->lang->line('match_date') ?> : </label>
-        <input type="text" name="match_date" id="match_date" required="required" value="<?= set_value('match_date') ?>" ><br/>
+        <input type="text" name="match_date" id="match_date" class="match_date" required="required" value="<?= set_value('match_date') ?>" ><br/>
         <input type="submit" value="<?= $this->lang->line('add') ?>">
     </form>
 <?php endif; ?>
