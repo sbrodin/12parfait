@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="<?= img_url('logo.png') ?>" rel="icon" type="image/png">
+        <link href="<?= img_url('logo.png') ?>" rel="apple-touch-icon">
 
         <link href="<?= css_url('multi-select') ?>" media="screen" rel="stylesheet" type="text/css">
         <link href="<?= css_url('jquery.datetimepicker.min') ?>" media="screen" rel="stylesheet" type="text/css">
