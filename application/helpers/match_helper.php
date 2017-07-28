@@ -91,12 +91,12 @@ function next_matches() {
     $order = 'date ASC';
     $limit = 1;
     $date_next_matches = $CI->db->select($select)
-                               ->from($CI->config->item('match', 'table'))
-                               ->where($where)
-                               ->order_by($order)
-                               ->limit($limit)
-                               ->get()
-                               ->result();
+                                ->from($CI->config->item('match', 'table'))
+                                ->where($where)
+                                ->order_by($order)
+                                ->limit($limit)
+                                ->get()
+                                ->result();
     $date_next_matches = $date_next_matches[0]->date;
 
     $year_searched = substr($date_next_matches, 0, 4);
