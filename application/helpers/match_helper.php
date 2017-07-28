@@ -21,7 +21,7 @@ function matches_of_day($date = NULL) {
     $CI =& get_instance();
 
     $select = 'match_id,
-               fixture_id,
+               match.fixture_id,
                t1.team_id AS t1_id,
                t2.team_id AS t2_id,
                t1.short_name AS team1,
@@ -32,16 +32,19 @@ function matches_of_day($date = NULL) {
     $where = array(
         'date >' => date('Y-m-d 00:00:00', $date),
         'date <' => date('Y-m-d 23:59:59', $date),
+        'championship.status' => 'open',
     );
     $order = 'date ASC';
     $matches_of_day = $CI->db->select($select)
-                            ->from($CI->config->item('match', 'table'))
-                            ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
-                            ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
-                            ->where($where)
-                            ->order_by($order)
-                            ->get()
-                            ->result();
+                             ->from($CI->config->item('match', 'table'))
+                             ->join('team t1', 'match.team1_id = t1.team_id', 'inner')
+                             ->join('team t2', 'match.team2_id = t2.team_id', 'inner')
+                             ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'inner')
+                             ->join('championship', 'fixture.championship_id = championship.championship_id', 'inner')
+                             ->where($where)
+                             ->order_by($order)
+                             ->get()
+                             ->result();
     return empty($matches_of_day) ? NULL : $matches_of_day;
 }
 
@@ -59,12 +62,12 @@ function last_matches() {
     $order = 'date DESC';
     $limit = 1;
     $date_last_matches = $CI->db->select($select)
-                               ->from($CI->config->item('match', 'table'))
-                               ->where($where)
-                               ->order_by($order)
-                               ->limit($limit)
-                               ->get()
-                               ->result();
+                                ->from($CI->config->item('match', 'table'))
+                                ->where($where)
+                                ->order_by($order)
+                                ->limit($limit)
+                                ->get()
+                                ->result();
     $date_last_matches = $date_last_matches[0]->date;
 
     $year_searched = substr($date_last_matches, 0, 4);
