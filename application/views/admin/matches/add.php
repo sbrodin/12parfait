@@ -1,4 +1,4 @@
-<a href="<?= site_url('admin/matches') ?>"><?= $this->lang->line('back_to_matches_admin') ?></a><br/>
+<a href="<?= site_url('admin/matches') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_matches_admin');?></a><br/>
 <?= validation_errors() ?>
 
 <?php

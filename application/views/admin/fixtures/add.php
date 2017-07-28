@@ -1,4 +1,4 @@
-<a href="<?= site_url('admin/fixtures') ?>"><?= $this->lang->line('back_to_fixtures_admin') ?></a><br/>
+<a href="<?= site_url('admin/fixtures') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_fixtures_admin');?></a><br/>
 <?= validation_errors() ?>
 
 <?= form_open('admin/fixtures/add') ?>
