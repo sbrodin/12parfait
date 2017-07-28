@@ -1,0 +1,15 @@
+{
+  "short_name": "12parfait",
+  "name": "12parfait",
+  "icons": [
+    {
+      "src":"assets/img/logo.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fff",
+  "Theme_color": "#0275d8",
+  "display": "standalone"
+}
