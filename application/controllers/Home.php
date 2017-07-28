@@ -29,13 +29,15 @@ class Home extends CI_Controller {
             $data['home_message'] = $data['home_message'][0]->{$language.'_content'};
         }
         $data['home_message'] = html_entity_decode($data['home_message']);
-        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24));
-        $data['today_matches'] = matches_of_day();
-        $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+60*60*24));
+        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24))[0];
+        $data['today_matches'] = matches_of_day()[0];
+        $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+60*60*24))[0];
 
         if (!$data['yesterday_matches'] && !$data['today_matches'] && !$data['tomorrow_matches']) {
-            $data['last_matches'] = last_matches();
-            $data['next_matches'] = next_matches();
+            $data['last_matches'] = last_matches()[0];
+            $next_matches = next_matches();
+            $data['next_matches'] = $next_matches[0];
+            $data['next_matches_date'] = $next_matches[1];
         }
 
         $this->load->view('templates/header', $data);

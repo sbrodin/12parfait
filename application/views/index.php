@@ -48,7 +48,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="4" class="text-xs-center"><?= $this->lang->line('next_matches'); ?></th>
+                    <th colspan="4" class="text-xs-center"><?= sprintf($this->lang->line('next_matches'), $next_matches_date) ?></th>
                 </tr>
             </thead>
             <tbody>
