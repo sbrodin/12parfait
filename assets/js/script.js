@@ -33,7 +33,12 @@ $('.match_date').datetimepicker({
     dayOfWeekStart: 1,
     format:'d/m/Y H:i',
     allowTimes:[
-        '15:00', '17:00', '20:00', '20:45'
+        '15:00',
+        '17:00',
+        '19:00',
+        '20:00',
+        '20:45',
+        '21:00',
     ],
 });
 
