@@ -13,7 +13,7 @@
     foreach ($matches_fixtures as $key => $matches_fixture) {
         if($matches_fixture->fixture_name!==$fixture_name) {
             echo '</div><br/><div>';
-            echo '<a href="' . site_url('admin/fixtures/edit/' . $matches_fixture->fixture_id) . '" class="btn btn-sm btn-outline-primary m-b-1">' . $matches_fixture->fixture_name . '</a><br/>';
+            echo '<a href="' . site_url('admin/fixtures/edit/' . $matches_fixture->fixture_id) . '" class="btn btn-sm btn-outline-primary m-b-1">' . $this->lang->line('edit_fixture') . ' "' . $matches_fixture->fixture_name . '"</a><br/>';
             $fixture_name = $matches_fixture->fixture_name;
         }
         echo $matches_fixture->team1 . ' - ' . $matches_fixture->team2 . '<br/>';
