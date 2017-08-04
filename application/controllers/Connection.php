@@ -269,8 +269,6 @@ class Connection extends CI_Controller {
             } else {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
-            // Définition du cookie de connexion pour 30 jours
-            $this->input->set_cookie('12parfait_connected', 'TRUE', 3600*24*30, '', '/', '', FALSE, TRUE);
             if ($url !== '') {
                 redirect(site_url(urldecode($url)), 'location');
                 exit;
@@ -419,7 +417,6 @@ class Connection extends CI_Controller {
         if (!empty($this->session->userdata['acl'])) {
             $this->session->unset_userdata('acl');
         }
-        delete_cookie('12parfait_connected');
         redirect(site_url(''), 'location');
         exit;
     }
