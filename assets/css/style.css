@@ -263,6 +263,11 @@ td.dash {
 .form-bets-filter select {
     max-width: 400px;
 }
+.rank-1,
+.rank-2,
+.rank-3 {
+    text-align: center;
+}
 .rank-1 {
     color: #DAA520;
 }
@@ -271,6 +276,18 @@ td.dash {
 }
 .rank-3 {
     color: #965A38;
+}
+.podium {
+    text-align: center;
+    display: none;
+}
+.podium td {
+    height: 40px;
+    font-size: larger;
+    font-weight: bold;
+}
+.podium .border {
+    border: 1px solid #000;
 }
 /* Profiler */
 #codeigniter-profiler {

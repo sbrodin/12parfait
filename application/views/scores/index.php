@@ -31,6 +31,32 @@
     </fieldset>
 </form>
 
+<table class="podium m-b-2">
+    <tr>
+        <td></td>
+        <td class="rank-1">1</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="rank-2">2</td>
+        <td class="border rank-1" rowspan="3">
+            <div><?= $rank1_users ?></div>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="border rank-2" rowspan="2">
+            <div><?= $rank2_users ?></div>
+        </td>
+        <td class="rank-3">3</td>
+    </tr>
+    <tr>
+        <td class="border rank-3">
+            <div><?= $rank3_users ?></div>
+        </td>
+    </tr>
+</table>
+
 <table class="table-striped table-bordered table-hover score-table">
     <thead>
         <tr>

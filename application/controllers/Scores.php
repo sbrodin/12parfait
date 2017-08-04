@@ -111,6 +111,9 @@ class Scores extends MY_Controller {
                 $championship = $fixture_infos->championship_name;
             }
         }
+        $data['rank1_users'] = 'Test 1';
+        $data['rank2_users'] = 'Test 2';
+        $data['rank3_users'] = 'Test 3';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
