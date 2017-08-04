@@ -1,4 +1,4 @@
-<header class="header clearfix">
+<header class="header clearfix" role="banner">
     <a class="home-logo" href="<?= site_url() ?>"><?= img('logo.png', $this->lang->line('home'), $this->lang->line('link_to_home')) ?></a>
 <?php if (is_connected()) : ?>
     <nav class="profile-log">
@@ -9,7 +9,7 @@
         <a href="<?= site_url('connection/logout') ?>"><?= $this->lang->line('log_out') ?></a>
     </nav>
 </header>
-<nav class="menu">
+<nav class="menu" role="navigation">
     <ul class="menu-nav horizontal">
         <li><a href="<?= site_url('bets') ?>"><?= $this->lang->line('place_bet') ?></a></li>
         <li><a href="<?= site_url('scores') ?>"><?= $this->lang->line('ladder') ?></a></li>
