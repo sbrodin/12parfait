@@ -18,12 +18,20 @@ class Teams extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('teams_admin');
 
-        $select = 'team_id, name, short_name';
+        $select = 'team_id, name, short_name, level';
         $where = array();
         $nb = NULL;
         $debut = NULL;
         $order = 'name ASC';
         $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
+
+        foreach ($data['teams'] as $team) {
+            if ($team->level === 'Local') {
+                $team->level = $this->lang->line('local');
+            } else if ($team->level === 'National') {
+                $team->level = $this->lang->line('national');
+            }
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
@@ -67,6 +75,14 @@ class Teams extends MY_Controller {
                         'max_length' => $this->lang->line('too_long_5_field'),
                     ),
                 ),
+                array(
+                    'field' => 'level',
+                    'label' => $this->lang->line('level'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
             );
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
@@ -78,6 +94,7 @@ class Teams extends MY_Controller {
                 $donnees_echapees = array(
                     'name' => $post['team_name'],
                     'short_name' => $post['team_short_name'],
+                    'level' => $post['level'],
                 );
                 $this->team_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_creation'));

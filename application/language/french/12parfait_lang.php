@@ -121,6 +121,7 @@ $lang['rugby'] = 'Rugby';
 $lang['country'] = 'Pays';
 $lang['france'] = 'France';
 $lang['europe'] = 'Europe';
+$lang['world'] = 'Monde';
 $lang['level'] = 'Niveau';
 $lang['year'] = 'Année';
 $lang['activate_championship'] = 'Activer';
@@ -131,6 +132,8 @@ $lang['team'] = 'Equipe';
 $lang['add_team'] = 'Ajouter une équipe';
 $lang['team_name'] = 'Nom de l\'équipe';
 $lang['team_short_name'] = 'Nom court';
+$lang['local'] = 'Local';
+$lang['national'] = 'National';
 $lang['edit_team'] = 'Editer';
 
 // Matchs
