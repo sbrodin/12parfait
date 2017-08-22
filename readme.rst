@@ -56,6 +56,7 @@ TODO
 ****
 
 Liste des éléments restants à faire :
+    - Edition des niveaux des équipes
     - Ajouter cookie pour langue
     - Gestion des messages
     - Envoyer un email à l'inscription
