@@ -203,6 +203,7 @@ class Connection extends CI_Controller {
                     'active' => '1',
                     'email' => $post['email'],
                     'password' => password_hash($post['password'], PASSWORD_BCRYPT),
+                    'language' => 'french',
                     'add_date' => date('Y-m-d H:i:s'),
                 );
 
