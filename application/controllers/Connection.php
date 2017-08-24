@@ -417,6 +417,7 @@ class Connection extends CI_Controller {
         if (!empty($this->session->userdata['acl'])) {
             $this->session->unset_userdata('acl');
         }
+        delete_cookie('ci_session');
         redirect(site_url(''), 'location');
         exit;
     }
