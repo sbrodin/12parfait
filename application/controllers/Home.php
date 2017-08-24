@@ -24,6 +24,9 @@ class Home extends CI_Controller {
         } else {
             $language = $this->session->userdata['user']->language;
         }
+        if ($language === '') {
+            $language = 'french';
+        }
         $data['home_message'] = $this->message_model->get_message('home-message');
         if ($data['home_message'] !== '') {
             $data['home_message'] = $data['home_message'][0]->{$language.'_content'};
