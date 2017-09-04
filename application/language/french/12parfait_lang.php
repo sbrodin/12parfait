@@ -48,6 +48,7 @@ $lang['fixtures_admin'] = 'Gestion des journées';
 $lang['back_to_fixtures_admin'] = 'Retour à la gestion des journées';
 $lang['messages_admin'] = 'Gestion des messages';
 $lang['back_to_messages_admin'] = 'Retour à la gestion des messages';
+$lang['logs_admin'] = 'Gestion des logs';
 $lang['back_to_home'] = 'Retour à l\'accueil';
 $lang['back_to_bets_index'] = 'Retour aux paris';
 
@@ -174,6 +175,13 @@ $lang['message_language'] = 'Langue';
 $lang['message_content'] = 'Contenu';
 $lang['french_content'] = 'Contenu français';
 $lang['english_content'] = 'Contenu anglais';
+
+// Log
+$lang['log'] = 'Log';
+$lang['view_logs'] = 'Voir les logs';
+$lang['log_type'] = 'Type de log';
+$lang['log_message'] = 'Message du log';
+$lang['log_date'] = 'Date du log';
 
 $lang['add_a_user'] = 'Ajouter un utilisateur';
 $lang['index_user'] = 'Liste des utilisateurs';

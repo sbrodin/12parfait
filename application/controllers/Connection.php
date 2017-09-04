@@ -64,6 +64,8 @@ class Connection extends CI_Controller {
         'add_message',
         'view_messages',
         'edit_message',
+        // acl pour logs
+        'view_logs',
     );
     public $moderator_acl = array(
 
