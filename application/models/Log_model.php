@@ -30,10 +30,6 @@ class Log_model extends MY_Model {
                 'log_type' => $log_type,
                 'log_date' => $log_date,
             );
-        if ($existing_log) {
-            return $this->update($where, $donnees_echapees);
-        } else {
-            return $this->create($donnees_echapees);
-        }
+        return $this->create($donnees_echapees);
     }
 }
