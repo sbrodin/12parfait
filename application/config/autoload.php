@@ -101,6 +101,7 @@ $autoload['helper'] = array(
     'team',
     'championship',
     'match',
+    'log',
 );
 
 

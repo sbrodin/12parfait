@@ -5,6 +5,7 @@ class Home extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('log_model');
 
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
@@ -17,6 +18,7 @@ class Home extends CI_Controller {
     {
         $data = array();
         $data['title'] = $this->lang->line('home');
+        save_log('affichage page index, IP : ' . $this->input->ip_address(), 'home');
 
         $this->load->model('message_model');
         if (!is_connected()) {
