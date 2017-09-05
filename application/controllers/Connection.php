@@ -99,6 +99,8 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de connexion.
     */
     public function index() {
+        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         $data = array();
         $data['title'] = $this->lang->line('log_in');
         if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
@@ -150,6 +152,8 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de création de compte.
     */
     public function create_account() {
+        $log_message = 'méthode : create_account, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         $data = array();
         $data['title'] = $this->lang->line('create_account');
 
@@ -238,6 +242,8 @@ class Connection extends CI_Controller {
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login($url = '') {
+        $log_message = 'méthode : login, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
@@ -290,6 +296,8 @@ class Connection extends CI_Controller {
     * Fonction d'oubli de mot de passe.
     */
     public function forgotten_password() {
+        $log_message = 'méthode : forgotten_password, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         $data = array();
         $data['title'] = $this->lang->line('forgotten_password');
 
@@ -344,6 +352,8 @@ class Connection extends CI_Controller {
     */
     public function reset_password($hash)
     {
+        $log_message = 'méthode : reset_password, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         $data = array();
         $data['title'] = $this->lang->line('reset_password');
         $data['hash'] = $hash;
@@ -414,6 +424,8 @@ class Connection extends CI_Controller {
     * Cette fonction supprime les données de session.
     */
     public function logout() {
+        $log_message = 'méthode : logout, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : connection');
         if (!empty($this->session->userdata['user'])) {
             $this->session->unset_userdata('user');
         }

@@ -15,6 +15,8 @@ class Contact extends MY_Controller {
 
     public function index()
     {
+        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : contact');
         $data = array();
         $data['title'] = $this->lang->line('contact');
 

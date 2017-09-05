@@ -18,6 +18,8 @@ class Maintenance extends CI_Controller {
 
     public function maintenance()
     {
+        $log_message = 'méthode : maintenance, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : maintenance');
         $data = array();
         $data['title'] = $this->lang->line('maintenance');
 
@@ -28,6 +30,8 @@ class Maintenance extends CI_Controller {
 
     public function construction()
     {
+        $log_message = 'méthode : construction, IP : ' . $this->input->ip_address();
+        save_log($log_message, 'controller : maintenance');
         $data = array();
         $data['title'] = $this->lang->line('construction');
 
