@@ -18,14 +18,16 @@ class Home extends CI_Controller {
     {
         $data = array();
         $data['title'] = $this->lang->line('home');
-        save_log('affichage page index, IP : ' . $this->input->ip_address(), 'home');
+        $log_message = 'affichage page index, IP : ' . $this->input->ip_address();
 
         $this->load->model('message_model');
         if (!is_connected()) {
             $language = $this->config->item('language');
         } else {
+            $log_message.= ', user_id : ' . $this->session->userdata['user']->user_id;
             $language = $this->session->userdata['user']->language;
         }
+        save_log($log_message, 'home');
         if ($language === '') {
             $language = 'french';
         }
