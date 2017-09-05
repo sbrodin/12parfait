@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 
         $this->load->model('message_model');
         if (!is_connected()) {
+            $log_message.= ', utilisateur non connecté';
             $language = $this->config->item('language');
         } else {
             $log_message.= ', user_id : ' . $this->session->userdata['user']->user_id;
