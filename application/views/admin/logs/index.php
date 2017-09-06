@@ -15,7 +15,7 @@
                 <td><?= $log->log_id ?></td>
                 <td><?= $log->log_type ?></td>
                 <td><?= $log->log_message ?></td>
-                <td><?= date_format(date_create($log->log_date), 'd/m/Y à H\hi\ms') ?></td>
+                <td><?= $log->log_date ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
