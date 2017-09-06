@@ -25,7 +25,7 @@ class Logs extends MY_Controller {
             exit;
         }
         $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('logs_admin');
-        $data['logs'] = $this->log_model->read('*', array(), null, null, 'log_date DESC');
+        $data['logs'] = $this->log_model->read('*', array(), null, null, 'log_id DESC');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
