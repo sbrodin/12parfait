@@ -17,8 +17,7 @@ class Profile extends MY_Controller {
     * Fonction d'affichage de la page de profil.
     */
     public function index() {
-        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : profile');
+        save_log('profile', 'index');
         $data = array();
         $data['title'] = $this->lang->line('profile');
 
@@ -36,8 +35,7 @@ class Profile extends MY_Controller {
     * Fonction d'édition de la page de profil.
     */
     public function edit() {
-        $log_message = 'méthode : edit, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : profile');
+        save_log('profile', 'edit');
         $data = array();
         $data['title'] = $this->lang->line('profile_edit');
 
@@ -92,8 +90,7 @@ class Profile extends MY_Controller {
     * Fonction d'édition du mot de passe.
     */
     public function change_password() {
-        $log_message = 'méthode : change_password, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : profile');
+        save_log('profile', 'change_password');
         $data = array();
         $data['title'] = $this->lang->line('profile_password_edit');
 

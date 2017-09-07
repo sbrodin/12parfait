@@ -179,7 +179,10 @@ $lang['english_content'] = 'Contenu anglais';
 // Log
 $lang['log'] = 'Log';
 $lang['view_logs'] = 'Voir les logs';
-$lang['log_type'] = 'Type de log';
+$lang['log_controller'] = 'Controlleur';
+$lang['log_method'] = 'Méthode';
+$lang['log_userip'] = 'IP';
+$lang['log_userid'] = 'ID utilisateur';
 $lang['log_message'] = 'Message du log';
 $lang['log_date'] = 'Date du log';
 

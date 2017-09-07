@@ -4,7 +4,10 @@
         <thead>
             <tr>
                 <th></th>
-                <th><?= $this->lang->line('log_type') ?></th>
+                <th><?= $this->lang->line('log_controller') ?></th>
+                <th><?= $this->lang->line('log_method') ?></th>
+                <th><?= $this->lang->line('log_userip') ?></th>
+                <th><?= $this->lang->line('log_userid') ?></th>
                 <th><?= $this->lang->line('log_message') ?></th>
                 <th><?= $this->lang->line('log_date') ?></th>
             </tr>
@@ -13,7 +16,10 @@
             <?php foreach ($logs as $log) : ?>
             <tr>
                 <td><?= $log->log_id ?></td>
-                <td><?= $log->log_type ?></td>
+                <td><?= $log->log_controller ?></td>
+                <td><?= $log->log_method ?></td>
+                <td><a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank"><?= $log->log_userip ?></a></td>
+                <td><?= $log->log_userid ?></td>
                 <td><?= $log->log_message ?></td>
                 <td><?= $log->log_date ?></td>
             </tr>

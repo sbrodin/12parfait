@@ -10,8 +10,7 @@ class Bets extends MY_Controller {
 
     public function index()
     {
-        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : bets');
+        save_log('bets', 'index');
         if (!user_can('view_bets')) {
             redirect(site_url(), 'location');
             exit;
@@ -85,8 +84,7 @@ class Bets extends MY_Controller {
 
     public function edit($fixture_id = 0)
     {
-        $log_message = 'méthode : edit, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : bets');
+        save_log('bets', 'edit');
         if (!user_can('edit_bet')) {
             redirect(site_url(), 'location');
             exit;

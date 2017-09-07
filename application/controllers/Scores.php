@@ -9,8 +9,7 @@ class Scores extends MY_Controller {
 
     public function index()
     {
-        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : scores');
+        save_log('scores', 'index');
         if (!user_can('view_scores')) {
             redirect(site_url(), 'location');
             exit;
@@ -125,8 +124,7 @@ class Scores extends MY_Controller {
 
     public function scores($user_id = 0)
     {
-        $log_message = 'méthode : scores, IP : ' . $this->input->ip_address();
-        save_log($log_message, 'controller : scores');
+        save_log('scores', 'scores');
         if (!user_can('view_scores')) {
             redirect(site_url(), 'location');
             exit;
