@@ -6,6 +6,7 @@ class Bets extends MY_Controller {
     {
         parent::__construct();
         $this->load->model('bet_model');
+        $this->load->model('log_model');
     }
 
     public function index()

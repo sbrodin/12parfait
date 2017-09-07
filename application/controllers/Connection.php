@@ -87,6 +87,7 @@ class Connection extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('log_model');
 
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));

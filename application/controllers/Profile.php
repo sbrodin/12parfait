@@ -11,6 +11,7 @@ class Profile extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('log_model');
     }
 
     /**
