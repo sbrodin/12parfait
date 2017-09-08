@@ -24,7 +24,11 @@
                         <i class="fa fa-external-link" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td><?= $log->log_userid ?></td>
+                <?php if (is_numeric($log->log_userid)) { ?>
+                    <td><a href="<?= site_url('scores/' . $log->log_userid) ?>"><?= $log->log_userid ?></a></td>
+                <?php } else { ?>
+                    <td><?= $log->log_userid ?></td>
+                <?php } ?>
                 <td><?= $log->log_message ?></td>
                 <td><?= $log->log_date ?></td>
             </tr>
