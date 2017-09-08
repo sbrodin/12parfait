@@ -10,6 +10,7 @@ class Connection extends CI_Controller {
         // acl général pour admin
         'admin_all',
         // acl pour user
+        'admin_users',
         'add_user',
         'view_users',
         'view_user',
@@ -19,18 +20,21 @@ class Connection extends CI_Controller {
         'promote_user',
         'demote_user',
         // acl pour bet
+        'admin_bets',
         'add_bet',
         'view_bets',
         'view_bet',
         'edit_bet',
         'delete_bet',
         // acl pour league
+        'admin_leagues',
         'add_league',
         'view_leagues',
         'view_league',
         'edit_league',
         'delete_league',
         // acl pour championship
+        'admin_championships',
         'add_championship',
         'view_championships',
         'view_championship',
@@ -39,6 +43,7 @@ class Connection extends CI_Controller {
         'activate_championship',
         'deactivate_championship',
         // acl pour team
+        'admin_teams',
         'add_team',
         'view_teams',
         'view_team',
@@ -46,12 +51,14 @@ class Connection extends CI_Controller {
         'delete_team',
         'del_team_from_championship',
         // acl pour match
+        'admin_matches',
         'add_match',
         'view_matchs',
         'view_match',
         'edit_match',
         'delete_match',
         // acl pour journée
+        'admin_fixtures',
         'add_fixture',
         'view_fixtures',
         'edit_fixture',
@@ -61,14 +68,20 @@ class Connection extends CI_Controller {
         // acl pour scores
         'view_scores',
         // acl pour messages
+        'admin_messages',
         'add_message',
         'view_messages',
         'edit_message',
         // acl pour logs
+        'admin_logs',
         'view_logs',
     );
     public $moderator_acl = array(
-
+        // acl général pour admin
+        'admin_all',
+        // acl pour logs
+        'admin_logs',
+        'view_logs',
     );
     public $user_acl = array(
         // acl pour bet

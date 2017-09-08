@@ -18,7 +18,12 @@
                 <td><?= $log->log_id ?></td>
                 <td><?= $log->log_controller ?></td>
                 <td><?= $log->log_method ?></td>
-                <td><a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank"><?= $log->log_userip ?></a></td>
+                <td>
+                    <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank">
+                        <?= $log->log_userip ?>
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                </td>
                 <td><?= $log->log_userid ?></td>
                 <td><?= $log->log_message ?></td>
                 <td><?= $log->log_date ?></td>

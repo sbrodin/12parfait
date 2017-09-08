@@ -23,7 +23,7 @@ class Log_model extends MY_Model {
             $log_userip = $this->input->ip_address();
         }
         if ($log_userid === '') {
-            if (is_connected() && $this->session->userdata['user']->user_id !== '') {
+            if (is_connected() && !empty($this->session->userdata['user']->user_id)) {
                 $log_userid = $this->session->userdata['user']->user_id;
             } else {
                 $log_userid = 'non connecté';
