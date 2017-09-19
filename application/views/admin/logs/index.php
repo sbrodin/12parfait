@@ -19,10 +19,18 @@
                 <td><?= $log->log_controller ?></td>
                 <td><?= $log->log_method ?></td>
                 <td>
-                    <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank">
-                        <?= $log->log_userip ?>
-                        <i class="fa fa-external-link" aria-hidden="true"></i>
-                    </a>
+                    <div>
+                        <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank">
+                            ip-tracker : <?= $log->log_userip ?>
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://www.traceip.net/?query=<?= $log->log_userip ?>" target="_blank">
+                            traceip : <?= $log->log_userip ?>
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </td>
                 <?php if (is_numeric($log->log_userid)) { ?>
                     <td><a href="<?= site_url('scores/' . $log->log_userid) ?>"><?= $log->log_userid ?></a></td>
