@@ -21,6 +21,7 @@ $lang['12_parfait'] = '12parfait';
 $lang['add'] = 'Ajouter';
 $lang['edit'] = 'Editer';
 $lang['link_to_home'] = 'Lien vers la page d\'accueil';
+$lang['links'] = 'Liens';
 $lang['view'] = 'Voir';
 $lang['contact'] = 'Contact';
 $lang['filter_verb'] = 'Filtrer';
