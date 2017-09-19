@@ -75,3 +75,4 @@ Liste des éléments restants à faire :
     - Habillage du site
     - Ajout du système de log
     - Inclure la nav dans le header pour moins de fichiers à charger
+    - Inclure un système de trophées
