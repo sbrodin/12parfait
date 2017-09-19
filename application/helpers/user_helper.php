@@ -14,7 +14,7 @@ if (!defined('BASEPATH') ) {
   * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
   */
 function user_can($acl) {
-    return in_array($acl, get_instance()->session->get_userdata('acl')['acl']);
+    return in_array($acl, get_instance()->session->userdata('acl'));
 }
 
 /**
@@ -41,7 +41,7 @@ function is_connected() {
   * @return Booléen pour savoir si l'utilisateur est admin
   */
 function is_admin() {
-    return (get_instance()->session->get_userdata('user')['user']->acl == 'admin');
+    return (get_instance()->session->userdata('user')->acl == 'admin');
 }
 
 /**
@@ -50,5 +50,5 @@ function is_admin() {
   * @return Booléen pour savoir si l'utilisateur est moderateur
   */
 function is_moderator() {
-    return (get_instance()->session->get_userdata('user')['user']->acl == 'moderator');
+    return (get_instance()->session->userdata('user')->acl == 'moderator');
 }
