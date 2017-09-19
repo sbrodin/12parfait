@@ -32,7 +32,7 @@ function in_database_email($email) {
   * @return Booléen pour savoir si l'utilisateur est connecté
   */
 function is_connected() {
-    return (get_cookie('ci_session', TRUE) !== NULL);
+    return (!empty(get_instance()->session->userdata('acl')));
 }
 
 /**
