@@ -76,3 +76,7 @@ Liste des éléments restants à faire :
     - Ajout du système de log
     - Inclure la nav dans le header pour moins de fichiers à charger
     - Inclure un système de trophées
+        - nombre de paris placés (50, 100, 200, 500, 1000)
+        - nombre de jours consécutifs de connexion (5, 20, 50, 100, 500)
+        - nombre de jours de connexion (10, 50, 100, 500, 1000)
+        - nombre de 12parfait (3, 10, 20, 50, 100)
