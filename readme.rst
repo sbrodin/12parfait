@@ -77,12 +77,13 @@ Liste des éléments restants à faire :
     - Ajout du système de log
     - Inclure la nav dans le header pour moins de fichiers à charger
     - Inclure un système de trophées + message à la réception du trophée
-        - 5 niveaux :
+        - 5-6 niveaux :
             - bois
             - bronze
             - argent
             - or
-            - diamant
+            - platinium
+            - diamant (au cas où)
         - liste des trophées :
             - nombre de parrainages envoyés (5, 20, 50, 100, 200)
             - nombre de parrainages acceptés (1, 5, 10, 20, 50)
