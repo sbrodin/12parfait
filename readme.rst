@@ -77,13 +77,23 @@ Liste des éléments restants à faire :
     - Ajout du système de log
     - Inclure la nav dans le header pour moins de fichiers à charger
     - Inclure un système de trophées + message à la réception du trophée
-        - nombre de paris placés (10, 100, 200, 500, 1000)
-        - nombre de jours consécutifs de connexion (5, 20, 50, 100, 500)
-        - nombre de jours de connexion (10, 50, 100, 500, 1000)
-        - nombre de 12parfait (3, 10, 20, 50, 100)
-        - nombre de points (50, 200, 500, 2000, 5000)
-        - participation à une "ligue" (5, 20, 50, 100, 200)
-        - victoires de "ligue" (1, 5, 10, 20, 50)
+        - 5 niveaux :
+            - bois
+            - bronze
+            - argent
+            - or
+            - diamant
+        - liste des trophées :
+            - nombre de parrainages envoyés (5, 20, 50, 100, 200)
+            - nombre de parrainages acceptés (1, 5, 10, 20, 50)
+            - nombre de paris placés (10, 100, 200, 500, 1000)
+            - nombre de jours consécutifs de connexion (5, 20, 50, 100, 500)
+            - nombre de jours de connexion (10, 50, 100, 500, 1000)
+            - nombre de 12parfait (3, 10, 20, 50, 100)
+            - nombre de points (50, 200, 500, 2000, 5000)
+            - participation à une "ligue" (5, 20, 50, 100, 200)
+            - victoires de "ligue" (1, 5, 10, 20, 50)
+            - nombre de trophées (3, 10, 20, 50, 100)
     - Inclure un système de jokers dépendant du nombre de trophées non utilisés
     - Ajouter le système de "ligue"
         - identifiant unique
