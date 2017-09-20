@@ -11,7 +11,8 @@ Un système de points est en place :
     - bonne différence de buts : 2 points.
 Et le total de points possibles à marquer pour un match est donc de 12 !
 Un classement est disponible pour vous faire une idée de votre niveau par rapport
-aux autres. Vous pouvez créer des "Ligues" pour sélectionner des championnats sur
+aux autres.
+Vous pourez aussi bientôt créer des "ligues" pour sélectionner des championnats sur
 lesquels placer vos pronostics et rester entre amis.
 
 *******************
@@ -75,8 +76,22 @@ Liste des éléments restants à faire :
     - Habillage du site
     - Ajout du système de log
     - Inclure la nav dans le header pour moins de fichiers à charger
-    - Inclure un système de trophées
-        - nombre de paris placés (50, 100, 200, 500, 1000)
+    - Inclure un système de trophées + message à la réception du trophée
+        - nombre de paris placés (10, 100, 200, 500, 1000)
         - nombre de jours consécutifs de connexion (5, 20, 50, 100, 500)
         - nombre de jours de connexion (10, 50, 100, 500, 1000)
         - nombre de 12parfait (3, 10, 20, 50, 100)
+        - nombre de points (50, 200, 500, 2000, 5000)
+        - participation à une "ligue" (5, 20, 50, 100, 200)
+        - victoires de "ligue" (1, 5, 10, 20, 50)
+    - Inclure un système de jokers dépendant du nombre de trophées non utilisés
+    - Ajouter le système de "ligue"
+        - identifiant unique
+        - lien vers la "ligue"
+        - email d'invitation aux membres de la ligue
+        - choix des championnats sur lesquels parier
+        - comparaison des scores dans la "ligue"
+        - comparaison des scores entre "ligues"
+        - système de message dans la ligue
+            - possibilité de signaler des messages
+            - contrôles de tous les messages échangés
