@@ -20,8 +20,8 @@
         <?php foreach ($messages as $key => $message) : ?>
         <tr data-href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>">
             <td><?= $message->name ?></td>
-            <td><?= $message->french_content ?></td>
-            <td><?= $message->english_content ?></td>
+            <td><?= html_entity_decode($message->french_content) ?></td>
+            <td><?= html_entity_decode($message->english_content) ?></td>
             <td>
                 <a href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
             </td>
