@@ -75,6 +75,7 @@ Liste des éléments restants à faire :
         - ajouter un filtre par date
     - Habillage du site
     - Ajout du système de log
+        - Ajout d'un filtre pour les logs
     - Inclure la nav dans le header pour moins de fichiers à charger
     - Inclure un système de trophées + message à la réception du trophée
         - 5-6 niveaux :
