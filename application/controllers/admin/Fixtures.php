@@ -19,7 +19,7 @@ class Fixtures extends MY_Controller {
         $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('fixtures_admin');
 
         $select = 'fixture_id, fixture.name AS fixture_name, championship.name AS championship_name, fixture.status';
-        $where = array();
+        $where = array('championship.status' => 'open');
         $nb = NULL;
         $debut = NULL;
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
