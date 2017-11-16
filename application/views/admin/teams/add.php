@@ -8,8 +8,8 @@
     <input type="text" id="team_short_name" name="team_short_name" value="<?= set_value('team_short_name') ?>" required="required" autofocus>
     <label for="level"><?= $this->lang->line('level') ?> : </label>
     <select id="level" name="level" required="required">
-        <option value="<?= $this->lang->line('national') ?>"><?= $this->lang->line('national') ?></option>
         <option value="<?= $this->lang->line('local') ?>"><?= $this->lang->line('local') ?></option>
+        <option value="<?= $this->lang->line('national') ?>"><?= $this->lang->line('national') ?></option>
     </select>
     <input type="submit" value="<?= $this->lang->line('add') ?>">
 </form>
