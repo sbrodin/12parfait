@@ -5,11 +5,11 @@
     <label for="team_name"><?= $this->lang->line('team_name') ?> : </label>
     <input type="text" id="team_name" name="team_name" value="<?= set_value('team_name') ?>" required="required" autofocus>
     <label for="team_short_name"><?= $this->lang->line('team_short_name') ?> : </label>
-    <input type="text" id="team_short_name" name="team_short_name" value="<?= set_value('team_short_name') ?>" required="required" autofocus>
+    <input type="text" id="team_short_name" name="team_short_name" value="<?= set_value('team_short_name') ?>" required="required" max_length="5">
     <label for="level"><?= $this->lang->line('level') ?> : </label>
     <select id="level" name="level" required="required">
-        <option value="<?= $this->lang->line('local') ?>"><?= $this->lang->line('local') ?></option>
-        <option value="<?= $this->lang->line('national') ?>"><?= $this->lang->line('national') ?></option>
+        <option value="local"><?= $this->lang->line('local') ?></option>
+        <option value="national"><?= $this->lang->line('national') ?></option>
     </select>
     <input type="submit" value="<?= $this->lang->line('add') ?>">
 </form>
