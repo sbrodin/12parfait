@@ -46,5 +46,11 @@ function img_url($nom) {
   * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
   */
 function img($nom, $alt = '', $title = '', $classes = '') {
+    if ($alt === '' && $title !=='') {
+        $alt = $title;
+    }
+    if ($title === '' && $alt !=='') {
+        $title = $alt;
+    }
     return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" class="' . $classes . '" />';
 }
