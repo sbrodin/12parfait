@@ -82,6 +82,14 @@ class Connection extends CI_Controller {
         // acl pour logs
         'admin_logs',
         'view_logs',
+        // acl pour bet
+        'add_bet',
+        'view_bets',
+        'view_bet',
+        'edit_bet',
+        'delete_bet',
+        // acl pour scores
+        'view_scores',
     );
     public $user_acl = array(
         // acl pour bet
