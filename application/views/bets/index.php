@@ -8,6 +8,10 @@
     </div>
 <?php endif ?>
 
+<div class="jumbotron home-message">
+    <?= $bet_message ?>
+</div>
+
 <?= form_open('bets', array('class' => 'form-bets-filter m-b-2')) ?>
     <span class="form-bets-filter-legend m-r-3"><?= $this->lang->line('filters') ?></span>
     <a class="btn btn-link form-bets-filter-link" data-toggle="collapse" href="#fieldset-filters-bets" aria-expanded="false" aria-controls="fieldset-filters-bets"><?= $this->lang->line('show_hide') ?></a>

@@ -77,6 +77,18 @@ class Bets extends MY_Controller {
             }
         }
 
+        // Récupération du message d'information pour les pronostics
+        $language = $this->session->userdata['user']->language;
+        if ($language === '') {
+            $language = 'french';
+        }
+        $this->load->model('message_model');
+        $data['bet_message'] = $this->message_model->get_message('bet-message');
+        if ($data['bet_message'] !== '') {
+            $data['bet_message'] = $data['bet_message'][0]->{$language.'_content'};
+        }
+        $data['bet_message'] = html_entity_decode($data['bet_message']);
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
         $this->load->view('bets/index', $data);

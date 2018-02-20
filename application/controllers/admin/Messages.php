@@ -22,7 +22,7 @@ class Messages extends MY_Controller {
         $where = array();
         $nb = NULL;
         $debut = NULL;
-        $order = 'name ASC';
+        $order = 'message_id ASC';
         $data['messages'] = $this->message_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);

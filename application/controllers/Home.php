@@ -20,7 +20,6 @@ class Home extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('home');
 
-        $this->load->model('message_model');
         if (!is_connected()) {
             $language = $this->config->item('language');
         } else {
@@ -29,6 +28,7 @@ class Home extends CI_Controller {
         if ($language === '') {
             $language = 'french';
         }
+        $this->load->model('message_model');
         $data['home_message'] = $this->message_model->get_message('home-message');
         if ($data['home_message'] !== '') {
             $data['home_message'] = $data['home_message'][0]->{$language.'_content'};

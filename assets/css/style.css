@@ -107,6 +107,9 @@ th, td {
 .overflow {
     overflow: auto;
 }
+.strong {
+    font-weight: bold;
+}
 
 
 
