@@ -1,6 +1,8 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back') ?></a><br/>
 
-<div class="m-b-2"><?= $this->lang->line('contact_message') ?></div>
+<div class="jumbotron">
+    <?= $contact_message ?>
+</div>
 
 <?= validation_errors() ?>
 

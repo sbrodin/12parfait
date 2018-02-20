@@ -20,6 +20,18 @@ class Contact extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('contact');
 
+        // Récupération du message d'information pour les pronostics
+        $language = $this->session->userdata['user']->language;
+        if ($language === '') {
+            $language = 'french';
+        }
+        $this->load->model('message_model');
+        $data['contact_message'] = $this->message_model->get_message('contact-message');
+        if ($data['contact_message'] !== '') {
+            $data['contact_message'] = $data['contact_message'][0]->{$language.'_content'};
+        }
+        $data['contact_message'] = html_entity_decode($data['contact_message']);
+
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
