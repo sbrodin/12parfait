@@ -58,7 +58,7 @@ class Scores extends MY_Controller {
         if (isset($filters['filters_scores']['fixture']) && $filters['filters_scores']['fixture']!='') {
             $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_scores']['fixture']));
         }
-        $order = 'user.user_id DESC';
+        $order = 'rand()';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))
                                    ->where($where)
