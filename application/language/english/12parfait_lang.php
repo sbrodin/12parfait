@@ -20,10 +20,19 @@ $lang['admin'] = 'Admin';
 $lang['12_parfait'] = '12parfait';
 $lang['add'] = 'Add';
 $lang['edit'] = 'Edit';
+$lang['link_to_home'] = 'Link to home';
+$lang['links'] = 'Links';
+$lang['view'] = 'View';
+$lang['contact'] = 'Contact';
+$lang['filter_verb'] = 'Filter';
+$lang['filters'] = 'Filters';
+$lang['show_hide'] = 'Show / Hide';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
-$lang['copyright'] = '&copy; sbrodin, 2016<br/>Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
+$lang['copyright'] = '&copy; sbrodin, 2015-2017';
+$lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
+$lang['version'] = 'v. beta';
 
 // Menu admin
 $lang['site_admin'] = 'Site admin';
@@ -38,6 +47,11 @@ $lang['matches_admin'] = 'Matches admin';
 $lang['back_to_matches_admin'] = 'Back to matches admin';
 $lang['fixtures_admin'] = 'Fixtures admin';
 $lang['back_to_fixtures_admin'] = 'Back to fixtures admin';
+$lang['messages_admin'] = 'Messages admin';
+$lang['back_to_messages_admin'] = 'Back to messages admin';
+$lang['logs_admin'] = 'Logs admin';
+$lang['back_to_home'] = 'Back to home';
+$lang['back_to_bets_index'] = 'Back to bets';
 
 // Messages de succès
 $lang['profile_modified'] = 'Profile successfully modified !';
@@ -45,12 +59,17 @@ $lang['account_successful_creation'] = 'Account successfully created !';
 $lang['championship_successful_creation'] = 'Championship successfully created !';
 $lang['championship_successful_edition'] = 'Championship successfully edited !';
 $lang['team_successful_creation'] = 'Team successfully created !';
+$lang['team_successful_edition'] = 'Team successfully edited !';
 $lang['success_user_add'] = 'User successfully added !';
 $lang['success_user_edit'] = 'User successfully updated !';
-$lang['fixture_successful_creation'] = 'Ficture successfully created !';
-$lang['fixture_successful_edition'] = 'Ficture successfully edited !';
+$lang['fixture_successful_creation'] = 'Fixture successfully created !';
+$lang['fixture_successful_edition'] = 'Fixture successfully edited !';
 $lang['fixture_matches_successful_edition'] = 'Fixture matches successfully edited !';
 $lang['bets_successful_edition'] = 'Bets successfully edited !';
+$lang['message_successful_creation'] = 'Message successfully created !';
+$lang['message_successful_edition'] = 'Message successfully edited !';
+$lang['message_successfully_sent'] = 'Message successfully sent !';
+$lang['password_modified'] = 'Password successfully modified !';
 
 // Messages d'information
 $lang['reset_password_email_sent'] = 'Email for password reset successfully sent, please check your inbox.';

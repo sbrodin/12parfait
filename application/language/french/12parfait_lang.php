@@ -32,7 +32,7 @@ $lang['show_hide'] = 'Afficher / Masquer';
 $lang['application_title'] = '12parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015-2017';
 $lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
-$lang['version'] = 'v. alpha';
+$lang['version'] = 'v. beta';
 
 // Menu admin
 $lang['site_admin'] = 'Gestion du site';
