@@ -82,6 +82,14 @@ class Connection extends CI_Controller {
         // acl pour logs
         'admin_logs',
         'view_logs',
+        // acl pour journée
+        'admin_fixtures',
+        'add_fixture',
+        'view_fixtures',
+        'edit_fixture',
+        'edit_fixture_results',
+        'close_fixture',
+        'open_fixture',
         // acl pour bet
         'add_bet',
         'view_bets',
