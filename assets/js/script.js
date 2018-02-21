@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 change_championships_from_fixture($('.form-bets-filter-fixture'), 'bets');
 change_championships_from_fixture($('.form-scores-filter-fixture'), 'scores');
 $('.form-bets-filter-fixture, .form-scores-filter-fixture').on('change', function() {
-    console.log('page');
     change_championships_from_fixture($(this), $(this).data('filter-page'));
 });
 
