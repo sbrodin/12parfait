@@ -4,7 +4,7 @@
 <?php if (!empty($info)) : ?>
     <span><?= $info ?></span>
 <?php else : ?>
-    <?= form_open('bets/edit/' . $fixture_id, array('class' => 'form-players-filter m-b-2')) ?>
+    <!-- <?= form_open('bets/edit/' . $fixture_id, array('class' => 'form-players-filter m-b-2')) ?>
         <span class="form-players-filter-legend m-r-3"><?= $this->lang->line('view_bets_of') ?></span>
         <a class="btn btn-link form-players-filter-link" data-toggle="collapse" href="#fieldset-filters-players" aria-expanded="false" aria-controls="fieldset-filters-players"><?= $this->lang->line('show_hide') ?></a>
         <fieldset id="fieldset-filters-players" class="form-group collapse <?= $collapse_filters ?>">
@@ -18,7 +18,7 @@
             <input type="submit" name="submit-filter" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('filter_verb') ?>">
             <input type="submit" name="submit-filter" class="btn btn-sm btn-outline-primary m-t-2 m-b-2" value="<?= $this->lang->line('del_filter') ?>">
         </fieldset>
-    </form>
+    </form> -->
 
     <?php if (!empty($error_duplicate)) : ?>
         <span><?= $error_duplicate ?></span><br/><br/>
