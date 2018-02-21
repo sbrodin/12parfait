@@ -14,6 +14,15 @@ if (!defined('BASEPATH') ) {
   * @return Booléen pour savoir si l'action est autorisée à l'utilisateur
   */
 function user_can($acl) {
+    if (is_array($acl)) {
+        foreach ($acl as $acl_element) {
+            // Dès qu'on tombe sur un élément du tableau qui n'est pas dans les acl possibles, on renvoie false
+            if (!in_array($acl_element, get_instance()->session->userdata('acl'))) {
+                return false;
+            }
+        }
+        return true;
+    }
     return in_array($acl, get_instance()->session->userdata('acl'));
 }
 
