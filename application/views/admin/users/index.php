@@ -1,3 +1,4 @@
+<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
 <div class="overflow">
     <table class="table-striped table-bordered table-hover">
         <thead>

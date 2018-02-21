@@ -1,3 +1,4 @@
+<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
 <a href="<?= site_url('admin/messages/add') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_message');?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
