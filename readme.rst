@@ -65,7 +65,6 @@ Liste des éléments restants à faire :
         - prendre en compte les filtres
         - ajouter histogramme points par journée par championnat
     - Home
-        - essayer l'affichage des tableaux en mode cards bootstrap
         - afficher/cacher message d'aide
     - Profil
         - gestion des messages d'aide
@@ -73,7 +72,6 @@ Liste des éléments restants à faire :
         - avoir un petit podium au-dessus du tableau (à terminer)
         - ajouter le nombre de 12parfait
         - ajouter un filtre par date
-    - Habillage du site
     - Ajout du système de log
         - Ajout d'un filtre pour les logs
     - Inclure la nav dans le header pour moins de fichiers à charger
