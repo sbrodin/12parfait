@@ -8,7 +8,7 @@
     </div>
 <?php endif ?>
 
-<div class="jumbotron home-message">
+<div class="jumbotron">
     <?= $bet_message ?>
 </div>
 
