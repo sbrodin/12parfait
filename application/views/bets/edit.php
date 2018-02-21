@@ -23,9 +23,9 @@
     <?php if (!empty($error_duplicate)) : ?>
         <span><?= $error_duplicate ?></span><br/><br/>
     <?php endif; ?>
-    <label for="championship"><?= $this->lang->line('championship') ?> : </label>
+    <label for="championship" class="strong"><?= $this->lang->line('championship') ?> : </label>
     <span id="championship"><?= $championship_name ?></span><br/>
-    <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
+    <label for="fixture" class="strong"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?= $fixture_name ?></span>
     <?= form_open('bets/edit/' . $fixture_id) ?>
         <div class="overflow">
