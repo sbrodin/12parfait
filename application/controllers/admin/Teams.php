@@ -11,8 +11,7 @@ class Teams extends MY_Controller {
     public function index()
     {
         if (!user_can('view_teams')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -42,8 +41,7 @@ class Teams extends MY_Controller {
     public function add()
     {
         if (!user_can('add_team')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -107,8 +105,7 @@ class Teams extends MY_Controller {
     public function edit($team_id = 0)
     {
         if (!user_can('edit_team')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($team_id === 0) {

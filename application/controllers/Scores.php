@@ -12,8 +12,7 @@ class Scores extends MY_Controller {
     {
         save_log('scores', 'index');
         if (!user_can('view_scores')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -127,8 +126,7 @@ class Scores extends MY_Controller {
     {
         save_log('scores', 'scores');
         if (!user_can('view_scores')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();

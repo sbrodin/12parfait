@@ -11,8 +11,7 @@ class Matches extends MY_Controller {
     public function index()
     {
         if (!user_can('view_championships')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -35,8 +34,7 @@ class Matches extends MY_Controller {
     public function add()
     {
         if (!user_can('add_match')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -163,8 +161,7 @@ class Matches extends MY_Controller {
     public function championship()
     {
         if (!user_can('add_match')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -212,8 +209,7 @@ class Matches extends MY_Controller {
     public function fixture()
     {
         if (!user_can('add_match')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -273,8 +269,7 @@ class Matches extends MY_Controller {
     public function edit($championship_id = 0)
     {
         if (!user_can('edit_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($championship_id === 0) {

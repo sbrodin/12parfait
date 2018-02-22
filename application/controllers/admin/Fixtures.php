@@ -11,8 +11,7 @@ class Fixtures extends MY_Controller {
     public function index()
     {
         if (!user_can('view_fixtures')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -41,8 +40,7 @@ class Fixtures extends MY_Controller {
     public function add()
     {
         if (!user_can('add_fixture')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -110,8 +108,7 @@ class Fixtures extends MY_Controller {
     public function edit($fixture_id = 0)
     {
         if (!user_can('edit_fixture')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($fixture_id === 0) {
@@ -228,8 +225,7 @@ class Fixtures extends MY_Controller {
     public function results($fixture_id = 0)
     {
         if (!user_can('edit_fixture_results')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($fixture_id === 0) {
@@ -363,8 +359,7 @@ class Fixtures extends MY_Controller {
     public function close_fixture($fixture_id) {
         // Gestion des droits de fermeture
         if (!user_can('close_fixture')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $donnees_echapees = array('status' => 'close');
@@ -382,8 +377,7 @@ class Fixtures extends MY_Controller {
     public function open_fixture($fixture_id) {
         // Gestion des droits d'ouverture
         if (!user_can('open_fixture')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $donnees_echapees = array('status' => 'open');

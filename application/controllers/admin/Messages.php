@@ -11,8 +11,7 @@ class Messages extends MY_Controller {
     public function index()
     {
         if (!user_can('view_messages')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -34,8 +33,7 @@ class Messages extends MY_Controller {
     public function add()
     {
         if (!user_can('add_message')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -98,8 +96,7 @@ class Messages extends MY_Controller {
     public function edit($message_id = 0)
     {
         if (!user_can('edit_message')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($message_id === 0) {

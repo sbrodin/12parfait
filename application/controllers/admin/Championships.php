@@ -11,8 +11,7 @@ class Championships extends MY_Controller {
     public function index()
     {
         if (!user_can('view_championships')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -34,8 +33,7 @@ class Championships extends MY_Controller {
     public function add()
     {
         if (!user_can('add_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -116,8 +114,7 @@ class Championships extends MY_Controller {
     public function edit($championship_id = 0)
     {
         if (!user_can('edit_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -219,8 +216,7 @@ class Championships extends MY_Controller {
     public function activate($championship_id) {
         // Gestion des droits d'activation
         if (!user_can('activate_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $donnees_echapees = array('status' => 'open');
@@ -238,8 +234,7 @@ class Championships extends MY_Controller {
     public function deactivate($championship_id) {
         // Gestion des droits de désactivation
         if (!user_can('deactivate_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $donnees_echapees = array('status' => 'close');
@@ -258,8 +253,7 @@ class Championships extends MY_Controller {
     public function del_team_from_championship($team_id, $championship_id) {
         // Gestion des droits de suppression
         if (!user_can('del_team_from_championship')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
         $this->load->model('championship_team_model');
 

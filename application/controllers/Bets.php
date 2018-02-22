@@ -13,8 +13,7 @@ class Bets extends MY_Controller {
     {
         save_log('bets', 'index');
         if (!user_can('view_bets')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
@@ -99,8 +98,7 @@ class Bets extends MY_Controller {
     {
         save_log('bets', 'edit');
         if (!user_can('edit_bet')) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         if ($fixture_id === 0) {
