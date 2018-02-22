@@ -258,6 +258,18 @@ class Bets extends MY_Controller {
             $data['info'] = $this->lang->line('no_match_for_fixture');
         }
 
+        // Récupération du message d'information pour les pronostics des autres joueurs
+        $language = $this->session->userdata['user']->language;
+        if ($language === '') {
+            $language = 'french';
+        }
+        $this->load->model('message_model');
+        $data['bet_of_message'] = $this->message_model->get_message('bet-of-message');
+        if ($data['bet_of_message'] !== '') {
+            $data['bet_of_message'] = $data['bet_of_message'][0]->{$language.'_content'};
+        }
+        $data['bet_of_message'] = html_entity_decode($data['bet_of_message']);
+
         if (empty($post)) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav', $data);
