@@ -7,9 +7,11 @@
     </div>
 <?php endif ?>
 
-<div class="jumbotron">
-    <?= $home_message ?>
-</div>
+<?php if ($bet_of_message) : ?>
+    <div class="jumbotron">
+        <?= $home_message ?>
+    </div>
+<?php endif; ?>
 
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
     <div><?= $this->lang->line('no_match_3days'); ?></div>

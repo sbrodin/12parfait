@@ -1,8 +1,10 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back') ?></a><br/>
 
-<div class="jumbotron">
-    <?= $contact_message ?>
-</div>
+<?php if ($bet_of_message) : ?>
+    <div class="jumbotron">
+        <?= $contact_message ?>
+    </div>
+<?php endif; ?>
 
 <?= validation_errors() ?>
 

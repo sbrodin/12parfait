@@ -8,9 +8,11 @@
     </div>
 <?php endif ?>
 
-<div class="jumbotron">
-    <?= $bet_message ?>
-</div>
+<?php if ($bet_of_message) : ?>
+    <div class="jumbotron">
+        <?= $bet_message ?>
+    </div>
+<?php endif; ?>
 
 <?= form_open('bets', array('class' => 'form-bets-filter m-b-2')) ?>
     <span class="form-bets-filter-legend m-r-3"><?= $this->lang->line('filters') ?></span>
