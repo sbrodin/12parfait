@@ -35,7 +35,6 @@ ul {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.7em;
-    font-size: 1em;
 }
 h1 { font-size: 2.5em; }
 h2 { font-size: 2.2em; }
@@ -199,7 +198,7 @@ td.dash {
     padding: 0 5px;
 }
 .info {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: italic;
     color: #555555;
 }
@@ -230,15 +229,15 @@ td.dash {
     padding: 1.5rem 1rem;
 }
 .card-scores h1 {
-    font-size: 1.9em;
+    font-size: 1.9rem;
 }
 .card-scores h2 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 .scores-chart-legend {
     width: 100%;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 #scores-chart,
 #scores-chart2 {
@@ -335,10 +334,10 @@ footer {
     padding: 20px 0;
 }
 footer span {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 footer a {
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 0;
 }
 
