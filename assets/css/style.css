@@ -110,6 +110,9 @@ th, td {
 .strong {
     font-weight: bold;
 }
+.font-bigger {
+    font-size: 1.25rem;
+}
 
 
 
