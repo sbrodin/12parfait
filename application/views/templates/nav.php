@@ -1,5 +1,5 @@
 <header class="header clearfix" role="banner">
-    <a class="home-logo" href="<?= site_url() ?>"><?= img('logo.png', $this->lang->line('home'), $this->lang->line('link_to_home')) ?></a>
+    <a class="home-logo" href="<?= site_url() ?>"><?= img('logo.png', $this->lang->line('logo_12parfait'), $this->lang->line('link_to_home')) ?></a>
 <?php if (is_connected()) : ?>
     <nav class="profile-log">
     <?php if (user_can('admin_all')) : ?>

@@ -27,6 +27,7 @@ $lang['contact'] = 'Contact';
 $lang['filter_verb'] = 'Filtrer';
 $lang['filters'] = 'Filtres';
 $lang['show_hide'] = 'Afficher / Masquer';
+$lang['logo_12parfait'] = 'Logo 12parfait';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
