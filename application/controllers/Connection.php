@@ -232,19 +232,22 @@ class Connection extends CI_Controller {
                 $this->load->view('create_account', $data);
                 $this->load->view('templates/footer', $data);
             } else {
+                $post['email'] = strtolower($post['email']);
                 $donnees_echapees = array(
                     'acl' => 'user',
                     'active' => '1',
-                    'email' => strtolower($post['email']),
+                    'email' => $post['email'],
                     'password' => password_hash($post['password'], PASSWORD_BCRYPT),
                     'language' => 'french',
                     'add_date' => date('Y-m-d H:i:s'),
                 );
 
                 // Envoi d'email pour info
-                $subject = '12parfait - Création de compte - Globalis';
-                $body = 'Un nouveau compte a été créé.<br/>';
+                $subject = '12parfait - Création de compte';
+                $body = '<html>';
+                $body.= 'Un nouveau compte a été créé.<br/>';
                 $body.= 'Email : ' . $post['email'];
+                $body.= '</html>';
                 send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
 
                 // Envoi d'email pour confirmation d'inscription
