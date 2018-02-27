@@ -82,6 +82,7 @@ switch (ENVIRONMENT)
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
 		}
+		define('EMAIL_INTERCEPTION', 'stanislas.brodin@gmail.com');
 	break;
 
 	default:
