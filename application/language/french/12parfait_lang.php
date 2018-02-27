@@ -100,7 +100,7 @@ $lang['must_be_year_field'] = 'Le champ "%s" doit être une année supérieure o
 $lang['too_long_5_field'] = 'Le champ "%s" ne doit pas faire plus de 5 caractères.';
 
 // Emails
-$lang['welcome_email_subject'] = 'Bienvenue sur 12Parfait !';
+$lang['welcome_email_subject'] = 'Bienvenue sur 12parfait !';
 
 // Profil
 $lang['profile'] = 'Profil';
