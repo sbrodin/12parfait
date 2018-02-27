@@ -60,7 +60,12 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('database', 'session', 'form_validation');
+$autoload['libraries'] = array(
+    'database',
+    'email',
+    'form_validation',
+    'session',
+);
 
 
 /*
@@ -89,19 +94,18 @@ $autoload['drivers'] = array();
 */
 
 $autoload['helper'] = array(
-    'url',
+    'assets',
+    'championship',
     'cookie',
     'form',
+    'log',
+    'match',
+    'score',
     'string',
     'strings',
-    'assets',
-    'email',
-    'user',
-    'score',
     'team',
-    'championship',
-    'match',
-    'log',
+    'url',
+    'user',
 );
 
 

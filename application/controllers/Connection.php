@@ -244,11 +244,20 @@ class Connection extends CI_Controller {
 
                 // Envoi d'email pour info
                 $subject = '12parfait - Création de compte';
-                $body = '<html>';
-                $body.= 'Un nouveau compte a été créé.<br/>';
+                $body = 'Un nouveau compte a été créé.<br/><br/>';
                 $body.= 'Email : ' . $post['email'];
-                $body.= '</html>';
-                send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
+
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+
+                $this->email->from('no-reply@12parfait.fr', '12parfait');
+                $this->email->to('stanislas.brodin@gmail.com');
+                $this->email->subject($subject);
+                $this->email->message($body);
+                $body = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $body));
+                $this->email->set_alt_message($body);
+                $this->email->send();
+                $this->email->clear();
 
                 // Envoi d'email pour confirmation d'inscription
                 $this->load->model('message_model');
@@ -256,7 +265,14 @@ class Connection extends CI_Controller {
                 if ($welcome_email !== '') {
                     $subject = $this->lang->line('welcome_email_subject');
                     $welcome_email = html_entity_decode($welcome_email[0]->{'french_content'});
-                    send_email_interception($post['email'], $subject, $welcome_email);
+                    $this->email->from('no-reply@12parfait.fr', '12parfait');
+                    $this->email->to($post['email']);
+                    $this->email->subject($subject);
+                    $this->email->message($welcome_email);
+                    $welcome_email = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $welcome_email));
+                    $this->email->set_alt_message($welcome_email);
+                    $this->email->send();
+                    $this->email->clear();
                 }
 
                 $this->user_model->create($donnees_echapees);
@@ -356,6 +372,7 @@ class Connection extends CI_Controller {
                 $this->load->view('forgotten_password', $data);
                 $this->load->view('templates/footer', $data);
             } else {
+                $post['email'] = strtolower($post['email']);
                 $where = array('email' => $post['email']);
                 $hash = random_string('alnum', 255);
                 $donnees_echapees = array(
@@ -366,7 +383,18 @@ class Connection extends CI_Controller {
 
                 $subject = '12parfait - Mot de passe oublié';
                 $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="' . site_url('reset_password/' . $hash) . '">ce lien</a>';
-                send_email_interception($post['email'], $subject, $body);
+
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+
+                $this->email->from('no-reply@12parfait.fr', '12parfait');
+                $this->email->to($post['email']);
+                $this->email->subject($subject);
+                $this->email->message($body);
+                $body = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $body));
+                $this->email->set_alt_message($body);
+                $this->email->send();
+                $this->email->clear();
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
                 redirect(site_url('connection'), 'location');

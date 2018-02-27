@@ -68,7 +68,18 @@ class Contact extends MY_Controller {
                 $subject = '12parfait - Contact - ' . $post['motif'];
                 $body = 'Message envoyé par "' . $this->session->userdata['user']->email . '" :<br/><br/>';
                 $body.= $post['message'];
-                send_email_interception('stanislas.brodin@gmail.com', $subject, $body);
+
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+
+                $this->email->from('no-reply@12parfait.fr', '12parfait');
+                $this->email->to('stanislas.brodin@gmail.com');
+                $this->email->subject($subject);
+                $this->email->message($body);
+                $body = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $body));
+                $this->email->set_alt_message($body);
+                $this->email->send();
+                $this->email->clear();
 
                 $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
                 redirect(site_url(), 'location');
