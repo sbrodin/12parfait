@@ -208,9 +208,9 @@ td.dash {
     vertical-align: top;
     width: auto;
 }
-.message-table tr,
-.home-table tr,
-.score-table tr {
+.message-table :not(thead) tr,
+.home-table :not(thead) tr,
+.score-table :not(thead) tr {
     cursor: pointer;
 }
 .home-message ul {
