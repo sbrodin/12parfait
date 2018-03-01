@@ -23,7 +23,7 @@ class User_model extends MY_Model {
 
     public function in_database_email($email)
     {
-        $select = '*';
+        $select = '1';
         $where = array('email' => $email);
         $user = $this->read($select, $where);
 
