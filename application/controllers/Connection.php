@@ -79,9 +79,6 @@ class Connection extends CI_Controller {
     public $moderator_acl = array(
         // acl général pour admin
         'admin_all',
-        // acl pour logs
-        'admin_logs',
-        'view_logs',
         // acl pour journée
         'admin_fixtures',
         'add_fixture',
