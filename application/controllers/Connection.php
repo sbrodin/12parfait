@@ -286,10 +286,16 @@ class Connection extends CI_Controller {
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login($url = '') {
-        save_log('connection', 'login');
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
+            if (empty($post)) {
+                save_log('connection', 'login', 'échec de connexion - données post vides');
+            } else if (!$post['email']) {
+                save_log('connection', 'login', 'échec de connexion - post email vide');
+            } else if (!$post['password']) {
+                save_log('connection', 'login', 'échec de connexion - post password vide');
+            }
             redirect(site_url('connection'), 'location');
             exit;
         }
@@ -322,13 +328,16 @@ class Connection extends CI_Controller {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
             if ($url !== '') {
+                save_log('connection', 'login', 'connexion réussie - vers url spécifique : ' . $url);
                 redirect(site_url(urldecode($url)), 'location');
                 exit;
             } else {
+                save_log('connection', 'login', 'connexion réussie - vers home');
                 redirect(site_url(), 'location');
                 exit;
             }
         } else {
+            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (' . $post['email'] . ' / ' . $post['password'] . ')');
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
             redirect(site_url('connection'), 'location');
             exit;

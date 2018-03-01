@@ -11,10 +11,9 @@ class Home extends MY_Controller {
     public function index()
     {
         if (!user_can('admin_all')) {
-            save_log('admin/home', 'index', '', '', 'tentative échouée de connexion à l\'admin');
+            save_log('admin/home', 'index', 'tentative échouée de connexion à l\'admin');
             show_404();
         }
-        $log_message = 'méthode : index, IP : ' . $this->input->ip_address();
         save_log('admin/home', 'index');
 
         $data = array();
