@@ -2,14 +2,14 @@
 <?= validation_errors() ?>
 
 <?= form_open('admin/fixtures/add') ?>
-    <?php if (!empty($this->session->userdata['championship'])) : ?>
-    <input type="hidden" id="championship" name="championship" value="<?= $this->session->userdata['championship'] ?>">
+    <?php if (!empty($this->session->userdata('championship'))) : ?>
+    <input type="hidden" id="championship" name="championship" value="<?= $this->session->userdata('championship') ?>">
     <?php else : ?>
     <label for="championship"><?= $this->lang->line('championship') ?> : </label>
     <select id="championship" name="championship" required="required">
         <?php foreach ($championships as $key => $championship) : ?>
         <option value="<?= $championship->championship_id ?>" 
-            selected="<?= (!empty($this->session->userdata['championship']) && $this->session->userdata['championship']==$championship->championship_id) ? 'selected' : '' ?>" ><?= $championship->name ?></option>
+            selected="<?= (!empty($this->session->userdata('championship')) && $this->session->userdata('championship') == $championship->championship_id) ? 'selected' : '' ?>" ><?= $championship->name ?></option>
         <?php endforeach; ?>
     </select><br/>
     <?php endif; ?>

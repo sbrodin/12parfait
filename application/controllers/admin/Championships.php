@@ -264,8 +264,8 @@ class Championships extends MY_Controller {
 
         $this->championship_team_model->delete($where);
 
-        if ($this->session->userdata['fixture']) {
-            redirect(site_url('admin/fixtures/results/'.$this->session->userdata['fixture']), 'location');
+        if ($this->session->userdata('fixture')) {
+            redirect(site_url('admin/fixtures/results/'.$this->session->userdata('fixture')), 'location');
             exit;
         } else {
             redirect(site_url('admin/championships'), 'location');

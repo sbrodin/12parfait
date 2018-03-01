@@ -121,7 +121,7 @@ class Connection extends CI_Controller {
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
-            $this->lang->load('12parfait', $this->session->userdata['user']->language);
+            $this->lang->load('12parfait', $this->session->userdata('language'));
         }
     }
 
@@ -481,10 +481,10 @@ class Connection extends CI_Controller {
     */
     public function logout() {
         save_log('connection', 'logout');
-        if (!empty($this->session->userdata['user'])) {
+        if (!empty($this->session->userdata('user'))) {
             $this->session->unset_userdata('user');
         }
-        if (!empty($this->session->userdata['acl'])) {
+        if (!empty($this->session->userdata('acl'))) {
             $this->session->unset_userdata('acl');
         }
         delete_cookie('ci_session');

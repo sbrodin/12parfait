@@ -43,7 +43,7 @@ class Matches extends MY_Controller {
         // Matchs déjà enregistrés pour la journée
         $select = 't1.team_id AS t1_id, t2.team_id AS t2_id, t1.name AS team1, t2.name AS team2, date';
         $where = array(
-            'fixture_id' => $this->session->userdata['fixture'],
+            'fixture_id' => $this->session->userdata('fixture'),
         );
         $nb = NULL;
         $debut = NULL;
@@ -70,8 +70,8 @@ class Matches extends MY_Controller {
         $this->load->model('team_model');
         $select = 'team.team_id, team.name AS team_name, championship.name AS championship_name, fixture.name AS fixture_name';
         $where = array(
-            'championship_team.championship_id' => $this->session->userdata['championship'],
-            'fixture.fixture_id' => $this->session->userdata['fixture'],
+            'championship_team.championship_id' => $this->session->userdata('championship'),
+            'fixture.fixture_id' => $this->session->userdata('fixture'),
         );
         $where_not_in = array(
             'team.team_id', $already_set_teams,
@@ -148,7 +148,7 @@ class Matches extends MY_Controller {
                     'team1_id' => $post['team1'],
                     'team2_id' => $post['team2'],
                     'date' => $date_formatted,
-                    'fixture_id' => $this->session->userdata['fixture'],
+                    'fixture_id' => $this->session->userdata('fixture'),
                 );
                 $this->match_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('match_successful_creation'));
@@ -217,7 +217,7 @@ class Matches extends MY_Controller {
 
         $this->load->model('fixture_model');
         $select = 'fixture_id, fixture.name AS fixture_name, championship.championship_id, championship.name AS championship_name';
-        $where = array('championship.championship_id' => $this->session->userdata['championship']);
+        $where = array('championship.championship_id' => $this->session->userdata('championship'));
         $nb = NULL;
         $debut = NULL;
         $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';

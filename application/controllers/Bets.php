@@ -24,8 +24,8 @@ class Bets extends MY_Controller {
             'championship' => '',
             'fixture' => '',
         );
-        if (isset($this->session->userdata['filters_bets'])) {
-            $filters['filters_bets'] = $this->session->userdata['filters_bets'];
+        if (isset($this->session->userdata('filters_bets'))) {
+            $filters['filters_bets'] = $this->session->userdata('filters_bets');
         }
         $post = $this->input->post();
         if (!empty($post)) {
@@ -77,8 +77,8 @@ class Bets extends MY_Controller {
         }
 
         // Récupération du message d'information pour les pronostics
-        $language = $this->session->userdata['user']->language;
-        if ($language === '') {
+        $language = $this->session->userdata('language');
+        if (empty($language)) {
             $language = 'french';
         }
         $this->load->model('message_model');
@@ -112,7 +112,7 @@ class Bets extends MY_Controller {
         // Récupération des utilisateurs pour voir leurs paris
         $this->load->model('user_model');
         $where = array(
-            'user_id !=' => $this->session->userdata['user']->user_id,
+            'user_id !=' => $this->session->userdata('user_id'),
             'user.active' => 1,
         );
         $nb = NULL;
@@ -126,8 +126,8 @@ class Bets extends MY_Controller {
 
         // Récupération des éventuels paris d'autres joueurs
         $filters['bets_of_players'] = array();
-        if (isset($this->session->userdata['bets_of_players'])) {
-            $filters['bets_of_players'] = $this->session->userdata['bets_of_players'];
+        if (isset($this->session->userdata('bets_of_players'))) {
+            $filters['bets_of_players'] = $this->session->userdata('bets_of_players');
         }
         $post = $this->input->post();
         if (!empty($post)) {
@@ -205,7 +205,7 @@ class Bets extends MY_Controller {
                        bet.team2_score,
                        bet.score';
             $where = array(
-                'bet.user_id' => $this->session->userdata['user']->user_id,
+                'bet.user_id' => $this->session->userdata('user_id'),
                 'match.fixture_id' => $fixture_id,
             );
             $order = 'match.date ASC, match.match_id';
@@ -259,8 +259,8 @@ class Bets extends MY_Controller {
         }
 
         // Récupération du message d'information pour les pronostics des autres joueurs
-        $language = $this->session->userdata['user']->language;
-        if ($language === '') {
+        $language = $this->session->userdata('language');
+        if (empty($language)) {
             $language = 'french';
         }
         $this->load->model('message_model');
@@ -285,7 +285,7 @@ class Bets extends MY_Controller {
             $query = 'DELETE bet ';
             $query.= 'FROM `' . $this->config->item('bet', 'table') . '` ';
             $query.= 'JOIN `' . $this->config->item('match', 'table') . '` ON bet.match_id = `match`.match_id ';
-            $query.= 'WHERE user_id = ' . $this->session->userdata['user']->user_id . ' ';
+            $query.= 'WHERE user_id = ' . $this->session->userdata('user_id') . ' ';
             $query.= 'AND `match`.result IS NULL ';
             $query.= 'AND bet.match_id IN (' . implode(', ', array_keys($data['matches'])) . ')';
             $this->db->query($query);
@@ -322,7 +322,7 @@ class Bets extends MY_Controller {
                     if (!is_null($resultat) &&
                         date('Y-m-d H:i:s') < $data['matches'][$match_id]) {
                         $bets[] = array(
-                            'user_id' => $this->session->userdata['user']->user_id,
+                            'user_id' => $this->session->userdata('user_id'),
                             'match_id' => $match_id,
                             'result' => $resultat,
                             'team1_score' => $team1_score,

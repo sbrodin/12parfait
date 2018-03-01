@@ -17,7 +17,7 @@ class MY_Controller extends CI_Controller {
             $this->lang->load('12parfait', $this->config->item('language'));
             redirect(site_url(), 'location');
         } else {
-            $this->lang->load('12parfait', $this->session->userdata['user']->language);
+            $this->lang->load('12parfait', $this->session->userdata('language'));
         }
 
         // on n'active le profiler qu'en dev

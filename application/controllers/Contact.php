@@ -10,7 +10,7 @@ class Contact extends MY_Controller {
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
-            $this->lang->load('12parfait', $this->session->userdata['user']->language);
+            $this->lang->load('12parfait', $this->session->userdata('language'));
         }
     }
 
@@ -21,8 +21,8 @@ class Contact extends MY_Controller {
         $data['title'] = $this->lang->line('contact');
 
         // Récupération du message d'information pour les pronostics
-        $language = $this->session->userdata['user']->language;
-        if ($language === '') {
+        $language = $this->session->userdata('language');
+        if (empty($language)) {
             $language = 'french';
         }
         $this->load->model('message_model');
@@ -66,7 +66,7 @@ class Contact extends MY_Controller {
             } else {
                 // Envoi d'email pour info
                 $subject = '12parfait - Contact - ' . $post['motif'];
-                $body = 'Message envoyé par "' . $this->session->userdata['user']->email . '" :<br/><br/>';
+                $body = 'Message envoyé par "' . $this->session->userdata('email') . '" :<br/><br/>';
                 $body.= $post['message'];
 
                 $config['mailtype'] = 'html';
