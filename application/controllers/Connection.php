@@ -337,7 +337,7 @@ class Connection extends CI_Controller {
                 exit;
             }
         } else {
-            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (' . $post['email'] . ' / ' . $post['password'] . ')');
+            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (email : ' . $post['email'] . ')');
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
             redirect(site_url('connection'), 'location');
             exit;
@@ -348,7 +348,6 @@ class Connection extends CI_Controller {
     * Fonction d'oubli de mot de passe.
     */
     public function forgotten_password() {
-        save_log('connection', 'forgotten_password');
         $data = array();
         $data['title'] = $this->lang->line('forgotten_password');
 
@@ -401,6 +400,7 @@ class Connection extends CI_Controller {
                 $this->email->set_alt_message($body);
                 $this->email->send();
                 $this->email->clear();
+                save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : ' . $post['email']);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
                 redirect(site_url('connection'), 'location');
@@ -415,7 +415,6 @@ class Connection extends CI_Controller {
     */
     public function reset_password($hash)
     {
-        save_log('connection', 'reset_password');
         $data = array();
         $data['title'] = $this->lang->line('reset_password');
         $data['hash'] = $hash;
@@ -475,6 +474,7 @@ class Connection extends CI_Controller {
                     'date_hash' => NULL,
                 );
                 $this->user_model->update($where, $donnees_echapees);
+                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : ' . $user['email']);
                 redirect(site_url('connection'), 'location');
                 exit;
             }
