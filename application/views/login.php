@@ -2,7 +2,7 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
         <?php if ($this->session->flashdata('error')) : ?>
-            <div class="alert alert-alert alert-dismissible fade in" role="alert">
+            <div class="alert alert-warning alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
