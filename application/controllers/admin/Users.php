@@ -103,7 +103,7 @@ class Users extends MY_Controller {
             exit;
         }
 
-        $select = '*';
+        $select = 'acl';
         $where = array(
             'user_id' => $user_id,
         );
@@ -143,7 +143,7 @@ class Users extends MY_Controller {
             exit;
         }
 
-        $select = '*';
+        $select = 'acl';
         $where = array(
             'user_id' => $user_id,
         );

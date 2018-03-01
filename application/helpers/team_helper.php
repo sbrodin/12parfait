@@ -16,7 +16,7 @@ function is_team_in_championship($team_id, $championship_id) {
         'team_id' => $team_id,
         'championship_id' => $championship_id,
     );
-    $team_championship = $CI->db->select('*')
+    $team_championship = $CI->db->select('1')
                                 ->from($CI->config->item('championship_team', 'table'))
                                 ->where($where)
                                 ->get()
