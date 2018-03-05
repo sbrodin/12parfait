@@ -57,10 +57,11 @@ TODO
 ****
 
 Liste des éléments restants à faire :
-    - Edition des niveaux des équipes
+    - Editer les niveaux des équipes
     - Ajouter cookie pour langue
-    - Gestion des messages
-    - Envoyer un email à l'inscription
+    - Gérer les envois de mails massifs
+    - Améliorer l'email d'inscription
+    - Améliorer le message reçu via "Contact"
     - Mes scores
         - prendre en compte les filtres
         - ajouter histogramme points par journée par championnat
@@ -72,9 +73,18 @@ Liste des éléments restants à faire :
         - avoir un petit podium au-dessus du tableau (à terminer)
         - ajouter le nombre de 12parfait
         - ajouter un filtre par date
-    - Ajout du système de log
-        - Ajout d'un filtre pour les logs
+    - Ajouter un filtre pour les logs
     - Inclure la nav dans le header pour moins de fichiers à charger
+    - Ajouter le système de "ligue"
+        - identifiant unique
+        - lien vers la "ligue"
+        - email d'invitation aux membres de la ligue
+        - choix des championnats sur lesquels parier
+        - comparaison des scores dans la "ligue"
+        - comparaison des scores entre "ligues"
+        - système de message dans la ligue
+            - possibilité de signaler des messages
+            - contrôles de tous les messages échangés
     - Inclure un système de trophées + message à la réception du trophée
         - 5-6 niveaux :
             - bois
@@ -95,13 +105,3 @@ Liste des éléments restants à faire :
             - victoires de "ligue" (1, 5, 10, 20, 50)
             - nombre de trophées (3, 10, 20, 50, 100)
     - Inclure un système de jokers dépendant du nombre de trophées non utilisés
-    - Ajouter le système de "ligue"
-        - identifiant unique
-        - lien vers la "ligue"
-        - email d'invitation aux membres de la ligue
-        - choix des championnats sur lesquels parier
-        - comparaison des scores dans la "ligue"
-        - comparaison des scores entre "ligues"
-        - système de message dans la ligue
-            - possibilité de signaler des messages
-            - contrôles de tous les messages échangés
