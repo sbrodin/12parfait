@@ -61,7 +61,6 @@ Liste des éléments restants à faire :
     - Ajouter cookie pour langue
     - Gérer les envois de mails massifs
     - Améliorer l'email d'inscription
-    - Améliorer le message reçu via "Contact"
     - Mes scores
         - prendre en compte les filtres
         - ajouter histogramme points par journée par championnat
