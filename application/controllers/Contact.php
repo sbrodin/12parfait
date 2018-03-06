@@ -58,7 +58,9 @@ class Contact extends MY_Controller {
                 $this->load->view('contact', $data);
                 $this->load->view('templates/footer', $data);
             } else {
-                // Envoi d'email pour info
+                // Conversion du message pour affichage correct en html
+                $post['message'] = nl2br($post['message']);
+                // Envoi de l'email
                 $subject = '12parfait - Contact - ' . $post['motif'];
                 $body = 'Message envoyé par "' . $this->session->user->email . '" :<br/><br/>';
                 $body.= $post['message'];
