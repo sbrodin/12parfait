@@ -118,7 +118,7 @@ class Connection extends CI_Controller {
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
-            $this->lang->load('12parfait', $this->session->userdata('language'));
+            $this->lang->load('12parfait', $this->session->user->language);
         }
     }
 

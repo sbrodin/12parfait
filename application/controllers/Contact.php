@@ -15,7 +15,7 @@ class Contact extends MY_Controller {
         $data['title'] = $this->lang->line('contact');
 
         // Récupération du message d'information pour les pronostics
-        $language = $this->session->userdata('language');
+        $language = $this->session->user->language;
         if (empty($language)) {
             $language = 'french';
         }
@@ -60,7 +60,7 @@ class Contact extends MY_Controller {
             } else {
                 // Envoi d'email pour info
                 $subject = '12parfait - Contact - ' . $post['motif'];
-                $body = 'Message envoyé par "' . $this->session->userdata('email') . '" :<br/><br/>';
+                $body = 'Message envoyé par "' . $this->session->user->email . '" :<br/><br/>';
                 $body.= $post['message'];
 
                 $config['mailtype'] = 'html';

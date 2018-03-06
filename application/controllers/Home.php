@@ -10,7 +10,7 @@ class Home extends CI_Controller {
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
-            $this->lang->load('12parfait', $this->session->userdata('language'));
+            $this->lang->load('12parfait', $this->session->user->language);
         }
     }
 
@@ -23,7 +23,7 @@ class Home extends CI_Controller {
         if (!is_connected()) {
             $language = $this->config->item('language');
         } else {
-            $language = $this->session->userdata('language');
+            $language = $this->session->user->language;
         }
         if (empty($language)) {
             $language = 'french';

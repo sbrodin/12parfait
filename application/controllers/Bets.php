@@ -77,7 +77,7 @@ class Bets extends MY_Controller {
         }
 
         // Récupération du message d'information pour les pronostics
-        $language = $this->session->userdata('language');
+        $language = $this->session->user->language;
         if (empty($language)) {
             $language = 'french';
         }
@@ -259,7 +259,7 @@ class Bets extends MY_Controller {
         }
 
         // Récupération du message d'information pour les pronostics des autres joueurs
-        $language = $this->session->userdata('language');
+        $language = $this->session->user->language;
         if (empty($language)) {
             $language = 'french';
         }
