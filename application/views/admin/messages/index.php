@@ -24,7 +24,7 @@
             <td><?= html_entity_decode($message->french_content) ?></td>
             <td><?= html_entity_decode($message->english_content) ?></td>
             <td>
-                <a href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/messages/edit/' . $message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

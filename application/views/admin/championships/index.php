@@ -30,13 +30,13 @@
             <td><?= $championship->year ?></td>
             <td>
                 <?php if ($championship->status === 'open') : ?>
-                    <a href="<?= site_url('admin/championships/deactivate/'.$championship->championship_id) ?>"><?= $this->lang->line('deactivate_championship') ?></a>
+                    <a class="btn btn-sm btn-primary" href="<?= site_url('admin/championships/deactivate/'.$championship->championship_id) ?>"><?= $this->lang->line('deactivate_championship') ?></a>
                 <?php else : ?>
-                    <a href="<?= site_url('admin/championships/activate/'.$championship->championship_id) ?>"><?= $this->lang->line('activate_championship') ?></a>
+                    <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/championships/activate/'.$championship->championship_id) ?>"><?= $this->lang->line('activate_championship') ?></a>
                 <?php endif; ?>
             </td>
             <td>
-                <a href="<?= site_url('admin/championships/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/championships/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -24,7 +24,7 @@
             <td><?= $team->short_name ?></td>
             <td><?= $team->level ?></td>
             <td>
-                <a href="<?= site_url('admin/teams/edit/'.$team->team_id) ?>"><?= $this->lang->line('edit_team') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/teams/edit/'.$team->team_id) ?>"><?= $this->lang->line('edit_team') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

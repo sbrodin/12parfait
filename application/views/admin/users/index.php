@@ -36,18 +36,18 @@
                 <td>
                     <?php if ($user->user_id !== $this->session->userdata('user_id')) : ?>
                         <?php if ($user->active === $this->lang->line('yes')) : ?>
-                            <a href="<?= site_url('admin/users/deactivate/'.$user->user_id) ?>"><?= $this->lang->line('deactivate_user') ?></a>
+                            <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/deactivate/'.$user->user_id) ?>"><?= $this->lang->line('deactivate_user') ?></a>
                         <?php else : ?>
-                            <a href="<?= site_url('admin/users/activate/'.$user->user_id) ?>"><?= $this->lang->line('activate_user') ?></a>
+                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/users/activate/'.$user->user_id) ?>"><?= $this->lang->line('activate_user') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </td>
                 <td>
                     <?php if ($user->user_id !== $this->session->userdata('user_id')) : ?>
                         <?php if ($user->acl === 'user') : ?>
-                            <a href="<?= site_url('admin/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
+                            <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
                         <?php else : ?>
-                            <a href="<?= site_url('admin/users/demote/'.$user->user_id) ?>"><?= $this->lang->line('demote_user') ?></a>
+                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/users/demote/'.$user->user_id) ?>"><?= $this->lang->line('demote_user') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </td>

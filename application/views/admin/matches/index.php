@@ -28,7 +28,7 @@
             <td><?= $championship->level ?></td>
             <td><?= $championship->year ?></td>
             <td>
-                <a href="<?= site_url('admin/matches/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit_matches') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/matches/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit_matches') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

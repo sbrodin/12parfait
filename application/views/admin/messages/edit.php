@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
-        <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('admin/messages')?>"><?= $this->lang->line('back_to_messages_admin') ?></a>
+        <a class="btn btn-sm btn-outline-primary m-b-2" href="<?= site_url('admin/messages')?>"><?= $this->lang->line('back_to_messages_admin') ?></a>
 
         <?= validation_errors(); ?>
 
