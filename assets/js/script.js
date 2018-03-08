@@ -8,6 +8,8 @@ console.log('-                                             -');
 console.log('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*');
 console.log('%c 12parfait ', 'color: #0275D8; font-size: 40px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;');
 
+// https://www.giftofspeed.com/javascript-compressor/
+
 $('.alert').alert();
 
 $('#teams').multiSelect({
