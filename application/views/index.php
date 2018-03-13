@@ -7,7 +7,7 @@
     </div>
 <?php endif ?>
 
-<?php if ($bet_of_message) : ?>
+<?php if ($home_message) : ?>
     <div class="jumbotron">
         <?= $home_message ?>
     </div>
