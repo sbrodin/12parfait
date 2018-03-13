@@ -34,7 +34,7 @@
                 <td><?= $user->acl ?></td>
                 <td><?= $user->active ?></td>
                 <td>
-                    <?php if ($user->user_id !== $this->session->userdata('user_id')) : ?>
+                    <?php if ($user->user_id !== $this->session->user->user_id) : ?>
                         <?php if ($user->active === $this->lang->line('yes')) : ?>
                             <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/deactivate/'.$user->user_id) ?>"><?= $this->lang->line('deactivate_user') ?></a>
                         <?php else : ?>
@@ -43,7 +43,7 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <?php if ($user->user_id !== $this->session->userdata('user_id')) : ?>
+                    <?php if ($user->user_id !== $this->session->user->user_id) : ?>
                         <?php if ($user->acl === 'user') : ?>
                             <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
                         <?php else : ?>

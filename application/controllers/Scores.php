@@ -130,9 +130,9 @@ class Scores extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = ($user_id === $this->session->userdata('user_id')) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
+        $data['title'] = ($user_id === $this->session->user->user_id) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
         $data['required_user_id'] = $user_id;
-        $data['my_user_id'] = $this->session->userdata('user_id');
+        $data['my_user_id'] = $this->session->user->user_id;
 
         $select = 'user.user_id,
                    user_name,

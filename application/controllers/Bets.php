@@ -112,7 +112,7 @@ class Bets extends MY_Controller {
         // Récupération des utilisateurs pour voir leurs paris
         $this->load->model('user_model');
         $where = array(
-            'user_id !=' => $this->session->userdata('user_id'),
+            'user_id !=' => $this->session->user->user_id,
             'user.active' => 1,
         );
         $nb = NULL;
@@ -205,7 +205,7 @@ class Bets extends MY_Controller {
                        bet.team2_score,
                        bet.score';
             $where = array(
-                'bet.user_id' => $this->session->userdata('user_id'),
+                'bet.user_id' => $this->session->user->user_id,
                 'match.fixture_id' => $fixture_id,
             );
             $order = 'match.date ASC, match.match_id';
@@ -285,7 +285,7 @@ class Bets extends MY_Controller {
             $query = 'DELETE bet ';
             $query.= 'FROM `' . $this->config->item('bet', 'table') . '` ';
             $query.= 'JOIN `' . $this->config->item('match', 'table') . '` ON bet.match_id = `match`.match_id ';
-            $query.= 'WHERE user_id = ' . $this->session->userdata('user_id') . ' ';
+            $query.= 'WHERE user_id = ' . $this->session->user->user_id . ' ';
             $query.= 'AND `match`.result IS NULL ';
             $query.= 'AND bet.match_id IN (' . implode(', ', array_keys($data['matches'])) . ')';
             $this->db->query($query);
@@ -322,7 +322,7 @@ class Bets extends MY_Controller {
                     if (!is_null($resultat) &&
                         date('Y-m-d H:i:s') < $data['matches'][$match_id]) {
                         $bets[] = array(
-                            'user_id' => $this->session->userdata('user_id'),
+                            'user_id' => $this->session->user->user_id,
                             'match_id' => $match_id,
                             'result' => $resultat,
                             'team1_score' => $team1_score,
