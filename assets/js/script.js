@@ -8,7 +8,16 @@ console.log('-                                             -');
 console.log('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*');
 console.log('%c 12parfait ', 'color: #0275D8; font-size: 40px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;');
 
-// https://www.giftofspeed.com/javascript-compressor/
+/*
+https://www.giftofspeed.com/javascript-compressor/
+
+jquery-3.1.0.min
+jquery.multi-select
+jquery.datetimepicker.full.min
+tether-1.3.3.min
+bootstrap.4.0.0-alpha.4.min
+script
+*/
 
 $('.alert').alert();
 

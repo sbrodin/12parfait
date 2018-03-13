@@ -1,4 +1,13 @@
-/* https://www.giftofspeed.com/css-compressor/ */
+/*
+https://www.giftofspeed.com/css-compressor/
+
+multi-select
+jquery.datetimepicker.min
+bootstrap.4.0.0-alpha.4.min
+tether-1.3.3.min
+font-awesome.4.7.0.min
+style
+*/
 
 /** RESET **/
 html {
@@ -91,7 +100,7 @@ table {
 table thead th,
 table thead:hover th {
     text-align: left;
-    background-color: rgba(2, 117, 216, 0.5);
+    background-color: rgba(2, 117, 216, 0.7);
 }
 table td {
     margin: 0;
@@ -187,7 +196,7 @@ input.score {
 }
 td.date {
     text-align: center;
-    background-color: rgba(0, 88, 128, 0.2);
+    background-color: rgba(2, 117, 216, 0.1);
 }
 td.team1-name {
     text-align: right;
