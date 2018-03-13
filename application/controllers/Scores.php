@@ -23,8 +23,8 @@ class Scores extends MY_Controller {
             'championship' => '',
             'fixture' => '',
         );
-        if (isset($this->session->userdata('filters_scores'))) {
-            $filters['filters_scores'] = $this->session->userdata('filters_scores');
+        if (isset($this->session->filters_scores)) {
+            $filters['filters_scores'] = $this->session->filters_scores;
         }
         $post = $this->input->post();
         if (!empty($post)) {

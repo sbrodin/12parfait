@@ -24,8 +24,8 @@ class Bets extends MY_Controller {
             'championship' => '',
             'fixture' => '',
         );
-        if (isset($this->session->userdata('filters_bets'))) {
-            $filters['filters_bets'] = $this->session->userdata('filters_bets');
+        if (isset($this->session->filters_bets)) {
+            $filters['filters_bets'] = $this->session->filters_bets;
         }
         $post = $this->input->post();
         if (!empty($post)) {
@@ -126,8 +126,8 @@ class Bets extends MY_Controller {
 
         // Récupération des éventuels paris d'autres joueurs
         $filters['bets_of_players'] = array();
-        if (isset($this->session->userdata('bets_of_players'))) {
-            $filters['bets_of_players'] = $this->session->userdata('bets_of_players');
+        if (isset($this->session->bets_of_players)) {
+            $filters['bets_of_players'] = $this->session->bets_of_players;
         }
         $post = $this->input->post();
         if (!empty($post)) {
