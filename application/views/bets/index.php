@@ -42,6 +42,9 @@
         <th><?= $this->lang->line('championship_name') ?></th>
         <th><?= $this->lang->line('fixture_name') ?></th>
         <th></th>
+        <?php if (user_can('admin_fixtures')) : ?>
+            <th></th>
+        <?php endif; ?>
     </thead>
     <?php
     $championship_name = '';
@@ -65,6 +68,13 @@
             <a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('results') ?></a>
             <?php endif; ?>
         </td>
+        <?php if (user_can('admin_fixtures')) : ?>
+            <?php if ($fixture->status === 'open') : ?>
+                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+            <?php else : ?>
+                <td></td>
+            <?php endif; ?>
+        <?php endif; ?>
     </tr>
     <?php endforeach; ?>
 </table>

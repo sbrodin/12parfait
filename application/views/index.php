@@ -20,7 +20,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="6" class="text-xs-center"><?= $this->lang->line('last_matches'); ?></th>
+                    <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '7' : '6'?>" class="text-xs-center"><?= $this->lang->line('last_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +40,9 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
+                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -50,7 +53,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="4" class="text-xs-center"><?= sprintf($this->lang->line('next_matches'), $next_matches_date) ?></th>
+                    <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '5' : '4'?>" class="text-xs-center"><?= sprintf($this->lang->line('next_matches'), $next_matches_date) ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +70,9 @@
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                        <?php endif; ?>
+                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -88,7 +94,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="6" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
+                    <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '7' : '6'?>" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -108,6 +114,9 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
+                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -118,7 +127,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="5" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
+                    <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '6' : '5'?>" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -137,6 +146,9 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
+                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -147,7 +159,7 @@
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
             <thead>
                 <tr>
-                    <th colspan="5" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
+                    <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '6' : '5'?>" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -165,6 +177,9 @@
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                        <?php endif; ?>
+                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
