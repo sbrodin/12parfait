@@ -328,7 +328,7 @@ class Connection extends CI_Controller {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
             if ($url !== '') {
-                save_log('connection', 'login', 'connexion réussie - vers url spécifique : ' . $url);
+                save_log('connection', 'login', 'connexion réussie - vers url spécifique : ' . url_decode($url));
                 redirect(site_url(urldecode($url)), 'location');
                 exit;
             } else {
