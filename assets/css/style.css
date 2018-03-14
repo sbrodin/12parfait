@@ -224,7 +224,7 @@ td.dash {
 .score-table :not(thead) tr {
     cursor: pointer;
 }
-.home-message ul {
+.jumbotron ul {
     margin-left: 40px;
     list-style-type: circle;
 }
