@@ -274,6 +274,7 @@ class Connection extends CI_Controller {
                     $this->email->clear();
                 }
 
+                $this->load->model('user_model');
                 $this->user_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('account_successful_creation'));
                 // Redirection vers le profil
@@ -288,6 +289,7 @@ class Connection extends CI_Controller {
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login($url = '') {
+        $this->load->model('user_model');
         $this->load->model('log_model');
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
@@ -387,6 +389,7 @@ class Connection extends CI_Controller {
                         'hash' => $hash,
                         'date_hash' => date('Y-m-d H:i:s'),
                     );
+                $this->load->model('user_model');
                 $this->user_model->update($where, $donnees_echapees);
 
                 $subject = '12parfait - Mot de passe oublié';
@@ -419,6 +422,7 @@ class Connection extends CI_Controller {
     */
     public function reset_password($hash)
     {
+        $this->load->model('user_model');
         $data = array();
         $data['title'] = $this->lang->line('reset_password');
         $data['hash'] = $hash;
@@ -490,6 +494,7 @@ class Connection extends CI_Controller {
     * Cette fonction supprime les données de session.
     */
     public function logout() {
+        $this->load->model('log_model');
         save_log('connection', 'logout');
         if (!empty($this->session->userdata('user'))) {
             $this->session->unset_userdata('user');

@@ -17,7 +17,7 @@ class User_model extends MY_Model {
         if (password_verify($password, $user->password)) {
             return $user;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -28,9 +28,26 @@ class User_model extends MY_Model {
         $user = $this->read($select, $where);
 
         if (empty($user)) {
-            return FALSE;
+            return false;
         } else {
-            return TRUE;
+            return true;
+        }
+    }
+
+    public function is_active()
+    {
+        if (empty($this->session->user)) {
+            return false;
+        }
+        $user_id = $this->session->user->user_id;
+        $select = '1';
+        $where = array('user_id' => $user_id, 'active' => 1);
+        $user = $this->read($select, $where);
+
+        if (empty($user)) {
+            return false;
+        } else {
+            return true;
         }
     }
 }

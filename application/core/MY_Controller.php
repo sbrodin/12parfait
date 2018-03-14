@@ -10,6 +10,22 @@ class MY_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('user_model');
+
+        // Si l'utilisateur n'est plus actif, il doit être déconnecté
+        if (!$this->user_model->is_active()) {
+            $this->load->model('log_model');
+            save_log('my_controller', '__construct', 'utilisateur désactivé');
+            if (!empty($this->session->userdata('user'))) {
+                $this->session->unset_userdata('user');
+            }
+            if (!empty($this->session->userdata('acl'))) {
+                $this->session->unset_userdata('acl');
+            }
+            delete_cookie('ci_session');
+            redirect(site_url(''), 'location');
+            exit;
+        }
 
         // Authentification de l'utilisateur
         if (!is_connected()) {
