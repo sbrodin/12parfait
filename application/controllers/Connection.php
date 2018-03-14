@@ -112,8 +112,6 @@ class Connection extends CI_Controller {
     */
     public function __construct() {
         parent::__construct();
-        $this->load->model('user_model');
-        $this->load->model('log_model');
 
         if (!is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
@@ -126,6 +124,7 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de connexion.
     */
     public function index() {
+        $this->load->model('log_model');
         save_log('connection', 'index');
         $data = array();
         $data['title'] = $this->lang->line('log_in');
@@ -178,6 +177,7 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de création de compte.
     */
     public function create_account() {
+        $this->load->model('log_model');
         save_log('connection', 'create_account');
         $data = array();
         $data['title'] = $this->lang->line('create_account');
@@ -286,6 +286,7 @@ class Connection extends CI_Controller {
     * Cette fonction stocke en session les acl en fonction des privilèges récupérés en base de l'utilisateur.
     */
     public function login($url = '') {
+        $this->load->model('log_model');
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
@@ -400,6 +401,7 @@ class Connection extends CI_Controller {
                 $this->email->set_alt_message($body);
                 $this->email->send();
                 $this->email->clear();
+                $this->load->model('log_model');
                 save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : ' . $post['email']);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
