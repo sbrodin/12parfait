@@ -57,7 +57,7 @@ class Scores extends MY_Controller {
         if (isset($filters['filters_scores']['fixture']) && $filters['filters_scores']['fixture']!='') {
             $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_scores']['fixture']));
         }
-        $order = 'rand()';
+        // $order = 'rand()';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))
                                    ->where($where)
@@ -65,7 +65,7 @@ class Scores extends MY_Controller {
                                    ->join('match', 'bet.match_id = match.match_id', 'left')
                                    ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
                                    ->join('championship', 'fixture.championship_id = championship.championship_id', 'left')
-                                   ->order_by($order)
+                                   // ->order_by($order)
                                    ->get()
                                    ->result();
 
