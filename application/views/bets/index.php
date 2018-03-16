@@ -69,7 +69,7 @@
             <?php endif; ?>
         </td>
         <?php if (user_can('admin_fixtures')) : ?>
-            <?php if ($fixture->status === 'open') : ?>
+            <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
                 <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
             <?php else : ?>
                 <td></td>
