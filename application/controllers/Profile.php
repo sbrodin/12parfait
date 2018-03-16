@@ -73,7 +73,7 @@ class Profile extends MY_Controller {
                     'first_name' => $post['first_name'],
                     'last_name' => $post['last_name'],
                     'user_name' => $post['user_name'],
-                    'language' => $post['language'],
+                    // 'language' => $post['language'],
                 );
 
                 $this->user_model->update(array("user_id" => $data['user']->user_id), $donnees_echapees);
