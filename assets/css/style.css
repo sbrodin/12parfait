@@ -224,10 +224,6 @@ td.dash {
 .score-table :not(thead) tr {
     cursor: pointer;
 }
-.jumbotron ul {
-    margin-left: 40px;
-    list-style-type: circle;
-}
 .table-bets .btn-primary:hover {
     background-color: transparent;
     color: #0275D8;
@@ -239,6 +235,10 @@ td.dash {
 }
 .jumbotron {
     padding: 1.5rem 1rem;
+}
+.jumbotron ul {
+    margin-left: 40px;
+    list-style-type: circle;
 }
 .card-scores h1 {
     font-size: 1.9rem;
