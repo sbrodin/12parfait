@@ -14,7 +14,7 @@
         <a class="btn btn-link form-players-filter-link" data-toggle="collapse" href="#fieldset-filters-players" aria-expanded="false" aria-controls="fieldset-filters-players"><?= $this->lang->line('show_hide') ?></a>
         <fieldset id="fieldset-filters-players" class="form-group collapse <?= $collapse_filters ?>">
             <label for="users"><?= $this->lang->line('users')?> : </label>
-            <select name="users[]" class="form-control form-players-filter-users" data-filter-page="bets" multiple>
+            <select name="users[]" class="form-control form-players-filter-users" data-filter-page="bets" aria-label="<?= $this->lang->line('view_bets_of') ?>" multiple>
                 <option value="0"></option>
                 <?php foreach ($users as $key => $user) : ?>
                 <option value="<?= $user->user_id ?>" <?= in_array($user->user_id, $bets_of_players) ? 'selected' : '' ?>><?= $user->user_name ?></option>
@@ -77,11 +77,11 @@
                         $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
                     ?>
                     <tr>
-                        <td class="team1-name hidden-xs-down"><?=$fixture_match->team1 ?></td>
-                        <td class="team1-name hidden-sm-up"><?=$fixture_match->short_team1 ?></td>
-                        <td class="team1_score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?>></td>
+                        <td class="team1-name hidden-xs-down"><?= $fixture_match->team1 ?></td>
+                        <td class="team1-name hidden-sm-up"><?= $fixture_match->short_team1 ?></td>
+                        <td class="team1_score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>"></td>
                         <td class="dash">-</td>
-                        <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?>></td>
+                        <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>"></td>
                         <td class="team2-name hidden-xs-down"><?= $fixture_match->team2 ?></td>
                         <td class="team2-name hidden-sm-up"><?= $fixture_match->short_team2 ?></td>
                         <?php

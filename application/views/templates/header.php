@@ -23,5 +23,5 @@
     </head>
 
     <body>
-        <div class="page wrapper">
+        <div class="page wrapper" role="main">
             <div class="boxed">
