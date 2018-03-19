@@ -42,14 +42,14 @@
                         if (!empty($different_players)) :
                             foreach ($different_players as $player_id => $player_name) :
                         ?>
-                        <th class="text-xs-center hidden-xs-down"><?= $this->lang->line('bets_of') . ' ' . $player_name ?></th>
-                        <th class="text-xs-center hidden-sm-up"><?= $player_name ?></th>
+                        <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('bets_of') . ' ' . $player_name ?></th>
+                        <th class="text-xs-center hidden-md-up"><?= $player_name ?></th>
                         <?php
                             endforeach;
                         endif;
                         ?>
-                        <th class="text-xs-center hidden-xs-down"><?= $this->lang->line('result') ?></th>
-                        <th class="text-xs-center hidden-sm-up"><?= $this->lang->line('result_short') ?></th>
+                        <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('result') ?></th>
+                        <th class="text-xs-center hidden-md-up"><?= $this->lang->line('result_short') ?></th>
                         <th class="text-xs-center"><?= $this->lang->line('my_score') ?></th>
                     </tr>
                 </thead>
@@ -93,7 +93,7 @@
                             if (!$disabled) {
                                 echo '?';
                             } else if (!empty($fixture_bets_players[$player_id][$match_id])) {
-                                echo $fixture_bets_players[$player_id][$match_id]->team1_score . ' - ' . $fixture_bets_players[$player_id][$match_id]->team2_score . ' (' . $fixture_bets_players[$player_id][$match_id]->score . $this->lang->line('points_short') . ')';
+                                echo $fixture_bets_players[$player_id][$match_id]->team1_score . '-' . $fixture_bets_players[$player_id][$match_id]->team2_score . ' (' . $fixture_bets_players[$player_id][$match_id]->score . $this->lang->line('points_short') . ')';
                             } else {
                                 echo $this->lang->line('not_available_short');
                             }
@@ -103,8 +103,8 @@
                             endforeach;
                         endif;
                         ?>
-                        <td class="text-xs-center hidden-xs-down"><?= $result ?></td>
-                        <td class="text-xs-center hidden-sm-up"><?= $short_result ?></td>
+                        <td class="text-xs-center hidden-sm-down"><?= $result ?></td>
+                        <td class="text-xs-center hidden-md-up"><?= $short_result ?></td>
                         <td class="text-xs-center"><?= $score ?></td>
                     </tr>
                     <?php endforeach ?>
