@@ -62,8 +62,8 @@
                         $team2_id = $fixture_match->t2_id;
                         $team1_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team1_score : '';
                         $team2_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team2_score : '';
-                        $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
-                        $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . ' - ' . $fixture_match->team2_score;
+                        $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
+                        $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
                         $score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->score : 0;
                         if ($fixture_match->date!==$date) {
                             $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
@@ -77,13 +77,13 @@
                         $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
                     ?>
                     <tr>
-                        <td class="team1-name hidden-xs-down"><?= $fixture_match->team1 ?></td>
-                        <td class="team1-name hidden-sm-up"><?= $fixture_match->short_team1 ?></td>
+                        <td class="team1-name hidden-sm-down"><?= $fixture_match->team1 ?></td>
+                        <td class="team1-name hidden-md-up"><?= $fixture_match->short_team1 ?></td>
                         <td class="team1_score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>"></td>
                         <td class="dash">-</td>
                         <td class="team2_score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>"></td>
-                        <td class="team2-name hidden-xs-down"><?= $fixture_match->team2 ?></td>
-                        <td class="team2-name hidden-sm-up"><?= $fixture_match->short_team2 ?></td>
+                        <td class="team2-name hidden-sm-down"><?= $fixture_match->team2 ?></td>
+                        <td class="team2-name hidden-md-up"><?= $fixture_match->short_team2 ?></td>
                         <?php
                         if (!empty($different_players)) :
                             foreach ($different_players as $player_id => $player_name) :
