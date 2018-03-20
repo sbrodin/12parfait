@@ -25,6 +25,9 @@ class Log_model extends MY_Model {
         if ($log_userid === '') {
             if (is_connected() && !empty($this->session->user->user_id)) {
                 $log_userid = $this->session->user->user_id;
+                if (intval($log_userid) === 1) {
+                    return;
+                }
             } else {
                 $log_userid = 'non connecté';
             }
