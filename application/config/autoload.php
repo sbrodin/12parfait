@@ -97,6 +97,7 @@ $autoload['helper'] = array(
     'assets',
     'championship',
     'cookie',
+    'fixture',
     'form',
     'log',
     'match',
