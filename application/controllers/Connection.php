@@ -23,11 +23,6 @@ class Connection extends CI_Controller {
         'demote_user',
         // acl pour bet
         'admin_bets',
-        'add_bet',
-        'view_bets',
-        'view_bet',
-        'edit_bet',
-        'delete_bet',
         // acl pour league
         'admin_leagues',
         'add_league',
@@ -67,8 +62,6 @@ class Connection extends CI_Controller {
         'edit_fixture_results',
         'close_fixture',
         'open_fixture',
-        // acl pour scores
-        'view_scores',
         // acl pour messages
         'admin_messages',
         'add_message',
@@ -89,14 +82,10 @@ class Connection extends CI_Controller {
         'edit_fixture_results',
         'close_fixture',
         'open_fixture',
-        // acl pour bet
-        'add_bet',
-        'view_bets',
-        'view_bet',
-        'edit_bet',
-        'delete_bet',
-        // acl pour scores
-        'view_scores',
+    );
+    public $beta_acl = array(
+        // acl pour beta
+        'beta',
     );
     public $user_acl = array(
         // acl pour bet
@@ -326,9 +315,11 @@ class Connection extends CI_Controller {
 
             $this->session->set_userdata('user', $user);
             if ($user->acl === 'admin') {
-                $this->session->set_userdata('acl', $this->admin_acl);
+                $this->session->set_userdata('acl', array_merge($this->admin_acl, $this->beta_acl, $this->user_acl));
             } else if ($user->acl === 'moderator') {
-                $this->session->set_userdata('acl', $this->moderator_acl);
+                $this->session->set_userdata('acl', array_merge($this->moderator_acl, $this->beta_acl, $this->user_acl));
+            } else if ($user->acl === 'beta') {
+                $this->session->set_userdata('acl', array_merge($this->beta_acl, $this->user_acl));
             } else {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
