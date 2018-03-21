@@ -224,6 +224,22 @@ td.dash {
 .score-table :not(thead) tr {
     cursor: pointer;
 }
+.card {
+    position: relative;
+    display: inline-block;
+    margin-bottom: .75rem;
+    background-color: #fff;
+    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.125);
+    width: auto;
+    min-width: 130px;
+    padding: 5px 10px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 .table-bets .btn-primary:hover {
     background-color: transparent;
     color: #0275D8;
@@ -383,11 +399,13 @@ footer a {
     .home-table {
         width: 100%;
     }
+    .card {
+        min-width: 125px;
+        padding: 4px 6px;
+    }
     .profile-log a {
         margin: 0 10px;
     }
-}
-@media (max-width:767px) {
     .table-bets-edit {
         width: 100%;
     }

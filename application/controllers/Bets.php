@@ -70,6 +70,7 @@ class Bets extends MY_Controller {
         $championship = '';
         $data['championships'] = array();
         foreach ($data['fixtures'] as $key => $fixture_infos) {
+            $fixture_infos->dates = fixture_dates($fixture_infos->fixture_id);
             if ($fixture_infos->championship_name !== $championship) {
                 $data['championships'][$fixture_infos->championship_id] = $fixture_infos->championship_name;
                 $championship = $fixture_infos->championship_name;
