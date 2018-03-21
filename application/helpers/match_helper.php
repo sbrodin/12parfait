@@ -85,7 +85,7 @@ function last_matches() {
 function next_matches() {
     $CI =& get_instance();
 
-    // Récupération de la date des derniers matchs
+    // Récupération de la date des prochains matchs
     $select = 'date';
     $where = 'date >= NOW()';
     $order = 'date ASC';
