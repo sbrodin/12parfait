@@ -123,6 +123,10 @@ th, td {
 .font-bigger {
     font-size: 1.25rem;
 }
+.blockquote {
+    font-size: 1rem;
+    border-left: none;
+}
 
 
 
@@ -313,6 +317,12 @@ td.dash {
 }
 .podium .border {
     border: 1px solid #000;
+}
+.quote {
+    background-color: #d9edf7;
+    border-color: #bcdff1;
+    color: #31708f;
+    border-radius: .3rem;
 }
 /* Profiler */
 #codeigniter-profiler {

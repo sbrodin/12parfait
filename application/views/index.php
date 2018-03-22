@@ -13,6 +13,15 @@
     </div>
 <?php endif; ?>
 
+<?php if ($quote_text) : ?>
+    <div class="quote">
+        <blockquote class="blockquote b-l-0">
+            <p class="m-a-0"><?= $quote_text ?></p>
+            <p class="blockquote-footer m-a-0"><?= $quote_author ?></p>
+        </blockquote>
+    </div>
+<?php endif; ?>
+
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
     <div><?= $this->lang->line('no_match_3days'); ?></div>
 
