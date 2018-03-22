@@ -12,7 +12,11 @@
 /application/cache
 
 /assets/css/style.min.css
+/assets/css/12parfait.css
 /assets/js/script.min.js
+/assets/js/12parfait.js
+
+/node_modules
 
 /12parfait.sql
 /12parfait_data.sql

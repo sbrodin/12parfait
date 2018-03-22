@@ -1,0 +1,26 @@
+{
+  "name": "12parfait",
+  "version": "1.0.0",
+  "description": "Application de pronostics sportifs entre amis",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbrodin/12parfait.git"
+  },
+  "author": "sbrodin <stanislas.brodin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbrodin/12parfait/issues"
+  },
+  "homepage": "https://github.com/sbrodin/12parfait#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
+  }
+}
