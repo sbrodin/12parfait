@@ -282,14 +282,6 @@ td.dash {
     line-height: 1.2rem;
     padding: 0 0 .5rem 0;
 }
-/*#fieldset-filters-bets,
-#fieldset-filters-players,
-#fieldset-filters-scores {
-    width: auto;
-    padding: 1rem 2rem 0px;
-    border: 1px solid silver;
-    border-radius: 0.2rem;
-}*/
 .form-contact select,
 .form-contact textarea,
 .form-scores-filter select,
