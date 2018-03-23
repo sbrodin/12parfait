@@ -118,14 +118,16 @@ class Scores extends MY_Controller {
         foreach ($data['user_scores'] as $user_id => $score) {
             $user_ladder[$score][] = $data['users'][$user_id];
         }
-        $user_ladder = array_values($user_ladder);
-        $nb_joueurs = 0;
-        foreach ($user_ladder as $key => $users) {
-            // On ne remplit que les 3 premières marches du podium ($key)
-            // Et on s'arrête dès qu'il y a 3 joueurs
-            if ($key < 2 && $nb_joueurs <= 3) {
-                $data['rank' . ($nb_joueurs+1) . '_users'] = implode('<br>', $users);
-                $nb_joueurs+= count($users);
+        if (isset($user_ladder)) {
+            $user_ladder = array_values($user_ladder);
+            $nb_joueurs = 0;
+            foreach ($user_ladder as $key => $users) {
+                // On ne remplit que les 3 premières marches du podium ($key)
+                // Et on s'arrête dès qu'il y a 3 joueurs
+                if ($key < 2 && $nb_joueurs <= 3) {
+                    $data['rank' . ($nb_joueurs+1) . '_users'] = implode('<br>', $users);
+                    $nb_joueurs+= count($users);
+                }
             }
         }
         $data['rank1_users'] = isset($data['rank1_users']) ? $data['rank1_users'] : '/';
