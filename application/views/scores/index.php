@@ -12,6 +12,11 @@
     <span class="form-scores-filter-legend m-r-3"><?= $this->lang->line('filters') ?></span>
     <a class="btn btn-link form-scores-filter-link" data-toggle="collapse" href="#fieldset-filters-scores" aria-expanded="false" aria-controls="fieldset-filters-scores"><?= $this->lang->line('show_hide') ?></a>
     <fieldset id="fieldset-filters-scores" class="form-group collapse <?= $collapse_filters ?>">
+        <?php if (isset($bet_filter_message) && user_can('debug')) : ?>
+            <div class="jumbotron">
+                <?= $bet_filter_message ?>
+            </div>
+        <?php endif; ?>
         <label for="championship"><?= $this->lang->line('championship')?> : </label>
         <select name="championship" class="form-control form-scores-filter-championship" data-filter-page="scores">
             <option value="0"></option>

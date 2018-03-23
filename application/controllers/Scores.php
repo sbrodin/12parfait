@@ -132,6 +132,18 @@ class Scores extends MY_Controller {
         $data['rank2_users'] = isset($data['rank2_users']) ? $data['rank2_users'] : '/';
         $data['rank3_users'] = isset($data['rank3_users']) ? $data['rank3_users'] : '/';
 
+        // Récupération du message d'information pour les filtres du classement
+        $language = $this->session->user->language;
+        if (empty($language)) {
+            $language = 'french';
+        }
+        $this->load->model('message_model');
+        $data['bet_filter_message'] = $this->message_model->get_message('bet-filter-message');
+        if ($data['bet_filter_message'] !== '') {
+            $data['bet_filter_message'] = $data['bet_filter_message'][0]->{$language.'_content'};
+        }
+        $data['bet_filter_message'] = html_entity_decode($data['bet_filter_message']);
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
         $this->load->view('scores/index', $data);
