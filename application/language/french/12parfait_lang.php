@@ -10,6 +10,7 @@ $lang['yes'] = 'Oui';
 $lang['no'] = 'Non';
 $lang['home'] = 'Accueil';
 $lang['back'] = 'Retour';
+$lang['cancel'] = 'Annuler';
 $lang['confirm'] = 'Valider';
 $lang['user'] = 'Utilisateur';
 $lang['users'] = 'Utilisateurs';
@@ -201,10 +202,8 @@ $lang['new_password_confirmation'] = 'Confirmation du nouveau mot de passe';
 $lang['email'] = 'Email';
 $lang['isadmin'] = 'Admin ?';
 $lang['add_user'] = 'Ajouter l\'utilisateur';
-$lang['no_password_message'] = 'Si aucun mot de passe n\'est entré, le nom d\'utilisateur sera utilisé comme mot de passe';
 $lang['never_connected'] = 'Ne s\'est jamais connecté';
 $lang['incorrect_email'] = "Le champ %s ne correspond pas à une adresse email valide";
-$lang['edit_user'] = 'Mettre à jour';
 $lang['activate_user'] = 'Activer';
 $lang['deactivate_user'] = 'Désactiver';
 $lang['promote_user'] = 'Promouvoir';
@@ -222,8 +221,6 @@ $lang['activate_deactivate'] = 'Activer / Désactiver';
 $lang['promote_demote'] = 'Promouvoir / Destituer';
 $lang['no_data'] = 'N/A';
 
-$lang['cancel'] = 'Annuler';
-
 // Pari
 $lang['bets'] = 'Paris';
 $lang['place_bet'] = 'Parier !';
@@ -240,7 +237,7 @@ $lang['not_available'] = 'Non disponible';
 $lang['not_available_short'] = 'N/A';
 
 // Scores
-$lang['define_username_profile'] = 'Si votre nom n\'apparaît pas c\'est que vous n\'avez pas encore défini de nom d\'utilisateur. <br/> Rendez-vous sur la page "<a class="alert-link" href="%s">Profil</a>" (en haut à droite) pour modifier ça tout de suite !';
+$lang['define_username_profile'] = 'Si votre nom n\'apparaît pas c\'est que vous n\'avez pas encore défini de nom d\'utilisateur. <br/> Rendez-vous sur la page "<a class="alert-link" href="%s">' . $lang['profile'] . '</a>" (en haut à droite) pour modifier ça tout de suite !';
 $lang['ladder'] = 'Classement';
 $lang['score'] = 'Score';
 $lang['scores'] = 'Scores';
@@ -277,7 +274,6 @@ $lang['stats_on_x_points_player'] = 'Ses %d points sont répartis ainsi :';
 $lang['points_short'] = 'pts';
 
 // Contact
-$lang['contact_message'] = 'Ce site est en cours de développement. Toute idée d\'évolution, critique constructive, etc. sont les bienvenues pour améliorer le site, qu\'il soit au top et réponde à vos attentes !';
 $lang['motif'] = 'Motif';
 $lang['your_message'] = 'Votre message';
 $lang['idea_evolution'] = 'Idée d\'évolution';
