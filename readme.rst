@@ -68,7 +68,6 @@ Liste des éléments restants à faire :
     - Profil
         - gestion des messages d'aide
     - Classement
-        - avoir un petit podium au-dessus du tableau (à terminer)
         - ajouter le nombre de 12parfait
         - ajouter un filtre par date
     - Ajouter un filtre pour les logs

@@ -33,25 +33,25 @@
 
 <table class="podium m-b-2">
     <tr>
-        <td></td>
-        <td class="rank-1">1</td>
-        <td></td>
+        <td width="33%"></td>
+        <td width="33%" class="rank-1">1</td>
+        <td width="33%"></td>
     </tr>
     <tr>
-        <td class="rank-2">2</td>
-        <td class="border rank-1" rowspan="3">
+        <td width="33%" class="rank-2">2</td>
+        <td width="33%" class="border rank-1" rowspan="3">
             <div><?= $rank1_users ?></div>
         </td>
-        <td></td>
+        <td width="33%"></td>
     </tr>
     <tr>
-        <td class="border rank-2" rowspan="2">
+        <td width="33%" class="border rank-2" rowspan="2">
             <div><?= $rank2_users ?></div>
         </td>
-        <td class="rank-3">3</td>
+        <td width="33%" class="rank-3">3</td>
     </tr>
     <tr>
-        <td class="border rank-3">
+        <td width="33%" class="border rank-3">
             <div><?= $rank3_users ?></div>
         </td>
     </tr>
@@ -72,35 +72,21 @@
     </thead>
     <tbody>
         <?php
-        $rank = 1;
-        $current_trophy = 0;
-        $trophies = array(1);
         $current_score = '';
+        $rank = 1;
         foreach ($user_scores as $user_id => $score) :
-            if ($score !== $current_score) {
-                ++$current_trophy;
-            }
-            if ($current_trophy === 1 && $rank != 1) {
-                array_push($trophies, 1);
-            } else if ($current_trophy === 2) {
-                if (array_count_values($trophies)[1] <= 2) {
-                    array_push($trophies, 2);
-                }
-            } else if ($current_trophy === 3) {
-                if (in_array(2, $trophies)) {
-                    if (array_count_values($trophies)[1] + array_count_values($trophies)[2] == 2) {
-                        array_push($trophies, 3);
-                    }
-                } else {
-                    if (array_count_values($trophies)[1] == 2) {
-                        array_push($trophies, 3);
-                    }
-                }
+            $trophy = null;
+            if (strpos($rank1_users, $users[$user_id]) !== false) {
+                $trophy = 1;
+            } else if (strpos($rank2_users, $users[$user_id]) !== false) {
+                $trophy = 2;
+            } else if (strpos($rank3_users, $users[$user_id]) !== false) {
+                $trophy = 3;
             }
         ?>
         <tr data-href="<?= site_url('scores/'.$user_id) ?>">
-            <?php if (isset($trophies[$rank-1])) : ?>
-                <td class="rank-<?= $trophies[$rank-1] ?>"><i class="fa fa-trophy"></i></td>
+            <?php if ($trophy !== null) : ?>
+                <td class="rank-<?= $trophy ?>"><i class="fa fa-trophy"></i></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>

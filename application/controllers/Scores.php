@@ -58,6 +58,7 @@ class Scores extends MY_Controller {
             $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_scores']['fixture']));
         }
         // $order = 'rand()';
+        $order = 'user.user_id ASC';
         $data['scores'] = $this->db->select($select)
                                    ->from($this->config->item('user', 'table'))
                                    ->where($where)
@@ -65,7 +66,7 @@ class Scores extends MY_Controller {
                                    ->join('match', 'bet.match_id = match.match_id', 'left')
                                    ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'left')
                                    ->join('championship', 'fixture.championship_id = championship.championship_id', 'left')
-                                   // ->order_by($order)
+                                   ->order_by($order)
                                    ->get()
                                    ->result();
 
@@ -112,9 +113,24 @@ class Scores extends MY_Controller {
                 $championship = $fixture_infos->championship_name;
             }
         }
-        $data['rank1_users'] = 'Test 1';
-        $data['rank2_users'] = 'Test 2';
-        $data['rank3_users'] = 'Test 3';
+
+        // Gestion du podium
+        foreach ($data['user_scores'] as $user_id => $score) {
+            $user_ladder[$score][] = $data['users'][$user_id];
+        }
+        $user_ladder = array_values($user_ladder);
+        $nb_joueurs = 0;
+        foreach ($user_ladder as $key => $users) {
+            // On ne remplit que les 3 premières marches du podium ($key)
+            // Et on s'arrête dès qu'il y a 3 joueurs
+            if ($key < 2 && $nb_joueurs <= 3) {
+                $data['rank' . ($nb_joueurs+1) . '_users'] = implode('<br>', $users);
+                $nb_joueurs+= count($users);
+            }
+        }
+        $data['rank1_users'] = isset($data['rank1_users']) ? $data['rank1_users'] : '';
+        $data['rank2_users'] = isset($data['rank2_users']) ? $data['rank2_users'] : '';
+        $data['rank3_users'] = isset($data['rank3_users']) ? $data['rank3_users'] : '';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
