@@ -128,9 +128,9 @@ class Scores extends MY_Controller {
                 $nb_joueurs+= count($users);
             }
         }
-        $data['rank1_users'] = isset($data['rank1_users']) ? $data['rank1_users'] : '';
-        $data['rank2_users'] = isset($data['rank2_users']) ? $data['rank2_users'] : '';
-        $data['rank3_users'] = isset($data['rank3_users']) ? $data['rank3_users'] : '';
+        $data['rank1_users'] = isset($data['rank1_users']) ? $data['rank1_users'] : '/';
+        $data['rank2_users'] = isset($data['rank2_users']) ? $data['rank2_users'] : '/';
+        $data['rank3_users'] = isset($data['rank3_users']) ? $data['rank3_users'] : '/';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
