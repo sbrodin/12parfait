@@ -57,7 +57,6 @@ TODO
 ****
 
 Liste des éléments restants à faire :
-    - Ajouter cookie pour langue
     - Gérer les envois de mails massifs
     - Améliorer l'email d'inscription
     - Mes scores
