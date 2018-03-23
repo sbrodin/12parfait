@@ -1,6 +1,6 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back') ?></a><br/>
 
-<?php if ($contact_message) : ?>
+<?php if (isset($contact_message)) : ?>
     <div class="jumbotron">
         <?= $contact_message ?>
     </div>

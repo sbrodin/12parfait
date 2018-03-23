@@ -4,7 +4,7 @@
 <?php if (!empty($info)) : ?>
     <span><?= $info ?></span>
 <?php else : ?>
-    <?php if ($bet_of_message) : ?>
+    <?php if (isset($bet_of_message)) : ?>
         <div class="jumbotron">
             <?= $bet_of_message ?>
         </div>
