@@ -13,7 +13,7 @@ function fixture_dates($fixture_id) {
     $CI =& get_instance();
 
     // Récupération de la date du premier match de la journée
-    $select = 'DATE_FORMAT(`date`, "%d/%m/%Y à %Hh%i") as date';
+    $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y à %Hh%i") as formated_date';
     $order = 'date ASC';
     $limit = 1;
     $first_date = $CI->db->select($select)
@@ -24,11 +24,10 @@ function fixture_dates($fixture_id) {
                          ->limit($limit)
                          ->get()
                          ->result();
-    $first_date = $first_date[0]->date;
-
+    $first_date = $first_date[0]->formated_date;
 
     // Récupération de la date du dernier match de la journée
-    $select = 'DATE_FORMAT(`date`, "%d/%m/%Y à %Hh%i") as date';
+    $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y à %Hh%i") as formated_date';
     $order = 'date DESC';
     $limit = 1;
     $last_date = $CI->db->select($select)
@@ -39,7 +38,7 @@ function fixture_dates($fixture_id) {
                          ->limit($limit)
                          ->get()
                          ->result();
-    $last_date = $last_date[0]->date;
+    $last_date = $last_date[0]->formated_date;
 
     return array(
         'first' => $first_date,
