@@ -23,7 +23,7 @@
 <?php endif; ?>
 
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
-    <div><?= $this->lang->line('no_match_3days'); ?></div>
+    <h5><?= $this->lang->line('no_match_3days'); ?></h5>
 
     <?php if ($last_matches) : ?>
         <table class="home-table table-striped table-hover m-t-2 m-r-2">
@@ -87,13 +87,13 @@
     <?php endif; ?>
 <?php else : ?>
     <?php if (!$yesterday_matches) : ?>
-        <div><?= $this->lang->line('no_match_yesterday'); ?></div>
+        <h5><?= $this->lang->line('no_match_yesterday'); ?></h5>
     <?php endif; ?>
     <?php if (!$today_matches) : ?>
-        <div><?= $this->lang->line('no_match_today'); ?></div>
+        <h5><?= $this->lang->line('no_match_today'); ?></h5>
     <?php endif; ?>
     <?php if (!$tomorrow_matches) : ?>
-        <div><?= $this->lang->line('no_match_tomorrow'); ?></div>
+        <h5><?= $this->lang->line('no_match_tomorrow'); ?></h5>
     <?php endif; ?>
 
     <?php if ($yesterday_matches) : ?>
