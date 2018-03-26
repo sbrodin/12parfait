@@ -45,7 +45,7 @@ function matches_of_day($date = NULL) {
                              ->order_by($order)
                              ->get()
                              ->result();
-    return empty($matches_of_day) ? NULL : array($matches_of_day, date('d/m/Y', $date));
+    return empty($matches_of_day) ? NULL : array('matches' => $matches_of_day, 'date' => date('d/m/Y', $date));
 }
 
 /**
@@ -57,7 +57,7 @@ function last_matches() {
     $CI =& get_instance();
 
     // Récupération de la date des derniers matchs
-    $select = 'date';
+    $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y") as formated_date';
     $where = 'date <= NOW()';
     $order = 'date DESC';
     $limit = 1;
@@ -68,13 +68,7 @@ function last_matches() {
                                 ->limit($limit)
                                 ->get()
                                 ->result();
-    $date_last_matches = $date_last_matches[0]->date;
-
-    $year_searched = substr($date_last_matches, 0, 4);
-    $month_searched = substr($date_last_matches, 5, 2);
-    $day_searched = substr($date_last_matches, 8, 2);
-
-    return matches_of_day($day_searched . '/' . $month_searched . '/' . $year_searched);
+    return matches_of_day($date_last_matches[0]->formated_date);
 }
 
 /**
@@ -86,7 +80,7 @@ function next_matches() {
     $CI =& get_instance();
 
     // Récupération de la date des prochains matchs
-    $select = 'date';
+    $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y") as formated_date';
     $where = 'date >= NOW()';
     $order = 'date ASC';
     $limit = 1;
@@ -97,11 +91,5 @@ function next_matches() {
                                 ->limit($limit)
                                 ->get()
                                 ->result();
-    $date_next_matches = $date_next_matches[0]->date;
-
-    $year_searched = substr($date_next_matches, 0, 4);
-    $month_searched = substr($date_next_matches, 5, 2);
-    $day_searched = substr($date_next_matches, 8, 2);
-
-    return matches_of_day($day_searched . '/' . $month_searched . '/' . $year_searched);
+    return matches_of_day($date_next_matches[0]->formated_date);
 }

@@ -41,15 +41,15 @@ class Home extends CI_Controller {
             $data['home_message'] = $data['home_message'][0]->{$language.'_content'};
         }
         $data['home_message'] = html_entity_decode($data['home_message']);
-        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-60*60*24))[0];
-        $data['today_matches'] = matches_of_day()[0];
-        $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+60*60*24))[0];
+        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-24*60*60))['matches'];
+        $data['today_matches'] = matches_of_day()['matches'];
+        $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+24*60*60))['matches'];
 
         if (!$data['yesterday_matches'] && !$data['today_matches'] && !$data['tomorrow_matches']) {
-            $data['last_matches'] = last_matches()[0];
+            $data['last_matches'] = last_matches()['matches'];
             $next_matches = next_matches();
-            $data['next_matches'] = $next_matches[0];
-            $data['next_matches_date'] = $next_matches[1];
+            $data['next_matches'] = $next_matches['matches'];
+            $data['next_matches_date'] = $next_matches['date'];
         }
 
         $this->load->view('templates/header', $data);
