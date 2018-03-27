@@ -13,7 +13,7 @@
 
         <link href="<?= img_url('logo.png') ?>" rel="icon" type="image/png">
         <link href="<?= img_url('logo.png') ?>" rel="apple-touch-icon">
-        <link rel="manifest" href="manifest.json">
+        <link rel="manifest" href="<?= json_url('manifest') ?>">
 
         <link href="<?= css_url('style.min') ?>" media="screen" rel="stylesheet" type="text/css">
 

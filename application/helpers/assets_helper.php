@@ -34,6 +34,16 @@ function csv_url($nom) {
 }
 
 /**
+  * Cette fonction prend en entrée le nom d'un fichier json
+  * et retourne l'url du fichier dans l'application.
+  * @param $nom Nom du fichier json
+  * @return Url du fichier js dans l'application
+  */
+function json_url($nom) {
+    return base_url() . 'assets/json/' . $nom . '.json';
+}
+
+/**
   * Cette fonction prend en entrée le nom d'une image avec son extension
   * et retourne l'url de l'image dans l'application.
   * @param $nom Nom de l'image
