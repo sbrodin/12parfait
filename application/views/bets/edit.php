@@ -65,14 +65,12 @@
                         $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
                         $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
                         $score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->score : 0;
-                        if ($fixture_match->date!==$date) {
-                            $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
-                            $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
+                        if ($fixture_match->formated_date !== $date) {
                             echo '<tr>';
-                            echo '<td class="date" colspan="5">' . $date_formatted . '</td>';
+                            echo '<td class="date" colspan="5">' . $fixture_match->formated_date . '</td>';
                             echo '<td class="date" colspan="' . (3+count($different_players)) . '"></td>';
                             echo '</tr>';
-                            $date = $fixture_match->date;
+                            $date = $fixture_match->formated_date;
                         }
                         $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
                     ?>

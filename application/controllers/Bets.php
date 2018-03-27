@@ -157,6 +157,7 @@ class Bets extends MY_Controller {
                    t2.name AS team2,
                    t1.short_name AS short_team1,
                    t2.short_name AS short_team2,
+                   DATE_FORMAT(match.date, "%d/%m/%Y à %Hh%i") AS formated_date,
                    match.date,
                    match.match_id,
                    match.team1_score,
