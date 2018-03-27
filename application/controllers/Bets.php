@@ -103,8 +103,7 @@ class Bets extends MY_Controller {
         }
 
         if ($fixture_id === 0) {
-            redirect(site_url(), 'location');
-            exit;
+            show_404();
         }
 
         $data = array();
