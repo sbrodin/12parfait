@@ -24,13 +24,13 @@
                 </td>
                 <td>
                     <div>
-                        <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank">
+                        <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank" rel="noopener">
                             ip-tracker
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
                     </div>
                     <div>
-                        <a href="http://www.traceip.net/?query=<?= $log->log_userip ?>" target="_blank">
+                        <a href="http://www.traceip.net/?query=<?= $log->log_userip ?>" target="_blank" rel="noopener">
                             traceip
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
