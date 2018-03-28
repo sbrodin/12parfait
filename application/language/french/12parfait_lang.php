@@ -33,7 +33,7 @@ $lang['logo_12parfait'] = 'Logo 12parfait';
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015-2018';
-$lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com">CodeIgniter</a>';
+$lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com" rel="noopener">CodeIgniter</a>';
 $lang['version'] = 'v. beta';
 
 // Menu admin
