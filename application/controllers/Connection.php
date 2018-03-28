@@ -115,6 +115,10 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de connexion.
     */
     public function index() {
+        if (is_connected()) {
+            redirect(site_url());
+            exit;
+        }
         $this->load->model('log_model');
         save_log('connection', 'index');
         $data = array();
