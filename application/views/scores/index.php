@@ -91,7 +91,7 @@
         ?>
         <tr data-href="<?= site_url('scores/'.$user_id) ?>">
             <?php if ($trophy !== null) : ?>
-                <td class="rank-<?= $trophy ?>"><i class="fa fa-trophy"></i></td>
+                <td class="rank-<?= $trophy ?> text-xs-center"><i class="fa fa-trophy"></i></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>
