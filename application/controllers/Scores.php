@@ -124,7 +124,7 @@ class Scores extends MY_Controller {
             foreach ($user_ladder as $key => $users) {
                 // On ne remplit que les 3 premières marches du podium ($key)
                 // Et on s'arrête dès qu'il y a 3 joueurs
-                if ($key < 2 && $nb_joueurs <= 3) {
+                if ($key <= 2 && $nb_joueurs <= 3) {
                     $data['rank' . ($nb_joueurs+1) . '_users'] = implode('<br>', $users);
                     $nb_joueurs+= count($users);
                 }
