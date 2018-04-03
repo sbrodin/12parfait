@@ -69,7 +69,7 @@ p {
     max-width: 1200px;
 }
 .main-container {
-    padding: 40px;
+    padding: 2.5rem;
     background-color: #FFFFFF;
 }
 p, ul, li {
@@ -126,6 +126,7 @@ th, td {
 .blockquote {
     font-size: 1rem;
     border-left: none;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -259,6 +260,7 @@ td.dash {
 }
 .jumbotron {
     padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
 }
 .jumbotron ul {
     margin-left: 40px;
@@ -326,6 +328,9 @@ td.dash {
     border-color: #bcdff1;
     color: #31708f;
     border-radius: .3rem;
+}
+h5.info_date_match {
+    margin-bottom: 1.5rem;
 }
 /* Profiler */
 #codeigniter-profiler {

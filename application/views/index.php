@@ -23,10 +23,10 @@
 <?php endif; ?>
 
 <?php if (!$yesterday_matches && !$today_matches && !$tomorrow_matches) : ?>
-    <h5><?= $this->lang->line('no_match_3days'); ?></h5>
+    <h5 class="info_date_match"><?= $this->lang->line('no_match_3days'); ?></h5>
 
     <?php if ($last_matches) : ?>
-        <table class="home-table table-striped table-hover m-t-2 m-r-2">
+        <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
                     <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '7' : '6'?>" class="text-xs-center"><?= $this->lang->line('last_matches'); ?></th>
@@ -59,7 +59,7 @@
     <?php endif; ?>
 
     <?php if ($next_matches) : ?>
-        <table class="home-table table-striped table-hover m-t-2 m-r-2">
+        <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
                     <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '5' : '4'?>" class="text-xs-center"><?= sprintf($this->lang->line('next_matches'), $next_matches_date) ?></th>
@@ -87,17 +87,17 @@
     <?php endif; ?>
 <?php else : ?>
     <?php if (!$yesterday_matches) : ?>
-        <h5><?= $this->lang->line('no_match_yesterday'); ?></h5>
+        <h5 class="info_date_match"><?= $this->lang->line('no_match_yesterday'); ?></h5>
     <?php endif; ?>
     <?php if (!$today_matches) : ?>
-        <h5><?= $this->lang->line('no_match_today'); ?></h5>
+        <h5 class="info_date_match"><?= $this->lang->line('no_match_today'); ?></h5>
     <?php endif; ?>
     <?php if (!$tomorrow_matches) : ?>
-        <h5><?= $this->lang->line('no_match_tomorrow'); ?></h5>
+        <h5 class="info_date_match"><?= $this->lang->line('no_match_tomorrow'); ?></h5>
     <?php endif; ?>
 
     <?php if ($yesterday_matches) : ?>
-        <table class="home-table table-striped table-hover m-t-2 m-r-2">
+        <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
                     <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '7' : '6'?>" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
@@ -130,7 +130,7 @@
     <?php endif; ?>
 
     <?php if ($today_matches) : ?>
-        <table class="home-table table-striped table-hover m-t-2 m-r-2">
+        <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
                     <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '6' : '5'?>" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
@@ -162,7 +162,7 @@
     <?php endif; ?>
 
     <?php if ($tomorrow_matches) : ?>
-        <table class="home-table table-striped table-hover m-t-2 m-r-2">
+        <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
                     <th colspan="<?php echo (is_connected() && user_can('admin_fixtures')) ? '6' : '5'?>" class="text-xs-center"><?= $this->lang->line('tomorrow_matches'); ?></th>
