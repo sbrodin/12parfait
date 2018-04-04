@@ -35,8 +35,9 @@ Installation
 
 Copiez tous les fichiers. Ensuite copiez les fichiers depuis _application/config
 vers application/config.
-Changez les 2 fichiers de configuration config.php and database.php pour
+Changez les 2 fichiers de configuration config.php et database.php pour
 correspondre à la configuration de votre serveur et à votre base de données.
+Minifier les fichiers CSS et JS présents dans les répertoires assets/css et assets/js avec gulp.
 Demandez une structure de base à cette adresse : `stanislas.brodin@gmail.com <mailto:stanislas.brodin@gmail.com>`_.
 
 *******
