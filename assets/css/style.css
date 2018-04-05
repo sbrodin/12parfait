@@ -201,7 +201,7 @@ input.score {
 }
 td.date {
     text-align: center;
-    background-color: rgba(2, 117, 216, 0.1);
+    background-color: rgba(2, 117, 216, 0.25);
 }
 td.team1-name {
     text-align: right;
