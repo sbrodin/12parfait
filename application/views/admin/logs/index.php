@@ -29,12 +29,6 @@
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <div>
-                        <a href="http://www.traceip.net/?query=<?= $log->log_userip ?>" target="_blank" rel="noopener">
-                            traceip
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                        </a>
-                    </div>
                 </td>
                 <?php if (is_numeric($log->log_userid)) { ?>
                     <td><a href="<?= site_url('scores/' . $log->log_userid) ?>"><?= $log->log_userid ?></a></td>
