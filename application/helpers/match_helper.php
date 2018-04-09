@@ -28,7 +28,8 @@ function matches_of_day($date = NULL) {
                t2.short_name AS team2,
                team1_score,
                team2_score,
-               DATE_FORMAT(date, "%H:%i") as match_time';
+               DATE_FORMAT(date, "%H:%i") as match_time,
+               fixture.status as status';
     $where = array(
         'date >' => date('Y-m-d 00:00:00', $date),
         'date <' => date('Y-m-d 23:59:59', $date),

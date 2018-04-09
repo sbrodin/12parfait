@@ -49,7 +49,7 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
-                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                        <?php if (is_connected() && user_can('admin_fixtures') && $match->status === 'open') : ?>
                             <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
@@ -120,7 +120,7 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
-                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                        <?php if (is_connected() && user_can('admin_fixtures') && $match->status === 'open') : ?>
                             <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
@@ -152,7 +152,7 @@
                         <?php else : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
-                        <?php if (is_connected() && user_can('admin_fixtures')) : ?>
+                        <?php if (is_connected() && user_can('admin_fixtures') && $match->status === 'open') : ?>
                             <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
