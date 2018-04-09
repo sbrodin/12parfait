@@ -358,6 +358,7 @@ class Connection extends CI_Controller {
             $this->load->view('forgotten_password', $data);
             $this->load->view('templates/footer', $data);
         } else {
+            $this->load->model('user_model');
             $rules = array(
                 array(
                     'field' => 'email',
@@ -384,7 +385,6 @@ class Connection extends CI_Controller {
                         'hash' => $hash,
                         'date_hash' => date('Y-m-d H:i:s'),
                     );
-                $this->load->model('user_model');
                 $this->user_model->update($where, $donnees_echapees);
 
                 $subject = '12parfait - Mot de passe oublié';
