@@ -338,6 +338,7 @@ class Bets extends MY_Controller {
                 $this->db->insert_batch('bet', $bets);
             }
 
+            save_log('bets', 'edit', 'Ajout / édition de pronos');
             $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
             exit;
