@@ -154,7 +154,7 @@ class Scores extends MY_Controller {
 
     public function scores($user_id = 0)
     {
-        save_log('scores', 'scores');
+        save_log('scores', 'scores', 'Visualisation des scores de : ' . $user_id);
         if (!user_can('view_scores')) {
             show_404();
         }

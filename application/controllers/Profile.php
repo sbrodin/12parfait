@@ -18,7 +18,7 @@ class Profile extends MY_Controller {
     * Fonction d'affichage de la page de profil.
     */
     public function index() {
-        save_log('profile', 'index');
+        save_log('profile', 'index', 'Affichage du profil');
         $data = array();
         $data['title'] = $this->lang->line('profile');
 
@@ -80,6 +80,7 @@ class Profile extends MY_Controller {
 
                 $this->session->set_userdata('user', $this->user_model->read('*', array("user_id" => $data['user']->user_id))[0]);
 
+                save_log('profile', 'edit', 'Modification du profil de l\'utilisateur : ' . $this->session->user->user_id);
                 $this->session->set_flashdata('success', $this->lang->line('profile_modified'));
                 redirect(site_url('profile'), 'location');
                 exit;

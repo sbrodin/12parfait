@@ -77,6 +77,7 @@ class Contact extends MY_Controller {
                 $this->email->send();
                 $this->email->clear();
 
+                save_log('contact', 'index', 'Envoi du message de : ' . $this->session->user->email);
                 $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
                 redirect(site_url(), 'location');
                 exit;
