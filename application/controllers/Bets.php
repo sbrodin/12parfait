@@ -97,7 +97,7 @@ class Bets extends MY_Controller {
 
     public function edit($fixture_id = 0)
     {
-        save_log('bets', 'edit', 'Journée : ' . $fixture_id);
+        save_log('bets', 'edit', 'Affichage édition journée : ' . $fixture_id);
         if (!user_can('edit_bet')) {
             show_404();
         }
