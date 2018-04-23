@@ -59,7 +59,7 @@ p {
 	<div id="container">
 		<h1><?php echo $heading; ?></h1>
 		<?php echo $message; ?>
-		<a href="<?php // echo site_url('home') ?>"><?php // echo $this->lang->line('home') ?></a>
+		<p><a href="https://12parfait.fr">12parfait</a></p>
 	</div>
 </body>
 </html>
