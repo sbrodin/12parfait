@@ -117,6 +117,8 @@ class Users extends MY_Controller {
 
         $new_acl = 'user';
         if ($user->acl === 'user') {
+            $new_acl = 'beta';
+        } else if ($user->acl === 'beta') {
             $new_acl = 'moderator';
         }
 
@@ -157,6 +159,8 @@ class Users extends MY_Controller {
 
         $new_acl = 'user';
         if ($user->acl === 'moderator') {
+            $new_acl = 'beta';
+        } else if ($user->acl === 'beta') {
             $new_acl = 'user';
         }
 
