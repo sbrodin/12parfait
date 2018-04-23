@@ -2,7 +2,7 @@
 Application 12parfait
 #####################
 
-`12parfait <https://12parfait.fr>`_ est une application de pronostics en ligne entre amis qui permet de définir
+`12parfait <https://12parfait.fr>`_ est une application gratuite de pronostics en ligne entre amis qui permet de définir
 des scores sur des matchs de football (d'autres sports viendront peut-être ensuite).
 Un système de points est en place :
     - bon résultat (victoire, nul, défaite) : 4 points,
