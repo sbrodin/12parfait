@@ -44,9 +44,10 @@
                 </td>
                 <td>
                     <?php if ($user->user_id !== $this->session->user->user_id) : ?>
-                        <?php if ($user->acl === 'user') : ?>
+                        <?php if ($user->acl === 'user' || $user->acl === 'beta') : ?>
                             <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
-                        <?php else : ?>
+                        <?php endif; ?>
+                        <?php if ($user->acl === 'moderator' || $user->acl === 'beta') : ?>
                             <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/users/demote/'.$user->user_id) ?>"><?= $this->lang->line('demote_user') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
