@@ -25,6 +25,7 @@ $lang['link_to_home'] = 'Link to home';
 $lang['links'] = 'Links';
 $lang['view'] = 'View';
 $lang['contact'] = 'Contact';
+$lang['terms_of_use'] = 'Terms of use';
 $lang['filter_verb'] = 'Filter';
 $lang['filters'] = 'Filters';
 $lang['show_hide'] = 'Show / Hide';

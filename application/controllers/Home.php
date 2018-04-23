@@ -57,4 +57,17 @@ class Home extends CI_Controller {
         $this->load->view('index', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    public function terms()
+    {
+        $this->load->model('log_model');
+        save_log('home', 'terms', 'Affichage des conditions d\'utilisation');
+        $data = array();
+        $data['title'] = $this->lang->line('terms_of_use');
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav', $data);
+        $this->load->view('terms', $data);
+        $this->load->view('templates/footer', $data);
+    }
 }
