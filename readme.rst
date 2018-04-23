@@ -65,6 +65,7 @@ Liste des éléments restants à faire :
         - ajouter histogramme points par journée par championnat
     - Home
         - afficher/cacher message d'aide
+    - Gestion des erreurs (404, db, etc.)
     - Profil
         - gestion des messages d'aide
     - Classement
