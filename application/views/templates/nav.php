@@ -22,5 +22,11 @@
         <a class="m-l-0" href="<?= site_url('connection') ?>"><?= $this->lang->line('log_in') ?></a>
     </nav>
 </header>
+<nav class="menu" role="navigation">
+    <ul class="menu-nav horizontal">
+        <li><a href="<?= site_url('connection') ?>"><?= $this->lang->line('place_bet') ?></a></li>
+        <li><a href="<?= site_url('contact') ?>"><?= $this->lang->line('contact') ?></a></li>
+    </ul>
+</nav>
 <?php endif; ?>
 <div class="main-container">

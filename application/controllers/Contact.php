@@ -1,11 +1,17 @@
 <?php
 
-class Contact extends MY_Controller {
+class Contact extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
         $this->load->model('log_model');
+
+        if (!is_connected()) {
+            $this->lang->load('12parfait', $this->config->item('language'));
+        } else {
+            $this->lang->load('12parfait', $this->session->user->language);
+        }
     }
 
     public function index()
@@ -14,8 +20,12 @@ class Contact extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('contact');
 
-        // Récupération du message d'information pour les pronostics
-        $language = $this->session->user->language;
+        // Récupération du message d'information pour le contact
+        if (!is_connected()) {
+            $language = $this->config->item('language');
+        } else {
+            $language = $this->session->user->language;
+        }
         if (empty($language)) {
             $language = 'french';
         }

@@ -19,7 +19,7 @@
         <?php endif ?>
         <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url()?>"><?= $this->lang->line('back') ?></a>
 
-        <a class="btn btn-outline-primary pull-xs-right" href="<?= site_url('connection/create_account')?>"><?= $this->lang->line('create_account') ?></a>
+        <a class="btn btn-outline-primary pull-xs-right" href="<?= site_url('connection/create_account') ?>"><?= $this->lang->line('create_account') ?></a>
 
         <?= validation_errors() ?>
 
