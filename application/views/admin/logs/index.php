@@ -30,11 +30,11 @@
                         </a>
                     </div>
                 </td>
-                <?php if (is_numeric($log->log_userid)) { ?>
+                <?php if (is_null($log->log_userid)) : ?>
+                    <td></td>
+                <?php else : ?>
                     <td><a href="<?= site_url('scores/' . $log->log_userid) ?>"><?= $log->log_userid ?></a></td>
-                <?php } else { ?>
-                    <td><?= $log->log_userid ?></td>
-                <?php } ?>
+                <?php endif; ?>
                 <td><?= $log->log_message ?></td>
                 <td><?= $log->log_date ?></td>
             </tr>

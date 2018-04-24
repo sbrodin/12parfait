@@ -29,7 +29,7 @@ class Log_model extends MY_Model {
                     return;
                 }
             } else {
-                $log_userid = 'non connecté';
+                $log_userid = null;
             }
         }
         if ($log_date === '') {
