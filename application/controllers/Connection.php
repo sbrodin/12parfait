@@ -23,13 +23,13 @@ class Connection extends CI_Controller {
         'demote_user',
         // acl pour bet
         'admin_bets',
-        // acl pour league
-        'admin_leagues',
-        'add_league',
-        'view_leagues',
-        'view_league',
-        'edit_league',
-        'delete_league',
+        // acl pour challenge
+        'admin_challenges',
+        'add_challenge',
+        'view_challenges',
+        'view_challenge',
+        'edit_challenge',
+        'delete_challenge',
         // acl pour championship
         'admin_championships',
         'add_championship',
@@ -86,6 +86,11 @@ class Connection extends CI_Controller {
     public $beta_acl = array(
         // acl pour beta
         'beta',
+        // acl pour challenge
+        'add_challenge',
+        'view_challenges',
+        'view_challenge',
+        'edit_challenge',
     );
     public $user_acl = array(
         // acl pour bet

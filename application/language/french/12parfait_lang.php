@@ -170,6 +170,13 @@ $lang['fixture_name'] = 'Nom de la journée';
 $lang['close_fixture'] = 'Fermer';
 $lang['open_fixture'] = 'Ouvrir la journée';
 
+// Challenge
+$lang['challenge'] = 'Challenge';
+$lang['challenges'] = 'Challenges';
+$lang['add_challenge'] = 'Créer un challenge';
+$lang['edit_challenge'] = 'Editer le challenge';
+$lang['view_challenge'] = 'Voir ce challenge';
+
 // Message
 $lang['message'] = 'Message';
 $lang['add_message'] = 'Ajouter un message';

@@ -170,6 +170,13 @@ $lang['fixture_name'] = 'Fixture name';
 $lang['close_fixture'] = 'Close';
 $lang['open_fixture'] = 'Open fixture';
 
+// Challenge
+$lang['challenge'] = 'Challenge';
+$lang['challenges'] = 'Challenges';
+$lang['add_challenge'] = 'Add a challenge';
+$lang['edit_challenge'] = 'Edit challenge';
+$lang['view_challenge'] = 'View challenge';
+
 // Message
 $lang['message'] = 'Message';
 $lang['add_message'] = 'Add a message';

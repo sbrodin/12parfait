@@ -107,6 +107,7 @@ $autoload['helper'] = array(
     'team',
     'url',
     'user',
+    'user_challenge',
 );
 
 
