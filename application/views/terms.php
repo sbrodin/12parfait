@@ -4,6 +4,7 @@
     <strong>Merci d'utiliser 12parfait ! </strong>
 </h4>
 
+<?php if (user_can('debug')) : ?>
 <p>12parfait est une application web permettant de générer des cocktails funny et originaux en fonction du bar des utilisateurs. Il est également un réseau social. 12parfait offre la possibilité à ses utilisateurs de partager leurs créations sur leur fil d'actualité et de la partager avec leurs amis. L'application 12parfait met en avant l'aspect créatif de chacun ; elle répond à ce besoin en permettant à n'importe qui de « laisser une trace » au travers de la création de cocktails. L'utilisateur peut s'approprier un nouveau cocktail en lui donnant un nom et une description.
 Entre convivialité et inattendue, 12parfait souhaite vous voir passer un bon moment entre amis.</p>
 
@@ -160,17 +161,28 @@ Dans le but de mettre à jour le site internet, l'équipe 12parfait peut placer 
 <p>12parfait et le logo de 12parfait sont des marques déposées par 12parfait.</p>
 <p>Toute prise de contact avec l'équipe 12parfait peut s'effectuer via l'adresse email : contact@12parfait.com</p>
 
-<h4>Les conditions d'hébergements</h4>
-<p>
-    <strong>Nom de l'hébergeur : </strong>OVH GS
-</p>
-<p>
-    <strong>Adresse de la société : </strong>2 rue Kellermann — 59100 Roubaix - France.
-</p>
-<p>
-    <strong>Numéro de téléphone : </strong>+33 9 72 10 10 07
-</p>
+<a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back_to_home') ?></a><br/>
 
-<p class="revision_doc">
-    <strong>Date de la dernière révision : </strong>jeudi 31 août 2017
+<p>
+  <strong>Développement, Graphisme :</strong>
+  Stanislas Brodin
 </p>
+<p>
+  <strong>Hébergement :</strong>
+  OVH SAS - 2 rue Kellermann - 59100 Roubaix - France
+</p>
+<p><strong>Équipe :</strong>
+Stanislas BRODIN
+</p>
+<hr/>
+<p>
+  L'accès au site <strong>https://12parfait.fr</strong> ainsi que l'utilisation de son contenu sont soumis aux conditions d'utilisation décrites ci-après. Le fait d'accéder et de naviguer sur le site <strong>https://12parfait.fr</strong> constitue de la part du visiteur une acceptation sans réserve des stipulations suivantes :
+</p>
+<h3>Propriété intellectuelle</h3>
+<p>
+  Le site est la propriété exclusive de la société 12parfait, seule habilitée à utiliser et exploiter les droits de propriété intellectuelle et droits de la personnalité attachés à ce site, notamment les marques, dessins et modèles, droits d'auteur et droit à l'image, à titre originaire ou par l'effet d'une cession ou d'une licence d'exploitation.
+  L'usage de tout ou partie du site <strong>https://12parfait.fr</strong>, notamment par téléchargement, reproduction, transmission ou représentation à d'autres fins que pour usage personnel et privé dans un but non commercial est strictement interdit.
+</p>
+<?php else : ?>
+À venir
+<?php endif; ?>
