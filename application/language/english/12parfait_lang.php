@@ -79,7 +79,7 @@ $lang['reset_password_email_sent'] = 'Email for password reset successfully sent
 $lang['complete_fixture'] = 'Fixture complete.';
 $lang['no_match_for_fixture'] = 'No match defined for this fixture.';
 $lang['no_fixture_for_championship'] = 'No fixture defined for this championship.';
-$lang['no_user_with_this_id'] = 'No user with this id, stop messing with the url !';
+$lang['user_has_never_played'] = 'This user has never played !';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Wrong email / password.';

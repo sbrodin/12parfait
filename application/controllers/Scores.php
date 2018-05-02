@@ -45,7 +45,7 @@ class Scores extends MY_Controller {
         $data['filters_scores'] = $filters['filters_scores'];
 
         // Récupération des résultats de chaque utilisateur
-        $select = 'user.user_id, user_name, bet.bet_id, bet.score';
+        $select = 'user.user_id, user.rand_userid, user_name, bet.bet_id, bet.score';
         $where = array(
             'active' => '1',
             // 'acl !=' => 'admin',
@@ -70,18 +70,18 @@ class Scores extends MY_Controller {
                                    ->get()
                                    ->result();
 
-        $user_id = '';
+        $rand_userid = '';
         $scores = array();
         $users = array();
         foreach ($data['scores'] as $key => $score) {
-            if ($score->user_id != $user_id) {
-                $scores[$score->user_id] = $score->score ? $score->score : 0;
-                $users[$score->user_id] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->user_id : $score->user_name;
-                $user_id = $score->user_id;
+            if ($score->rand_userid != $rand_userid) {
+                $scores[$score->rand_userid] = $score->score ? $score->score : 0;
+                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+                $rand_userid = $score->rand_userid;
             } else {
-                $scores[$score->user_id]+= $score->score;
+                $scores[$score->rand_userid]+= $score->score;
             }
-            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->user_id : $score->user_name;
+            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
         }
         arsort($scores);
         $data['user_scores'] = $scores;
@@ -115,8 +115,8 @@ class Scores extends MY_Controller {
         }
 
         // Gestion du podium
-        foreach ($data['user_scores'] as $user_id => $score) {
-            $user_ladder[$score][] = $data['users'][$user_id];
+        foreach ($data['user_scores'] as $rand_userid => $score) {
+            $user_ladder[$score][] = $data['users'][$rand_userid];
         }
         if (isset($user_ladder)) {
             $user_ladder = array_values($user_ladder);
@@ -152,19 +152,20 @@ class Scores extends MY_Controller {
         $this->load->view('templates/footer', $data);
     }
 
-    public function scores($user_id = 0)
+    public function scores($rand_userid = 0)
     {
-        save_log('scores', 'scores', 'Visualisation des scores de : ' . $user_id);
+        save_log('scores', 'scores', 'Visualisation des scores de : ' . $rand_userid);
         if (!user_can('view_scores')) {
             show_404();
         }
 
         $data = array();
-        $data['title'] = ($user_id === $this->session->user->user_id) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
-        $data['required_user_id'] = $user_id;
+        $data['title'] = ($rand_userid === $this->session->user->user_id) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
+        $data['required_user_id'] = $rand_userid;
         $data['my_user_id'] = $this->session->user->user_id;
 
         $select = 'user.user_id,
+                   user.rand_userid,
                    user_name,
                    first_name,
                    last_name,
@@ -175,7 +176,7 @@ class Scores extends MY_Controller {
         $where = array(
             'active' => '1',
             // 'bet.score !=' => '0',
-            'user.user_id' => $user_id,
+            'user.rand_userid' => $rand_userid,
             'match.result !=' => 'NULL'
         );
 
@@ -188,8 +189,8 @@ class Scores extends MY_Controller {
                                    ->order_by($order)
                                    ->get()
                                    ->result();
-        if ($data['scores'][0]->user_id === NULL) {
-            $data['info'] = $this->lang->line('no_user_with_this_id');
+        if ($data['scores'][0]->user_id === '0') {
+            $data['info'] = $this->lang->line('user_has_never_played');
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav', $data);
@@ -201,7 +202,7 @@ class Scores extends MY_Controller {
         // Récupération en une seule requête des stats par score
         $select = 'bet.score, count(bet_id) AS nb_score';
         $where = array(
-            'bet.user_id' => $user_id,
+            'user.rand_userid' => $rand_userid,
             'active' => 1,
             'match.result !=' => 'NULL'
         );
@@ -238,18 +239,18 @@ class Scores extends MY_Controller {
             $data['scores_12'] = 0;
         }
 
-        $user_id = '';
+        $rand_userid = '';
         $scores = array();
         $users = array();
         foreach ($data['scores'] as $key => $score) {
-            if ($score->user_id != $user_id) {
-                $scores[$score->user_id] = $score->score ? $score->score : 0;
-                $users[$score->user_id] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->user_id : $score->user_name;
-                $user_id = $score->user_id;
+            if ($score->rand_userid != $rand_userid) {
+                $scores[$score->rand_userid] = $score->score ? $score->score : 0;
+                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+                $rand_userid = $score->rand_userid;
             } else {
-                $scores[$score->user_id]+= $score->score;
+                $scores[$score->rand_userid]+= $score->score;
             }
-            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->user_id : $score->user_name;
+            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
         }
         arsort($scores);
         $data['user_scores'] = $scores;

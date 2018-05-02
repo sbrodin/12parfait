@@ -226,6 +226,7 @@ class Connection extends CI_Controller {
             } else {
                 $post['email'] = strtolower($post['email']);
                 $donnees_echapees = array(
+                    'rand_userid' => random_string('alnum', 10),
                     'acl' => 'user',
                     'active' => '1',
                     'email' => $post['email'],

@@ -79,17 +79,17 @@
         <?php
         $current_score = '';
         $rank = 1;
-        foreach ($user_scores as $user_id => $score) :
+        foreach ($user_scores as $rand_userid => $score) :
             $trophy = null;
-            if (strpos($rank1_users, $users[$user_id]) !== false) {
+            if (strpos($rank1_users, $users[$rand_userid]) !== false) {
                 $trophy = 1;
-            } else if (strpos($rank2_users, $users[$user_id]) !== false) {
+            } else if (strpos($rank2_users, $users[$rand_userid]) !== false) {
                 $trophy = 2;
-            } else if (strpos($rank3_users, $users[$user_id]) !== false) {
+            } else if (strpos($rank3_users, $users[$rand_userid]) !== false) {
                 $trophy = 3;
             }
         ?>
-        <tr data-href="<?= site_url('scores/'.$user_id) ?>">
+        <tr data-href="<?= site_url('scores/'.$rand_userid) ?>">
             <?php if ($trophy !== null) : ?>
                 <td class="rank-<?= $trophy ?> text-xs-center"><i class="fa fa-trophy"></i></td>
             <?php else : ?>
@@ -104,12 +104,12 @@
             <?php else : ?>
                 <td></td>
             <?php endif; ?>
-            <td><?= $users[$user_id] ?></td>
+            <td><?= $users[$rand_userid] ?></td>
             <td><?= $score ?></td>
             <?php if (isset($scores_12)) : ?>
             <td><?= $scores_12 ?></td>
             <?php endif; ?>
-            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('scores/'.$user_id) ?>"><?= $this->lang->line('view') ?></a></td>
+            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('scores/'.$rand_userid) ?>"><?= $this->lang->line('view') ?></a></td>
         </tr>
         <?php
             ++$rank;
