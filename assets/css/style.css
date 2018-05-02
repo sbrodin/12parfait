@@ -404,6 +404,9 @@ footer a {
     .home-table {
         width: 100%;
     }
+    .home-table.m-r-2 {
+        margin-right: 0 !important;
+    }
     .card {
         min-width: 125px;
         padding: 4px 6px;
