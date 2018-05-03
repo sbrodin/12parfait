@@ -12,7 +12,7 @@ Un système de points est en place :
 Et le total de points possibles à marquer pour un match est donc de 12 !
 Un classement est disponible pour vous faire une idée de votre niveau par rapport
 aux autres.
-Vous pourrez aussi bientôt créer des "ligues" pour sélectionner des championnats sur
+Vous pourrez aussi bientôt créer des "challenges" pour sélectionner des championnats sur
 lesquels placer vos pronostics et rester entre amis.
 
 *******************
