@@ -73,14 +73,14 @@ Liste des éléments restants à faire :
         - ajouter un filtre par date
     - Ajouter un filtre pour les logs
     - Inclure la nav dans le header pour moins de fichiers à charger
-    - Ajouter le système de "ligue"
+    - Ajouter le système de "challenge"
         - identifiant unique
-        - lien vers la "ligue"
-        - email d'invitation aux membres de la ligue
+        - lien vers la "challenge"
+        - email d'invitation aux membres de la challenge
         - choix des championnats sur lesquels parier
-        - comparaison des scores dans la "ligue"
-        - comparaison des scores entre "ligues"
-        - système de message dans la ligue
+        - comparaison des scores dans la "challenge"
+        - comparaison des scores entre "challenges"
+        - système de message dans la challenge
             - possibilité de signaler des messages
             - contrôles de tous les messages échangés
     - Inclure un système de trophées + message à la réception du trophée
@@ -99,7 +99,7 @@ Liste des éléments restants à faire :
             - nombre de jours de connexion (10, 50, 100, 500, 1000)
             - nombre de 12parfait (3, 10, 20, 50, 100)
             - nombre de points (50, 200, 500, 2000, 5000)
-            - participation à une "ligue" (5, 20, 50, 100, 200)
-            - victoires de "ligue" (1, 5, 10, 20, 50)
+            - participation à une "challenge" (5, 20, 50, 100, 200)
+            - victoires de "challenge" (1, 5, 10, 20, 50)
             - nombre de trophées (3, 10, 20, 50, 100)
     - Inclure un système de jokers dépendant du nombre de trophées non utilisés
