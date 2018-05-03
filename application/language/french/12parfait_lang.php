@@ -79,7 +79,7 @@ $lang['reset_password_email_sent'] = 'Email pour la réinitialisation du mot de 
 $lang['complete_fixture'] = 'Journée complète.';
 $lang['no_match_for_fixture'] = 'Aucun match défini pour cette journée.';
 $lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
-$lang['no_user_with_this_id'] = 'Cet utilisateur n\'a jamais joué !';
+$lang['user_has_never_played'] = 'Cet utilisateur n\'a jamais joué !';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe.';
