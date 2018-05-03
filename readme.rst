@@ -75,12 +75,12 @@ Liste des éléments restants à faire :
     - Inclure la nav dans le header pour moins de fichiers à charger
     - Ajouter le système de "challenge"
         - identifiant unique
-        - lien vers la "challenge"
-        - email d'invitation aux membres de la challenge
+        - lien vers le "challenge"
+        - email d'invitation aux membres du "challenge"
         - choix des championnats sur lesquels parier
-        - comparaison des scores dans la "challenge"
+        - comparaison des scores dans le "challenge"
         - comparaison des scores entre "challenges"
-        - système de message dans la challenge
+        - système de message dans le "challenge"
             - possibilité de signaler des messages
             - contrôles de tous les messages échangés
     - Inclure un système de trophées + message à la réception du trophée
