@@ -14,6 +14,6 @@
     </select><br/>
     <?php endif; ?>
     <label for="fixture_name"><?= $this->lang->line('fixture_name') ?> : </label>
-    <input type="text" id="fixture_name" name="fixture_name" value="<?= set_value('fixture_name') ?>" required="required">
+    <input type="text" id="fixture_name" name="fixture_name" value="<?= set_value('fixture_name') ?>" required="required" autofocus>
     <input type="submit" value="<?= $this->lang->line('add') ?>">
 </form>
