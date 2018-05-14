@@ -244,6 +244,7 @@ td.dash {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    vertical-align: top;
 }
 .card.bettable {
     border: 2px solid #0275d8;
