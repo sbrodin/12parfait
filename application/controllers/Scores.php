@@ -162,7 +162,7 @@ class Scores extends MY_Controller {
         $data = array();
         $data['title'] = ($rand_userid === $this->session->user->user_id) ? $this->lang->line('my_scores') :  $this->lang->line('scores_of_player');
         $data['required_user_id'] = $rand_userid;
-        $data['my_user_id'] = $this->session->user->user_id;
+        $data['my_user_id'] = $this->session->user->rand_userid;
 
         $select = 'user.user_id,
                    user.rand_userid,
