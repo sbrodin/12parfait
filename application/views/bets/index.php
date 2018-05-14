@@ -59,8 +59,12 @@ foreach ($fixtures as $num => $fixture) :
         <div class="card-body">
             <h6 class="card-title"><?= $fixture->fixture_name ?></h6>
             <div class="card-subtitle m-b-1 text-muted hidden-sm-down"><?= $fixture->championship_name ?></div>
-            <div class="card-subtitle text-muted hidden-sm-down">du <?= $fixture->dates['first'] ?></div>
-            <div class="card-subtitle m-b-1 text-muted hidden-sm-down">au <?= $fixture->dates['last'] ?></div>
+            <?php if ($fixture->dates['first'] !== $fixture->dates['last']) : ?>
+            <div class="card-subtitle text-muted hidden-sm-down"><?= $this->lang->line('from_the') ?> <?= $fixture->dates['first'] ?></div>
+            <div class="card-subtitle m-b-1 text-muted hidden-sm-down"><?= $this->lang->line('to') ?> <?= $fixture->dates['last'] ?></div>
+            <?php else : ?>
+            <div class="card-subtitle m-b-1 text-muted hidden-sm-down"><?= $this->lang->line('on') ?> <?= $fixture->dates['first'] ?></div>
+            <?php endif; ?>
             <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
             <a class="btn btn-sm btn-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('add_edit_bet') ?></a>
             <?php else : ?>
