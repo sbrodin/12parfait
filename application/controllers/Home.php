@@ -46,10 +46,18 @@ class Home extends CI_Controller {
         $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+24*60*60))['matches'];
 
         if (!$data['yesterday_matches'] && !$data['today_matches'] && !$data['tomorrow_matches']) {
-            $data['last_matches'] = last_matches()['matches'];
-            $next_matches = next_matches();
-            $data['next_matches'] = $next_matches['matches'];
-            $data['next_matches_date'] = $next_matches['date'];
+            if ($last_matches = last_matches()) {
+                $data['last_matches'] = $last_matches['matches'];
+            } else {
+                $data['last_matches'] = null;
+            }
+            if ($next_matches = next_matches()) {
+                $data['next_matches'] = $next_matches['matches'];
+                $data['next_matches_date'] = $next_matches['date'];
+            } else {
+                $data['next_matches'] = null;
+                $data['next_matches_date'] = null;
+            }
         }
 
         $this->load->view('templates/header', $data);

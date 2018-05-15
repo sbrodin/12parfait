@@ -59,17 +59,25 @@ function last_matches() {
 
     // Récupération de la date des derniers matchs
     $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y") as formated_date';
-    $where = 'date <= NOW()';
+    $where1 = 'date <= NOW()';
+    $where2 = array('championship.status' => 'open');
     $order = 'date DESC';
     $limit = 1;
     $date_last_matches = $CI->db->select($select)
                                 ->from($CI->config->item('match', 'table'))
-                                ->where($where)
+                                ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'inner')
+                                ->join('championship', 'fixture.championship_id = championship.championship_id', 'inner')
+                                ->where($where1)
+                                ->where($where2)
                                 ->order_by($order)
                                 ->limit($limit)
                                 ->get()
                                 ->result();
-    return matches_of_day($date_last_matches[0]->formated_date);
+    if ($date_last_matches) {
+        return matches_of_day($date_last_matches[0]->formated_date);
+    } else {
+        return null;
+    }
 }
 
 /**
@@ -82,15 +90,23 @@ function next_matches() {
 
     // Récupération de la date des prochains matchs
     $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y") as formated_date';
-    $where = 'date >= NOW()';
+    $where1 = 'date >= NOW()';
+    $where2 = array('championship.status' => 'open');
     $order = 'date ASC';
     $limit = 1;
     $date_next_matches = $CI->db->select($select)
                                 ->from($CI->config->item('match', 'table'))
-                                ->where($where)
+                                ->join('fixture', 'match.fixture_id = fixture.fixture_id', 'inner')
+                                ->join('championship', 'fixture.championship_id = championship.championship_id', 'inner')
+                                ->where($where1)
+                                ->where($where2)
                                 ->order_by($order)
                                 ->limit($limit)
                                 ->get()
                                 ->result();
-    return matches_of_day($date_next_matches[0]->formated_date);
+    if ($date_next_matches) {
+        return matches_of_day($date_next_matches[0]->formated_date);
+    } else {
+        return null;
+    }
 }
