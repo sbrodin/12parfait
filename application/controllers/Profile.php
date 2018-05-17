@@ -48,6 +48,7 @@ class Profile extends MY_Controller {
             $this->load->view('profile/edit', $data);
             $this->load->view('templates/footer', $data);
         } else {
+            $post['user_name'] = trim($post['user_name']);
             if ($post['user_name'] !== $data['user']->user_name) {
                 $rules = array(
                     array(
@@ -70,8 +71,8 @@ class Profile extends MY_Controller {
                 $this->load->view('templates/footer', $data);
             } else {
                 $donnees_echapees = array(
-                    'first_name' => $post['first_name'],
-                    'last_name' => $post['last_name'],
+                    'first_name' => trim($post['first_name']),
+                    'last_name' => trim($post['last_name']),
                     'user_name' => $post['user_name'],
                     // 'language' => $post['language'],
                 );
