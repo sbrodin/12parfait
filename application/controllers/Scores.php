@@ -154,7 +154,7 @@ class Scores extends MY_Controller {
 
     public function scores($rand_userid = 0)
     {
-        save_log('scores', 'scores', 'Visualisation des scores de : ' . $rand_userid);
+        save_log('scores', 'scores', 'Visualisation des scores de : <a href="'.site_url('scores/'.$rand_userid).'">'.$rand_userid.'</a>');
         if (!user_can('view_scores')) {
             show_404();
         }
