@@ -23,7 +23,7 @@
 
         <?= validation_errors() ?>
 
-        <?= form_open('connection/login?url=' . $url) ?>
+        <?= form_open('connection/login?url='.$url) ?>
             <label for="email"><?= $this->lang->line('email') ?> : </label>
             <input type="email" id="email" name="email" class="form-control m-b-1" placeholder="<?= $this->lang->line('email') ?>" required="required" autofocus>
             <label for="password"><?= $this->lang->line('password') ?> : </label>

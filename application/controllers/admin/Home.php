@@ -17,7 +17,7 @@ class Home extends MY_Controller {
         save_log('admin/home', 'index');
 
         $data = array();
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('home');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('home');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

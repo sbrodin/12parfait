@@ -35,7 +35,7 @@
             <tbody>
                 <?php foreach ($last_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -45,12 +45,12 @@
                         <td><?= $match->team2_score ?></td>
                         <td><?= $match->team2 ?></td>
                         <?php if (is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
                         <?php if (is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -68,7 +68,7 @@
             <tbody>
                 <?php foreach ($next_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -76,9 +76,9 @@
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
                         <?php if (is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -106,7 +106,7 @@
             <tbody>
                 <?php foreach ($yesterday_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -116,12 +116,12 @@
                         <td><?= $match->team2_score ?></td>
                         <td><?= $match->team2 ?></td>
                         <?php if (is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php endif; ?>
                         <?php if (is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -139,7 +139,7 @@
             <tbody>
                 <?php foreach ($today_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -148,12 +148,12 @@
                         <td><?= $match->team2 ?></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
                         <?php if (is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
                         <?php if (is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -171,7 +171,7 @@
             <tbody>
                 <?php foreach ($tomorrow_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/' . $match->fixture_id) ?>">
+                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -180,9 +180,9 @@
                         <td><?= $match->team2 ?></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
                         <?php if (is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/' . $match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url=' . urlencode('bets/edit/' . $match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>

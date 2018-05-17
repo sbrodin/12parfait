@@ -8,10 +8,10 @@ if (!empty($matches_fixture)) {
         if ($match_fixture->date!==$date) {
             $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $match_fixture->date);
             $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
-            echo '<br/>' . $date_formatted . '<br/>';
+            echo '<br/>'.$date_formatted.'<br/>';
             $date = $match_fixture->date;
         }
-        echo $match_fixture->team1 . ' - ' . $match_fixture->team2 . '<br/>';
+        echo $match_fixture->team1.' - '.$match_fixture->team2.'<br/>';
     }
     echo '<br/>';
 }

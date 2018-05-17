@@ -11,7 +11,7 @@
     <span id="championship"><?= $championship_name ?></span><br/>
     <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?= $fixture_name ?></span><br/><br/>
-    <?= form_open('admin/fixtures/edit/' . $fixture_id) ?>
+    <?= form_open('admin/fixtures/edit/'.$fixture_id) ?>
         <?php
         foreach ($fixture_matches as $key => $fixture_match) :
             $date = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);

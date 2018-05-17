@@ -97,7 +97,7 @@ class Bets extends MY_Controller {
 
     public function edit($fixture_id = 0)
     {
-        save_log('bets', 'edit', 'Affichage édition journée : ' . $fixture_id);
+        save_log('bets', 'edit', 'Affichage édition journée : '.$fixture_id);
         if (!user_can('edit_bet')) {
             show_404();
         }
@@ -284,11 +284,11 @@ class Bets extends MY_Controller {
             }
             // Suppression des paris déjà entrés pour la journée
             $query = 'DELETE bet ';
-            $query.= 'FROM `' . $this->config->item('bet', 'table') . '` ';
-            $query.= 'JOIN `' . $this->config->item('match', 'table') . '` ON bet.match_id = `match`.match_id ';
-            $query.= 'WHERE user_id = ' . $this->session->user->user_id . ' ';
+            $query.= 'FROM `'.$this->config->item('bet', 'table').'` ';
+            $query.= 'JOIN `'.$this->config->item('match', 'table').'` ON bet.match_id = `match`.match_id ';
+            $query.= 'WHERE user_id = '.$this->session->user->user_id.' ';
             $query.= 'AND `match`.result IS NULL ';
-            $query.= 'AND bet.match_id IN (' . implode(', ', array_keys($data['matches'])) . ')';
+            $query.= 'AND bet.match_id IN ('.implode(', ', array_keys($data['matches'])).')';
             $this->db->query($query);
             // Update des paris de l'utilisateur pour la journée
             $bets = array();
@@ -338,7 +338,7 @@ class Bets extends MY_Controller {
                 $this->db->insert_batch('bet', $bets);
             }
 
-            save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : ' . $fixture_id);
+            save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : '.$fixture_id);
             $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
             exit;

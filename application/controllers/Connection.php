@@ -238,7 +238,7 @@ class Connection extends CI_Controller {
                 // Envoi d'email pour info
                 $subject = '12parfait - Création de compte';
                 $body = 'Un nouveau compte a été créé.<br/><br/>';
-                $body.= 'Email : ' . $post['email'];
+                $body.= 'Email : '.$post['email'];
 
                 $config['mailtype'] = 'html';
                 $this->email->initialize($config);
@@ -329,7 +329,7 @@ class Connection extends CI_Controller {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
             if ($url !== '') {
-                save_log('connection', 'login', 'connexion réussie - vers url spécifique : ' . url_decode($url));
+                save_log('connection', 'login', 'connexion réussie - vers url spécifique : '.url_decode($url));
                 redirect(site_url(urldecode($url)), 'location');
                 exit;
             } else {
@@ -338,7 +338,7 @@ class Connection extends CI_Controller {
                 exit;
             }
         } else {
-            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (email : ' . $post['email'] . ')');
+            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (email : '.$post['email'].')');
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
             redirect(site_url('connection'), 'location');
             exit;
@@ -389,7 +389,7 @@ class Connection extends CI_Controller {
                 $this->user_model->update($where, $donnees_echapees);
 
                 $subject = '12parfait - Mot de passe oublié';
-                $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="' . site_url('reset_password/' . $hash) . '">ce lien</a>';
+                $body = 'Pour réinitialiser votre mot de passe, veuillez cliquer sur <a href="'.site_url('reset_password/'.$hash).'">ce lien</a>';
 
                 $config['mailtype'] = 'html';
                 $this->email->initialize($config);
@@ -403,7 +403,7 @@ class Connection extends CI_Controller {
                 $this->email->send();
                 $this->email->clear();
                 $this->load->model('log_model');
-                save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : ' . $post['email']);
+                save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : '.$post['email']);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
                 redirect(site_url('connection'), 'location');
@@ -478,7 +478,7 @@ class Connection extends CI_Controller {
                     'date_hash' => NULL,
                 );
                 $this->user_model->update($where, $donnees_echapees);
-                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : ' . $user['email']);
+                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : '.$user['email']);
                 redirect(site_url('connection'), 'location');
                 exit;
             }

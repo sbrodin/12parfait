@@ -23,7 +23,7 @@ class Logs extends MY_Controller {
         if (!user_can('view_logs')) {
             show_404();
         }
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('logs_admin');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('logs_admin');
         $select = 'log_id, log_controller, log_method, log_userip, log_userid, log_message, DATE_FORMAT(log_date, "%d/%m/%Y à %Hh%im%s") as log_date';
         $where = array();
         $limit = 100;

@@ -9,7 +9,7 @@
             <?= $bet_of_message ?>
         </div>
     <?php endif; ?>
-    <?= form_open('bets/edit/' . $fixture_id, array('class' => 'form-players-filter m-b-2')) ?>
+    <?= form_open('bets/edit/'.$fixture_id, array('class' => 'form-players-filter m-b-2')) ?>
         <span class="form-players-filter-legend m-r-3"><?= $this->lang->line('view_bets_of') ?></span>
         <a class="btn btn-link form-players-filter-link" data-toggle="collapse" href="#fieldset-filters-players" aria-expanded="false" aria-controls="fieldset-filters-players"><?= $this->lang->line('show_hide') ?></a>
         <fieldset id="fieldset-filters-players" class="form-group collapse <?= $collapse_filters ?>">
@@ -32,7 +32,7 @@
     <span id="championship" class="font-bigger"><?= $championship_name ?></span><br/>
     <label for="fixture" class="strong font-bigger"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture" class="font-bigger"><?= $fixture_name ?></span>
-    <?= form_open('bets/edit/' . $fixture_id) ?>
+    <?= form_open('bets/edit/'.$fixture_id) ?>
         <div class="overflow">
             <table class="table-striped table-bets-edit m-b-2">
                 <thead>
@@ -42,7 +42,7 @@
                         if (!empty($different_players)) :
                             foreach ($different_players as $player_id => $player_name) :
                         ?>
-                        <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('bets_of') . ' ' . $player_name ?></th>
+                        <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('bets_of').' '.$player_name ?></th>
                         <th class="text-xs-center hidden-md-up"><?= $player_name ?></th>
                         <?php
                             endforeach;
@@ -62,13 +62,13 @@
                         $team2_id = $fixture_match->t2_id;
                         $team1_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team1_score : '';
                         $team2_score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->team2_score : '';
-                        $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
-                        $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score . '-' . $fixture_match->team2_score;
+                        $result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available') : $fixture_match->team1_score.'-'.$fixture_match->team2_score;
+                        $short_result = ($fixture_match->team1_score == NULL || $fixture_match->team2_score == NULL) ? $this->lang->line('not_available_short') : $fixture_match->team1_score.'-'.$fixture_match->team2_score;
                         $score = isset($my_fixture_bets[$match_id]) ? $my_fixture_bets[$match_id]->score : 0;
                         if ($fixture_match->formated_date !== $date) {
                             echo '<tr>';
-                            echo '<td class="date" colspan="5">' . $fixture_match->formated_date . '</td>';
-                            echo '<td class="date" colspan="' . (3+count($different_players)) . '"></td>';
+                            echo '<td class="date" colspan="5">'.$fixture_match->formated_date.'</td>';
+                            echo '<td class="date" colspan="'.(3+count($different_players)).'"></td>';
                             echo '</tr>';
                             $date = $fixture_match->formated_date;
                         }
@@ -91,7 +91,7 @@
                             if (!$disabled) {
                                 echo '?';
                             } else if (!empty($fixture_bets_players[$player_id][$match_id])) {
-                                echo $fixture_bets_players[$player_id][$match_id]->team1_score . '-' . $fixture_bets_players[$player_id][$match_id]->team2_score . ' (' . $fixture_bets_players[$player_id][$match_id]->score . $this->lang->line('points_short') . ')';
+                                echo $fixture_bets_players[$player_id][$match_id]->team1_score.'-'.$fixture_bets_players[$player_id][$match_id]->team2_score.' ('.$fixture_bets_players[$player_id][$match_id]->score.$this->lang->line('points_short').')';
                             } else {
                                 echo $this->lang->line('not_available_short');
                             }

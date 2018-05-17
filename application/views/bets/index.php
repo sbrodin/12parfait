@@ -29,7 +29,7 @@
         <select name="fixture" class="form-control form-bets-filter-fixture" data-filter-page="bets">
             <option value="0"></option>
             <?php foreach ($fixtures as $key => $fixture_info) : ?>
-            <option value="<?= $fixture_info->fixture_id ?>" data-championship-id="<?= $fixture_info->championship_id ?>" <?= $filters_bets['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name . ' - ' . $fixture_info->fixture_name ?></option>
+            <option value="<?= $fixture_info->fixture_id ?>" data-championship-id="<?= $fixture_info->championship_id ?>" <?= $filters_bets['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name.' - '.$fixture_info->fixture_name ?></option>
             <?php endforeach; ?>
         </select>
         <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('filter_verb') ?>">
@@ -46,7 +46,7 @@ foreach ($fixtures as $num => $fixture) :
             echo '</div>';
         }
         echo '<div>';
-        echo '<h3>' . $fixture->championship_name . '</h3>';
+        echo '<h3>'.$fixture->championship_name.'</h3>';
         $championship_name = $fixture->championship_name;
     }
     if ($fixture->status === 'open' || $fixture->status === 'ongoing') {
@@ -71,7 +71,7 @@ foreach ($fixtures as $num => $fixture) :
             <a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('results') ?></a>
             <?php endif; ?>
             <?php if (user_can('admin_fixtures') && ($fixture->status === 'open' || $fixture->status === 'ongoing')) : ?>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a>
             <?php endif; ?>
         </div>
     </div>
@@ -111,7 +111,7 @@ foreach ($fixtures as $num => $fixture) :
         </td>
         <?php if (user_can('admin_fixtures')) : ?>
             <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
-                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/' . $fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>

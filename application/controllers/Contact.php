@@ -71,8 +71,8 @@ class Contact extends CI_Controller {
                 // Conversion du message pour affichage correct en html
                 $post['message'] = nl2br($post['message']);
                 // Envoi de l'email
-                $subject = '12parfait - Contact - ' . $post['motif'];
-                $body = 'Message envoyé par "' . $this->session->user->email . '" :<br/><br/>';
+                $subject = '12parfait - Contact - '.$post['motif'];
+                $body = 'Message envoyé par "'.$this->session->user->email.'" :<br/><br/>';
                 $body.= $post['message'];
 
                 $config['mailtype'] = 'html';
@@ -87,7 +87,7 @@ class Contact extends CI_Controller {
                 $this->email->send();
                 $this->email->clear();
 
-                save_log('contact', 'index', 'Envoi du message de : ' . $this->session->user->email);
+                save_log('contact', 'index', 'Envoi du message de : '.$this->session->user->email);
                 $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
                 redirect(site_url(), 'location');
                 exit;

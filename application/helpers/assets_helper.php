@@ -10,7 +10,7 @@ if (!defined('BASEPATH') ) {
   * @return Url du fichier css dans l'application
   */
 function css_url($nom) {
-    return base_url() . 'assets/css/' . $nom . '.css';
+    return base_url().'assets/css/'.$nom.'.css';
 }
 
 /**
@@ -20,7 +20,7 @@ function css_url($nom) {
   * @return Url du fichier js dans l'application
   */
 function js_url($nom) {
-    return base_url() . 'assets/js/' . $nom . '.js';
+    return base_url().'assets/js/'.$nom.'.js';
 }
 
 /**
@@ -30,7 +30,7 @@ function js_url($nom) {
   * @return Url du fichier csv dans l'application
   */
 function csv_url($nom) {
-    return base_url() . 'assets/csv/' . $nom . '.csv';
+    return base_url().'assets/csv/'.$nom.'.csv';
 }
 
 /**
@@ -40,7 +40,7 @@ function csv_url($nom) {
   * @return Url du fichier js dans l'application
   */
 function json_url($nom) {
-    return base_url() . 'assets/json/' . $nom . '.json';
+    return base_url().'assets/json/'.$nom.'.json';
 }
 
 /**
@@ -50,7 +50,7 @@ function json_url($nom) {
   * @return Url de l'image dans l'application
   */
 function img_url($nom) {
-    return base_url() . 'assets/img/' . $nom;
+    return base_url().'assets/img/'.$nom;
 }
 
 /**
@@ -72,5 +72,5 @@ function img($nom, $alt = '', $title = '', $classes = '') {
     if ($title === '' && $alt !=='') {
         $title = $alt;
     }
-    return '<img src="' . img_url($nom) . '" alt="' . $alt . '" title="' . $title . '" class="' . $classes . '" />';
+    return '<img src="'.img_url($nom).'" alt="'.$alt.'" title="'.$title.'" class="'.$classes.'" />';
 }

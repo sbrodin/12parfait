@@ -29,7 +29,7 @@ class Users extends MY_Controller {
         if (!user_can('view_users')) {
             show_404();
         }
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('users_admin');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('users_admin');
         $data['users'] = $this->user_model->read('*');
 
         $users_scores = users_score_calculator();

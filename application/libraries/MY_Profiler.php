@@ -44,7 +44,7 @@ class MY_Profiler extends CI_Profiler {
 		$output .= '<fieldset style="border:1px solid #009999;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee">';
 		$output .= "\n";
 
-		$output .= '<legend style="color:#009999;">&nbsp;&nbsp;' . 'DONNEES SESSION' . '&nbsp;&nbsp;</legend>';
+		$output .= '<legend style="color:#009999;">&nbsp;&nbsp;'.'DONNEES SESSION'.'&nbsp;&nbsp;</legend>';
 		$output .= "\n";
 		if (isset($this->CI->session)) {
 			//	Le contenu de la session

@@ -28,7 +28,7 @@
         <select name="fixture" class="form-control form-scores-filter-fixture" data-filter-page="scores">
             <option value="0"></option>
             <?php foreach ($fixtures as $key => $fixture_info) : ?>
-            <option value="<?= $fixture_info->fixture_id ?>" data-championship-id="<?= $fixture_info->championship_id ?>" <?= $filters_scores['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name . ' - ' . $fixture_info->fixture_name ?></option>
+            <option value="<?= $fixture_info->fixture_id ?>" data-championship-id="<?= $fixture_info->championship_id ?>" <?= $filters_scores['fixture'] == $fixture_info->fixture_id ? 'selected' : '' ?>><?= $fixture_info->championship_name.' - '.$fixture_info->fixture_name ?></option>
             <?php endforeach; ?>
         </select>
         <input type="submit" name="submit" class="btn btn-sm btn-primary m-t-2 m-b-2" value="<?= $this->lang->line('filter_verb') ?>">

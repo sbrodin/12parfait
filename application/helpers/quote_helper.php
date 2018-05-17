@@ -24,7 +24,7 @@ function get_quote($line = 0) {
     $quote = str_getcsv($quotes[$quote_num], ';');
     $quote = array(
         'text' => $quote[0],
-        'author' => trim($quote[1]) . (isset($quote[2]) ? (' ' . trim($quote[2])) : ''),
+        'author' => trim($quote[1]).(isset($quote[2]) ? (' '.trim($quote[2])) : ''),
     );
     return $quote;
 }

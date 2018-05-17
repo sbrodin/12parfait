@@ -15,7 +15,7 @@ class Championships extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('championships');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('championships');
 
         $select = '*';
         $where = array();
@@ -37,7 +37,7 @@ class Championships extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('add_championship');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('add_championship');
 
         $post = $this->input->post();
         if (empty($post)) {
@@ -118,7 +118,7 @@ class Championships extends MY_Controller {
         }
 
         $data = array();
-        $data['title'] = $this->lang->line('admin') . ' - ' . $this->lang->line('edit_championship');
+        $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('edit_championship');
 
         $select = '*';
         $where = array(

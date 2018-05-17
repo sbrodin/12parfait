@@ -33,7 +33,7 @@
                 <?php if (is_null($log->log_userid)) : ?>
                     <td></td>
                 <?php else : ?>
-                    <td><a href="<?= site_url('scores/' . $log->log_userid) ?>"><?= $log->log_userid ?></a></td>
+                    <td><a href="<?= site_url('scores/'.$log->log_userid) ?>"><?= $log->log_userid ?></a></td>
                 <?php endif; ?>
                 <td><?= $log->log_message ?></td>
                 <td><?= $log->log_date ?></td>

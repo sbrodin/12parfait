@@ -80,7 +80,7 @@ class Profile extends MY_Controller {
 
                 $this->session->set_userdata('user', $this->user_model->read('*', array("user_id" => $data['user']->user_id))[0]);
 
-                save_log('profile', 'edit', 'Modification du profil de l\'utilisateur : ' . $this->session->user->user_id);
+                save_log('profile', 'edit', 'Modification du profil de l\'utilisateur : '.$this->session->user->user_id);
                 $this->session->set_flashdata('success', $this->lang->line('profile_modified'));
                 redirect(site_url('profile'), 'location');
                 exit;

@@ -11,7 +11,7 @@
     <span id="championship"><?= $championship_name ?></span><br/>
     <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?= $fixture_name ?></span><br/>
-    <?php echo form_open('admin/fixtures/results/' . $fixture_id);
+    <?php echo form_open('admin/fixtures/results/'.$fixture_id);
         echo '<table><tbody>';
         $date = '';
         foreach ($fixture_matches as $key => $fixture_match) {
@@ -23,7 +23,7 @@
             if ($fixture_match->date!==$date) {
                 $date_not_formatted = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
                 $date_formatted = $date_not_formatted->format('d/m/Y H\hi');
-                echo '<tr><td class="date" colspan="5">' . $date_formatted . '</td></tr>';
+                echo '<tr><td class="date" colspan="5">'.$date_formatted.'</td></tr>';
                 $date = $fixture_match->date;
             }
             echo '<tr><td class="team1_name">';
@@ -31,18 +31,18 @@
                 championship_teams_evolve($championship_id) &&
                 is_team_in_championship($fixture_match->t1_id, $championship_id) &&
                 is_team_in_championship($fixture_match->t2_id, $championship_id)) {
-                echo '<a href="#" class="del-team" data-linkdelteam="' . site_url('admin/championships/del_team_from_championship/' . $team1_id . '/' . $championship_id) . '">X </a>';
+                echo '<a href="#" class="del-team" data-linkdelteam="'.site_url('admin/championships/del_team_from_championship/'.$team1_id.'/'.$championship_id).'">X </a>';
             }
-            echo $fixture_match->team1 . '</td>';
-            echo '<td class="team1_score"><input type="number" name="score_' . $match_id . '_' . $team1_id . '" id="score_' . $match_id . '_' . $team1_id . '" class="score" value="' . $team1_score . '" min="0"></td>';
+            echo $fixture_match->team1.'</td>';
+            echo '<td class="team1_score"><input type="number" name="score_'.$match_id.'_'.$team1_id.'" id="score_'.$match_id.'_'.$team1_id.'" class="score" value="'.$team1_score.'" min="0"></td>';
             echo '<td class="dash">-</td>';
-            echo '<td class="team2_score"><input type="number" name="score_' . $match_id . '_' . $team2_id . '" id="score_' . $match_id . '_' . $team2_id . '" class="score" value="' . $team2_score . '" min="0"></td>';
-            echo '<td class="team2_name">' . $fixture_match->team2 . '';
+            echo '<td class="team2_score"><input type="number" name="score_'.$match_id.'_'.$team2_id.'" id="score_'.$match_id.'_'.$team2_id.'" class="score" value="'.$team2_score.'" min="0"></td>';
+            echo '<td class="team2_name">'.$fixture_match->team2.'';
             if ($fixture_match->result &&
                 championship_teams_evolve($championship_id) &&
                 is_team_in_championship($fixture_match->t1_id, $championship_id) &&
                 is_team_in_championship($fixture_match->t2_id, $championship_id)) {
-                echo '<a href="#" class="del-team" data-linkdelteam="' . site_url('admin/championships/del_team_from_championship/' . $team2_id . '/' . $championship_id) . '">X </a>';
+                echo '<a href="#" class="del-team" data-linkdelteam="'.site_url('admin/championships/del_team_from_championship/'.$team2_id.'/'.$championship_id).'">X </a>';
             }
             echo '</td><tr/>';
         }

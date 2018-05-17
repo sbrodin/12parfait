@@ -241,7 +241,7 @@ $lang['not_available'] = 'Not available';
 $lang['not_available_short'] = 'N/A';
 
 // Scores
-$lang['define_username_profile'] = 'If your name is not displayed it means that you have not defined a username. <br/> Go to "<a class="alert-link" href="%s">' . $lang['profile'] . '</a>" (top right corner) to edit that right now !';
+$lang['define_username_profile'] = 'If your name is not displayed it means that you have not defined a username. <br/> Go to "<a class="alert-link" href="%s">'.$lang['profile'].'</a>" (top right corner) to edit that right now !';
 $lang['ladder'] = 'Ladder';
 $lang['score'] = 'Score';
 $lang['scores'] = 'Scores';

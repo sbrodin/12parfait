@@ -76,12 +76,12 @@ class Scores extends MY_Controller {
         foreach ($data['scores'] as $key => $score) {
             if ($score->rand_userid != $rand_userid) {
                 $scores[$score->rand_userid] = $score->score ? $score->score : 0;
-                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous').$score->rand_userid : $score->user_name;
                 $rand_userid = $score->rand_userid;
             } else {
                 $scores[$score->rand_userid]+= $score->score;
             }
-            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous').$score->rand_userid : $score->user_name;
         }
         arsort($scores);
         $data['user_scores'] = $scores;
@@ -125,7 +125,7 @@ class Scores extends MY_Controller {
                 // On ne remplit que les 3 premières marches du podium ($key)
                 // Et on s'arrête dès qu'il y a 3 joueurs
                 if ($key < 3 && $nb_joueurs <= 3) {
-                    $data['rank' . ($nb_joueurs+1) . '_users'] = implode('<br>', $users);
+                    $data['rank'.($nb_joueurs+1).'_users'] = implode('<br>', $users);
                     $nb_joueurs+= count($users);
                 }
             }
@@ -245,12 +245,12 @@ class Scores extends MY_Controller {
         foreach ($data['scores'] as $key => $score) {
             if ($score->rand_userid != $rand_userid) {
                 $scores[$score->rand_userid] = $score->score ? $score->score : 0;
-                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+                $users[$score->rand_userid] = ($score->user_name == '') ? $this->lang->line('anonymous').$score->rand_userid : $score->user_name;
                 $rand_userid = $score->rand_userid;
             } else {
                 $scores[$score->rand_userid]+= $score->score;
             }
-            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous') . $score->rand_userid : $score->user_name;
+            $score->user_name = ($score->user_name == '') ? $this->lang->line('anonymous').$score->rand_userid : $score->user_name;
         }
         arsort($scores);
         $data['user_scores'] = $scores;
