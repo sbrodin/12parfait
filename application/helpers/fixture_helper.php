@@ -24,7 +24,11 @@ function fixture_dates($fixture_id) {
                          ->limit($limit)
                          ->get()
                          ->result();
-    $first_date = $first_date[0]->formated_date;
+    if (!empty($first_date)) {
+        $first_date = $first_date[0]->formated_date;
+    } else {
+        $first_date = null;
+    }
 
     // Récupération de la date du dernier match de la journée
     $select = 'date, DATE_FORMAT(`date`, "%d/%m/%Y à %Hh%i") as formated_date';
@@ -38,7 +42,11 @@ function fixture_dates($fixture_id) {
                          ->limit($limit)
                          ->get()
                          ->result();
-    $last_date = $last_date[0]->formated_date;
+    if (!empty($last_date)) {
+        $last_date = $last_date[0]->formated_date;
+    } else {
+        $last_date = null;
+    }
 
     return array(
         'first' => $first_date,
