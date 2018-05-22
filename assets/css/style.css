@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    background-color: #ECE8DC;
+    background-color: #ece8dc;
 }
 * {
     box-sizing: border-box;
@@ -70,7 +70,7 @@ p {
 }
 .main-container {
     padding: 2.5rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 p, ul, li {
     max-height: 999999px;
@@ -134,7 +134,7 @@ th, td {
 /** HEADER **/
 header {
     padding: 30px 40px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 .home-logo {
     height: 75px;
@@ -150,10 +150,10 @@ header {
 }
 .profile-log a {
     margin: 0 20px;
-    color: #0275D8;
+    color: #0275d8;
 }
 .profile-log a:hover {
-    /* color: #FFFFFF; */
+    /* color: #ffffff; */
 }
 .profile-log a:last-of-type {
     margin-right: 0;
@@ -164,11 +164,11 @@ header {
 /** MENU **/
 .menu {
     width: 100%;
-    background-color: #0275D8;
+    background-color: #0275d8;
 }
 .menu a,
 .menu a:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 .menu-nav {
     display: flex;
@@ -188,7 +188,7 @@ header {
     width: 100%;
 }
 .menu-nav li a:hover {
-    background-color: #299CFF;
+    background-color: #299cff;
     text-decoration: none;
 }
 
@@ -233,7 +233,7 @@ td.dash {
     position: relative;
     display: inline-block;
     margin-bottom: .75rem;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: .25rem;
     border: 1px solid rgba(0,0,0,.125);
     width: auto;
@@ -252,7 +252,7 @@ td.dash {
 }
 .table-bets .btn-primary:hover {
     background-color: transparent;
-    color: #0275D8;
+    color: #0275d8;
     border-color: #0275d8;
 }
 .table-bets-edit {
@@ -300,13 +300,13 @@ td.dash {
     max-width: 400px;
 }
 .rank-1 {
-    color: #DAA520;
+    color: #daa520;
 }
 .rank-2 {
-    color: #A8A8A8;
+    color: #a8a8a8;
 }
 .rank-3 {
-    color: #965A38;
+    color: #965a38;
 }
 .podium {
     text-align: center;
@@ -336,21 +336,21 @@ h5.info_date_match {
     left: 10px;
     width: 25%;
     min-width: 300px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #cccccc;
 }
 #codeigniter-profiler:hover {
     opacity: 1;
 }
 #profiler-close {
     cursor: pointer;
-    color: #AAAAAA;
+    color: #aaaaaa;
     position: absolute;
     top: 5px;
     right: 10px;
 }
 #profiler-close span {
-    color: #FFFFFF;
-    background-color: #CCCCCC;
+    color: #ffffff;
+    background-color: #cccccc;
     width: 20px;
     height: 20px;
     border-radius: 20px;
