@@ -28,8 +28,8 @@
                 <td><?= $user->user_name ?></td>
                 <td><?= $user->email ?></td>
                 <td><?= $user->language ?></td>
-                <td><?= $user->add_date_formatted ?></td>
-                <td><?= $user->last_connection_formatted ?></td>
+                <td><?= $user->formated_add_date ?></td>
+                <td><?= $user->formated_last_connection ?></td>
                 <td><?= $user->score ?></td>
                 <td><?= $user->acl ?></td>
                 <td><?= $user->active ?></td>

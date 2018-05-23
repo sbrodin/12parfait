@@ -30,7 +30,8 @@ class Users extends MY_Controller {
             show_404();
         }
         $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('users_admin');
-        $data['users'] = $this->user_model->read('*');
+        $select = '*, DATE_FORMAT(add_date, "%d/%m/%Y %H:%i:%s") AS formated_add_date, DATE_FORMAT(last_connection, "%d/%m/%Y %H:%i:%s") AS formated_last_connection';
+        $data['users'] = $this->user_model->read($select);
 
         $users_scores = users_score_calculator();
 
@@ -39,10 +40,6 @@ class Users extends MY_Controller {
             $users_item->first_name = ($users_item->first_name === '') ? $this->lang->line('no_data') : $users_item->first_name;
             $users_item->last_name = ($users_item->last_name === '') ? $this->lang->line('no_data') : $users_item->last_name;
             $users_item->user_name = ($users_item->user_name === '') ? $this->lang->line('no_data') : $users_item->user_name;
-            $add_date = new DateTime($users_item->add_date);
-            $users_item->add_date_formatted = $add_date->format('d/m/Y H:i:s');
-            $last_connection = new DateTime($users_item->last_connection);
-            $users_item->last_connection_formatted = $last_connection->format('d/m/Y H:i:s');
             $users_item->score = isset($users_scores[$users_item->user_id]) ? $users_scores[$users_item->user_id] : 0;
         }
 
