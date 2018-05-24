@@ -7,7 +7,6 @@
                 <th><?= $this->lang->line('log_controller') ?></th>
                 <th><?= $this->lang->line('log_method') ?></th>
                 <th><?= $this->lang->line('log_userip') ?></th>
-                <th><?= $this->lang->line('links') ?></th>
                 <th><?= $this->lang->line('log_userid') ?></th>
                 <th><?= $this->lang->line('log_message') ?></th>
                 <th><?= $this->lang->line('log_date') ?></th>
@@ -20,15 +19,10 @@
                 <td><?= $log->log_controller ?></td>
                 <td><?= $log->log_method ?></td>
                 <td>
-                    <?= $log->log_userip ?>
-                </td>
-                <td>
-                    <div>
-                        <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" target="_blank" rel="noopener">
-                            ip-tracker
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                        </a>
-                    </div>
+                    <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" title="ip-tracker" target="_blank" rel="noopener">
+                        <?= $log->log_userip ?>
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
                 </td>
                 <?php if (is_null($log->log_userid)) : ?>
                     <td></td>
