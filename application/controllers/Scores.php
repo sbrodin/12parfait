@@ -189,7 +189,7 @@ class Scores extends MY_Controller {
                                    ->order_by($order)
                                    ->get()
                                    ->result();
-        if ($data['scores'][0]->user_id === '0') {
+        if (empty($data['scores'][0]->user_id)) {
             $data['info'] = $this->lang->line('user_has_never_played');
 
             $this->load->view('templates/header', $data);
