@@ -48,8 +48,7 @@ class Scores extends MY_Controller {
         $select = 'user.user_id, user.rand_userid, user_name, bet.bet_id, bet.score';
         $where = array(
             'active' => '1',
-            // 'acl !=' => 'admin',
-            // 'bet.score !=' => '0',
+            'championship.status' => 'open',
         );
         if (isset($filters['filters_scores']['championship']) && $filters['filters_scores']['championship']!='') {
             $where = array_merge($where, array('championship.championship_id' => $filters['filters_scores']['championship']));
@@ -175,9 +174,8 @@ class Scores extends MY_Controller {
                    SUM(bet.score) as total_score';
         $where = array(
             'active' => '1',
-            // 'bet.score !=' => '0',
             'user.rand_userid' => $rand_userid,
-            'match.result !=' => 'NULL'
+            'match.result !=' => 'NULL',
         );
 
         $order = 'user.user_id DESC';
