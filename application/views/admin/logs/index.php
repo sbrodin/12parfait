@@ -19,7 +19,7 @@
                 <td><?= $log->log_controller ?></td>
                 <td><?= $log->log_method ?></td>
                 <td>
-                    <a href="http://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" title="ip-tracker" target="_blank" rel="noopener">
+                    <a href="https://www.ip-tracker.org/locator/ip-lookup.php?ip=<?= $log->log_userip ?>" title="ip-tracker" target="_blank" rel="noopener">
                         <?= $log->log_userip ?>
                         <i class="fa fa-external-link" aria-hidden="true"></i>
                     </a>
