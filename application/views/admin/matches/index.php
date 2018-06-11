@@ -8,7 +8,7 @@
         <?= $this->session->flashdata('success') ?>
     </div>
 <?php endif ?>
-<table>
+<table class="table-striped table-bordered table-hover message-table">
     <thead>
         <tr>
             <th><?= $this->lang->line('championship_name') ?></th>
