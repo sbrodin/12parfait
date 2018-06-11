@@ -118,10 +118,10 @@ class Bets extends MY_Controller {
         $nb = NULL;
         $debut = NULL;
         $order = 'user_id ASC';
-        $data['users'] = $this->user_model->read('user_id, user_name', $where, $nb, $debut, $order);
+        $data['users'] = $this->user_model->read('user_id, user_name, rand_userid', $where, $nb, $debut, $order);
 
         foreach ($data['users'] as $users_item) {
-            $users_item->user_name = ($users_item->user_name === '') ? $this->lang->line('anonymous').$users_item->user_id : $users_item->user_name;
+            $users_item->user_name = ($users_item->user_name === '') ? $this->lang->line('anonymous').' - '.$users_item->rand_userid : $users_item->user_name;
         }
 
         // Récupération des éventuels paris d'autres joueurs
@@ -223,6 +223,7 @@ class Bets extends MY_Controller {
             if (!empty($filters['bets_of_players'])) {
                 $select = 'bet.user_id,
                            user_name,
+                           rand_userid,
                            bet.match_id,
                            bet.team1_score,
                            bet.team2_score,
@@ -243,7 +244,7 @@ class Bets extends MY_Controller {
                 foreach ($data['fixture_bets_players'] as $key => $fixture_bet_players) {
                     if ($fixture_bet_players->user_id != $player_id) {
                         $player_id = $fixture_bet_players->user_id;
-                        $different_players[$player_id] = ($fixture_bet_players->user_name === '') ? $this->lang->line('anonymous').$player_id : $fixture_bet_players->user_name;
+                        $different_players[$player_id] = ($fixture_bet_players->user_name === '') ? $this->lang->line('anonymous').' - '.$fixture_bet_players->rand_userid : $fixture_bet_players->user_name;
                     }
                     $fixture_bets_players[$fixture_bet_players->user_id][$fixture_bet_players->match_id] = $fixture_bet_players;
                 }
