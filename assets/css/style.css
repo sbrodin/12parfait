@@ -259,6 +259,9 @@ td.dash {
     width: auto;
     max-width: 100%;
 }
+.ms-container {
+    width: 500px;
+}
 .jumbotron {
     padding: 1.5rem 1rem;
     margin-bottom: 1rem;
