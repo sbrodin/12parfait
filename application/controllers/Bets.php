@@ -58,7 +58,7 @@ class Bets extends MY_Controller {
             $where = array_merge($where, array('fixture.fixture_id' => $filters['filters_bets']['fixture']));
         }
         // $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
-        $order = 'championship_name ASC, length(fixture_name), fixture_name';
+        $order = 'championship_name ASC, fixture_id';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
