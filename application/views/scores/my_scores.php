@@ -10,18 +10,26 @@
             <span><?= $scores[0]->user_name ?></span> - <span><?= $scores[0]->total_score.$this->lang->line('points_short') ?></span>
         </h2>
         <hr/>
-        <?php if ($required_user_id === $my_user_id) : ?>
-            <div class="scores-chart-legend"><?= sprintf($this->lang->line('stats_on_x_bets'), $total_bets) ?></div>
-        <?php else : ?>
-            <div class="scores-chart-legend"><?= sprintf($this->lang->line('stats_on_x_bets_player'), $total_bets) ?></div>
-        <?php endif; ?>
+        <div class="scores-chart-legend">
+            <?php
+            if ($required_user_id === $my_user_id) {
+                echo sprintf($this->lang->line('stats_on_x_bets'), $total_bets);
+            } else {
+                echo sprintf($this->lang->line('stats_on_x_bets_player'), $total_bets);
+            }
+            ?>
+        </div>
         <canvas id="scores-chart" width="200" height="200"></canvas>
         <hr/>
-        <?php if ($required_user_id === $my_user_id) : ?>
-            <div class="scores-chart-legend"><?= sprintf($this->lang->line('stats_on_x_points'), $scores[0]->total_score) ?></div>
-        <?php else : ?>
-            <div class="scores-chart-legend"><?= sprintf($this->lang->line('stats_on_x_points_player'), $scores[0]->total_score) ?></div>
-        <?php endif; ?>
+        <div class="scores-chart-legend">
+            <?php
+            if ($required_user_id === $my_user_id) {
+                echo sprintf($this->lang->line('stats_on_x_points'), $scores[0]->total_score)
+            } else {
+                echo sprintf($this->lang->line('stats_on_x_points_player'), $scores[0]->total_score) ?>
+            }
+            ?>
+        </div>
         <canvas id="scores-chart2" width="200" height="200"></canvas>
     </div>
 <?php endif; ?>
