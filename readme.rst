@@ -58,6 +58,11 @@ TODO
 ****
 
 Liste des éléments restants à faire :
+    - Ajouter des infos sur les équipes (visibilité publique)
+        - intégralité des matchs de l'équipe
+            - historique passé avec résultats
+            - matchs à venir avec liens vers les pronostics
+        - infos diverses sur l'équipe
     - Gérer les envois de mails massifs
     - Améliorer l'email d'inscription
     - Mes scores
@@ -99,7 +104,7 @@ Liste des éléments restants à faire :
             - nombre de jours de connexion (10, 50, 100, 500, 1000)
             - nombre de 12parfait (3, 10, 20, 50, 100)
             - nombre de points (50, 200, 500, 2000, 5000)
-            - participation à une "challenge" (5, 20, 50, 100, 200)
+            - participation à un "challenge" (5, 20, 50, 100, 200)
             - victoires de "challenge" (1, 5, 10, 20, 50)
             - nombre de trophées (3, 10, 20, 50, 100)
     - Inclure un système de jokers dépendant du nombre de trophées non utilisés
