@@ -17,6 +17,14 @@
                 <?= $this->session->flashdata('info') ?>
             </div>
         <?php endif ?>
+        <?php if ($this->session->flashdata('success')) : ?>
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <?= $this->session->flashdata('success') ?>
+            </div>
+        <?php endif ?>
         <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url()?>"><?= $this->lang->line('back') ?></a>
 
         <a class="btn btn-outline-primary pull-xs-right" href="<?= site_url('connection/create_account') ?>"><?= $this->lang->line('create_account') ?></a>

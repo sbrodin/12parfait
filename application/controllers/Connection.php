@@ -109,6 +109,7 @@ class Connection extends CI_Controller {
         } else {
             $this->lang->load('12parfait', $this->session->user->language);
         }
+        $this->load->model('log_model');
     }
 
     /**
@@ -119,7 +120,6 @@ class Connection extends CI_Controller {
             redirect(site_url());
             exit;
         }
-        $this->load->model('log_model');
         save_log('connection', 'index');
         $data = array();
         $data['title'] = $this->lang->line('log_in');
@@ -172,7 +172,6 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de création de compte.
     */
     public function create_account() {
-        $this->load->model('log_model');
         save_log('connection', 'create_account');
         $data = array();
         $data['title'] = $this->lang->line('create_account');
@@ -284,7 +283,6 @@ class Connection extends CI_Controller {
     */
     public function login($url = '') {
         $this->load->model('user_model');
-        $this->load->model('log_model');
         // Récupère les données envoyées par le formulaire
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
@@ -402,7 +400,6 @@ class Connection extends CI_Controller {
                 $this->email->set_alt_message($body);
                 $this->email->send();
                 $this->email->clear();
-                $this->load->model('log_model');
                 save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : '.$post['email']);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
@@ -478,7 +475,9 @@ class Connection extends CI_Controller {
                     'date_hash' => NULL,
                 );
                 $this->user_model->update($where, $donnees_echapees);
-                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : '.$user['email']);
+                var_dump($user);
+                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : '.$user->email);
+                $this->session->set_flashdata('success', $this->lang->line('password_modified'));
                 redirect(site_url('connection'), 'location');
                 exit;
             }
@@ -490,7 +489,6 @@ class Connection extends CI_Controller {
     * Cette fonction supprime les données de session.
     */
     public function logout() {
-        $this->load->model('log_model');
         save_log('connection', 'logout');
         if (!empty($this->session->userdata('user'))) {
             $this->session->unset_userdata('user');
