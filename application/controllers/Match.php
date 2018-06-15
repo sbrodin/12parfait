@@ -90,6 +90,7 @@ class Match extends MY_Controller {
                 // S'il n'y a pas de paris pour cette journée, on affiche un message
                 if ($data['bets_number'] === 1 && $match_infos[0]->user_id === null) {
                     $data['info'] = $this->lang->line('no_stats_for_match');
+                    $data['bets_number'] = 0;
                 } else {
                     $data['result_stats']['1'] = 0;
                     $data['result_stats']['N'] = 0;

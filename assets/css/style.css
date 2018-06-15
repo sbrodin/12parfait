@@ -331,6 +331,9 @@ td.dash {
 h5.info_date_match {
     margin-bottom: 1.5rem;
 }
+.bets_number {
+    font-size: 1.375rem;
+}
 /* Profiler */
 #codeigniter-profiler {
     position: absolute;

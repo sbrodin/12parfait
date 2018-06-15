@@ -12,6 +12,9 @@
     <?php endif ?>
 <?php else : ?>
     <hr/>
+    <h5 class="chart-legend d-inline-block"><?= $this->lang->line('bets_count').' :' ?></h5>
+    <div class="bets_number"><?= $bets_number ?></div>
+    <hr/>
     <h5 class="chart-legend d-inline-block"><?= $this->lang->line('result_distribution').' :' ?></h5>
     <canvas id="result-chart"></canvas>
     <hr/>
