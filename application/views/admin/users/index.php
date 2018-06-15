@@ -6,6 +6,7 @@
                 <th></th>
                 <th><?= $this->lang->line('first_name') ?></th>
                 <th><?= $this->lang->line('last_name') ?></th>
+                <th><?= $this->lang->line('rand_userid') ?></th>
                 <th><?= $this->lang->line('user_name') ?></th>
                 <th><?= $this->lang->line('email') ?></th>
                 <th><?= $this->lang->line('language') ?></th>
@@ -25,6 +26,7 @@
                 <td><?= $user->user_id ?></td>
                 <td><?= $user->first_name ?></td>
                 <td><?= $user->last_name ?></td>
+                <td><?= $user->rand_userid ?></td>
                 <td><?= $user->user_name ?></td>
                 <td><?= $user->email ?></td>
                 <td><?= $user->language ?></td>
