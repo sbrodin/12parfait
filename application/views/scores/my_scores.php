@@ -24,9 +24,9 @@
         <div class="scores-chart-legend">
             <?php
             if ($required_user_id === $my_user_id) {
-                echo sprintf($this->lang->line('stats_on_x_points'), $scores[0]->total_score)
+                echo sprintf($this->lang->line('stats_on_x_points'), $scores[0]->total_score);
             } else {
-                echo sprintf($this->lang->line('stats_on_x_points_player'), $scores[0]->total_score) ?>
+                echo sprintf($this->lang->line('stats_on_x_points_player'), $scores[0]->total_score);
             }
             ?>
         </div>
@@ -41,12 +41,12 @@
         type: 'doughnut',
         data: {
             labels: [
-                "<?= $this->lang->line('scores_0_points') ?>",
-                "<?= $this->lang->line('scores_3_points') ?>",
-                "<?= $this->lang->line('scores_4_points') ?>",
-                "<?= $this->lang->line('scores_6_points') ?>",
-                "<?= $this->lang->line('scores_7_points') ?>",
-                "<?= $this->lang->line('scores_12parfait') ?>",
+                "<?= $this->lang->line('scores_0_points') ?> ",
+                "<?= $this->lang->line('scores_3_points') ?> ",
+                "<?= $this->lang->line('scores_4_points') ?> ",
+                "<?= $this->lang->line('scores_6_points') ?> ",
+                "<?= $this->lang->line('scores_7_points') ?> ",
+                "<?= $this->lang->line('scores_12parfait') ?> ",
             ],
             datasets: [{
                 data: [
