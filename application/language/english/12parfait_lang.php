@@ -32,6 +32,7 @@ $lang['terms_of_use'] = 'Terms of use';
 $lang['filter_verb'] = 'Filter';
 $lang['filters'] = 'Filters';
 $lang['show_hide'] = 'Show / Hide';
+$lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = '12parfait logo';
 
 // Champs spécifiques à l'application
@@ -83,6 +84,8 @@ $lang['complete_fixture'] = 'Fixture complete.';
 $lang['no_match_for_fixture'] = 'No match defined for this fixture.';
 $lang['no_fixture_for_championship'] = 'No fixture defined for this championship.';
 $lang['user_has_never_played'] = 'This user has never played !';
+$lang['match_has_not_started'] = 'This match has not started yet.';
+$lang['no_stats_for_match'] = 'No stats available for this match.';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Wrong email / password.';
@@ -291,3 +294,18 @@ $lang['send_message'] = 'Send message';
 // Maintenance / Construction
 $lang['maintenance'] = 'Maintenance';
 $lang['construction'] = 'Construction';
+
+// Match
+$lang['match_stats'] = 'Match stats';
+$lang['result_distribution'] = 'Bet results distribution';
+$lang['home_victory_count'] = 'Victories';
+$lang['draw_count'] = 'Draws';
+$lang['away_victory_count'] = 'Losses';
+$lang['goals_bet_count'] = 'Goals bet total';
+$lang['home_goals_count'] = 'Home team';
+$lang['away_goals_count'] = 'Away team';
+$lang['average_goals_bet'] = 'Average goals bet';
+$lang['average_home_goals_count'] = 'Home team';
+$lang['average_away_goals_count'] = 'Away team';
+$lang['no_bet_yet'] = 'No bet for this match yet !';
+$lang['x_bets_placed'] = '%d bets for this match !';

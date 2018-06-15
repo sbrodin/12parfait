@@ -78,7 +78,6 @@ foreach ($fixtures as $num => $fixture) :
         </div>
     </div>
 <?php endforeach; ?>
-</div>
 
 <!-- <table class="table-striped table-bordered table-hover table-bets">
     <thead>

@@ -59,8 +59,9 @@ $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
 
 $route['terms'] = 'home/terms';
 
-$route['scores'] = 'scores/index';
-$route['scores/(:num)'] = 'scores/scores/$1';
+$route['scores/([\w\d/]+)'] = 'scores/scores/$1';
+
+$route['match/(:num)'] = 'match/index/$1';
 
 // à utiliser pour maintenance
 // $route['(:any)'] = 'maintenance';

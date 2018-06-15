@@ -51,6 +51,7 @@
                         <th class="text-xs-center hidden-sm-down"><?= $this->lang->line('result') ?></th>
                         <th class="text-xs-center hidden-md-up"><?= $this->lang->line('result_short') ?></th>
                         <th class="text-xs-center"><?= $this->lang->line('my_score') ?></th>
+                        <th class="text-xs-center"><?= $this->lang->line('stats') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,6 +105,11 @@
                         <td class="text-xs-center hidden-sm-down"><?= $result ?></td>
                         <td class="text-xs-center hidden-md-up"><?= $short_result ?></td>
                         <td class="text-xs-center"><?= $score ?></td>
+                        <td class="text-xs-center">
+                            <a href="<?= site_url('match/'.$match_id) ?>" title="<?= $this->lang->line('stats') ?>">
+                                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

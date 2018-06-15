@@ -32,6 +32,7 @@ $lang['terms_of_use'] = 'Conditions d\'utilisation';
 $lang['filter_verb'] = 'Filtrer';
 $lang['filters'] = 'Filtres';
 $lang['show_hide'] = 'Afficher / Masquer';
+$lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = 'Logo 12parfait';
 
 // Champs spécifiques à l'application
@@ -83,6 +84,8 @@ $lang['complete_fixture'] = 'Journée complète.';
 $lang['no_match_for_fixture'] = 'Aucun match défini pour cette journée.';
 $lang['no_fixture_for_championship'] = 'Aucune journée remplie pour ce championnat.';
 $lang['user_has_never_played'] = 'Cet utilisateur n\'a jamais joué !';
+$lang['match_has_not_started'] = 'Ce match n\'a pas encore commencé';
+$lang['no_stats_for_match'] = 'Pas de statistiques à afficher pour ce match.';
 
 // Messages d'erreur
 $lang['incorrect_login'] = 'Mauvaise paire email / mot de passe.';
@@ -291,3 +294,18 @@ $lang['send_message'] = 'Envoyer le message';
 // Maintenance / Construction
 $lang['maintenance'] = 'Maintenance';
 $lang['construction'] = 'Construction';
+
+// Match
+$lang['match_stats'] = 'Statistiques du match';
+$lang['result_distribution'] = 'Répartition des résultats pronostiqués';
+$lang['home_victory_count'] = 'Victoires';
+$lang['draw_count'] = 'Nuls';
+$lang['away_victory_count'] = 'Défaites';
+$lang['goals_bet_count'] = 'Nombre de buts pronostiqués';
+$lang['home_goals_count'] = 'Équipe à domicile';
+$lang['away_goals_count'] = 'Équipe à l\'extérieur';
+$lang['average_goals_bet'] = 'Moyenne de buts pronostiqués';
+$lang['average_home_goals_count'] = 'Équipe à domicile';
+$lang['average_away_goals_count'] = 'Équipe à l\'extérieur';
+$lang['no_bet_yet'] = 'Pas encore de pronos pour ce match !';
+$lang['x_bets_placed'] = '%d pronostics pour ce match !';
