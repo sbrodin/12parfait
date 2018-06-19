@@ -66,7 +66,9 @@ $('a.del-team').on('click', function() {
 });
 
 $('.home-table :not(thead) tr, .score-table :not(thead) tr, .message-table :not(thead) tr').on('click', function() {
-    window.location = $(this).data('href');
+    if ($(this).data('href') !== undefined) {
+        window.location = $(this).data('href');
+    }
 });
 
 /**

@@ -35,7 +35,7 @@
             <tbody>
                 <?php foreach ($last_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                        <tr>
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -69,7 +69,7 @@
             <tbody>
                 <?php foreach ($next_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                        <tr>
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -108,7 +108,7 @@
             <tbody>
                 <?php foreach ($yesterday_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                        <tr>
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -142,7 +142,7 @@
             <tbody>
                 <?php foreach ($today_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                        <tr>
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
@@ -175,7 +175,7 @@
             <tbody>
                 <?php foreach ($tomorrow_matches as $key => $match) : ?>
                     <?php if (is_connected()) : ?>
-                        <tr data-href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                        <tr>
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>

@@ -227,9 +227,9 @@ td.dash {
     vertical-align: top;
     width: auto;
 }
-.message-table :not(thead) tr,
-.home-table :not(thead) tr,
-.score-table :not(thead) tr {
+.message-table :not(thead) tr[data-href],
+.home-table :not(thead) tr[data-href],
+.score-table :not(thead) tr[data-href] {
     cursor: pointer;
 }
 .card {
