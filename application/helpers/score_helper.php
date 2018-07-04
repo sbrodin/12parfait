@@ -6,13 +6,21 @@ if (!defined('BASEPATH') ) {
 /**
   * Cette fonction permet de calculer le score fait par un joueur en fonction de ses bets pour une journée
   * @param $fixture_id     Id de la journée
-  * @return Bool Retourne TRUE si la mise à jour s'est bien effectuée.
+  * @return Bool Retourne true si la mise à jour s'est bien effectuée.
   */
 function score_calculator($fixture_id) {
-    define('BON_RESULTAT', 4);
-    define('BON_SCORE_EQUIPE_1', 3);
-    define('BON_SCORE_EQUIPE_2', 3);
-    define('DIFFERENCE_2_EQUIPES', 2);
+    if (!defined('BON_RESULTAT')) {
+        define('BON_RESULTAT', 4);
+    }
+    if (!defined('BON_SCORE_EQUIPE_1')) {
+        define('BON_SCORE_EQUIPE_1', 3);
+    }
+    if (!defined('BON_SCORE_EQUIPE_2')) {
+        define('BON_SCORE_EQUIPE_2', 3);
+    }
+    if (!defined('DIFFERENCE_2_EQUIPES')) {
+        define('DIFFERENCE_2_EQUIPES', 2);
+    }
 
     $CI =& get_instance();
 
@@ -41,7 +49,7 @@ function score_calculator($fixture_id) {
                            ->get()
                            ->result();
     if (empty($fixture_bets)) {
-        return TRUE;
+        return true;
     }
 
     // Calcul du score pour chaque bet
@@ -70,7 +78,7 @@ function score_calculator($fixture_id) {
                ->where($where)
                ->update($CI->config->item('bet', 'table'));
     }
-    return TRUE;
+    return true;
 }
 
 /**

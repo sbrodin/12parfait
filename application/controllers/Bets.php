@@ -1,6 +1,7 @@
 <?php
 
 class Bets extends MY_Controller {
+    const ROBOT_USER_ID = 13;
 
     public function __construct()
     {
@@ -342,6 +343,9 @@ class Bets extends MY_Controller {
                         );
                     }
                     $element = 0;
+
+                    // Mise à jour des pronos du robot
+                    $this->_update_robot_bets($match_id);
                 }
             }
             if (!empty($bets)) {
@@ -358,5 +362,57 @@ class Bets extends MY_Controller {
             $this->load->view('bets/edit', $data);
             $this->load->view('templates/footer', $data);
         }
+    }
+
+    private function _update_robot_bets($match_id = null)
+    {
+        // Initialisation des variables
+        $match_id = $match_id ?: 0;
+        $team1_total_score = 0;
+        $team2_total_score = 0;
+        $players_number = 0;
+        $team1_average_score = 0;
+        $team2_average_score = 0;
+        $average_result = '';
+
+        if ($match_id === 0) {
+            return false;
+        }
+
+        // Récupération des paris des joueurs pour le match
+        $select = '*';
+        $where = array('match_id' => $match_id);
+        $other_bets = $this->bet_model->read($select, $where);
+
+        $players_number = count($other_bets);
+
+        // Calcul de la moyenne
+        foreach ($other_bets as $other_bet) {
+            $team1_total_score+= $other_bet->team1_score;
+            $team2_total_score+= $other_bet->team2_score;
+        }
+        $team1_average_score = round($team1_total_score / $players_number);
+        $team2_average_score = round($team2_total_score / $players_number);
+
+        // Calcul du résultat selon les scores de chaque équipe
+        if ($team1_average_score > $team2_average_score) {
+            $average_result = '1';
+        } else if ($team1_average_score < $team2_average_score) {
+            $average_result = '2';
+        } else {
+            $average_result = 'N';
+        }
+
+        // Ajout du prono du robot
+        $robot_bet = array(
+            'user_id' => $this::ROBOT_USER_ID,
+            'match_id' => $match_id,
+            'result' => $average_result,
+            'team1_score' => $team1_average_score,
+            'team2_score' => $team2_average_score,
+            'date' => date('Y-m-d H:i:s'),
+        );
+        $this->bet_model->create($robot_bet);
+        return true;
     }
 }
