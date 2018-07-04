@@ -95,7 +95,7 @@ class Scores extends MY_Controller {
             'ongoing',
             'close',
         );
-        $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
+        $order = 'championship_name ASC, fixture.fixture_id ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)

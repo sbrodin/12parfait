@@ -172,7 +172,7 @@ class Matches extends MY_Controller {
         $where = array();
         $nb = NULL;
         $debut = NULL;
-        $order = 'name ASC';
+        $order = 'championship_id DESC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
         $post = $this->input->post();
@@ -220,7 +220,7 @@ class Matches extends MY_Controller {
         $where = array('championship.championship_id' => $this->session->userdata('championship'));
         $nb = NULL;
         $debut = NULL;
-        $order = 'championship_name ASC, cast(fixture_name AS UNSIGNED) ASC';
+        $order = 'championship_name ASC, fixture.fixture_id ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
                                      ->where($where)
