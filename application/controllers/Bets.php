@@ -38,6 +38,7 @@ class Bets extends MY_Controller {
             }
             $this->session->set_userdata($filters);
         }
+
         if ($filters['filters_bets']['championship'] !== '' || $filters['filters_bets']['fixture'] !== '') {
             $data['collapse_filters'] = 'in';
         } else {
@@ -115,8 +116,8 @@ class Bets extends MY_Controller {
             'user_id !=' => $this->session->user->user_id,
             'user.active' => 1,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'user_id ASC';
         $data['users'] = $this->user_model->read('user_id, user_name, rand_userid', $where, $nb, $debut, $order);
 
@@ -126,18 +127,26 @@ class Bets extends MY_Controller {
 
         // Récupération des éventuels paris d'autres joueurs
         $filters['bets_of_players'] = array();
-        if (isset($this->session->bets_of_players)) {
-            $filters['bets_of_players'] = $this->session->bets_of_players;
-        }
         $post = $this->input->post();
         if (!empty($post)) {
             if (isset($post['submit-filter']) && $post['submit-filter'] == $this->lang->line('del_filter')) {
                 $filters['bets_of_players'] = array();
             } else {
-                $filters['bets_of_players'] = (isset($post['users'])) ? $post['users'] : array();
+                if (isset($post['users'])) {
+                    $filters['bets_of_players'] = $post['users'];
+                } else {
+                    if (isset($this->session->bets_of_players)) {
+                        $filters['bets_of_players'] = $this->session->bets_of_players;
+                    } else {
+                        $filters['bets_of_players'] = array();
+                    }
+                }
             }
             $this->session->set_userdata($filters);
+        } else if (isset($this->session->bets_of_players)) {
+            $filters['bets_of_players'] = $this->session->bets_of_players;
         }
+
         if (!empty($filters['bets_of_players'])) {
             $data['collapse_filters'] = 'in';
         } else {
@@ -165,8 +174,8 @@ class Bets extends MY_Controller {
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date ASC, match.match_id';
         $data['fixture_matches'] = $this->db->select($select)
                                             ->from($this->config->item('fixture', 'table'))
@@ -302,12 +311,12 @@ class Bets extends MY_Controller {
                     // Id du match modifié
                     $match_id = explode('_', $key)[1];
                     // Score de la première équipe
-                    $team1_score = ($post_element == '') ? NULL : $post_element;
+                    $team1_score = ($post_element == '') ? null : $post_element;
                     ++$element;
                 } else {
                     // Score de la deuxième équipe
-                    $team2_score = ($post_element == '') ? NULL : $post_element;
-                    $resultat = NULL;
+                    $team2_score = ($post_element == '') ? null : $post_element;
+                    $resultat = null;
                     if (is_null($team1_score) || is_null($team2_score)) {
                         $element = 0;
                         continue;
