@@ -403,6 +403,13 @@ class Bets extends MY_Controller {
             $average_result = 'N';
         }
 
+        // Suppression du prono existant s'il existe
+        $existing_robot_bet = array(
+            'user_id' => $this::ROBOT_USER_ID,
+            'match_id' => $match_id,
+        );
+        $this->bet_model->delete($existing_robot_bet);
+
         // Ajout du prono du robot
         $robot_bet = array(
             'user_id' => $this::ROBOT_USER_ID,
