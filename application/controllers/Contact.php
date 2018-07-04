@@ -45,6 +45,14 @@ class Contact extends CI_Controller {
         } else {
             $rules = array(
                 array(
+                    'field' => 'contact_name',
+                    'label' => $this->lang->line('your_name'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
+                array(
                     'field' => 'motif',
                     'label' => $this->lang->line('motif'),
                     'rules' => 'trim|required',
@@ -72,7 +80,7 @@ class Contact extends CI_Controller {
                 $post['message'] = nl2br($post['message']);
                 // Envoi de l'email
                 $subject = '12parfait - Contact - '.$post['motif'];
-                $body = 'Message envoyé par "'.$this->session->user->email.'" :<br/><br/>';
+                $body = 'Message envoyé par "'.$post['contact_name'].'" ('.$this->session->user->email.') :<br/><br/>';
                 $body.= $post['message'];
 
                 $config['mailtype'] = 'html';

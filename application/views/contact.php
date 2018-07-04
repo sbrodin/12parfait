@@ -9,6 +9,8 @@
 <?= validation_errors() ?>
 
 <?= form_open('contact', array('class' => 'form-contact')) ?>
+    <label for="your_name"><?= $this->lang->line('your_name') ?> :</label>
+    <input id="your_name" type="text" name="your_name" class="form-control m-b-2" placeholder="<?= $this->lang->line('your_name') ?>" required="required"></input>
     <label for="motif"><?= $this->lang->line('motif') ?> :</label>
     <select id="motif" name="motif" class="form-control m-b-2" required="required">
         <option value="<?= $this->lang->line('evolution') ?>"><?= $this->lang->line('idea_evolution') ?></option>

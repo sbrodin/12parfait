@@ -8,6 +8,7 @@ defined("BASEPATH") OR exit("No direct script access allowed");
 // Champs génériques
 $lang['yes'] = 'Yes';
 $lang['no'] = 'No';
+$lang['ok'] = 'OK';
 $lang['home'] = 'Home';
 $lang['back'] = 'Back';
 $lang['cancel'] = 'Cancel';
@@ -283,6 +284,7 @@ $lang['points_short'] = 'pts';
 
 // Contact
 $lang['motif'] = 'Object';
+$lang['your_name'] = 'Your name';
 $lang['your_message'] = 'Your message';
 $lang['idea_evolution'] = 'Evolution idea';
 $lang['evolution'] = 'Evolution';
