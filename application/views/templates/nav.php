@@ -6,7 +6,7 @@
         <a href="<?= site_url('admin') ?>"><?= $this->lang->line('site_admin') ?></a>
     <?php endif; ?>
         <a href="<?= site_url('profile') ?>"><?= $this->lang->line('profile') ?> : <?= $this->session->user->user_name ?></a>
-        <a href="<?= site_url('connection/logout') ?>"><i class="fa fa-sign-out" title="<?= $this->lang->line('log_out') ?>" alt="<?= $this->lang->line('log_out') ?>"></i></a>
+        <a href="<?= site_url('logout') ?>"><i class="fa fa-sign-out" title="<?= $this->lang->line('log_out') ?>" alt="<?= $this->lang->line('log_out') ?>"></i></a>
     </nav>
 </header>
 <nav class="menu" role="navigation">
