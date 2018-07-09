@@ -343,13 +343,15 @@ class Bets extends MY_Controller {
                         );
                     }
                     $element = 0;
-
-                    // Mise à jour des pronos du robot
-                    $this->_update_robot_bets($match_id);
                 }
             }
             if (!empty($bets)) {
                 $this->db->insert_batch('bet', $bets);
+            }
+
+            // Mise à jour des pronos du robot
+            foreach ($bets as $bet) {
+                $this->_update_robot_bets($bet['match_id']);
             }
 
             save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : '.$fixture_id);
