@@ -26,6 +26,8 @@ function matches_of_day($date = NULL) {
                t2.team_id AS t2_id,
                t1.name AS team1,
                t2.name AS team2,
+               t1.short_name AS short_team1,
+               t2.short_name AS short_team2,
                team1_score,
                team2_score,
                DATE_FORMAT(date, "%H:%i") as match_time,

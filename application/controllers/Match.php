@@ -74,6 +74,8 @@ class Match extends MY_Controller {
                 'date' => $match_infos[0]->formated_date,
                 'team1' => $match_infos[0]->team1_name,
                 'team2' => $match_infos[0]->team2_name,
+                'team1_shortname' => $match_infos[0]->team1_shortname,
+                'team2_shortname' => $match_infos[0]->team2_shortname,
                 'championship_name' => $match_infos[0]->championship_name,
                 'fixture_name' => $match_infos[0]->fixture_name,
             );

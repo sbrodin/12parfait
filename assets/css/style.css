@@ -337,6 +337,181 @@ h5.info_date_match {
 .bets_number {
     font-size: 1.375rem;
 }
+
+.logo {
+    background-image: url('../img/teams_logos.png');
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+}
+.home-table .logo {
+    height: 38px;
+}
+.table-bets-edit .logo {
+    margin-top: 8px;
+    height: 38px;
+}
+/*Amiens SC*/
+.logo_Amien{
+    background-position:0 1px;
+}
+/*Angers SCO*/
+.logo_Anger{
+    background-position:0 -45px;
+}
+/*Girondins de Bordeaux*/
+.logo_Borde{
+    background-position:0 -89px;
+}
+/*SM Caen*/
+.logo_Caen{
+    background-position:0 -135px;
+}
+/*Dijon FCO*/
+.logo_Dijon{
+    background-position:0 -179px;
+}
+/*EA Guingamp*/
+.logo_Guing{
+    background-position:0 -225px;
+}
+/*LOSC*/
+.logo_Lille{
+    background-position:0 -270px;
+}
+/*Olympique Lyonnais*/
+.logo_Lyon{
+    background-position:0 -314px;
+}
+/*Olympique de Marseille*/
+.logo_OM{
+    background-position:0 -360px;
+}
+/*AS Monaco*/
+.logo_Monac{
+    background-position:0 -405px;
+}
+/*Montpellier Hérault SC*/
+.logo_Montp{
+    background-position:0 -450px;
+}
+/*FC Nantes*/
+.logo_Nante{
+    background-position:0 -495px;
+}
+/*OGC Nice*/
+.logo_Nice{
+    background-position:0 -540px;
+}
+/*Nîmes Olympique*/
+.logo_Nîmes{
+    background-position:0 -1439px;
+}
+/*Paris Saint-Germain*/
+.logo_PSG{
+    background-position:0 -629px;
+}
+/*AS Saint-Etienne*/
+.logo_ASSE{
+    background-position:0 -767px;
+}
+/*Stade de Reims*/
+.logo_Reims{
+    background-position:0 -675px;
+}
+/*Stade Rennais FC*/
+.logo_Renne{
+    background-position:0 -719px;
+}
+/*RC Strasbourg Alsace*/
+.logo_Stras{
+    background-position:0 -810px;
+}
+/*Toulouse FC*/
+.logo_Toul{
+    background-position:0 -855px;
+}
+/*ESTAC Troyes*/
+.logo_20{
+    background-position:0 -810px;
+}
+/*Gazélec FC Ajaccio*/
+.logo_gfca{
+    background-position:0 -855px;
+}
+/*AC Ajaccio*/
+.logo_aca{
+    background-position:0 -900px;
+}
+/*AJ Auxerre*/
+.logo_aja{
+    background-position:0 -945px;
+}
+/*SC Bastia*/
+.logo_scb{
+    background-position:0 -990px;
+}
+/*FBBP 01*/
+.logo_fcbp01{
+    background-position:0 -1035px;
+}
+/*Stade Brestois 29*/
+.logo_sb29{
+    background-position:0 -1080px;
+}
+/*Châteauroux*/
+.logo_lbc{
+    background-position:0 -1125px;
+}
+/*Clermont Foot*/
+.logo_cf{
+    background-position:0 -1170px;
+}
+/*Havre AC*/
+.logo_hac{
+    background-position:0 -1215px;
+}
+/*RC Lens*/
+.logo_rcl{
+    background-position:0 -1260px;
+}
+/*FC Metz*/
+.logo_Metz{
+    background-position:0 -1305px;
+}
+/*FC Lorient*/
+.logo_fcl{
+    background-position:0 -1350px;
+}
+/*AS Nancy Lorraine*/
+.logo_asnl{
+    background-position:0 -1395px;
+}
+/*Chamois Niortais*/
+.logo_cn{
+    background-position:0 -1485px;
+}
+/*US Orléans*/
+.logo_uso{
+    background-position:0 -1530px;
+}
+/*Quevilly-Rouen Métropole*/
+.logo_qrm{
+    background-position:0 -1575px;
+}
+/*FC Sochaux-Montbéliard*/
+.logo_fcsm{
+    background-position:0 -1665px;
+}
+/*Tours FC*/
+.logo_tfc{
+    background-position:0 -1710px;
+}
+/*Valenciennes FC*/
+.logo_vafc{
+    background-position:0 -1755px;
+}
 /* Profiler */
 #codeigniter-profiler {
     position: absolute;

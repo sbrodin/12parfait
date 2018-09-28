@@ -1,7 +1,11 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back_to_home') ?></a><br/>
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('bets') ?>"><?= $this->lang->line('back_to_bets_index') ?></a><br/>
 
-<h4><?= $match_infos['team1'].' - '.$match_infos['team2'] ?></h4>
+<h4>
+    <span class="logo logo_<?= $match_infos['team1_shortname'] ?>"></span>
+    <span><?= $match_infos['team1'].' - '.$match_infos['team2'] ?></span>
+    <span class="logo logo_<?= $match_infos['team2_shortname'] ?>"></span>
+</h4>
 <h5 class="m-b-1"><?= $match_infos['championship_name'] ?></h5>
 <h6 class="m-b-1"><?= $match_infos['fixture_name'] ?></h6>
 
