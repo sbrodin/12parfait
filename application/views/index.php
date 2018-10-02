@@ -39,13 +39,13 @@
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
-                        <td class="logo logo_<?= $match->short_team1 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-right"><?= $match->team1_score ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2_score ?></td>
                         <td><?= $match->team2 ?></td>
-                        <td class="logo logo_<?= $match->short_team2 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                             <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></td>
@@ -75,11 +75,11 @@
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
-                        <td class="logo logo_<?= $match->short_team1 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
-                        <td class="logo logo_<?= $match->short_team2 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                             <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></td>
@@ -116,13 +116,13 @@
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
-                        <td class="logo logo_<?= $match->short_team1 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-right"><?= $match->team1_score ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2_score ?></td>
                         <td><?= $match->team2 ?></td>
-                        <td class="logo logo_<?= $match->short_team2 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
                             <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></td>
@@ -152,11 +152,11 @@
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
-                        <td class="logo logo_<?= $match->short_team1 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
-                        <td class="logo logo_<?= $match->short_team2 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
@@ -187,11 +187,11 @@
                     <?php else : ?>
                         <tr data-href="<?= site_url('connection') ?>">
                     <?php endif; ?>
-                        <td class="logo logo_<?= $match->short_team1 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
                         <td class="text-xs-center">-</td>
                         <td><?= $match->team2 ?></td>
-                        <td class="logo logo_<?= $match->short_team2 ?>"></td>
+                        <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
                         <?php if (is_connected()) : ?>
                             <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>

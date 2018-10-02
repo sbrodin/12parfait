@@ -31,7 +31,8 @@ function matches_of_day($date = NULL) {
                team1_score,
                team2_score,
                DATE_FORMAT(date, "%H:%i") as match_time,
-               fixture.status as status';
+               fixture.status as status,
+               IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "") as no_logo';
     $where = array(
         'date >' => date('Y-m-d 00:00:00', $date),
         'date <' => date('Y-m-d 23:59:59', $date),
