@@ -352,6 +352,9 @@ h5.info_date_match {
     margin-top: 8px;
     height: 38px;
 }
+.no-logo {
+    background-image: none;
+}
 /*Amiens SC*/
 .logo_Amien{
     background-position:0 1px;

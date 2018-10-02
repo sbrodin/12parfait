@@ -1,0 +1,7 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100" width="100">
+  <defs>
+    <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Chelsea+Market');</style>
+  </defs>
+  <circle cx="50" cy="50" r="50" stroke-width="3" fill="#0275d8"/>
+  <text x="6" y="68" fill="#ffffff" font-family="Chelsea Market" font-size="3.75em">12p</text>
+</svg>
