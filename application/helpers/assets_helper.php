@@ -54,6 +54,16 @@ function img_url($nom) {
 }
 
 /**
+  * Cette fonction prend en entrée le nom d'un fichier svg
+  * et retourne l'url du fichier dans l'application.
+  * @param $nom Nom du fichier svg
+  * @return Url du fichier svg dans l'application
+  */
+function svg_url($nom) {
+    return base_url().'assets/svg/'.$nom.'.svg';
+}
+
+/**
   * Cette fonction prend en entrée le nom d'une image, un champ alt et un titre
   * et retourne le code html pour l'insertion d'une image avec un champ alt et un titre.
   *
@@ -63,7 +73,7 @@ function img_url($nom) {
   * @param $alt Champ alt pour l'image
   * @param $title Titre de l'image
   * @param $classes Classes ajoutées à la balise img
-  * @return Code html correspondant à l'insertion d'une image, eventuellement avec un champ alt et un titre
+  * @return Code html correspondant à l'insertion d'une image, éventuellement avec un champ alt et un titre
   */
 function img($nom, $alt = '', $title = '', $classes = '') {
     if ($alt === '' && $title !=='') {
@@ -73,4 +83,26 @@ function img($nom, $alt = '', $title = '', $classes = '') {
         $title = $alt;
     }
     return '<img src="'.img_url($nom).'" alt="'.$alt.'" title="'.$title.'" class="'.$classes.'" />';
+}
+
+/**
+  * Cette fonction prend en entrée le nom d'un fichier svg, un champ alt et un titre
+  * et retourne le code html pour l'insertion d'une image avec un champ alt et un titre.
+  *
+  * La fonction svg_url ci-dessus est utilisée pour la source du fichier svg.
+  *
+  * @param $nom Nom du fichier svg
+  * @param $alt Champ alt pour l'image
+  * @param $title Titre de l'image
+  * @param $classes Classes ajoutées à la balise img
+  * @return Code html correspondant à l'insertion d'un fichier svg, éventuellement avec un champ alt et un titre
+  */
+function svg($nom, $alt = '', $title = '', $classes = '') {
+    if ($alt === '' && $title !=='') {
+        $alt = $title;
+    }
+    if ($title === '' && $alt !=='') {
+        $title = $alt;
+    }
+    return '<img src="'.svg_url($nom).'" alt="'.$alt.'" title="'.$title.'" class="'.$classes.'" />';
 }
