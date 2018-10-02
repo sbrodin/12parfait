@@ -171,7 +171,8 @@ class Bets extends MY_Controller {
                    match.date,
                    match.match_id,
                    match.team1_score,
-                   match.team2_score';
+                   match.team2_score,
+                   IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "") as no_logo';
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
