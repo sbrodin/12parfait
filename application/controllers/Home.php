@@ -18,7 +18,7 @@ class Home extends CI_Controller {
         $this->load->model('log_model');
         save_log('home', 'index');
         $data = array();
-        $data['title'] = $this->lang->line('home');
+        $data['title'] = $this->lang->line('home_title');
 
         if (!is_connected()) {
             $language = $this->config->item('language');

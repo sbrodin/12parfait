@@ -36,6 +36,8 @@ $lang['show_hide'] = 'Afficher / Masquer';
 $lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = 'Logo 12parfait';
 
+$lang['home_title'] = 'Pronostics sportifs gratuits entre amis';
+
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015-2018';

@@ -36,6 +36,8 @@ $lang['show_hide'] = 'Show / Hide';
 $lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = '12parfait logo';
 
+$lang['home_title'] = 'Free sport bets with friends';
+
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
 $lang['copyright'] = '&copy; sbrodin, 2015-2018';
