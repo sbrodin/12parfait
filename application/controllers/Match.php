@@ -46,7 +46,8 @@ class Match extends MY_Controller {
                    bet.user_id,
                    bet.result AS bet_result,
                    bet.team1_score AS bet_team1score,
-                   bet.team2_score AS bet_team2score';
+                   bet.team2_score AS bet_team2score,
+                   IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "") as no_logo';
         $where = array(
             'match.match_id' => $match_id,
         );
@@ -78,6 +79,7 @@ class Match extends MY_Controller {
                 'team2_shortname' => $match_infos[0]->team2_shortname,
                 'championship_name' => $match_infos[0]->championship_name,
                 'fixture_name' => $match_infos[0]->fixture_name,
+                'no_logo' => $match_infos[0]->no_logo,
             );
             // Message si le match n'a pas commencé
             if ($match_infos[0]->date > date('Y-m-d H:i:s')) {
