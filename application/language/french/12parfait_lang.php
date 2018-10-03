@@ -315,3 +315,7 @@ $lang['average_home_goals_count'] = 'Équipe à domicile';
 $lang['average_away_goals_count'] = 'Équipe à l\'extérieur';
 $lang['no_bet_yet'] = 'Pas encore de pronos pour ce match !';
 $lang['x_bets_placed'] = '%d pronostics pour ce match !';
+
+// Règles
+$lang['rules'] = 'Règlement';
+$lang['bets_rules'] = 'Règles spécifiques aux paris';

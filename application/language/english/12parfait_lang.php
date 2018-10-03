@@ -315,3 +315,7 @@ $lang['average_home_goals_count'] = 'Home team';
 $lang['average_away_goals_count'] = 'Away team';
 $lang['no_bet_yet'] = 'No bet for this match yet !';
 $lang['x_bets_placed'] = '%d bets for this match !';
+
+// Règles
+$lang['rules'] = 'Rules';
+$lang['bets_rules'] = 'Rules specific for bets';

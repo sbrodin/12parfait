@@ -59,6 +59,7 @@ $route['forgotten_password'] = 'connection/forgotten_password';
 $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
 
 $route['terms'] = 'home/terms';
+$route['rules'] = 'home/rules';
 $route['contact'] = 'home/contact';
 
 $route['scores/([\w\d/]+)'] = 'scores/scores/$1';

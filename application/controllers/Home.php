@@ -166,4 +166,52 @@ class Home extends CI_Controller {
             }
         }
     }
+
+    public function rules()
+    {
+        save_log('home', 'rules', 'Affichage des règles');
+        $data = array();
+        $data['title'] = $this->lang->line('rules');
+
+        if (!is_connected()) {
+            $language = $this->config->item('language');
+        } else {
+            $language = $this->session->user->language;
+        }
+        if (empty($language)) {
+            $language = 'french';
+        }
+        $data['language'] = $language;
+
+        // $this->load->model('message_model');
+
+        // $general_rules = $this->message_model->get_message('home-message');
+        // if ($general_rules !== '') {
+        //     $general_rules = $general_rules[0]->{$language.'_content'};
+        // }
+        // $data['general_rules'] = html_entity_decode($general_rules);
+
+        // $bet_infos = $this->message_model->get_message('bet-message');
+        // if ($bet_infos !== '') {
+        //     $bet_infos = $bet_infos[0]->{$language.'_content'};
+        // }
+        // $data['bet_infos'] = html_entity_decode($bet_infos);
+
+        // $bet_of_infos = $this->message_model->get_message('bet-of-message');
+        // if ($bet_of_infos !== '') {
+        //     $bet_of_infos = $bet_of_infos[0]->{$language.'_content'};
+        // }
+        // $data['bet_of_infos'] = html_entity_decode($bet_of_infos);
+
+        // $bet_filter = $this->message_model->get_message('bet-filter-message');
+        // if ($bet_filter !== '') {
+        //     $bet_filter = $bet_filter[0]->{$language.'_content'};
+        // }
+        // $data['bet_filter'] = html_entity_decode($bet_filter);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav');
+        $this->load->view('rules', $data);
+        $this->load->view('templates/footer');
+    }
 }

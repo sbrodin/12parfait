@@ -518,6 +518,27 @@ span.no-logo {
 .logo_vafc{
     background-position:0 -1755px;
 }
+/* Rules */
+#rules h1 { font-size: 2.2em; }
+#rules h2 { font-size: 1.9em; }
+#rules h3 { font-size: 1.6em; }
+#rules h4 { font-size: 1.3em; }
+#rules h5 { font-size: 1em; }
+#rules h6 { font-size: 0.7em; }
+.rules-content {
+    display: none;
+}
+.rules-content ul {
+    margin-left: 40px;
+    list-style-type: circle;
+}
+#rules_french.french {
+    display: block;
+}
+#rules_english.english {
+    display: block;
+}
+/* Fin rules */
 /* Profiler */
 #codeigniter-profiler {
     position: absolute;
