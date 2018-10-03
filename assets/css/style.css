@@ -355,6 +355,9 @@ h5.info_date_match {
 .no-logo {
     background-image: none;
 }
+span.no-logo {
+    display: none;
+}
 /*Amiens SC*/
 .logo_Amien{
     background-position:0 1px;
