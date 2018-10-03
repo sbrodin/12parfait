@@ -23,5 +23,4 @@
     <textarea id="message" name="message" class="form-control m-b-2" rows="6" placeholder="<?= $this->lang->line('your_message') ?>" required="required"></textarea>
 
     <input type="submit" name="submit" class="btn btn-sm btn-primary m-b-2" value="<?= $this->lang->line('send_message') ?>">
-    <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url('profile') ?>"><?= $this->lang->line('back') ?></a>
 </form>
