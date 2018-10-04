@@ -354,6 +354,8 @@ h5.info_date_match {
 }
 .no-logo {
     background-image: none;
+    padding: 0;
+    width: 0;
 }
 span.no-logo {
     display: none;
