@@ -176,8 +176,8 @@ $lang['edit_fixture'] = 'Edit fixture';
 $lang['enter_fixture_results'] = 'Enter fixture results';
 $lang['choose_fixture'] = 'Choose this fixture';
 $lang['fixture_name'] = 'Fixture name';
-$lang['close_fixture'] = 'Close';
-$lang['open_fixture'] = 'Open fixture';
+$lang['close_fixture'] = 'Close fixture';
+$lang['open_fixture'] = 'Open';
 
 // Message
 $lang['message'] = 'Message';

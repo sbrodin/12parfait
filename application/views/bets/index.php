@@ -75,6 +75,9 @@ foreach ($fixtures as $num => $fixture) :
             <?php if (user_can('admin_fixtures') && ($fixture->status === 'open' || $fixture->status === 'ongoing')) : ?>
                 <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a>
             <?php endif; ?>
+            <?php if (user_can('admin_fixtures') && $fixture->status === 'ongoing') : ?>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('close_fixture'); ?></a>
+            <?php endif; ?>
         </div>
     </div>
 <?php endforeach; ?>
