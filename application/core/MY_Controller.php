@@ -18,7 +18,8 @@ class MY_Controller extends CI_Controller {
             save_log('my_controller', '__construct', 'utilisateur non connecté,<br/> tentative d\'accès à l\'url : '.(isset($_SERVER['HTTPS']) ? 'https' : 'http')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
             // Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
             $this->lang->load('12parfait', $this->config->item('language'));
-            show_404();
+            redirect(site_url(''), 'location');
+            exit;
         } else {
             $this->lang->load('12parfait', $this->session->user->language);
         }

@@ -12,7 +12,8 @@ class Scores extends MY_Controller {
     {
         save_log('scores', 'index', 'Affichage du classement');
         if (!user_can('view_scores')) {
-            show_404();
+            redirect(site_url());
+            exit;
         }
 
         $data = array();
