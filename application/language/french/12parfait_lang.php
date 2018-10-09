@@ -319,3 +319,6 @@ $lang['x_bets_placed'] = '%d pronostics pour ce match !';
 // Règles
 $lang['rules'] = 'Règlement';
 $lang['bets_rules'] = 'Règles spécifiques aux paris';
+
+// Articles
+$lang['published_in'] = 'Publié dans';

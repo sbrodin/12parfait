@@ -35,12 +35,16 @@ class Home extends CI_Controller {
         $data['quote_text'] = $quote['text'];
         $data['quote_author'] = $quote['author'];
 
+        // Chargement du message d'accueil
+        $this->load->model('message_model');
         $this->load->model('message_model');
         $data['home_message'] = $this->message_model->get_message('home-message');
         if ($data['home_message'] !== '') {
             $data['home_message'] = $data['home_message'][0]->{$language.'_content'};
         }
         $data['home_message'] = html_entity_decode($data['home_message']);
+
+        // Chargement des infos matchs
         $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-24*60*60))['matches'];
         $data['today_matches'] = matches_of_day()['matches'];
         $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+24*60*60))['matches'];
@@ -59,6 +63,15 @@ class Home extends CI_Controller {
                 $data['next_matches_date'] = null;
             }
         }
+
+        // Chargement des articles
+        $this->load->model('article_model');
+        $articles = $this->article_model->get_articles();
+        foreach ($articles as $article) {
+            $article->content = $article->{$language.'_content'};
+            $article->title = $article->{$language.'_title'};
+        }
+        $data['articles'] = $articles;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

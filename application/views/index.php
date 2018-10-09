@@ -205,3 +205,15 @@
         </table>
     <?php endif; ?>
 <?php endif; ?>
+
+<?php if ($articles) : ?>
+    <hr>
+    <?php foreach ($articles as $article) : ?>
+    <div class="jumbotron">
+        <h5><?= $article->title ?></h5>
+        <p><?= $this->lang->line('published_in') ?> <a href="<?= site_url('articles/category/'.$article->category) ?>"><?= $article->category ?></a>, <?= $this->lang->line('on') ?> <?= $article->date ?></p>
+        <hr class="my-4">
+        <?= $article->content ?>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>

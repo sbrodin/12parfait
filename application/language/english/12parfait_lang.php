@@ -319,3 +319,6 @@ $lang['x_bets_placed'] = '%d bets for this match !';
 // Règles
 $lang['rules'] = 'Rules';
 $lang['bets_rules'] = 'Rules specific for bets';
+
+// Articles
+$lang['published_in'] = 'Publié dans';
