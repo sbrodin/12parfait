@@ -26,9 +26,9 @@ class Matches extends MY_Controller {
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/matches/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function add()
@@ -104,9 +104,9 @@ class Matches extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/matches/add', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -138,9 +138,9 @@ class Matches extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('admin/matches/add', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $date = date_create_from_format('d/m/Y H:i', $post['match_date']);
                 $date_formatted = $date->format('Y-m-d H:i:s');
@@ -178,9 +178,9 @@ class Matches extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/matches/championship', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -195,9 +195,9 @@ class Matches extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('admin/matches/championship', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $this->session->set_userdata('championship', $post['championship']);
                 redirect(site_url('admin/matches/fixture'), 'location');
@@ -239,9 +239,9 @@ class Matches extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/matches/fixture', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -257,7 +257,7 @@ class Matches extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('admin/matches/fixture', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $this->session->set_userdata('fixture', $post['fixture']);
                 redirect(site_url('admin/matches/add'), 'location');
@@ -316,8 +316,8 @@ class Matches extends MY_Controller {
         $this->session->set_userdata('championship', $championship_id);
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/matches/edit', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 }

@@ -32,9 +32,9 @@ class Fixtures extends MY_Controller {
                                      ->result();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/fixtures/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function add()
@@ -57,9 +57,9 @@ class Fixtures extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/fixtures/add', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -82,9 +82,9 @@ class Fixtures extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('admin/fixtures/add', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $donnees_echapees = array(
                     'name' => $post['fixture_name'],
@@ -166,9 +166,9 @@ class Fixtures extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/fixtures/edit', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             // S'il y a des doublons dans les équipes, on affiche un message d'erreur
             if ($post !== array_unique($post)) {
@@ -176,9 +176,9 @@ class Fixtures extends MY_Controller {
             }
             if (isset($data['error_msg'])) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('admin/fixtures/edit', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 // Update des matchs de la journée
                 $this->load->model('match_model');
@@ -289,9 +289,9 @@ class Fixtures extends MY_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('admin/fixtures/results', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             // Cas du clic sur "Retour"
             if ($post['submit'] == $this->lang->line('back')) {

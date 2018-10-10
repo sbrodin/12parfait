@@ -115,8 +115,8 @@ class Match extends MY_Controller {
         $data['title'] = $this->lang->line('match_stats').' : '.$data['match_infos']['team1'].' - '.$data['match_infos']['team2'];
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('match/stats', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 }

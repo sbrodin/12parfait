@@ -147,9 +147,9 @@ class Scores extends MY_Controller {
         $data['bet_filter_message'] = html_entity_decode($data['bet_filter_message']);
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('scores/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function scores($rand_userid = 0)
@@ -192,9 +192,9 @@ class Scores extends MY_Controller {
             $data['info'] = $this->lang->line('user_has_never_played');
 
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('scores/my_scores', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
             return true;
         }
 
@@ -256,8 +256,8 @@ class Scores extends MY_Controller {
         $data['users'] = $users;
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('scores/my_scores', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 }

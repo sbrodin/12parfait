@@ -20,8 +20,8 @@ class Home extends MY_Controller {
         $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('home');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 }

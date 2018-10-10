@@ -74,9 +74,9 @@ class Home extends CI_Controller {
         $data['articles'] = $articles;
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function terms()
@@ -86,9 +86,9 @@ class Home extends CI_Controller {
         $data['title'] = $this->lang->line('terms_of_use');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('terms', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function contact()
@@ -116,9 +116,9 @@ class Home extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('contact', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -149,9 +149,9 @@ class Home extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('contact', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 // Conversion du message pour affichage correct en html
                 $post['message'] = nl2br($post['message']);

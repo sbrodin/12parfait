@@ -133,9 +133,9 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('login', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -159,9 +159,9 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('login', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $this->login($url);
             }
@@ -179,9 +179,9 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('create_account', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -219,9 +219,9 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('create_account', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $post['email'] = strtolower($post['email']);
                 $donnees_echapees = array(
@@ -353,9 +353,9 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('forgotten_password', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $this->load->model('user_model');
             $rules = array(
@@ -373,9 +373,9 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('forgotten_password', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $post['email'] = strtolower($post['email']);
                 $where = array('email' => $post['email']);
@@ -432,9 +432,9 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('reset_password', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -462,9 +462,9 @@ class Connection extends CI_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('reset_password', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $where = array(
                     'hash' => $hash,

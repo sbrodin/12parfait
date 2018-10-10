@@ -92,9 +92,9 @@ class Bets extends MY_Controller {
         $data['bet_message'] = html_entity_decode($data['bet_message']);
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('bets/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     public function edit($fixture_id = 0)
@@ -285,9 +285,9 @@ class Bets extends MY_Controller {
 
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('bets/edit', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else if (isset($post['submit-bets'])) {
             // Cas du clic sur "Retour"
             if ($post['submit-bets'] == $this->lang->line('back')) {
@@ -361,9 +361,9 @@ class Bets extends MY_Controller {
             exit;
         } else {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('bets/edit', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         }
     }
 

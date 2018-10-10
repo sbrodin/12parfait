@@ -27,9 +27,9 @@ class Profile extends MY_Controller {
         $data['user']->add_date_formatted = $add_date->format('d/m/Y');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/nav');
         $this->load->view('profile/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
     /**
@@ -44,9 +44,9 @@ class Profile extends MY_Controller {
         $data['user'] = $this->session->userdata('user');
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('profile/edit', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $post['user_name'] = trim($post['user_name']);
             if ($post['user_name'] !== $data['user']->user_name) {
@@ -66,9 +66,9 @@ class Profile extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('profile/edit', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $donnees_echapees = array(
                     'first_name' => trim($post['first_name']),
@@ -101,9 +101,9 @@ class Profile extends MY_Controller {
         $data['user'] = $this->session->userdata('user');
         if (empty($post)) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav', $data);
+            $this->load->view('templates/nav');
             $this->load->view('profile/change_password', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer');
         } else {
             $rules = array(
                 array(
@@ -131,9 +131,9 @@ class Profile extends MY_Controller {
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/nav', $data);
+                $this->load->view('templates/nav');
                 $this->load->view('profile/change_password', $data);
-                $this->load->view('templates/footer', $data);
+                $this->load->view('templates/footer');
             } else {
                 $donnees_echapees = array(
                     'password' => password_hash($post['password'], PASSWORD_BCRYPT),
