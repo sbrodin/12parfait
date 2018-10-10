@@ -1,7 +1,5 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back_to_home') ?></a><br/>
 
-<strong>Merci d'utiliser 12parfait !</strong><br/><br/>
-
 <h3>Conditions générales d'utilisation</h3>
 
 <p>
@@ -26,3 +24,5 @@
     <p>Le site est la propriété exclusive de la société 12parfait, seule habilitée à utiliser et exploiter les droits de propriété intellectuelle et droits de la personnalité attachés à ce site, notamment les marques, dessins et modèles, droits d'auteur et droit à l'image, à titre originaire ou par l'effet d'une cession ou d'une licence d'exploitation.</p>
     <p>L'usage de tout ou partie du site <strong>https://12parfait.fr</strong>, notamment par téléchargement, reproduction, transmission ou représentation à d'autres fins que pour usage personnel et privé dans un but non commercial est strictement interdit.</p>
 </p>
+
+<h3><strong>Merci d'utiliser 12parfait !</strong></h3>

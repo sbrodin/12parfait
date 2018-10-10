@@ -5,9 +5,7 @@
             <span class="m-r-2"><a href="<?= site_url('rules') ?>"><?= $this->lang->line('rules') ?></a></span>
             <span class="m-r-2"><a href="https://stanislas-brodin.fr" rel="author"><?= $this->lang->line('copyright') ?></a></span>
             <span class="m-r-2"><?= $this->lang->line('generated_with') ?></span>
-            <?php if (user_can('debug')) : ?>
-                <span><a href="<?= site_url('terms') ?>"><?= $this->lang->line('terms_of_use') ?></a></span>
-            <?php endif; ?>
+            <span><a href="<?= site_url('terms') ?>"><?= $this->lang->line('terms_of_use') ?></a></span>
             <!-- <span><?= $this->lang->line('version') ?></span> -->
         </footer>
 
