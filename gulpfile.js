@@ -26,12 +26,14 @@ var jsFiles = [
     'assets/js/jquery.datetimepicker.full.min.js',
     'assets/js/tether-1.3.3.min.js',
     'assets/js/bootstrap.4.0.0-alpha.4.min.js',
+    // 'assets/js/bootstrap.4.0.0.min.js',
     'assets/js/script.js'
 ];
 var cssFiles = [
     'assets/css/multi-select.css',
     'assets/css/jquery.datetimepicker.min.css',
     'assets/css/bootstrap.4.0.0-alpha.4.min.css',
+    // 'assets/css/bootstrap.4.0.0.min.css',
     'assets/css/tether-1.3.3.min.css',
     'assets/css/font-awesome.4.7.0.min.css',
     'assets/css/style.css'
