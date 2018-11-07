@@ -117,7 +117,7 @@ function img($nom, $alt = '', $title = '', $classes = '')
         $title = $alt;
     }
     $img_html = '<img ';
-    $img_html.= 'src="'.Iimg_url($nom).'" ';
+    $img_html.= 'src="'.Img_url($nom).'" ';
     $img_html.= 'alt="'.$alt.'" ';
     $img_html.= 'title="'.$title.'" ';
     $img_html.= 'class="'.$classes.'" ';
@@ -153,6 +153,6 @@ function svg($nom, $alt = '', $title = '', $classes = '')
     $svg_html.= 'alt="'.$alt.'" ';
     $svg_html.= 'title="'.$title.'" ';
     $svg_html.= 'class="'.$classes.'" ';
-    $svg_html.= '/>'
+    $svg_html.= '/>';
     return $svg_html;
 }
