@@ -10,7 +10,7 @@ class Scores extends MY_Controller {
 
     public function index()
     {
-        save_log('scores', 'index', 'Affichage du classement');
+        Save_log('scores', 'index', 'Affichage du classement');
         if (!user_can('view_scores')) {
             redirect(site_url());
             exit;
@@ -154,7 +154,7 @@ class Scores extends MY_Controller {
 
     public function scores($rand_userid = 0)
     {
-        save_log('scores', 'scores', 'Visualisation des scores de : <a href="'.site_url('scores/'.$rand_userid).'">'.$rand_userid.'</a>');
+        Save_log('scores', 'scores', 'Visualisation des scores de : <a href="'.site_url('scores/'.$rand_userid).'">'.$rand_userid.'</a>');
         if (!user_can('view_scores')) {
             show_404();
         }

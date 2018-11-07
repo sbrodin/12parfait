@@ -120,7 +120,7 @@ class Connection extends CI_Controller {
             redirect(site_url());
             exit;
         }
-        save_log('connection', 'index');
+        Save_log('connection', 'index');
         $data = array();
         $data['title'] = $this->lang->line('log_in');
         if (!empty($this->input->get()) && $this->input->get('url') !== null) {
@@ -172,7 +172,7 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de création de compte.
     */
     public function create_account() {
-        save_log('connection', 'create_account');
+        Save_log('connection', 'create_account');
         $data = array();
         $data['title'] = $this->lang->line('create_account');
 
@@ -287,11 +287,11 @@ class Connection extends CI_Controller {
         $post = $this->input->post();
         if (empty($post) || !$post['email'] || !$post['password']) {
             if (empty($post)) {
-                save_log('connection', 'login', 'échec de connexion - données post vides');
+                Save_log('connection', 'login', 'échec de connexion - données post vides');
             } else if (!$post['email']) {
-                save_log('connection', 'login', 'échec de connexion - post email vide');
+                Save_log('connection', 'login', 'échec de connexion - post email vide');
             } else if (!$post['password']) {
-                save_log('connection', 'login', 'échec de connexion - post password vide');
+                Save_log('connection', 'login', 'échec de connexion - post password vide');
             }
             redirect(site_url('connection'), 'location');
             exit;
@@ -327,16 +327,16 @@ class Connection extends CI_Controller {
                 $this->session->set_userdata('acl', $this->user_acl);
             }
             if ($url !== '') {
-                save_log('connection', 'login', 'connexion réussie - vers url spécifique : '.urldecode($url));
+                Save_log('connection', 'login', 'connexion réussie - vers url spécifique : '.urldecode($url));
                 redirect(site_url(urldecode($url)), 'location');
                 exit;
             } else {
-                save_log('connection', 'login', 'connexion réussie - vers home');
+                Save_log('connection', 'login', 'connexion réussie - vers home');
                 redirect(site_url(), 'location');
                 exit;
             }
         } else {
-            save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (email : '.$post['email'].')');
+            Save_log('connection', 'login', 'échec de connexion - problème email / mot de passe (email : '.$post['email'].')');
             $this->session->set_flashdata('error', $this->lang->line('incorrect_login'));
             redirect(site_url('connection'), 'location');
             exit;
@@ -400,7 +400,7 @@ class Connection extends CI_Controller {
                 $this->email->set_alt_message($body);
                 $this->email->send();
                 $this->email->clear();
-                save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : '.$post['email']);
+                Save_log('connection', 'forgotten_password', 'Envoi du message de réinitialisation de mot de passe pour l\'adresse : '.$post['email']);
 
                 $this->session->set_flashdata('info', $this->lang->line('reset_password_email_sent'));
                 redirect(site_url('connection'), 'location');
@@ -476,7 +476,7 @@ class Connection extends CI_Controller {
                 );
                 $this->user_model->update($where, $donnees_echapees);
                 var_dump($user);
-                save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : '.$user->email);
+                Save_log('connection', 'reset_password', 'Réinitialisation du mot de passe pour l\'adresse : '.$user->email);
                 $this->session->set_flashdata('success', $this->lang->line('password_modified'));
                 redirect(site_url('connection'), 'location');
                 exit;
@@ -489,7 +489,7 @@ class Connection extends CI_Controller {
     * Cette fonction supprime les données de session.
     */
     public function logout() {
-        save_log('connection', 'logout');
+        Save_log('connection', 'logout');
         if (!empty($this->session->userdata('user'))) {
             $this->session->unset_userdata('user');
         }

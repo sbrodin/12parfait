@@ -18,7 +18,7 @@ class Profile extends MY_Controller {
     * Fonction d'affichage de la page de profil.
     */
     public function index() {
-        save_log('profile', 'index', 'Affichage du profil');
+        Save_log('profile', 'index', 'Affichage du profil');
         $data = array();
         $data['title'] = $this->lang->line('profile');
 
@@ -36,7 +36,7 @@ class Profile extends MY_Controller {
     * Fonction d'édition de la page de profil.
     */
     public function edit() {
-        save_log('profile', 'edit');
+        Save_log('profile', 'edit');
         $data = array();
         $data['title'] = $this->lang->line('profile_edit');
 
@@ -81,7 +81,7 @@ class Profile extends MY_Controller {
 
                 $this->session->set_userdata('user', $this->user_model->read('*', array("user_id" => $data['user']->user_id))[0]);
 
-                save_log('profile', 'edit', 'Modification du profil de l\'utilisateur : '.$this->session->user->user_id);
+                Save_log('profile', 'edit', 'Modification du profil de l\'utilisateur : '.$this->session->user->user_id);
                 $this->session->set_flashdata('success', $this->lang->line('profile_modified'));
                 redirect(site_url('profile'), 'location');
                 exit;
@@ -93,7 +93,7 @@ class Profile extends MY_Controller {
     * Fonction d'édition du mot de passe.
     */
     public function change_password() {
-        save_log('profile', 'change_password');
+        Save_log('profile', 'change_password');
         $data = array();
         $data['title'] = $this->lang->line('profile_password_edit');
 

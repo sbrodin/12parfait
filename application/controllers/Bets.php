@@ -12,7 +12,7 @@ class Bets extends MY_Controller {
 
     public function index()
     {
-        save_log('bets', 'index');
+        Save_log('bets', 'index');
         if (!user_can('view_bets')) {
             show_404();
         }
@@ -99,7 +99,7 @@ class Bets extends MY_Controller {
 
     public function edit($fixture_id = 0)
     {
-        save_log('bets', 'edit', 'Affichage édition journée : '.$fixture_id);
+        Save_log('bets', 'edit', 'Affichage édition journée : '.$fixture_id);
         if (!user_can('edit_bet')) {
             show_404();
         }
@@ -355,7 +355,7 @@ class Bets extends MY_Controller {
                 $this->_update_robot_bets($bet['match_id']);
             }
 
-            save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : '.$fixture_id);
+            Save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : '.$fixture_id);
             $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
             exit;

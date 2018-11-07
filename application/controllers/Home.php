@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        save_log('home', 'index');
+        Save_log('home', 'index');
         $data = array();
         $data['title'] = $this->lang->line('home_title');
 
@@ -81,7 +81,7 @@ class Home extends CI_Controller {
 
     public function terms()
     {
-        save_log('home', 'terms', 'Affichage des conditions d\'utilisation');
+        Save_log('home', 'terms', 'Affichage des conditions d\'utilisation');
         $data = array();
         $data['title'] = $this->lang->line('terms_of_use');
 
@@ -93,7 +93,7 @@ class Home extends CI_Controller {
 
     public function contact()
     {
-        save_log('contact', 'index');
+        Save_log('contact', 'index');
         $data = array();
         $data['title'] = $this->lang->line('contact');
 
@@ -172,7 +172,7 @@ class Home extends CI_Controller {
                 $this->email->send();
                 $this->email->clear();
 
-                save_log('contact', 'index', 'Envoi du message de : '.$this->session->user->email);
+                Save_log('contact', 'index', 'Envoi du message de : '.$this->session->user->email);
                 $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
                 redirect(site_url(), 'location');
                 exit;
@@ -182,7 +182,7 @@ class Home extends CI_Controller {
 
     public function rules()
     {
-        save_log('home', 'rules', 'Affichage des règles');
+        Save_log('home', 'rules', 'Affichage des règles');
         $data = array();
         $data['title'] = $this->lang->line('rules');
 

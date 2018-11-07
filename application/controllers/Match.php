@@ -19,10 +19,10 @@ class Match extends MY_Controller {
     * Fonction d'affichage de la page de profil.
     */
     public function index($match_id = 0) {
-        save_log('match', 'index', 'Affichage des stats du match : '.$match_id);
+        Save_log('match', 'index', 'Affichage des stats du match : '.$match_id);
 
         if ($match_id === 0) {
-            save_log('match', 'index', 'Tentative d\'accès aux stats du match : '.$match_id);
+            Save_log('match', 'index', 'Tentative d\'accès aux stats du match : '.$match_id);
             show_404();
         }
 
@@ -109,7 +109,7 @@ class Match extends MY_Controller {
                 }
             }
         } else {
-            save_log('match', 'index', 'Tentative d\'accès aux stats du match : '.$match_id);
+            Save_log('match', 'index', 'Tentative d\'accès aux stats du match : '.$match_id);
             show_404();
         }
         $data['title'] = $this->lang->line('match_stats').' : '.$data['match_infos']['team1'].' - '.$data['match_infos']['team2'];

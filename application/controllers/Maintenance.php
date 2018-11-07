@@ -19,7 +19,7 @@ class Maintenance extends CI_Controller {
 
     public function maintenance()
     {
-        save_log('maintenance', 'maintenance');
+        Save_log('maintenance', 'maintenance');
         $data = array();
         $data['title'] = $this->lang->line('maintenance');
 
@@ -30,7 +30,7 @@ class Maintenance extends CI_Controller {
 
     public function construction()
     {
-        save_log('maintenance', 'construction');
+        Save_log('maintenance', 'construction');
         $data = array();
         $data['title'] = $this->lang->line('construction');
 

@@ -11,10 +11,10 @@ class Home extends MY_Controller {
     public function index()
     {
         if (!user_can('admin_all')) {
-            save_log('admin/home', 'index', 'tentative échouée de connexion à l\'admin');
+            Save_log('admin/home', 'index', 'tentative échouée de connexion à l\'admin');
             show_404();
         }
-        save_log('admin/home', 'index');
+        Save_log('admin/home', 'index');
 
         $data = array();
         $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('home');
