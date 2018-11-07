@@ -31,7 +31,7 @@ class Home extends CI_Controller {
 
         // Chargement d'une citation aléatoire
         $this->load->helper('quote_helper');
-        $quote = get_quote();
+        $quote = Get_quote();
         $data['quote_text'] = $quote['text'];
         $data['quote_author'] = $quote['author'];
 
