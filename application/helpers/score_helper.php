@@ -1,14 +1,30 @@
 <?php
+/**
+ * Score helper file
+ *
+ * PHP Version 7.1
+ *
+ * @category Helpers
+ * @package  Helpers
+ * @author   Stanislas Brodin <stanislas.brodin@gmail.com>
+ * @license  https://opensource.org/licenses/MIT    MIT License
+ * @link     https://12parfait.fr
+ */
+
 if (!defined('BASEPATH') ) {
     exit('No direct script access allowed');
 }
 
 /**
-  * Cette fonction permet de calculer le score fait par un joueur en fonction de ses bets pour une journée
-  * @param $fixture_id     Id de la journée
-  * @return Bool Retourne true si la mise à jour s'est bien effectuée.
-  */
-function score_calculator($fixture_id) {
+ * Cette fonction permet de calculer le score fait par un joueur en fonction de
+ * ses bets pour une journée
+ *
+ * @param integer $fixture_id Id de la journée
+ *
+ * @return Bool Retourne true si la mise à jour s'est bien effectuée.
+ */
+function Score_calculator($fixture_id)
+{
     if (!defined('BON_RESULTAT')) {
         define('BON_RESULTAT', 4);
     }
@@ -43,11 +59,11 @@ function score_calculator($fixture_id) {
         'match.result !=' => null,
     );
     $fixture_bets = $CI->db->select($select)
-                           ->from($CI->config->item('bet', 'table'))
-                           ->join('match', 'bet.match_id = match.match_id', 'left')
-                           ->where($where)
-                           ->get()
-                           ->result();
+        ->from($CI->config->item('bet', 'table'))
+        ->join('match', 'bet.match_id = match.match_id', 'left')
+        ->where($where)
+        ->get()
+        ->result();
     if (empty($fixture_bets)) {
         return true;
     }
@@ -56,16 +72,22 @@ function score_calculator($fixture_id) {
     $user_score = array();
     foreach ($fixture_bets as $key => $fixture_bet) {
         $score = 0;
+        $bet_team1_score = $fixture_bet->bet_team1_score;
+        $bet_team2_score = $fixture_bet->bet_team2_score;
+        $bet_team_diff = $bet_team1_score - $bet_team2_score;
+        $match_team1_score = $fixture_bet->match_team1_score;
+        $match_team2_score = $fixture_bet->match_team2_score;
+        $match_team_diff = $match_team1_score - $match_team2_score;
         if ($fixture_bet->bet_result == $fixture_bet->match_result) {
             $score+= BON_RESULTAT;
         }
-        if ($fixture_bet->bet_team1_score == $fixture_bet->match_team1_score) {
+        if ($bet_team1_score == $match_team1_score) {
             $score+= BON_SCORE_EQUIPE_1;
         }
-        if ($fixture_bet->bet_team2_score == $fixture_bet->match_team2_score) {
+        if ($bet_team2_score == $match_team2_score) {
             $score+= BON_SCORE_EQUIPE_2;
         }
-        if ($fixture_bet->bet_team1_score-$fixture_bet->bet_team2_score == $fixture_bet->match_team1_score-$fixture_bet->match_team2_score) {
+        if ($bet_team_diff == $match_team_diff) {
             $score+= DIFFERENCE_2_EQUIPES;
         }
         // Mise à jour du score et du statut des bets
@@ -75,28 +97,29 @@ function score_calculator($fixture_id) {
             'score' => $score,
         );
         $CI->db->set($donnees_echapees)
-               ->where($where)
-               ->update($CI->config->item('bet', 'table'));
+            ->where($where)
+            ->update($CI->config->item('bet', 'table'));
     }
     return true;
 }
 
 /**
-  * Cette fonction permet de récupérer les scores de chaque joueur
-  * @param $fixture_id     Id de la journée
-  * @return Bool Retourne les scores de chaque joueur.
-  */
-function users_score_calculator() {
+ * Cette fonction permet de récupérer les scores de chaque joueur
+ *
+ * @return Bool Retourne les scores de chaque joueur.
+ */
+function Users_Score_calculator()
+{
     $CI =& get_instance();
 
     // On récupère les bets pour la journée
     $select = 'user.user_id, SUM(b.score) as score';
     $users_scores = $CI->db->select($select)
-                           ->from($CI->config->item('user', 'table'))
-                           ->join('bet b', 'user.user_id = b.user_id', 'left')
-                           ->group_by('b.user_id')
-                           ->get()
-                           ->result();
+        ->from($CI->config->item('user', 'table'))
+        ->join('bet b', 'user.user_id = b.user_id', 'left')
+        ->group_by('b.user_id')
+        ->get()
+        ->result();
     if (empty($users_scores)) {
         return false;
     } else {

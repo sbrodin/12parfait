@@ -33,7 +33,7 @@ class Users extends MY_Controller {
         $select = '*, DATE_FORMAT(add_date, "%d/%m/%Y %H:%i:%s") AS formated_add_date, DATE_FORMAT(last_connection, "%d/%m/%Y %H:%i:%s") AS formated_last_connection';
         $data['users'] = $this->user_model->read($select);
 
-        $users_scores = users_score_calculator();
+        $users_scores = Users_Score_calculator();
 
         foreach ($data['users'] as $users_item) {
             $users_item->active = $users_item->active ? $this->lang->line('yes') : $this->lang->line('no');

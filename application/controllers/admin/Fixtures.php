@@ -344,7 +344,7 @@ class Fixtures extends MY_Controller {
             $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
 
             // Mise à jour des scores des joueurs
-            score_calculator($fixture_id);
+            Score_calculator($fixture_id);
 
             $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
             redirect(site_url('admin/fixtures'), 'location');
