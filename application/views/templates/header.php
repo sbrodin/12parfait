@@ -11,11 +11,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#0275d8">
 
-        <link href="<?= img_url('logo.png') ?>" rel="icon" type="image/png">
-        <link href="<?= img_url('logo.png') ?>" rel="apple-touch-icon">
-        <link rel="manifest" href="<?= json_url('manifest') ?>">
+        <link href="<?= Img_url('logo.png') ?>" rel="icon" type="image/png">
+        <link href="<?= Img_url('logo.png') ?>" rel="apple-touch-icon">
+        <link rel="manifest" href="<?= Json_url('manifest') ?>">
 
-        <link href="<?= css_url('style.min') ?>" media="screen" rel="stylesheet" type="text/css">
+        <link href="<?= Css_url('style.min') ?>" media="screen" rel="stylesheet" type="text/css">
 
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

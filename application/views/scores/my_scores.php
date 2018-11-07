@@ -34,7 +34,7 @@
     </div>
 <?php endif; ?>
 
-<script type="text/javascript" src="<?= js_url('chart.2.3.0.min') ?>"></script>
+<script type="text/javascript" src="<?= Js_url('chart.2.3.0.min') ?>"></script>
 <script type="text/javascript">
     var ctx = document.getElementById('scores-chart');
     var myChart = new Chart(ctx, {

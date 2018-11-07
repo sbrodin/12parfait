@@ -9,6 +9,6 @@
             <!-- <span><?= $this->lang->line('version') ?></span> -->
         </footer>
 
-        <script type="text/javascript" src="<?= js_url('script.min') ?>"></script>
+        <script type="text/javascript" src="<?= Js_url('script.min') ?>"></script>
     </body>
 </html>

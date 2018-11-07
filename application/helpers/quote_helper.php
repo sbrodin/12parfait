@@ -28,7 +28,7 @@ function Get_quote($line = 0)
     $CI->load->helper('assets');
     // Récupération des citations
     $quotes = file(
-        csv_url('citations'),
+        Csv_url('citations'),
         FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
     );
     if ($line === 0 || $line > count($quotes)) {

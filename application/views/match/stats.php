@@ -28,7 +28,7 @@
     <h5 class="chart-legend d-inline-block"><?= $this->lang->line('average_goals_bet').' :' ?></h5>
     <canvas id="average-goals-chart"></canvas>
 
-    <script type="text/javascript" src="<?= js_url('chart.2.3.0.min') ?>"></script>
+    <script type="text/javascript" src="<?= Js_url('chart.2.3.0.min') ?>"></script>
     <script type="text/javascript">
         var resultContext = document.getElementById('result-chart');
         var resultChart = new Chart(resultContext, {
