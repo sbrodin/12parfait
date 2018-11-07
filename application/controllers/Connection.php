@@ -104,7 +104,7 @@ class Connection extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
             $this->lang->load('12parfait', $this->session->user->language);
@@ -116,7 +116,7 @@ class Connection extends CI_Controller {
     * Fonction d'affichage de la page de connexion.
     */
     public function index() {
-        if (is_connected()) {
+        if (Is_connected()) {
             redirect(site_url());
             exit;
         }
@@ -362,11 +362,11 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'email',
                     'label' => $this->lang->line('email'),
-                    'rules' => 'required|valid_email|in_database_email',
+                    'rules' => 'required|valid_email|In_Database_email',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'valid_email' => $this->lang->line('valid_email'),
-                        'in_database_email' => $this->lang->line('not_in_database_email'),
+                        'In_Database_email' => $this->lang->line('not_in_database_email'),
                     ),
                 ),
             );

@@ -6,7 +6,7 @@ class Home extends CI_Controller {
     {
         parent::__construct();
 
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $this->lang->load('12parfait', $this->config->item('language'));
         } else {
             $this->lang->load('12parfait', $this->session->user->language);
@@ -20,7 +20,7 @@ class Home extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('home_title');
 
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $language = $this->config->item('language');
         } else {
             $language = $this->session->user->language;
@@ -98,7 +98,7 @@ class Home extends CI_Controller {
         $data['title'] = $this->lang->line('contact');
 
         // Récupération du message d'information pour le contact
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $language = $this->config->item('language');
         } else {
             $language = $this->session->user->language;
@@ -186,7 +186,7 @@ class Home extends CI_Controller {
         $data = array();
         $data['title'] = $this->lang->line('rules');
 
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $language = $this->config->item('language');
         } else {
             $language = $this->session->user->language;

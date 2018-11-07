@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller {
         $this->load->model('user_model');
 
         // Authentification de l'utilisateur
-        if (!is_connected()) {
+        if (!Is_connected()) {
             $this->load->model('log_model');
             Save_log('my_controller', '__construct', 'utilisateur non connecté,<br/> tentative d\'accès à l\'url : '.(isset($_SERVER['HTTPS']) ? 'https' : 'http')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
             // Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
