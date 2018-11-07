@@ -1,6 +1,6 @@
 <?php
 /**
- * Log helper file
+ * Assets helper file
  *
  * PHP Version 7.1
  *

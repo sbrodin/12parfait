@@ -1,6 +1,6 @@
 <?php
 /**
- * Log helper file
+ * Team helper file
  *
  * PHP Version 7.1
  *
