@@ -45,17 +45,17 @@ class Home extends CI_Controller {
         $data['home_message'] = html_entity_decode($data['home_message']);
 
         // Chargement des infos matchs
-        $data['yesterday_matches'] = matches_of_day(date('d/m/Y', time()-24*60*60))['matches'];
-        $data['today_matches'] = matches_of_day()['matches'];
-        $data['tomorrow_matches'] = matches_of_day(date('d/m/Y', time()+24*60*60))['matches'];
+        $data['yesterday_matches'] = Matches_of_day(date('d/m/Y', time()-24*60*60))['matches'];
+        $data['today_matches'] = Matches_of_day()['matches'];
+        $data['tomorrow_matches'] = Matches_of_day(date('d/m/Y', time()+24*60*60))['matches'];
 
         if (!$data['yesterday_matches'] && !$data['today_matches'] && !$data['tomorrow_matches']) {
-            if ($last_matches = last_matches()) {
+            if ($last_matches = Last_matches()) {
                 $data['last_matches'] = $last_matches['matches'];
             } else {
                 $data['last_matches'] = null;
             }
-            if ($next_matches = next_matches()) {
+            if ($next_matches = Next_matches()) {
                 $data['next_matches'] = $next_matches['matches'];
                 $data['next_matches_date'] = $next_matches['date'];
             } else {
