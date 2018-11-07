@@ -29,7 +29,7 @@
             echo '<tr><td class="team1_name">';
             if ($fixture_match->result &&
                 Championship_Teams_evolve($championship_id) &&
-                is_team_in_championship($fixture_match->t1_id, $championship_id)) {
+                Is_Team_In_championship($fixture_match->t1_id, $championship_id)) {
                 echo '<a href="#" class="del-team" data-linkdelteam="'.site_url('admin/championships/del_team_from_championship/'.$team1_id.'/'.$championship_id).'">X </a>';
             }
             echo $fixture_match->team1.'</td>';
@@ -39,7 +39,7 @@
             echo '<td class="team2_name">'.$fixture_match->team2.'';
             if ($fixture_match->result &&
                 Championship_Teams_evolve($championship_id) &&
-                is_team_in_championship($fixture_match->t2_id, $championship_id)) {
+                Is_Team_In_championship($fixture_match->t2_id, $championship_id)) {
                 echo '<a href="#" class="del-team" data-linkdelteam="'.site_url('admin/championships/del_team_from_championship/'.$team2_id.'/'.$championship_id).'">X </a>';
             }
             echo '</td><tr/>';
