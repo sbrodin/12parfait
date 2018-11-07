@@ -37,7 +37,7 @@ function suppr_accents_espaces($str, $encoding='utf-8'){
   * @return Booléen pour savoir si la chaîne en entrée contient une majuscule
   */
 function contains_uppercase($str){
-    return preg_match('#[A-Z]#', $str)!==0 ? TRUE : FALSE;
+    return preg_match('#[A-Z]#', $str)!==0 ? true : false;
 }
 
 /**
@@ -48,7 +48,7 @@ function contains_uppercase($str){
   * @return Booléen pour savoir si la chaîne en entrée contient une minuscule
   */
 function contains_lowercase($str){
-    return preg_match('#[a-z]#', $str)!==0 ? TRUE : FALSE;
+    return preg_match('#[a-z]#', $str)!==0 ? true : false;
 }
 
 /**
@@ -59,5 +59,5 @@ function contains_lowercase($str){
   * @return Booléen pour savoir si la chaîne en entrée contient une minuscule
   */
 function contains_number($str){
-    return preg_match('#[0-9]#', $str)!==0 ? TRUE : FALSE;
+    return preg_match('#[0-9]#', $str)!==0 ? true : false;
 }

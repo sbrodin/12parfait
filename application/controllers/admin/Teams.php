@@ -19,8 +19,8 @@ class Teams extends MY_Controller {
 
         $select = 'team_id, name, short_name, level';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'name ASC';
         $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
 
@@ -83,7 +83,7 @@ class Teams extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/teams/add', $data);
@@ -164,7 +164,7 @@ class Teams extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/teams/edit', $data);

@@ -40,7 +40,7 @@ function score_calculator($fixture_id) {
     $where = array(
         'fixture_id' => $fixture_id,
         'bet.status' => 'open',
-        'match.result !=' => NULL,
+        'match.result !=' => null,
     );
     $fixture_bets = $CI->db->select($select)
                            ->from($CI->config->item('bet', 'table'))
@@ -98,7 +98,7 @@ function users_score_calculator() {
                            ->get()
                            ->result();
     if (empty($users_scores)) {
-        return FALSE;
+        return false;
     } else {
         $scores = array();
         foreach ($users_scores as $key => $user_score) {

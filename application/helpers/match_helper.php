@@ -7,10 +7,10 @@ if (!defined('BASEPATH') ) {
   * Cette fonction renvoie les matchs d'un jour passé en paramètre.
   *
   * @param $date date des matchs à récupérer au format JJ/MM/AAAA
-  * @return FALSE si aucun match n'est trouvé, ou les matchs du jour passé en paramètre
+  * @return false si aucun match n'est trouvé, ou les matchs du jour passé en paramètre
   */
-function matches_of_day($date = NULL) {
-    if ($date === NULL) {
+function matches_of_day($date = null) {
+    if ($date === null) {
         $date = time();
     } else {
         $day_searched = substr($date, 0, 2);
@@ -49,7 +49,7 @@ function matches_of_day($date = NULL) {
                              ->order_by($order)
                              ->get()
                              ->result();
-    return empty($matches_of_day) ? NULL : array('matches' => $matches_of_day, 'date' => date('d/m/Y', $date));
+    return empty($matches_of_day) ? null : array('matches' => $matches_of_day, 'date' => date('d/m/Y', $date));
 }
 
 /**

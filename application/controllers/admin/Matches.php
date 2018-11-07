@@ -20,8 +20,8 @@ class Matches extends MY_Controller {
         $this->load->model('championship_model');
         $select = '*';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'name ASC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
@@ -45,8 +45,8 @@ class Matches extends MY_Controller {
         $where = array(
             'fixture_id' => $this->session->userdata('fixture'),
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date ASC';
         $data['matches_fixture'] = $this->db->select($select)
                                             ->from($this->config->item('match', 'table'))
@@ -76,8 +76,8 @@ class Matches extends MY_Controller {
         $where_not_in = array(
             'team.team_id', $already_set_teams,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = '';
         $data['teams'] = $this->db->select($select)
                                   ->from($this->config->item('team', 'table'))
@@ -136,7 +136,7 @@ class Matches extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/matches/add', $data);
@@ -170,8 +170,8 @@ class Matches extends MY_Controller {
         $this->load->model('championship_model');
         $select = '*';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'championship_id DESC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
@@ -193,7 +193,7 @@ class Matches extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/matches/championship', $data);
@@ -218,8 +218,8 @@ class Matches extends MY_Controller {
         $this->load->model('fixture_model');
         $select = 'fixture_id, fixture.name AS fixture_name, championship.championship_id, championship.name AS championship_name';
         $where = array('championship.championship_id' => $this->session->userdata('championship'));
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'championship_name ASC, fixture.fixture_id ASC';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
@@ -254,7 +254,7 @@ class Matches extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('admin/matches/fixture', $data);
                 $this->load->view('templates/footer');
@@ -292,8 +292,8 @@ class Matches extends MY_Controller {
         $where = array(
             'championship.championship_id' => $championship_id,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date ASC';
         $data['matches_fixtures'] = $this->db->select($select)
                                              ->from($this->config->item('championship', 'table'))

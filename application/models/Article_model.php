@@ -13,8 +13,8 @@ class Article_model extends MY_Model {
     {
         $select = 'category, DATE_FORMAT(date, "%d/%m/%Y") AS date, french_title, french_content, english_title, english_content';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date DESC';
         $articles = $this->read($select, $where, $nb, $debut, $order);
         return empty($articles) ? array() : $articles;

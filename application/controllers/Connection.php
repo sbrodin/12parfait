@@ -123,7 +123,7 @@ class Connection extends CI_Controller {
         save_log('connection', 'index');
         $data = array();
         $data['title'] = $this->lang->line('log_in');
-        if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
+        if (!empty($this->input->get()) && $this->input->get('url') !== null) {
             $url = urlencode($this->input->get('url'));
         } else {
             $url = '';
@@ -157,7 +157,7 @@ class Connection extends CI_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('login', $data);
@@ -217,7 +217,7 @@ class Connection extends CI_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('create_account', $data);
@@ -298,7 +298,7 @@ class Connection extends CI_Controller {
         }
 
         // Cas de la redirection depuis la page d'accueil
-        if (!empty($this->input->get()) && $this->input->get('url')!==NULL) {
+        if (!empty($this->input->get()) && $this->input->get('url') !== null) {
             $url = urlencode($this->input->get('url'));
         }
 
@@ -310,8 +310,8 @@ class Connection extends CI_Controller {
             }
             $donnees_echapees = array(
                 'last_connection' => date("Y-m-d H:i:s"),
-                'hash' => NULL,
-                'date_hash' => NULL,
+                'hash' => null,
+                'date_hash' => null,
             );
 
             $this->user_model->update(array("user_id" => $user->user_id), $donnees_echapees);
@@ -371,7 +371,7 @@ class Connection extends CI_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('forgotten_password', $data);
@@ -460,7 +460,7 @@ class Connection extends CI_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('reset_password', $data);
@@ -471,8 +471,8 @@ class Connection extends CI_Controller {
                 );
                 $donnees_echapees = array(
                     'password' => password_hash($post['new_password'], PASSWORD_BCRYPT),
-                    'hash' => NULL,
-                    'date_hash' => NULL,
+                    'hash' => null,
+                    'date_hash' => null,
                 );
                 $this->user_model->update($where, $donnees_echapees);
                 var_dump($user);

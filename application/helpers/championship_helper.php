@@ -19,5 +19,5 @@ function championship_teams_evolve($championship_id) {
                                 ->where($where)
                                 ->get()
                                 ->result();
-    return ($championship_teams_evolve[0]->teams_evolve == 0) ? FALSE : TRUE;
+    return ($championship_teams_evolve[0]->teams_evolve == 0) ? false : true;
 }

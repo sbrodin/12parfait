@@ -51,7 +51,7 @@ class MY_Profiler extends CI_Profiler {
 			$output = '<table style="width:100%;" id="ci_profiler_session_data">';
 			foreach ($this->CI->session->userdata() as $key => $val) {
 				if (is_array($val) OR is_object($val)) {
-					$val = print_r($val, TRUE);
+					$val = print_r($val, true);
 				}
 
 				$output .= '<tr><td style="padding:5px;vertical-align:top;color:#900;background-color:#ddd;">'

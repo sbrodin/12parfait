@@ -23,7 +23,7 @@ class MY_Form_validation extends CI_Form_validation {
         $validation_array = empty($this->validation_data) ? $_POST : $this->validation_data;
         if (count($validation_array) === 0)
         {
-            return FALSE;
+            return false;
         }
 
         // Does the _field_data array containing the validation rules exist?
@@ -33,7 +33,7 @@ class MY_Form_validation extends CI_Form_validation {
             // No validation rules?  We're done...
             if (count($this->_config_rules) === 0)
             {
-                return TRUE;
+                return true;
             }
 
             if (empty($group))
@@ -49,7 +49,7 @@ class MY_Form_validation extends CI_Form_validation {
             if (count($this->_field_data) === 0)
             {
                 log_message('debug', 'Unable to find validation rules');
-                return FALSE;
+                return false;
             }
         }
 
@@ -61,7 +61,7 @@ class MY_Form_validation extends CI_Form_validation {
         {
             // Fetch the data from the validation_data array item and cache it in the _field_data array.
             // Depending on whether the field name is an array or a string will determine where we get it from.
-            if ($row['is_array'] === TRUE)
+            if ($row['is_array'] === true)
             {
                 $this->_field_data[$field]['postdata'] = $this->_reduce_array($validation_array, $row['keys']);
             }
@@ -89,7 +89,7 @@ class MY_Form_validation extends CI_Form_validation {
         $total_errors = count($this->_error_array);
         if ($total_errors > 0)
         {
-            $this->_safe_form_data = TRUE;
+            $this->_safe_form_data = true;
         }
 
         // Now we need to re-set the POST data with the new, processed data

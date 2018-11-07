@@ -21,5 +21,5 @@ function is_team_in_championship($team_id, $championship_id) {
                                 ->where($where)
                                 ->get()
                                 ->result();
-    return empty($team_championship) ? FALSE : TRUE;
+    return empty($team_championship) ? false : true;
 }

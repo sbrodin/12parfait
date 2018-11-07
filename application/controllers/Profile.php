@@ -64,7 +64,7 @@ class Profile extends MY_Controller {
                 $rules = array();
             }
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('profile/edit', $data);
@@ -129,7 +129,7 @@ class Profile extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('profile/change_password', $data);

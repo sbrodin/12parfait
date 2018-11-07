@@ -19,8 +19,8 @@ class Championships extends MY_Controller {
 
         $select = '*';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'name ASC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
@@ -90,7 +90,7 @@ class Championships extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/championships/add', $data);
@@ -136,8 +136,8 @@ class Championships extends MY_Controller {
         $this->load->model('team_model');
         $select = '*';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'name ASC';
         $data['teams'] = $this->team_model->read($select, $where, $nb, $debut, $order);
 
@@ -171,7 +171,7 @@ class Championships extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/championships/edit', $data);

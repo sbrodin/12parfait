@@ -19,8 +19,8 @@ class Fixtures extends MY_Controller {
 
         $select = 'fixture_id, fixture.name AS fixture_name, championship.name AS championship_name, fixture.status';
         $where = array('championship.status' => 'open');
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'championship_name ASC, fixture_id';
         $data['fixtures'] = $this->db->select($select)
                                      ->from($this->config->item('fixture', 'table'))
@@ -49,8 +49,8 @@ class Fixtures extends MY_Controller {
         $this->load->model('championship_model');
         $select = '*';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'name ASC';
         $data['championships'] = $this->championship_model->read($select, $where, $nb, $debut, $order);
 
@@ -80,7 +80,7 @@ class Fixtures extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/fixtures/add', $data);
@@ -133,8 +133,8 @@ class Fixtures extends MY_Controller {
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date ASC';
         $data['fixture_matches'] = $this->db->select($select)
                                             ->from($this->config->item('fixture', 'table'))
@@ -255,8 +255,8 @@ class Fixtures extends MY_Controller {
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'date ASC, match.match_id';
         $data['fixture_matches'] = $this->db->select($select)
                                             ->from($this->config->item('fixture', 'table'))
@@ -308,13 +308,13 @@ class Fixtures extends MY_Controller {
                     $match_id = explode('_', $key)[1];
                     // Score de la première équipe
                     $team1_id = explode('_', $key)[2];
-                    $team1_score = ($post_element == '') ? NULL : $post_element;
+                    $team1_score = ($post_element == '') ? null : $post_element;
                     ++$element;
                 } else {
                     // Score de la deuxième équipe
                     $team2_id = explode('_', $key)[2];
-                    $team2_score = ($post_element == '') ? NULL : $post_element;
-                    $resultat = NULL;
+                    $team2_score = ($post_element == '') ? null : $post_element;
+                    $resultat = null;
                     if ($team1_score > $team2_score) {
                         $resultat = '1';
                     } else if ($team1_score < $team2_score) {

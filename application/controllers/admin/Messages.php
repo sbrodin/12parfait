@@ -19,8 +19,8 @@ class Messages extends MY_Controller {
 
         $select = 'message_id, name, french_content, english_content';
         $where = array();
-        $nb = NULL;
-        $debut = NULL;
+        $nb = null;
+        $debut = null;
         $order = 'message_id ASC';
         $data['messages'] = $this->message_model->read($select, $where, $nb, $debut, $order);
 
@@ -74,7 +74,7 @@ class Messages extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/messages/add', $data);
@@ -154,7 +154,7 @@ class Messages extends MY_Controller {
                 ),
             );
             $this->form_validation->set_rules($rules);
-            if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('admin/messages/edit', $data);
