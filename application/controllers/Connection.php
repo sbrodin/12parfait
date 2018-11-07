@@ -197,13 +197,13 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'password',
                     'label' => $this->lang->line('password'),
-                    'rules' => 'trim|required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
+                    'rules' => 'trim|required|min_length[8]|Contains_uppercase|Contains_lowercase|Contains_number',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'min_length' => $this->lang->line('min_length_field'),
-                        'contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
-                        'contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
-                        'contains_number' => $this->lang->line('must_contain_number_field'),
+                        'Contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
+                        'Contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
+                        'Contains_number' => $this->lang->line('must_contain_number_field'),
                     ),
                 ),
                 array(
@@ -440,13 +440,13 @@ class Connection extends CI_Controller {
                 array(
                     'field' => 'new_password',
                     'label' => $this->lang->line('new_password'),
-                    'rules' => 'trim|required|min_length[8]|contains_uppercase|contains_lowercase|contains_number',
+                    'rules' => 'trim|required|min_length[8]|Contains_uppercase|Contains_lowercase|Contains_number',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
                         'min_length' => $this->lang->line('min_length_field'),
-                        'contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
-                        'contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
-                        'contains_number' => $this->lang->line('must_contain_number_field'),
+                        'Contains_uppercase' => $this->lang->line('must_contain_uppercase_field'),
+                        'Contains_lowercase' => $this->lang->line('must_contain_lowercase_field'),
+                        'Contains_number' => $this->lang->line('must_contain_number_field'),
                     ),
                 ),
                 array(
