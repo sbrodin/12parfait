@@ -211,7 +211,7 @@
     <?php foreach ($articles as $article) : ?>
     <article class="jumbotron">
         <h5><?= $article->title ?></h5>
-        <p><?= $this->lang->line('published_in') ?> <!-- <a href="<?= site_url('articles/category/'.$article->category) ?>"> --><?= $article->category ?><!-- </a> -->, <?= $this->lang->line('on') ?> <?= $article->date ?></p>
+        <p><?= $this->lang->line('published_in') ?> <!-- <a href="<?= site_url('articles/category/'.$article->category) ?>"> --><?= $article->category ?><!-- </a> -->, <?= $this->lang->line('on') ?> <?= $article->formated_date ?></p>
         <hr class="my-4">
         <?= $article->content ?>
     </article>

@@ -11,7 +11,7 @@ class Article_model extends MY_Model {
     // cas où on retourne tous les articles
     public function get_articles()
     {
-        $select = 'category, DATE_FORMAT(date, "%d/%m/%Y") AS date, french_title, french_content, english_title, english_content';
+        $select = 'category, date, DATE_FORMAT(date, "%d/%m/%Y") AS formated_date, french_title, french_content, english_title, english_content';
         $where = array();
         $nb = null;
         $debut = null;
@@ -26,7 +26,7 @@ class Article_model extends MY_Model {
         if ($article_name === '') {
             return empty($articles) ? array() : $articles;
         } else {
-            $select = 'category, date, french_title, french_content, english_title, english_content';
+            $select = 'category, date, DATE_FORMAT(date, "%d/%m/%Y") AS formated_date, french_title, french_content, english_title, english_content';
             $where = array('name' => $article_name);
             $article = $this->read($select, $where);
             return empty($article) ? '' : $article;
