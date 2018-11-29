@@ -37,6 +37,7 @@ $lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = 'Logo 12parfait';
 
 $lang['home_title'] = 'Pronostics sportifs gratuits entre amis';
+$lang['description'] = 'Application de pronostics sportifs gratuits entre amis';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';

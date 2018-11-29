@@ -37,6 +37,7 @@ $lang['stats'] = 'Stats';
 $lang['logo_12parfait'] = '12parfait logo';
 
 $lang['home_title'] = 'Free sport bets with friends';
+$lang['description'] = 'Free sport bets app with friends';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';

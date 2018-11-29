@@ -5,7 +5,7 @@
         <meta charset="utf-8">
 
         <title><?= $this->lang->line('12_parfait').' - '.$title ?></title>
-        <meta name="description" content="<?= $title ?>">
+        <meta name="description" content="<?= $this->lang->line('12_parfait').' - '.$title.' - '.$this->lang->line('description') ?>">
         <meta name="author" content="Stanislas Brodin">
         <meta name="keywords" content="site, 12parfait, paris, bets, amis, friends, football, 12, parfait, fun, sport, ligue1, ligue 1, coupe du monde, coupedumonde, world cup, worldcup">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
