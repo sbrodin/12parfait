@@ -77,13 +77,13 @@
                     ?>
                     <tr>
                         <td class="logo logo_<?= $fixture_match->short_team1 ?> <?= $fixture_match->no_logo ?>"></td>
-                        <td class="team1-name hidden-sm-down"><?= $fixture_match->team1 ?></td>
-                        <td class="team1-name hidden-md-up"><?= $fixture_match->short_team1 ?></td>
-                        <td class="team1-score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>"></td>
+                        <td class="team1-name hidden-sm-down"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->team1 ?></label></td>
+                        <td class="team1-name hidden-md-up"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->short_team1 ?></label></td>
+                        <td class="team1-score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>" onfocus="var val=this.value;this.value='';this.value=val"></td>
                         <td class="dash">-</td>
-                        <td class="team2-score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>"></td>
-                        <td class="team2-name hidden-sm-down"><?= $fixture_match->team2 ?></td>
-                        <td class="team2-name hidden-md-up"><?= $fixture_match->short_team2 ?></td>
+                        <td class="team2-score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>" onfocus="var val=this.value;this.value='';this.value=val"></td>
+                        <td class="team2-name hidden-sm-down"><label for="score_<?= $match_id ?>_<?= $team2_id ?>"><?= $fixture_match->team2 ?></label></td>
+                        <td class="team2-name hidden-md-up"><label for="score_<?= $match_id ?>_<?= $team2_id ?>"><?= $fixture_match->short_team2 ?></label></td>
                         <td class="logo logo_<?= $fixture_match->short_team2 ?> <?= $fixture_match->no_logo ?>"></td>
                         <?php
                         if (!empty($different_players)) :
