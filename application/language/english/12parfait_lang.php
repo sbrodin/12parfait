@@ -41,7 +41,7 @@ $lang['description'] = 'Free sport bets app with friends';
 
 // Champs spécifiques à l'application
 $lang['application_title'] = '12parfait';
-$lang['copyright'] = '&copy; sbrodin, 2015-2018';
+$lang['copyright'] = '&copy; sbrodin, 2015-'.date('Y');
 $lang['generated_with'] = 'Generated with <a href="http://www.codeigniter.com" rel="noopener">CodeIgniter</a>';
 $lang['version'] = 'v. beta';
 
