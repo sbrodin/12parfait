@@ -11,6 +11,7 @@
         France
     </p>
 </p>
+<hr/>
 <p>
     <strong>Développement, Graphisme :</strong>
     <p>Stanislas Brodin</p>
@@ -21,8 +22,8 @@
 </p>
 <h4>Propriété intellectuelle</h4>
 <p>
-    <p>Le site est la propriété exclusive de la société 12parfait, seule habilitée à utiliser et exploiter les droits de propriété intellectuelle et droits de la personnalité attachés à ce site, notamment les marques, dessins et modèles, droits d'auteur et droit à l'image, à titre originaire ou par l'effet d'une cession ou d'une licence d'exploitation.</p>
+    <p>Le site est la propriété exclusive de Stanislas Brodin, seul habilité à utiliser et exploiter les droits de propriété intellectuelle et droits de la personnalité attachés à ce site, notamment les marques, dessins et modèles, droits d'auteur et droit à l'image, à titre originaire ou par l'effet d'une cession ou d'une licence d'exploitation.</p>
     <p>L'usage de tout ou partie du site <strong>https://12parfait.fr</strong>, notamment par téléchargement, reproduction, transmission ou représentation à d'autres fins que pour usage personnel et privé dans un but non commercial est strictement interdit.</p>
 </p>
 
-<h3><strong>Merci d'utiliser 12parfait !</strong></h3>
+<h3 id="terms_thanks">Merci d'utiliser 12parfait !</h3>

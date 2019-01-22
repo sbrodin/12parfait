@@ -541,6 +541,12 @@ span.no-logo {
     display: block;
 }
 /* Fin rules */
+/* Terms */
+#terms_thanks {
+    color: #0275d8;
+    font-weight: bold;
+}
+/* Fin terms */
 /* Profiler */
 #codeigniter-profiler {
     position: absolute;
