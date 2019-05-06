@@ -5,8 +5,16 @@
     <?php if (user_can('admin_all')) : ?>
         <a href="<?= site_url('admin') ?>"><?= $this->lang->line('site_admin') ?></a>
     <?php endif; ?>
-        <a href="<?= site_url('profile') ?>"><?= $this->lang->line('profile') ?> : <?= $this->session->user->user_name ?></a>
-        <a href="<?= site_url('logout') ?>"><i class="fa fa-sign-out" title="<?= $this->lang->line('log_out') ?>" alt="<?= $this->lang->line('log_out') ?>"></i></a>
+        <a id="profile" href="<?= site_url('profile') ?>">
+            <i class="fa fa-user"
+               title="<?= $this->lang->line('profile') ?> : <?= $this->session->user->user_name ?>"
+               alt="<?= $this->lang->line('profile') ?> : <?= $this->session->user->user_name ?>"></i>
+        </a>
+        <a id="logout" href="<?= site_url('logout') ?>">
+            <i class="fa fa-sign-out"
+               title="<?= $this->lang->line('log_out') ?>"
+               alt="<?= $this->lang->line('log_out') ?>"></i>
+        </a>
     </nav>
 </header>
 <nav class="menu" role="navigation">
@@ -29,4 +37,7 @@
     </ul>
 </nav>
 <?php endif; ?>
+
+<?= img('coupe_monde_feminine_bandeau.png', $this->lang->line('contact'), $this->lang->line('contact'), 'coupe_monde_feminine_bandeau') ?>
+
 <div class="main-container">
