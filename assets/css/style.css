@@ -60,6 +60,10 @@ p {
 
 
 /** COMMON **/
+body {
+    background-image: url('../img/wwc_bg.png');
+    background-size: cover;
+}
 .boxed {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
 }
