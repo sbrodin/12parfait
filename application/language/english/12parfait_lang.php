@@ -323,3 +323,5 @@ $lang['bets_rules'] = 'Rules specific for bets';
 
 // Articles
 $lang['published_in'] = 'Publié dans';
+
+$lang['womens_world_cup'] = 'Coupe du Monde féminine';

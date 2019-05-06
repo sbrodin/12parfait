@@ -38,6 +38,6 @@
 </nav>
 <?php endif; ?>
 
-<?= img('coupe_monde_feminine_bandeau.png', $this->lang->line('contact'), $this->lang->line('contact'), 'coupe_monde_feminine_bandeau') ?>
+<?= img('coupe_monde_feminine_bandeau.png', $this->lang->line('womens_world_cup'), $this->lang->line('womens_world_cup'), 'coupe_monde_feminine_bandeau') ?>
 
 <div class="main-container">
