@@ -77,17 +77,10 @@
         </table>
     <?php endif; ?>
 <?php else : ?>
+    <!-- matchs de la veille -->
     <?php if (!$yesterday_matches) : ?>
         <h5 class="info_date_match"><?= $this->lang->line('no_match_yesterday'); ?></h5>
-    <?php endif; ?>
-    <?php if (!$today_matches) : ?>
-        <h5 class="info_date_match"><?= $this->lang->line('no_match_today'); ?></h5>
-    <?php endif; ?>
-    <?php if (!$tomorrow_matches) : ?>
-        <h5 class="info_date_match"><?= $this->lang->line('no_match_tomorrow'); ?></h5>
-    <?php endif; ?>
-
-    <?php if ($yesterday_matches) : ?>
+    <?php else : ?>
         <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
@@ -123,7 +116,10 @@
         </table>
     <?php endif; ?>
 
-    <?php if ($today_matches) : ?>
+    <!-- matchs du jour -->
+    <?php if (!$today_matches) : ?>
+        <h5 class="info_date_match"><?= $this->lang->line('no_match_today'); ?></h5>
+    <?php else : ?>
         <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
@@ -158,7 +154,10 @@
         </table>
     <?php endif; ?>
 
-    <?php if ($tomorrow_matches) : ?>
+    <!-- matchs du lendemain -->
+    <?php if (!$tomorrow_matches) : ?>
+        <h5 class="info_date_match"><?= $this->lang->line('no_match_tomorrow'); ?></h5>
+    <?php else : ?>
         <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
