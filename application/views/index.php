@@ -123,7 +123,7 @@
         <table class="home-table table-striped table-hover m-r-2 m-b-2">
             <thead>
                 <tr>
-                    <th colspan="<?php echo Is_connected() ? (user_can('admin_fixtures') ? '9' : '8') : '7' ?>" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
+                    <th colspan="<?php echo Is_connected() ? (user_can('admin_fixtures') ? '11' : '10') : '9' ?>" class="text-xs-center"><?= $this->lang->line('today_matches'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -135,18 +135,51 @@
                     <?php endif; ?>
                         <td class="logo logo_<?= $match->short_team1 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-right"><?= $match->team1 ?></td>
+                        <?php if ($match->team1_score !== null) : ?>
+                            <td class="text-xs-right"><?= $match->team1_score ?></td>
+                        <?php else : ?>
+                            <td></td>
+                        <?php endif; ?>
                         <td class="text-xs-center">-</td>
+                        <?php if ($match->team2_score !== null) : ?>
+                            <td><?= $match->team2_score ?></td>
+                        <?php else : ?>
+                            <td></td>
+                        <?php endif; ?>
                         <td><?= $match->team2 ?></td>
                         <td class="logo logo_<?= $match->short_team2 ?> <?= $match->no_logo ?>"></td>
                         <td class="text-xs-center"><?= $match->match_time ?></td>
                         <?php if (Is_connected()) : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>"><?= $this->lang->line('view'); ?></a></td>
-                            <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id) ?>">
+                                    <!-- Si la date du match n'est pas passée on affiche le texte "parier" -->
+                                    <?php
+                                    if (strtotime($match->date) > strtotime(date('Y-m-d H:i:s'))) {
+                                        echo $this->lang->line('place_bet');
+                                    } else {
+                                        echo $this->lang->line('view');
+                                    }
+                                    ?>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>">
+                                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                </a>
+                            </td>
                         <?php else : ?>
-                            <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>">
+                                    <?= $this->lang->line('place_bet'); ?>
+                                </a>
+                            </td>
                         <?php endif; ?>
                         <?php if (Is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                            <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id) ?>">
+                                    <?= $this->lang->line('enter_fixture_results'); ?>
+                                </a>
+                            </td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>

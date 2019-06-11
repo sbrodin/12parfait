@@ -46,6 +46,7 @@ function Matches_Of_day($date = null)
                team1_score,
                team2_score,
                DATE_FORMAT(date, "%H:%i") as match_time,
+               date,
                fixture.status as status,
                IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "")
                as no_logo';
