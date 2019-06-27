@@ -132,10 +132,15 @@ class Championships extends MY_Controller {
             $championship = $championship[0];
         }
         $data['championship'] = $championship;
+        if ($championship->country === 'france') {
+            $level = 'local';
+        } else {
+            $level = 'national';
+        }
 
         $this->load->model('team_model');
         $select = '*';
-        $where = array();
+        $where = array('level' => $level);
         $nb = null;
         $debut = null;
         $order = 'name ASC';
