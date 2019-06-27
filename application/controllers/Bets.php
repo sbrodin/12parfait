@@ -294,14 +294,6 @@ class Bets extends MY_Controller {
                 redirect(site_url('bets'), 'location');
                 exit;
             }
-            // Suppression des paris déjà entrés pour la journée
-            $query = 'DELETE bet ';
-            $query.= 'FROM `'.$this->config->item('bet', 'table').'` ';
-            $query.= 'JOIN `'.$this->config->item('match', 'table').'` ON bet.match_id = `match`.match_id ';
-            $query.= 'WHERE user_id = '.$this->session->user->user_id.' ';
-            $query.= 'AND `match`.result IS NULL ';
-            $query.= 'AND bet.match_id IN ('.implode(', ', array_keys($data['matches'])).')';
-            $this->db->query($query);
             // Update des paris de l'utilisateur pour la journée
             $bets = array();
             $element = 0;
@@ -334,6 +326,13 @@ class Bets extends MY_Controller {
                     // On vérifie que le score a été entré pour les 2 équipes et que la date du match n'est pas passée
                     if (!is_null($resultat) &&
                         date('Y-m-d H:i:s') < $data['matches'][$match_id]) {
+                        // Suppression des paris déjà entrés pour la journée
+                        $query = 'DELETE bet ';
+                        $query.= 'FROM `'.$this->config->item('bet', 'table').'` ';
+                        $query.= 'WHERE user_id = '.$this->session->user->user_id.' ';
+                        $query.= 'AND bet.match_id = '.$match_id;
+                        $this->db->query($query);
+
                         $bets[] = array(
                             'user_id' => $this->session->user->user_id,
                             'match_id' => $match_id,
