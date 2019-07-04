@@ -593,13 +593,14 @@ span.no-logo {
 footer {
     color: #888888;
     text-align: center;
-    padding: 20px 0;
+    padding: 0;
 }
 footer span {
     font-size: 0.875rem;
 }
 footer a {
     font-size: 0.875rem;
+    padding: 15px 0;
     margin: 0;
 }
 
