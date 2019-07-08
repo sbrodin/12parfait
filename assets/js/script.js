@@ -18,14 +18,14 @@ script
 // console.log('-                                             -');
 // console.log('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*');
 
-console.log('-*-*-*-*-*-*-*-*-');
-console.log('*  .   __. .__. *');
-console.log('- /|     | |  | -');
-console.log('*  |  .__| |__| *');
-console.log('-  |  |    |    -');
-console.log('* _|_ |__. |    *');
-console.log('-               -');
-console.log('*-*-*-*-*-*-*-*-*');
+console.log('%c -*-*-*-*-*-*-*-*-', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c *  .   __   __  *', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c - /|     | |  | -', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c *  |   __| |__| *', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c -  |  |    |    -', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c *  |  |__  |    *', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c -               -', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
+console.log('%c *-*-*-*-*-*-*-*-*', 'color: #0275D8; font-size: 15px; font-family: "Courier New";');
 // console.log('%c 12parfait ', 'color: #0275D8; font-size: 40px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;');
 
 $('.alert').alert();
