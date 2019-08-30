@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    background-color: #f1fff6;
+    background-color: rgba(2,117,216,.07);
 }
 * {
     box-sizing: border-box;
