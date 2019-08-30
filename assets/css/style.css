@@ -61,7 +61,7 @@ p {
 
 /** COMMON **/
 body {
-    background-image: url('../img/wwc_bg.png');
+    /*background-image: url('../img/wwc_bg.png');*/
     background-size: cover;
 }
 .boxed {
