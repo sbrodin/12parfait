@@ -75,7 +75,7 @@
                         }
                         $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
                     ?>
-                    <tr>
+                    <tr id="match_<?= $match_id ?>">
                         <td class="logo logo_<?= $fixture_match->short_team1 ?> <?= $fixture_match->no_logo ?>"></td>
                         <td class="team1-name hidden-sm-down"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->team1 ?></label></td>
                         <td class="team1-name hidden-md-up"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->short_team1 ?></label></td>
