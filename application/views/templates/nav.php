@@ -11,7 +11,7 @@
                alt="<?= $this->lang->line('profile') ?> : <?= $this->session->user->user_name ?>"></i>
         </a>
         <a id="logout" href="<?= site_url('logout') ?>">
-            <i class="fa fa-sign-out"
+            <i class="fa fa-sign-out-alt"
                title="<?= $this->lang->line('log_out') ?>"
                alt="<?= $this->lang->line('log_out') ?>"></i>
         </a>

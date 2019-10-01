@@ -231,7 +231,7 @@
                             <td class="text-xs-center"><?= $match->match_time ?></td>
                             <?php if (Is_connected()) : ?>
                                 <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$match->fixture_id.'#match_'.$match->match_id) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
-                                <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></td>
+                                <td><a href="<?= site_url('match/'.$match->match_id) ?>" title="<?= $this->lang->line('stats') ?>"><i class="fa fa-chart-bar" aria-hidden="true"></i></a></td>
                             <?php else : ?>
                                 <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id.'#match_'.$match->match_id)) ?>"><?= $this->lang->line('place_bet'); ?></a></td>
                             <?php endif; ?>
