@@ -12,7 +12,7 @@
     <?= form_open('bets/edit/'.$fixture_id, array('class' => 'form-players-filter m-b-2')) ?>
         <span class="form-players-filter-legend m-r-3"><?= $this->lang->line('view_bets_of') ?></span>
         <a class="btn btn-link form-players-filter-link" data-toggle="collapse" href="#fieldset-filters-players" aria-expanded="false" aria-controls="fieldset-filters-players"><?= $this->lang->line('show_hide') ?></a>
-        <fieldset id="fieldset-filters-players" class="form-group collapse <?= $collapse_filters ?>">
+        <fieldset id="fieldset-filters-players" class="form-group collapse <?= $collapse_filters ?> overflow">
             <label for="users"><?= $this->lang->line('users')?> : </label>
             <select name="users[]" class="form-control form-players-filter-users" data-filter-page="bets" aria-label="<?= $this->lang->line('view_bets_of') ?>" multiple>
                 <option value="0"></option>
