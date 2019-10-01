@@ -11,6 +11,13 @@
         <input type="text" id="team_short_name" name="team_short_name" value="<?= set_value('team_short_name') ?>" required="required" max_length="5">
     </div>
     <div>
+        <label for="sport"><?= $this->lang->line('sport') ?> : </label>
+        <select id="sport" name="sport" required="required">
+            <option value="football"><?= $this->lang->line('football') ?></option>
+            <option value="rugby"><?= $this->lang->line('rugby') ?></option>
+        </select>
+    </div>
+    <div>
         <label for="level"><?= $this->lang->line('level') ?> : </label>
         <select id="level" name="level" required="required">
             <option value="local"><?= $this->lang->line('local') ?></option>

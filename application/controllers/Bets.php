@@ -172,7 +172,8 @@ class Bets extends MY_Controller {
                    match.match_id,
                    match.team1_score,
                    match.team2_score,
-                   IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "") as no_logo';
+                   IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "") as no_logo,
+                   championship.sport';
         $where = array(
             'fixture.fixture_id' => $fixture_id,
         );
@@ -193,6 +194,8 @@ class Bets extends MY_Controller {
 
         if (!empty($data['fixture_matches'])) {
             $data['championship_name'] = $data['fixture_matches'][0]->championship_name;
+            $championship_sport = $data['fixture_matches'][0]->sport;
+            $data['championship_sport'] = $championship_sport;
             $data['fixture_name'] = $data['fixture_matches'][0]->fixture_name;
             $data['fixture_status'] = $data['fixture_matches'][0]->fixture_status;
 
@@ -238,7 +241,8 @@ class Bets extends MY_Controller {
                            bet.match_id,
                            bet.team1_score,
                            bet.team2_score,
-                           bet.score';
+                           bet.score,
+                           bet.result';
                 $order = 'user_id, match.date ASC, match.match_id';
                 $data['fixture_bets_players'] = $this->db->select($select)
                                                          ->from($this->config->item('bet', 'table'))
@@ -305,7 +309,46 @@ class Bets extends MY_Controller {
                     // Id du match modifié
                     $match_id = explode('_', $key)[1];
                     // Score de la première équipe
-                    $team1_score = ($post_element == '') ? null : $post_element;
+                    if ($championship_sport === 'football') {
+                        $team1_score = ($post_element == '') ? null : $post_element;
+                    } else if ($championship_sport === 'rugby') {
+                        $team1_score = $post_element[0];
+                        $team2_score = $post_element[2];
+                        $resultat = null;
+                        if (is_null($team1_score) || is_null($team2_score)) {
+                            $element = 0;
+                            continue;
+                        } else if ($team1_score > $team2_score) {
+                            $resultat = '1';
+                        } else if ($team1_score < $team2_score) {
+                            $resultat = '2';
+                        } else {
+                            if (!is_null($team1_score) && !is_null($team1_score)) {
+                                $resultat = 'N';
+                            }
+                        }
+                        // On vérifie que le score a été entré pour les 2 équipes et que la date du match n'est pas passée
+                        if (!is_null($resultat) &&
+                            date('Y-m-d H:i:s') < $data['matches'][$match_id]) {
+                            // Suppression des paris déjà entrés pour la journée
+                            $query = 'DELETE bet ';
+                            $query.= 'FROM `'.$this->config->item('bet', 'table').'` ';
+                            $query.= 'WHERE user_id = '.$this->session->user->user_id.' ';
+                            $query.= 'AND bet.match_id = '.$match_id;
+                            $this->db->query($query);
+
+                            $bets[] = array(
+                                'user_id' => $this->session->user->user_id,
+                                'match_id' => $match_id,
+                                'result' => $resultat,
+                                'team1_score' => $team1_score,
+                                'team2_score' => $team2_score,
+                                'date' => date('Y-m-d H:i:s'),
+                            );
+                            $element = 0;
+                            continue;
+                        }
+                    }
                     ++$element;
                 } else {
                     // Score de la deuxième équipe

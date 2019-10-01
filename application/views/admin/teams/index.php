@@ -14,6 +14,7 @@
             <th><?= $this->lang->line('team_name') ?></th>
             <th><?= $this->lang->line('team_short_name') ?></th>
             <th><?= $this->lang->line('level') ?></th>
+            <th><?= $this->lang->line('sport') ?></th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td><?= $team->name ?></td>
             <td><?= $team->short_name ?></td>
             <td><?= $team->level ?></td>
+            <td><?= $team->sport ?></td>
             <td>
                 <a class="btn btn-sm btn-primary" href="<?= site_url('admin/teams/edit/'.$team->team_id) ?>"><?= $this->lang->line('edit_team') ?></a>
             </td>

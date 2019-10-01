@@ -9,8 +9,8 @@
     <div>
         <label for="sport"><?= $this->lang->line('sport') ?> : </label>
         <select id="sport" name="sport" required="required">
-            <option value="football" <?= ($championship->country == 'football') ? 'selected' : '' ?> ><?= $this->lang->line('football') ?></option>
-            <option value="rugby" <?= ($championship->country == 'rugby') ? 'selected' : '' ?> ><?= $this->lang->line('rugby') ?></option>
+            <option value="football" <?= ($championship->sport == 'football') ? 'selected' : '' ?> ><?= $this->lang->line('football') ?></option>
+            <option value="rugby" <?= ($championship->sport == 'rugby') ? 'selected' : '' ?> ><?= $this->lang->line('rugby') ?></option>
         </select>
     </div>
     <div>

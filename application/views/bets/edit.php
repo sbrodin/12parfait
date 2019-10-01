@@ -55,6 +55,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php if ($championship_sport === 'rugby') : ?>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td class="text-xs-center hidden-sm-down"><?= $this->lang->line('victory') ?></td>
+                        <td class="text-xs-center hidden-md-up"><?= $this->lang->line('victory_short') ?></td>
+                        <td class="text-xs-center hidden-sm-down"><?= $this->lang->line('draw') ?></td>
+                        <td class="text-xs-center hidden-md-up"><?= $this->lang->line('draw_short') ?></td>
+                        <td class="text-xs-center hidden-sm-down"><?= $this->lang->line('defeat') ?></td>
+                        <td class="text-xs-center hidden-md-up"><?= $this->lang->line('defeat_short') ?></td>
+                        <td colspan="<?= (5+count($different_players)) ?>"></td>
+                    </tr>
+                    <?php endif; ?>
                     <?php
                     $date = '';
                     foreach ($fixture_matches as $key => $fixture_match) :
@@ -74,16 +86,23 @@
                             $date = $fixture_match->formated_date;
                         }
                         $disabled = ($fixture_match->date < date('Y-m-d H:i:s')) ? 'disabled' : '';
+                        $checked_victory = ($team1_score > $team2_score) ? 'checked' : '';
+                        $checked_draw = ($team1_score === $team2_score) ? 'checked' : '';
+                        $checked_defeat = ($team1_score < $team2_score) ? 'checked' : '';
                     ?>
                     <tr id="match_<?= $match_id ?>">
                         <td class="logo logo_<?= $fixture_match->short_team1 ?> <?= $fixture_match->no_logo ?>"></td>
-                        <td class="team1-name hidden-sm-down"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->team1 ?></label></td>
-                        <td class="team1-name hidden-md-up"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->short_team1 ?></label></td>
+                        <td class="team1-name"><label for="score_<?= $match_id ?>_<?= $team1_id ?>"><?= $fixture_match->team1 ?></label></td>
+                        <?php if ($fixture_match->sport === 'football') : ?>
                         <td class="team1-score"><input type="number" name="score_<?= $match_id ?>_<?= $team1_id ?>" id="score_<?= $match_id ?>_<?= $team1_id ?>" class="score" value="<?= $team1_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>" onfocus="var val=this.value;this.value='';this.value=val"></td>
                         <td class="dash">-</td>
                         <td class="team2-score"><input type="number" name="score_<?= $match_id ?>_<?= $team2_id ?>" id="score_<?= $match_id ?>_<?= $team2_id ?>" class="score" value="<?= $team2_score ?>" min="0" <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('score_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>" onfocus="var val=this.value;this.value='';this.value=val"></td>
-                        <td class="team2-name hidden-sm-down"><label for="score_<?= $match_id ?>_<?= $team2_id ?>"><?= $fixture_match->team2 ?></label></td>
-                        <td class="team2-name hidden-md-up"><label for="score_<?= $match_id ?>_<?= $team2_id ?>"><?= $fixture_match->short_team2 ?></label></td>
+                        <?php elseif ($fixture_match->sport === 'rugby') : ?>
+                        <td class="text-xs-center"><input type="radio" name="score_<?= $match_id ?>" id="score_<?= $match_id ?>" class="score" value="1-0" <?= $checked_victory ?> <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('victory_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>"></td>
+                        <td class="text-xs-center"><input type="radio" name="score_<?= $match_id ?>" id="score_<?= $match_id ?>" class="score" value="0-0" <?= $checked_draw ?> <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('draw_of_home_against'), $fixture_match->team1, $fixture_match->team2) ?>"></td>
+                        <td class="text-xs-center"><input type="radio" name="score_<?= $match_id ?>" id="score_<?= $match_id ?>" class="score" value="0-1" <?= $checked_defeat ?> <?= $disabled ?> aria-label="<?= sprintf($this->lang->line('victory_of_out_against'), $fixture_match->team2, $fixture_match->team1) ?>"></td>
+                        <?php endif; ?>
+                        <td class="team2-name"><label for="score_<?= $match_id ?>_<?= $team2_id ?>"><?= $fixture_match->team2 ?></label></td>
                         <td class="logo logo_<?= $fixture_match->short_team2 ?> <?= $fixture_match->no_logo ?>"></td>
                         <?php
                         if (!empty($different_players)) :
@@ -94,7 +113,18 @@
                             if (!$disabled) {
                                 echo '?';
                             } else if (!empty($fixture_bets_players[$player_id][$match_id])) {
-                                echo $fixture_bets_players[$player_id][$match_id]->team1_score.'-'.$fixture_bets_players[$player_id][$match_id]->team2_score.' ('.$fixture_bets_players[$player_id][$match_id]->score.$this->lang->line('points_short').')';
+                                if ($fixture_match->sport === 'football') {
+                                    echo $fixture_bets_players[$player_id][$match_id]->team1_score.'-'.$fixture_bets_players[$player_id][$match_id]->team2_score.' ('.$fixture_bets_players[$player_id][$match_id]->score.$this->lang->line('points_short').')';
+                                } else if ($fixture_match->sport === 'rugby') {
+                                    if ($fixture_bets_players[$player_id][$match_id]->result === '1') {
+                                        $player_result = $this->lang->line('victory');
+                                    } else if ($fixture_bets_players[$player_id][$match_id]->result === 'N') {
+                                        $player_result = $this->lang->line('draw');
+                                    } else if ($fixture_bets_players[$player_id][$match_id]->result === '2') {
+                                        $player_result = $this->lang->line('defeat');
+                                    }
+                                    echo $player_result.' ('.$fixture_bets_players[$player_id][$match_id]->score.$this->lang->line('points_short').')';
+                                }
                             } else {
                                 echo $this->lang->line('not_available_short');
                             }

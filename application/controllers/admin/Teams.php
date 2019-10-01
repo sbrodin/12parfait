@@ -17,7 +17,7 @@ class Teams extends MY_Controller {
         $data = array();
         $data['title'] = $this->lang->line('admin').' - '.$this->lang->line('teams_admin');
 
-        $select = 'team_id, name, short_name, level';
+        $select = 'team_id, name, short_name, level, sport';
         $where = array();
         $nb = null;
         $debut = null;
@@ -58,10 +58,9 @@ class Teams extends MY_Controller {
                 array(
                     'field' => 'team_name',
                     'label' => $this->lang->line('team_name'),
-                    'rules' => 'trim|required|is_unique[team.name]',
+                    'rules' => 'trim|required',
                     'errors' => array(
                         'required' => $this->lang->line('required_field'),
-                        'is_unique' => $this->lang->line('already_in_db_field'),
                     ),
                 ),
                 array(
@@ -81,6 +80,14 @@ class Teams extends MY_Controller {
                         'required' => $this->lang->line('required_field'),
                     ),
                 ),
+                array(
+                    'field' => 'sport',
+                    'label' => $this->lang->line('sport'),
+                    'rules' => 'trim|required',
+                    'errors' => array(
+                        'required' => $this->lang->line('required_field'),
+                    ),
+                ),
             );
             $this->form_validation->set_rules($rules);
             if ($this->form_validation->run() == false) {
@@ -93,6 +100,7 @@ class Teams extends MY_Controller {
                     'name' => $post['team_name'],
                     'short_name' => $post['team_short_name'],
                     'level' => $post['level'],
+                    'sport' => $post['sport'],
                 );
                 $this->team_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_creation'));

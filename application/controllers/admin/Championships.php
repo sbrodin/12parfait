@@ -140,7 +140,10 @@ class Championships extends MY_Controller {
 
         $this->load->model('team_model');
         $select = '*';
-        $where = array('level' => $level);
+        $where = array(
+            'level' => $level,
+            'sport' => $championship->sport,
+        );
         $nb = null;
         $debut = null;
         $order = 'name ASC';

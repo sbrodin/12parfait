@@ -49,7 +49,9 @@ function Matches_Of_day($date = null)
                date,
                fixture.status as status,
                IF (championship.name NOT LIKE "%Ligue 1%", "no-logo", "")
-               as no_logo';
+               as no_logo,
+               championship.sport,
+               IF (championship.sport LIKE "%football%", "futbol", "football-ball") as sport_logo';
     $join1 = 'match.team1_id = t1.team_id';
     $join2 = 'match.team2_id = t2.team_id';
     $join3 = 'match.fixture_id = fixture.fixture_id';
@@ -59,7 +61,7 @@ function Matches_Of_day($date = null)
         'date <' => date('Y-m-d 23:59:59', $date),
         'championship.status' => 'open',
     );
-    $order = 'date ASC';
+    $order = 'sport DESC, date ASC';
     $matches_of_day = $CI->db->select($select)
         ->from($CI->config->item('match', 'table'))
         ->join('team t1', $join1, 'inner')
