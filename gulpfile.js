@@ -35,7 +35,7 @@ var cssFiles = [
     'assets/css/bootstrap.4.0.0-alpha.4.min.css',
     // 'assets/css/bootstrap.4.0.0.min.css',
     'assets/css/tether-1.3.3.min.css',
-    'assets/css/font-awesome.4.7.0.min.css',
+    'assets/css/font-awesome.5.11.2.min.css',
     'assets/css/style.css'
 ];
 // minification des fichiers javascript

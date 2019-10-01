@@ -132,6 +132,10 @@ th, td {
     border-left: none;
     margin-bottom: 1.5rem;
 }
+.fa {
+    font-weight: 100;
+    color: #0275d8;
+}
 
 
 
@@ -203,6 +207,9 @@ header {
 }
 .coupe_monde_feminine_bandeau {
     width: 100%;
+}
+.fa-sign-out-alt {
+    font-weight: 900;
 }
 
 
@@ -368,6 +375,9 @@ h5.info_date_match {
 }
 span.no-logo {
     display: none;
+}
+.fa-football-ball {
+    font-weight: 900;
 }
 /*Amiens SC*/
 .logo_Amien{
