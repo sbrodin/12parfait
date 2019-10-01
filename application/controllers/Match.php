@@ -67,8 +67,7 @@ class Match extends MY_Controller {
                                 ->get()
                                 ->result();
 
-        // On ne compte pas le prono de Robot_Boy
-        $data['bets_number'] = count($match_infos)-1;
+        $data['bets_number'] = count($match_infos);
 
         if (isset($match_infos[0])) {
             // Par défaut on affiche des stats de base

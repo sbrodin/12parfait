@@ -392,11 +392,6 @@ class Bets extends MY_Controller {
                 $this->db->insert_batch('bet', $bets);
             }
 
-            // Mise à jour des pronos du robot
-            foreach ($bets as $bet) {
-                $this->_update_robot_bets($bet['match_id']);
-            }
-
             Save_log('bets', 'edit', 'Ajout / édition de pronos pour la journée : '.$fixture_id);
             $this->session->set_flashdata('success', $this->lang->line('bets_successful_edition'));
             redirect(site_url('bets'), 'location');
