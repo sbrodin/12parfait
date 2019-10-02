@@ -21,7 +21,7 @@ const rebaseUrls = require('gulp-css-url-rebase');
 const plumber = require('gulp-plumber');
 
 var jsFiles = [
-    'assets/js/jquery-3.1.0.min.js',
+    'assets/js/jquery-3.4.1.min.js',
     'assets/js/jquery.multi-select.js',
     'assets/js/jquery.datetimepicker.full.min.js',
     'assets/js/tether-1.3.3.min.js',
