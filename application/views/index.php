@@ -40,7 +40,7 @@
                                 <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                             <?php endif; ?>
                             <?php if (Is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                                <td><a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                             <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
@@ -116,7 +116,7 @@
                                 <td><a class="btn btn-sm btn-outline-primary" href="<?= site_url('connection?url='.urlencode('bets/edit/'.$match->fixture_id)) ?>"><?= $this->lang->line('view'); ?></a></td>
                             <?php endif; ?>
                             <?php if (Is_connected() && user_can('admin_fixtures') && ($match->status === 'open' || $match->status === 'ongoing')) : ?>
-                                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                                <td><a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
                             <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
@@ -191,7 +191,7 @@
                                     // Si le match est commencé on donne la possibilité de rentrer les scores
                                     if (strtotime($match->date) < strtotime(date('Y-m-d H:i:s'))) :
                                     ?>
-                                        <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>">
+                                        <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/results/'.$match->fixture_id.'#match_'.$match->match_id) ?>">
                                             <?= $this->lang->line('enter_fixture_results'); ?>
                                         </a>
                                     <?php endif; ?>

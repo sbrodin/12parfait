@@ -1,5 +1,5 @@
-<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
-<a href="<?= site_url('admin/championships/add') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_championship');?></a><br/>
+<a href="<?= site_url('onarie') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
+<a href="<?= site_url('onarie/championships/add') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_championship');?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -30,13 +30,13 @@
             <td><?= $championship->year ?></td>
             <td>
                 <?php if ($championship->status === 'open') : ?>
-                    <a class="btn btn-sm btn-primary" href="<?= site_url('admin/championships/deactivate/'.$championship->championship_id) ?>"><?= $this->lang->line('deactivate_championship') ?></a>
+                    <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/championships/deactivate/'.$championship->championship_id) ?>"><?= $this->lang->line('deactivate_championship') ?></a>
                 <?php else : ?>
-                    <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/championships/activate/'.$championship->championship_id) ?>"><?= $this->lang->line('activate_championship') ?></a>
+                    <a class="btn btn-sm btn-outline-primary" href="<?= site_url('onarie/championships/activate/'.$championship->championship_id) ?>"><?= $this->lang->line('activate_championship') ?></a>
                 <?php endif; ?>
             </td>
             <td>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/championships/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/championships/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

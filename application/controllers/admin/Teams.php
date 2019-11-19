@@ -104,7 +104,7 @@ class Teams extends MY_Controller {
                 );
                 $this->team_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_creation'));
-                redirect(site_url('admin/teams'), 'location');
+                redirect(site_url('onarie/teams'), 'location');
                 exit;
             }
         }
@@ -186,7 +186,7 @@ class Teams extends MY_Controller {
                 );
                 $this->team_model->update($where, $donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('team_successful_edition'));
-                redirect(site_url('admin/teams'), 'location');
+                redirect(site_url('onarie/teams'), 'location');
                 exit;
             }
         }

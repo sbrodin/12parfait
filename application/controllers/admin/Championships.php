@@ -105,7 +105,7 @@ class Championships extends MY_Controller {
                 );
                 $this->championship_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('championship_successful_creation'));
-                redirect(site_url('admin/championships'), 'location');
+                redirect(site_url('onarie/championships'), 'location');
                 exit;
             }
         }
@@ -211,7 +211,7 @@ class Championships extends MY_Controller {
                 $this->db->insert_batch('championship_team', $championship_team);
 
                 $this->session->set_flashdata('success', $this->lang->line('championship_successful_edition'));
-                redirect(site_url('admin/championships'), 'location');
+                redirect(site_url('onarie/championships'), 'location');
                 exit;
             }
         }
@@ -231,7 +231,7 @@ class Championships extends MY_Controller {
 
         $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees);
 
-        redirect(site_url('admin/championships'), 'location');
+        redirect(site_url('onarie/championships'), 'location');
         exit;
     }
 
@@ -249,7 +249,7 @@ class Championships extends MY_Controller {
 
         $this->championship_model->update(array("championship_id" => $championship_id), $donnees_echapees);
 
-        redirect(site_url('admin/championships'), 'location');
+        redirect(site_url('onarie/championships'), 'location');
         exit;
     }
 
@@ -273,10 +273,10 @@ class Championships extends MY_Controller {
         $this->championship_team_model->delete($where);
 
         if ($this->session->userdata('fixture')) {
-            redirect(site_url('admin/fixtures/results/'.$this->session->userdata('fixture')), 'location');
+            redirect(site_url('onarie/fixtures/results/'.$this->session->userdata('fixture')), 'location');
             exit;
         } else {
-            redirect(site_url('admin/championships'), 'location');
+            redirect(site_url('onarie/championships'), 'location');
             exit;
         }
     }

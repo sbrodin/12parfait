@@ -63,7 +63,7 @@ class Users extends MY_Controller {
 
         $this->user_model->update(array("user_id" => $user_id), $donnees_echapees);
 
-        redirect(site_url('admin/users'), 'location');
+        redirect(site_url('onarie/users'), 'location');
         exit;
     }
 
@@ -81,7 +81,7 @@ class Users extends MY_Controller {
 
         $this->user_model->update(array("user_id" => $user_id), $donnees_echapees);
 
-        redirect(site_url('admin/users'), 'location');
+        redirect(site_url('onarie/users'), 'location');
         exit;
     }
 
@@ -123,7 +123,7 @@ class Users extends MY_Controller {
 
         $this->user_model->update($where, $donnees_echapees);
 
-        redirect(site_url('admin/users'), 'location');
+        redirect(site_url('onarie/users'), 'location');
         exit;
     }
 
@@ -165,7 +165,7 @@ class Users extends MY_Controller {
 
         $this->user_model->update($where, $donnees_echapees);
 
-        redirect(site_url('admin/users'), 'location');
+        redirect(site_url('onarie/users'), 'location');
         exit;
     }
 }

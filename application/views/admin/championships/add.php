@@ -1,7 +1,7 @@
-<a href="<?= site_url('admin/championships') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_championships_admin');?></a><br/>
+<a href="<?= site_url('onarie/championships') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_championships_admin');?></a><br/>
 <?= validation_errors() ?>
 
-<?= form_open('admin/championships/add') ?>
+<?= form_open('onarie/championships/add') ?>
     <div>
         <label for="championship_name"><?= $this->lang->line('championship_name') ?> : </label>
         <input type="text" id="championship_name" name="championship_name" required="required">

@@ -1,4 +1,4 @@
-<a href="<?= site_url('admin/fixtures') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_fixtures_admin');?></a><br/>
+<a href="<?= site_url('onarie/fixtures') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_fixtures_admin');?></a><br/>
 <?= validation_errors() ?>
 
 <?php if (!empty($info)) : ?>
@@ -11,7 +11,7 @@
     <span id="championship"><?= $championship_name ?></span><br/>
     <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?= $fixture_name ?></span><br/><br/>
-    <?= form_open('admin/fixtures/edit/'.$fixture_id) ?>
+    <?= form_open('onarie/fixtures/edit/'.$fixture_id) ?>
         <?php
         foreach ($fixture_matches as $key => $fixture_match) :
             $date = date_create_from_format('Y-m-d H:i:s', $fixture_match->date);
@@ -27,7 +27,7 @@
         <span> - </span>
         <select id="match_<?= $key ?>_2" name="match_<?= $key ?>_2" required="required">
             <?php foreach ($teams as $team_id => $team_name) : ?>
-            <option value="<?= $team_id ?>" 
+            <option value="<?= $team_id ?>"
                 <?= ($fixture_match->t2_id==$team_id) ? 'selected' : '' ?> ><?= $team_name ?></option>
             <?php endforeach; ?>
         </select><br/>

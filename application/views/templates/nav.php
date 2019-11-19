@@ -3,7 +3,7 @@
 <?php if (Is_connected()) : ?>
     <nav class="profile-log">
     <?php if (user_can('admin_all')) : ?>
-        <a href="<?= site_url('admin') ?>"><?= $this->lang->line('site_admin') ?></a>
+        <a href="<?= site_url('onarie') ?>"><?= $this->lang->line('site_admin') ?></a>
     <?php endif; ?>
         <a id="profile" href="<?= site_url('profile') ?>">
             <i class="fa fa-user"

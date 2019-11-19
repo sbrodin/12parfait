@@ -94,11 +94,11 @@ class Fixtures extends MY_Controller {
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_creation'));
                 if (!empty($this->session->userdata('championship'))) {
                     $this->session->set_userdata('fixture', $this->db->insert_id());
-                    redirect(site_url('admin/matches/add'), 'location');
+                    redirect(site_url('onarie/matches/add'), 'location');
                     exit;
                 } else {
                     $this->session->set_userdata('championship', $post['championship']);
-                    redirect(site_url('admin/fixtures/add'), 'location');
+                    redirect(site_url('onarie/fixtures/add'), 'location');
                     exit;
                 }
             }
@@ -216,7 +216,7 @@ class Fixtures extends MY_Controller {
                 }
 
                 $this->session->set_flashdata('success', $this->lang->line('fixture_successful_edition'));
-                redirect(site_url('admin/fixtures'), 'location');
+                redirect(site_url('onarie/fixtures'), 'location');
                 exit;
             }
         }
@@ -295,7 +295,7 @@ class Fixtures extends MY_Controller {
         } else {
             // Cas du clic sur "Retour"
             if ($post['submit'] == $this->lang->line('back')) {
-                redirect(site_url('admin/fixtures'), 'location');
+                redirect(site_url('onarie/fixtures'), 'location');
                 exit;
             }
             $this->load->model('match_model');
@@ -347,7 +347,7 @@ class Fixtures extends MY_Controller {
             Score_calculator($fixture_id);
 
             $this->session->set_flashdata('success', $this->lang->line('fixture_matches_successful_edition'));
-            redirect(site_url('admin/fixtures'), 'location');
+            redirect(site_url('onarie/fixtures'), 'location');
             exit;
         }
     }
@@ -366,7 +366,7 @@ class Fixtures extends MY_Controller {
 
         $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
 
-        redirect(site_url('admin/fixtures'), 'location');
+        redirect(site_url('onarie/fixtures'), 'location');
         exit;
     }
 
@@ -384,7 +384,7 @@ class Fixtures extends MY_Controller {
 
         $this->fixture_model->update(array("fixture_id" => $fixture_id), $donnees_echapees);
 
-        redirect(site_url('admin/fixtures'), 'location');
+        redirect(site_url('onarie/fixtures'), 'location');
         exit;
     }
 }

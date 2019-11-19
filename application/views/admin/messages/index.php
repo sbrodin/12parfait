@@ -1,5 +1,5 @@
-<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
-<a href="<?= site_url('admin/messages/add') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_message');?></a><br/>
+<a href="<?= site_url('onarie') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
+<a href="<?= site_url('onarie/messages/add') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_message');?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,12 +19,12 @@
     </thead>
     <tbody>
         <?php foreach ($messages as $key => $message) : ?>
-        <tr data-href="<?= site_url('admin/messages/edit/'.$message->message_id) ?>">
+        <tr data-href="<?= site_url('onarie/messages/edit/'.$message->message_id) ?>">
             <td><?= $message->name ?></td>
             <td><?= html_entity_decode($message->french_content) ?></td>
             <td><?= html_entity_decode($message->english_content) ?></td>
             <td>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/messages/edit/'.$message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/messages/edit/'.$message->message_id) ?>"><?= $this->lang->line('edit_message') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

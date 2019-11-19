@@ -152,7 +152,7 @@ class Matches extends MY_Controller {
                 );
                 $this->match_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('match_successful_creation'));
-                redirect(site_url('admin/matches/add'), 'location');
+                redirect(site_url('onarie/matches/add'), 'location');
                 exit;
             }
         }
@@ -200,7 +200,7 @@ class Matches extends MY_Controller {
                 $this->load->view('templates/footer');
             } else {
                 $this->session->set_userdata('championship', $post['championship']);
-                redirect(site_url('admin/matches/fixture'), 'location');
+                redirect(site_url('onarie/matches/fixture'), 'location');
                 exit;
             }
         }
@@ -260,7 +260,7 @@ class Matches extends MY_Controller {
                 $this->load->view('templates/footer');
             } else {
                 $this->session->set_userdata('fixture', $post['fixture']);
-                redirect(site_url('admin/matches/add'), 'location');
+                redirect(site_url('onarie/matches/add'), 'location');
                 exit;
             }
         }
@@ -273,7 +273,7 @@ class Matches extends MY_Controller {
         }
 
         if ($championship_id === 0) {
-            redirect(site_url('admin/matches'), 'location');
+            redirect(site_url('onarie/matches'), 'location');
             exit;
         }
 

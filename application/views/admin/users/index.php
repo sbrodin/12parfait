@@ -1,4 +1,4 @@
-<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
+<a href="<?= site_url('onarie') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
 <div class="overflow">
     <table class="table-striped table-bordered table-hover">
         <thead>
@@ -38,19 +38,19 @@
                 <td>
                     <?php if ($user->user_id !== $this->session->user->user_id) : ?>
                         <?php if ($user->active === $this->lang->line('yes')) : ?>
-                            <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/deactivate/'.$user->user_id) ?>"><?= $this->lang->line('deactivate_user') ?></a>
+                            <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/users/deactivate/'.$user->user_id) ?>"><?= $this->lang->line('deactivate_user') ?></a>
                         <?php else : ?>
-                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/users/activate/'.$user->user_id) ?>"><?= $this->lang->line('activate_user') ?></a>
+                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('onarie/users/activate/'.$user->user_id) ?>"><?= $this->lang->line('activate_user') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </td>
                 <td>
                     <?php if ($user->user_id !== $this->session->user->user_id) : ?>
                         <?php if ($user->acl === 'user' || $user->acl === 'beta') : ?>
-                            <a class="btn btn-sm btn-primary" href="<?= site_url('admin/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
+                            <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/users/promote/'.$user->user_id) ?>"><?= $this->lang->line('promote_user') ?></a>
                         <?php endif; ?>
                         <?php if ($user->acl === 'moderator' || $user->acl === 'beta') : ?>
-                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('admin/users/demote/'.$user->user_id) ?>"><?= $this->lang->line('demote_user') ?></a>
+                            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('onarie/users/demote/'.$user->user_id) ?>"><?= $this->lang->line('demote_user') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </td>

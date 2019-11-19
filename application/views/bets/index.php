@@ -73,10 +73,10 @@ foreach ($fixtures as $num => $fixture) :
             <a class="btn btn-sm btn-outline-primary" href="<?= site_url('bets/edit/'.$fixture->fixture_id) ?>"><?= $this->lang->line('results') ?></a>
             <?php endif; ?>
             <?php if (user_can('admin_fixtures') && ($fixture->status === 'open' || $fixture->status === 'ongoing')) : ?>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a>
             <?php endif; ?>
             <?php if (user_can('admin_fixtures') && $fixture->status === 'ongoing') : ?>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('close_fixture'); ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/close_fixture/'.$fixture->fixture_id) ?>"><?= $this->lang->line('close_fixture'); ?></a>
             <?php endif; ?>
         </div>
     </div>
@@ -115,7 +115,7 @@ foreach ($fixtures as $num => $fixture) :
         </td>
         <?php if (user_can('admin_fixtures')) : ?>
             <?php if ($fixture->status === 'open' || $fixture->status === 'ongoing') : ?>
-                <td><a class="btn btn-sm btn-primary" href="<?= site_url('admin/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
+                <td><a class="btn btn-sm btn-primary" href="<?= site_url('onarie/fixtures/results/'.$fixture->fixture_id) ?>"><?= $this->lang->line('enter_fixture_results'); ?></a></td>
             <?php else : ?>
                 <td></td>
             <?php endif; ?>

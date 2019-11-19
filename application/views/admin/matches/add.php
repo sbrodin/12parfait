@@ -1,4 +1,4 @@
-<a href="<?= site_url('admin/matches') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_matches_admin');?></a><br/>
+<a href="<?= site_url('onarie/matches') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_matches_admin');?></a><br/>
 <?= validation_errors() ?>
 
 <?php
@@ -24,7 +24,7 @@ if (!empty($matches_fixture)) {
     <span id="championship"><?= $championship_name ?></span><br/>
     <label for="fixture"><?= $this->lang->line('fixture') ?> : </label>
     <span id="fixture"><?= $fixture_name ?></span><br/>
-    <?= form_open('admin/matches/add') ?>
+    <?= form_open('onarie/matches/add') ?>
         <label for="team1"><?= $this->lang->line('team1') ?> : </label>
         <select id="team1" name="team1" autofocus>
             <?php foreach ($teams as $key => $team) : ?>

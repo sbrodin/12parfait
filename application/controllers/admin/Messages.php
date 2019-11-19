@@ -87,7 +87,7 @@ class Messages extends MY_Controller {
                 );
                 $this->message_model->create($donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('message_successful_creation'));
-                redirect(site_url('admin/messages'), 'location');
+                redirect(site_url('onarie/messages'), 'location');
                 exit;
             }
         }
@@ -170,7 +170,7 @@ class Messages extends MY_Controller {
                 );
                 $this->message_model->update($where, $donnees_echapees);
                 $this->session->set_flashdata('success', $this->lang->line('message_successful_edition'));
-                redirect(site_url('admin/messages'), 'location');
+                redirect(site_url('onarie/messages'), 'location');
                 exit;
             }
         }

@@ -1,5 +1,5 @@
-<a href="<?= site_url('admin') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
-<a href="<?= site_url('admin/matches/championship') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_match');?></a><br/>
+<a href="<?= site_url('onarie') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_site_admin');?></a><br/>
+<a href="<?= site_url('onarie/matches/championship') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('add_match');?></a><br/>
 <?php if ($this->session->flashdata('success')) : ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -28,7 +28,7 @@
             <td><?= $championship->level ?></td>
             <td><?= $championship->year ?></td>
             <td>
-                <a class="btn btn-sm btn-primary" href="<?= site_url('admin/matches/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit_matches') ?></a>
+                <a class="btn btn-sm btn-primary" href="<?= site_url('onarie/matches/edit/'.$championship->championship_id) ?>"><?= $this->lang->line('edit_matches') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

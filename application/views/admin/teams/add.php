@@ -1,7 +1,7 @@
-<a href="<?= site_url('admin/teams') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_teams_admin');?></a><br/>
+<a href="<?= site_url('onarie/teams') ?>" class="btn btn-sm btn-outline-primary m-b-1"><?= $this->lang->line('back_to_teams_admin');?></a><br/>
 <?= validation_errors() ?>
 
-<?= form_open('admin/teams/add') ?>
+<?= form_open('onarie/teams/add') ?>
     <div>
         <label for="team_name"><?= $this->lang->line('team_name') ?> : </label>
         <input type="text" id="team_name" name="team_name" value="<?= set_value('team_name') ?>" required="required" autofocus>
