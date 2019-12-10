@@ -139,7 +139,7 @@
                         <td class="text-xs-center"><?= $score ?></td>
                         <td class="text-xs-center">
                             <a href="<?= site_url('match/'.$match_id) ?>" title="<?= $this->lang->line('stats') ?>">
-                                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                <i class="fa fa-chart-bar" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
