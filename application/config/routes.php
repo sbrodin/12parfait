@@ -64,6 +64,7 @@ $route['reset_password/([\w\d/]+)'] = 'connection/reset_password/$1';
 $route['terms'] = 'home/terms';
 $route['rules'] = 'home/rules';
 $route['contact'] = 'home/contact';
+$route['donate'] = 'home/donate';
 
 $route['scores/([\w\d/]+)'] = 'scores/scores/$1';
 

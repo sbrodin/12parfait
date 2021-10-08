@@ -334,3 +334,5 @@ $lang['bets_rules'] = 'Règles spécifiques aux paris';
 $lang['published_in'] = 'Publié dans';
 
 $lang['womens_world_cup'] = 'Coupe du Monde féminine';
+
+$lang['donate'] = 'Un petit coup de pouce ?';

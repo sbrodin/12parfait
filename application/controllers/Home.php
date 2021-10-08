@@ -91,6 +91,29 @@ class Home extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function donate()
+    {
+        Save_log('home', 'donate', 'Affichage de la page "coup de pouce"');
+
+        if (!Is_connected()) {
+            $language = $this->config->item('language');
+        } else {
+            $language = $this->session->user->language;
+        }
+        if (empty($language)) {
+            $language = 'french';
+        }
+
+        $data = array();
+        $data['title'] = $this->lang->line('donate');
+        $data['language'] = $language;
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav');
+        $this->load->view('donate', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function contact()
     {
         Save_log('contact', 'index');

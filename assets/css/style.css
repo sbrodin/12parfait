@@ -539,6 +539,7 @@ span.no-logo {
 .logo_vafc{
     background-position:0 -1755px;
 }
+
 /* Rules */
 #rules h1 { font-size: 2.2em; }
 #rules h2 { font-size: 1.9em; }
@@ -560,12 +561,33 @@ span.no-logo {
     display: block;
 }
 /* Fin rules */
+
 /* Terms */
 #terms_thanks {
     color: #0275d8;
     font-weight: bold;
 }
 /* Fin terms */
+
+/* Donate */
+.donate-content a {
+    text-decoration: underline;
+}
+.donate-content {
+    display: none;
+}
+.donate-content ul {
+    margin-left: 40px;
+    list-style-type: circle;
+}
+#donate_french.french {
+    display: block;
+}
+#donate_english.english {
+    display: block;
+}
+/* Fin donate */
+
 /* Profiler */
 #codeigniter-profiler {
     position: absolute;
