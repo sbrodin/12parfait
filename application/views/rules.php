@@ -23,7 +23,7 @@
             <li>bon score pour l'équipe 2 : 3 points,</li>
             <li>bonne différence de buts : 2 points.</li>
         </ul>
-        <p class="m-b-0">Et le total de points cumulables possibles à marquer pour un match est donc de 12 !</p>
+        <p class="m-b-0">Et le total de points cumulables possibles à marquer pour un match est donc de 12 ! (d'où le 12parfait !!!)</p>
         <p class="m-b-0">Le score enregistré est celui au terme des 90 minutes de jeu, et en cas de prolongations, le score avant la séance de tirs aux buts.</p>
         <p class="m-b-0">Un <strong><a href="<?= site_url('scores') ?>">classement</a></strong> est disponible pour vous faire une idée de votre niveau par rapport aux autres.</p>
     </div>
