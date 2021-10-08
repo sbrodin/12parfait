@@ -72,6 +72,7 @@ class Home extends CI_Controller {
             $article->title = $article->{$language.'_title'};
         }
         // $data['articles'] = $articles;
+        $data['articles'] = [];
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav');
