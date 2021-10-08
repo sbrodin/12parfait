@@ -19,7 +19,7 @@
             }
             ?>
         </div>
-        <canvas id="scores-chart" width="200" height="200"></canvas>
+        <canvas id="scores-chart"></canvas>
         <hr/>
         <div class="scores-chart-legend">
             <?php
@@ -30,11 +30,11 @@
             }
             ?>
         </div>
-        <canvas id="scores-chart2" width="200" height="200"></canvas>
+        <canvas id="scores-chart2"></canvas>
     </div>
 <?php endif; ?>
 
-<script type="text/javascript" src="<?= Js_url('chart.2.3.0.min') ?>"></script>
+<script type="text/javascript" src="<?= Js_url('chart.3.5.1.min') ?>"></script>
 <script type="text/javascript">
     var ctx = document.getElementById('scores-chart');
     var myChart = new Chart(ctx, {

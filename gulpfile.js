@@ -19,9 +19,11 @@ const uglify = require('gulp-uglify');
 const minifyCss = require('gulp-clean-css');
 const rebaseUrls = require('gulp-css-url-rebase');
 const plumber = require('gulp-plumber');
+const { watch, parallel } = require('gulp');
 
 var jsFiles = [
-    'assets/js/jquery-3.4.1.min.js',
+    // 'assets/js/jquery-3.4.1.min.js',
+    'assets/js/jquery-3.6.0.min.js',
     'assets/js/jquery.multi-select.js',
     'assets/js/jquery.datetimepicker.full.min.js',
     'assets/js/tether-1.3.3.min.js',
@@ -38,8 +40,9 @@ var cssFiles = [
     'assets/css/font-awesome.5.11.2.min.css',
     'assets/css/style.css'
 ];
+
 // minification des fichiers javascript
-gulp.task('minify12pJs', () => {
+function minify12pJs() {
   var jsDest = 'assets/js';
   return gulp.src(jsFiles)
         .pipe(plumber())
@@ -48,9 +51,10 @@ gulp.task('minify12pJs', () => {
         .pipe(rename('script.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(jsDest));
-});
+}
+
 // minification des fichiers css
-gulp.task('minify12pCss', () => {
+function minify12pCss() {
   var cssDest = 'assets/css';
   return gulp.src(cssFiles)
         .pipe(plumber())
@@ -60,12 +64,13 @@ gulp.task('minify12pCss', () => {
         .pipe(rename('style.min.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest(cssDest));
-});
+}
 
 // tâche par défault
-gulp.task('default', ['minify12pJs', 'minify12pCss']);
+exports.default = parallel(minify12pJs, minify12pCss);
+
 // surveille les changements
-gulp.task('watch', () => {
-  gulp.watch(jsFiles, ['minify12pJs']);
-  gulp.watch(cssFiles, ['minify12pCss']);
-});
+exports.watch = function() {
+  watch(jsFiles, minify12pJs);
+  watch(cssFiles, minify12pCss);
+}
