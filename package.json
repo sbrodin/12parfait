@@ -28,5 +28,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-uglify": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "glob-parent": "^5.1.2",
+    "set-value": "^4.0.1"
+  }
 }
