@@ -336,3 +336,4 @@ $lang['published_in'] = 'Publié dans';
 $lang['womens_world_cup'] = 'Coupe du Monde féminine';
 
 $lang['donate'] = 'A little help ?';
+$lang['new_crypto_address'] = 'New crypto address';
