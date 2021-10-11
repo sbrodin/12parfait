@@ -335,4 +335,4 @@ $lang['published_in'] = 'Publié dans';
 
 $lang['womens_world_cup'] = 'Coupe du Monde féminine';
 
-$lang['donate'] = 'Little help ?';
+$lang['donate'] = 'A little help ?';

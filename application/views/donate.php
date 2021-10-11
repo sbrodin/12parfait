@@ -1,16 +1,5 @@
 <a class="btn btn-sm btn-secondary m-b-2" href="<?= site_url() ?>"><?= $this->lang->line('back_to_home') ?></a><br/>
 
-<!-- <div id="donate">
-    <h1><?= $this->lang->line('donate') ?></h1>
-    <div id="general_donate"><?= $general_donate ?></div>
-    <hr>
-    <div id="bet_infos"><?= $bet_infos ?></div>
-    <hr>
-    <div id="bet_of_infos"><?= $bet_of_infos ?></div>
-    <hr>
-    <div id="bet_filter"><?= $bet_filter ?></div>
-</div> -->
-
 <div id="donate_french" class="donate-content <?= $language ?>">
     <h1><?= $this->lang->line('donate') ?></h1>
     <div>
@@ -19,7 +8,7 @@
     </div>
     <hr>
     <div>
-        <p class="m-b-0">Si ce site vous plaît vous pouvez quand même :</p>
+        <p class="m-b-0">Si ce site vous plaît, vous pouvez quand même :</p>
         <ul>
             <li><a href="bitcoin:36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5">m'envoyer quelques miettes de bitcoin</a> (adresse : 36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5),</li>
             <li>m'envoyer des Tezos (adresse : tz1NQ7TZi4wFyVCQn19mhE5Hp7x9cBy96gPD),</li>
@@ -31,5 +20,28 @@
     <hr>
     <div>
         <p class="m-t-0 m-b-0">Merci beaucoup pour votre soutien !</p>
+    </div>
+</div>
+
+<div id="donate_english" class="donate-content <?= $language ?>">
+    <h1><?= $this->lang->line('donate') ?></h1>
+    <div>
+        <p class="m-t-0 m-b-0">12parfait is entirely <strong>free</strong> and will remain like so whtaever happens.</p>
+        <p class="m-b-0">It is a personal project that requires time ant that I really appreciate to maintain.</p>
+    </div>
+    <hr>
+    <div>
+        <p class="m-b-0">If you like this site, you can still :</p>
+        <ul>
+            <li><a href="bitcoin:36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5">send me a few bitcoin breadcrumbs</a> (address : 36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5),</li>
+            <li>send me some Tezos (address : tz1NQ7TZi4wFyVCQn19mhE5Hp7x9cBy96gPD),</li>
+            <li>request a deposit address for another crypto (via the <a href="<?= site_url('contact') ?>">Contact</a> page),</li>
+            <li>buy me a coffee via <a href="https://paypal.me/sbrodin">Paypal</a>,</li>
+            <li>or just send me a <a href="<?= site_url('contact') ?>">message</a> !</li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <p class="m-t-0 m-b-0">Thanks a lot for your support !</p>
     </div>
 </div>
