@@ -44,7 +44,7 @@
     <hr>
     <div id="bet_filter">
         <p class="m-t-0 m-b-0">Seuls les championnats et les journées dont des résultats ont été entrés sont disponibles dans les filtres.</p>
-        <p>Un drôle de joueur est présent ! Il s'agit de Robot_Boy. Ses pronos ? Ils sont basés sur ceux de tous les joueurs. Dès que vous créez ou modifiez un prono, il calcule la moyenne des buts pariés par l'ensemble des joueurs et met à jour ses propres pronos. Il reflète donc la tendance des pronostiqueurs !</p>
+        <!-- <p>Un drôle de joueur est présent ! Il s'agit de Robot_Boy. Ses pronos ? Ils sont basés sur ceux de tous les joueurs. Dès que vous créez ou modifiez un prono, il calcule la moyenne des buts pariés par l'ensemble des joueurs et met à jour ses propres pronos. Il reflète donc la tendance des pronostiqueurs !</p> -->
     </div>
 </div>
 
@@ -82,6 +82,6 @@
     <hr>
     <div id="bet_filter">
         <p class="m-t-0 m-b-0">Only championships and fixtures with confirmed results are available in filters.</p>
-        <p>A new player has appeared ! He's name is Robot_Boy. His bets ? They are based on those of all the other players. When you create or edit a bet, he calculates the average of all the bets of everyone and updates his own bets. He reflects the tendancy of betters !</p>
+        <!-- <p>A new player has appeared ! His name is Robot_Boy. His bets ? They are based on those of all the other players. When you create or edit a bet, he calculates the average of all the bets of everyone and updates his own bets. He reflects the tendancy of betters !</p> -->
     </div>
 </div>
