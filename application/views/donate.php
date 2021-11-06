@@ -10,10 +10,10 @@
     <div>
         <p class="m-b-0">Si ce site vous plaît, vous pouvez quand même :</p>
         <ul>
-            <li><a href="bitcoin:36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5">m'envoyer quelques miettes de bitcoin</a> (adresse : 36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5),</li>
+            <li><a href="bitcoin:36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5">m'envoyer quelques miettes de bitcoin ₿</a> (adresse : 36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5),</li>
             <li>m'envoyer des Tezos (adresse : tz1NQ7TZi4wFyVCQn19mhE5Hp7x9cBy96gPD),</li>
             <li>me demander une adresse de dépôt pour une autre crypto (via la page <a href="<?= site_url('contact') ?>">Contact</a>),</li>
-            <li>me payer un café via <a href="https://paypal.me/sbrodin">Paypal</a>,</li>
+            <li>me payer une bière 🍺 ou un café ☕ via <a href="https://paypal.me/sbrodin">Paypal</a>,</li>
             <li>ou juste m'envoyer un <a href="<?= site_url('contact') ?>">message</a> !</li>
         </ul>
     </div>
