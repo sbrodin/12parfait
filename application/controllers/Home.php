@@ -146,7 +146,7 @@ class Home extends CI_Controller {
         } else {
             $rules = array(
                 array(
-                    'field' => 'contact_name',
+                    'field' => 'your_name',
                     'label' => $this->lang->line('your_name'),
                     'rules' => 'trim|required',
                     'errors' => array(
