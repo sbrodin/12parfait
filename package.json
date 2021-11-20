@@ -20,16 +20,16 @@
   },
   "homepage": "https://github.com/sbrodin/12parfait#readme",
   "devDependencies": {
+    "chokidar": "^3.5.2",
+    "glob-parent": "^5.1.2",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
     "gulp-css-url-rebase": "0.2.3",
     "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.1"
-  },
-  "dependencies": {
-    "glob-parent": "^5.1.2",
-    "set-value": "^4.0.1"
+    "gulp-uglify": "^3.0.1",
+    "set-value": "^4.0.1",
+    "validator": "^13.7.0"
   }
 }
