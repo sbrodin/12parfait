@@ -136,6 +136,9 @@ th, td {
     font-weight: 100;
     color: #0275d8;
 }
+.btn.btn-outline-primary:hover .fa {
+    color: #ffffff;
+}
 
 
 
@@ -378,6 +381,9 @@ span.no-logo {
 }
 .fa-football-ball {
     font-weight: 900;
+}
+.admin-link {
+    padding: 15px 20px;
 }
 /*Amiens SC*/
 .logo_Amien{
