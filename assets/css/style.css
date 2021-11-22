@@ -385,6 +385,9 @@ span.no-logo {
 .admin-link {
     padding: 15px 20px;
 }
+.jumbotron.home a {
+    text-decoration: underline;
+}
 /*Amiens SC*/
 .logo_Amien{
     background-position:0 1px;

@@ -244,7 +244,7 @@
 <?php endif; ?>
 
 <?php if (isset($home_message)) : ?>
-    <div class="jumbotron">
+    <div class="jumbotron home">
         <?= $home_message ?>
     </div>
 <?php endif; ?>
