@@ -10,7 +10,7 @@
     <div>
         <p class="m-b-0">Si ce site vous plaît, vous pouvez quand même :</p>
         <ul>
-            <li><a href="bitcoin:36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5" rel="external" target="_blank">m'envoyer quelques miettes de bitcoin ₿</a> (adresse : 36mUfrtc3j2SoWtj6aPEnNRqoWQNMuFtf5),</li>
+            <li><a href="bitcoin:bc1qu7ry4guxgsj0ylavr3lhr98ehg6y923gd2jeev" rel="external" target="_blank">m'envoyer quelques miettes de bitcoin ₿</a> (adresse : bc1qu7ry4guxgsj0ylavr3lhr98ehg6y923gd2jeev),</li>
             <li>m'envoyer des Tezos (adresse : tz1SpqPLU74MwfGsYA9PSkR7J3qSPqQDafbk),</li>
             <li>me demander une adresse de dépôt pour une autre crypto (via la page <a href="<?= site_url('contact') ?>">Contact</a>),</li>
             <li>me payer une bière 🍺 ou un café ☕ via <a href="https://paypal.me/sbrodin" rel="external" target="_blank">Paypal</a>,</li>
