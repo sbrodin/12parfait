@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: 12parfait.fr
+Token: 1775fc21750902f7c75832eb6f08853c5b486ad365fef95fd832f0f33fc0079b
