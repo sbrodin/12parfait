@@ -181,7 +181,7 @@ class Home extends CI_Controller {
                 $post['message'] = nl2br($post['message']);
                 // Envoi de l'email
                 $subject = '12parfait - Contact - '.$post['motif'];
-                $body = 'Message envoyé par "'.$post['contact_name'].'" ('.$this->session->user->email.') :<br/><br/>';
+                $body = 'Message envoyé par "'.$post['contact_name'].'" :<br/><br/>';
                 $body.= $post['message'];
 
                 $config['mailtype'] = 'html';
