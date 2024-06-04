@@ -3,7 +3,7 @@
 /**
   * Cette classe définit les règles pour l'affichage d'un match
   */
-class Match extends MY_Controller {
+class Mymatch extends MY_Controller {
 
     /**
     * Constructeur qui appelle les models utilisés par le controller

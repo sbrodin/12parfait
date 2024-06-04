@@ -68,7 +68,7 @@ $route['donate'] = 'home/donate';
 
 $route['scores/([\w\d/]+)'] = 'scores/scores/$1';
 
-$route['match/(:num)'] = 'match/index/$1';
+$route['match/(:num)'] = 'mymatch/index/$1';
 
 // à utiliser pour maintenance
 // $route['(:any)'] = 'maintenance';
