@@ -186,7 +186,7 @@ class Home extends CI_Controller {
                 $captcha_response = trim($post['g-recaptcha-response']);
                 if ($captcha_response != '') {
                     $check = [
-                        'secret'   => $this->config->item('captcha_secret_key'),
+                        'secret'   => $this->config->item('recaptcha_secret_key'),
                         'response' => $captcha_response,
                     ];
 

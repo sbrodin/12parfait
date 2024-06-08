@@ -24,6 +24,6 @@
     <textarea id="message" name="message" class="form-control m-b-2" rows="6" placeholder="<?= $this->lang->line('your_message') ?>" required="required"></textarea>
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <div class="g-recaptcha" data-sitekey="6LfV2vMpAAAAALofErjwa1bZYc1cDgqgqtC-PIzD"></div>
+    <div class="g-recaptcha" data-sitekey="<?= $this->config->item('recaptcha_public_key') ?>"></div>
     <input type="submit" name="submit" class="btn btn-sm btn-primary m-b-2 g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="onSubmit" data-action="submit" value="<?= $this->lang->line('send_message') ?>">
 </form>

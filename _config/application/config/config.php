@@ -520,3 +520,9 @@ $config['table']['message'] =                $config['table']['prefix'].'message
 $config['table']['log'] =                    $config['table']['prefix'].'log';
 $config['table']['challenge'] =              $config['table']['prefix'].'challenge';
 $config['table']['article'] =                $config['table']['prefix'].'article';
+
+/**
+ * Captcha secret key
+ */
+$config['recaptcha_secret_key'] = 'your_recaptcha_secret_key';
+$config['recaptcha_public_key'] = 'your_recaptcha_public_key';
