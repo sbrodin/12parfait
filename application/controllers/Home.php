@@ -174,36 +174,65 @@ class Home extends CI_Controller {
                     ),
                 ),
             );
+
             $this->form_validation->set_rules($rules);
+
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/nav');
                 $this->load->view('contact', $data);
                 $this->load->view('templates/footer');
             } else {
-                // Conversion du message pour affichage correct en html
-                $post['message'] = nl2br($post['message']);
-                // Envoi de l'email
-                $subject = '12parfait - Contact - '.$post['motif'];
-                $body = 'Message envoyé par "'.$post['contact_name'].'" :<br/><br/>';
-                $body.= $post['message'];
+                $captcha_response = trim($post['g-recaptcha-response']);
+                if ($captcha_response != '') {
+                    $check = [
+                        'secret'   => $this->config->item('captcha_secret_key'),
+                        'response' => $captcha_response,
+                    ];
 
-                $config['mailtype'] = 'html';
-                $this->email->initialize($config);
+                    $startProcess = curl_init();
+                    curl_setopt($startProcess, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+                    curl_setopt($startProcess, CURLOPT_POST, true);
+                    curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
+                    curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
 
-                $this->email->from('no-reply@12parfait.fr', '12parfait');
-                $this->email->to('stanislas.brodin@gmail.com');
-                $this->email->subject($subject);
-                $this->email->message($body);
-                $body = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $body));
-                $this->email->set_alt_message($body);
-                $this->email->send();
-                $this->email->clear();
+                    $receiveData = curl_exec($startProcess);
+                    $finalResponse = json_decode($receiveData, true);
 
-                Save_log('contact', 'index', 'Envoi du message de : '.$this->session->user->email);
-                $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
-                redirect(site_url(), 'location');
-                exit;
+                    if ($finalResponse['success']) {
+                        // Conversion du message pour affichage correct en html
+                        $post['message'] = nl2br($post['message']);
+                        // Envoi de l'email
+                        $subject = '12parfait - Contact - '.$post['motif'];
+                        $body = 'Message envoyé par "'.$post['contact_name'].'" :<br/><br/>';
+                        $body.= $post['message'];
+
+                        $config['mailtype'] = 'html';
+                        $this->email->initialize($config);
+
+                        $this->email->from('no-reply@12parfait.fr', '12parfait');
+                        $this->email->to('stanislas.brodin@gmail.com');
+                        $this->email->subject($subject);
+                        $this->email->message($body);
+                        $body = strip_tags(preg_replace('/\<br\s*\/?\>/', "\n", $body));
+                        $this->email->set_alt_message($body);
+                        $this->email->send();
+                        $this->email->clear();
+
+                        Save_log('contact', 'index', 'Envoi du message de : '.$this->session->user->email);
+                        $this->session->set_flashdata('success', $this->lang->line('message_successfully_sent'));
+                        redirect(site_url(), 'location');
+                        exit;
+                    } else {
+                        $this->session->set_flashdata('message', 'Validation Fail Try Again');
+                        redirect('captcha');
+                    }
+                } else {
+                    $this->session->set_flashdata('message', 'Validation Fail Try Again');
+
+                    redirect('captcha');
+                }
             }
         }
     }
