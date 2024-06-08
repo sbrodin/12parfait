@@ -226,12 +226,14 @@ class Home extends CI_Controller {
                         exit;
                     } else {
                         $this->session->set_flashdata('message', 'Validation Fail Try Again');
-                        redirect('captcha');
+                        redirect('contact');
+                        exit;
                     }
                 } else {
                     $this->session->set_flashdata('message', 'Validation Fail Try Again');
 
-                    redirect('captcha');
+                    redirect('contact');
+                    exit;
                 }
             }
         }
