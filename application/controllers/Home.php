@@ -47,7 +47,7 @@ class Home extends CI_Controller {
         // Chargement des infos matchs
         $yesterday_matches = Matches_of_day(date('d/m/Y', time()-24*60*60));
         $today_matches = Matches_of_day();
-        $tomorrow_matches = Matches_of_day(date('d/m/Y', time()-24*60*60));
+        $tomorrow_matches = Matches_of_day(date('d/m/Y', time()+24*60*60));
 
         $data['yesterday_matches'] = is_null($yesterday_matches) ? [] : $yesterday_matches['matches'];
         $data['today_matches'] = is_null($today_matches) ? [] : $today_matches['matches'];
