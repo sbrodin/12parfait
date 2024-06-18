@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sbrodin/12parfait#readme",
   "devDependencies": {
+    "braces": ">=3.0.3",
     "chokidar": "^3.5.2",
     "glob-parent": "^5.1.2",
     "gulp": "^4.0.2",
