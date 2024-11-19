@@ -23,7 +23,7 @@
     "braces": ">=3.0.3",
     "chokidar": "^3.5.2",
     "glob-parent": "^5.1.2",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
     "gulp-css-url-rebase": "0.2.3",
