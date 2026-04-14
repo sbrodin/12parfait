@@ -30,6 +30,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-uglify": "^3.0.1",
+    "picomatch": "~>2.3.2",
     "set-value": "^4.0.1",
     "validator": ">=13.15.22"
   }
