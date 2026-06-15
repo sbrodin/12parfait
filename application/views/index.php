@@ -91,7 +91,7 @@
             <table class="home-table table-striped table-hover m-r-2 m-b-2">
                 <thead>
                     <tr>
-                        <th colspan="<?php echo Is_connected() ? (user_can('admin_fixtures') ? '11' : '10') : '7' ?>" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
+                        <th colspan="<?php echo Is_connected() ? (user_can('admin_fixtures') ? '11' : '10') : '8' ?>" class="text-xs-center"><?= $this->lang->line('yesterday_matches'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
