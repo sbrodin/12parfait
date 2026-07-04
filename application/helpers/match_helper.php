@@ -57,7 +57,7 @@ function Matches_Of_day($date = null)
     $join3 = 'match.fixture_id = fixture.fixture_id';
     $join4 = 'fixture.championship_id = championship.championship_id';
     $where = array(
-        'date >' => date('Y-m-d 00:00:00', $date),
+        'date >=' => date('Y-m-d 00:00:00', $date),
         'date <' => date('Y-m-d 23:59:59', $date),
         'championship.status' => 'open',
     );
